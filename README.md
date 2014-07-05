@@ -1,4 +1,4 @@
 YTH
 ===
 
-Schema [schema.md]
+[ ] Schema :schema.md
