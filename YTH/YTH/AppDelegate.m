@@ -18,6 +18,9 @@
     [Parse setApplicationId:@"etnunWd99CG1ggz72ZjYpKNIoIcPLFtFf51gxBcn"
                   clientKey:@"6gejCFInUgfohxJJUMuW14z0wz3GFDPE9PNeGaNt"];
     
+    [PFUser enableAutomaticUser];
+    [[PFUser currentUser] incrementKey:@"RunCount"];
+    [[PFUser currentUser] saveInBackground];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[YTHHomeViewController alloc] init];
