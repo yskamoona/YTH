@@ -30,6 +30,15 @@
 		451CC00F1969FE57007289F3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC00E1969FE57007289F3 /* Security.framework */; };
 		451CC0111969FE5D007289F3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0101969FE5D007289F3 /* StoreKit.framework */; };
 		451CC0131969FE6B007289F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0121969FE6B007289F3 /* SystemConfiguration.framework */; };
+		45FC049E196A0643007DB5C4 /* LocationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC049C196A0643007DB5C4 /* LocationDetailsViewController.m */; };
+		45FC049F196A0643007DB5C4 /* LocationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC049D196A0643007DB5C4 /* LocationDetailsViewController.xib */; };
+		45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A1196A0675007DB5C4 /* FilterViewController.m */; };
+		45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC04A2196A0675007DB5C4 /* FilterViewController.xib */; };
+		45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */; };
+		45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */; };
+		45FC04AC196A06DB007DB5C4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04AB196A06DB007DB5C4 /* User.m */; };
+		45FC04AF196A06E9007DB5C4 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04AE196A06E9007DB5C4 /* Location.m */; };
+		45FC04B2196A06F4007DB5C4 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04B1196A06F4007DB5C4 /* Review.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +80,21 @@
 		451CC00E1969FE57007289F3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		451CC0101969FE5D007289F3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		451CC0121969FE6B007289F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		45FC049B196A0643007DB5C4 /* LocationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailsViewController.h; sourceTree = "<group>"; };
+		45FC049C196A0643007DB5C4 /* LocationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailsViewController.m; sourceTree = "<group>"; };
+		45FC049D196A0643007DB5C4 /* LocationDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationDetailsViewController.xib; sourceTree = "<group>"; };
+		45FC04A0196A0675007DB5C4 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		45FC04A1196A0675007DB5C4 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		45FC04A2196A0675007DB5C4 /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
+		45FC04A5196A06A5007DB5C4 /* PostReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostReviewViewController.h; sourceTree = "<group>"; };
+		45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostReviewViewController.m; sourceTree = "<group>"; };
+		45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostReviewViewController.xib; sourceTree = "<group>"; };
+		45FC04AA196A06DB007DB5C4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		45FC04AB196A06DB007DB5C4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		45FC04AD196A06E9007DB5C4 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		45FC04AE196A06E9007DB5C4 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		45FC04B0196A06F4007DB5C4 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		45FC04B1196A06F4007DB5C4 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,11 +172,11 @@
 		451CBFD41969FC0A007289F3 /* YTH */ = {
 			isa = PBXGroup;
 			children = (
+				45FC0498196A058D007DB5C4 /* Models */,
+				45FC0499196A05B1007DB5C4 /* View */,
+				45FC049A196A05BD007DB5C4 /* ViewControllers */,
 				451CBFDD1969FC0A007289F3 /* AppDelegate.h */,
 				451CBFDE1969FC0A007289F3 /* AppDelegate.m */,
-				451CBFFD1969FC57007289F3 /* YTHHomeViewController.h */,
-				451CBFFE1969FC57007289F3 /* YTHHomeViewController.m */,
-				451CBFFF1969FC57007289F3 /* YTHHomeViewController.xib */,
 				451CBFE01969FC0A007289F3 /* Images.xcassets */,
 				451CBFD51969FC0A007289F3 /* Supporting Files */,
 			);
@@ -186,6 +210,45 @@
 				451CBFF01969FC0A007289F3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45FC0498196A058D007DB5C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45FC04AA196A06DB007DB5C4 /* User.h */,
+				45FC04AB196A06DB007DB5C4 /* User.m */,
+				45FC04AD196A06E9007DB5C4 /* Location.h */,
+				45FC04AE196A06E9007DB5C4 /* Location.m */,
+				45FC04B0196A06F4007DB5C4 /* Review.h */,
+				45FC04B1196A06F4007DB5C4 /* Review.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		45FC0499196A05B1007DB5C4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		45FC049A196A05BD007DB5C4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				451CBFFD1969FC57007289F3 /* YTHHomeViewController.h */,
+				451CBFFE1969FC57007289F3 /* YTHHomeViewController.m */,
+				451CBFFF1969FC57007289F3 /* YTHHomeViewController.xib */,
+				45FC049B196A0643007DB5C4 /* LocationDetailsViewController.h */,
+				45FC049C196A0643007DB5C4 /* LocationDetailsViewController.m */,
+				45FC049D196A0643007DB5C4 /* LocationDetailsViewController.xib */,
+				45FC04A0196A0675007DB5C4 /* FilterViewController.h */,
+				45FC04A1196A0675007DB5C4 /* FilterViewController.m */,
+				45FC04A2196A0675007DB5C4 /* FilterViewController.xib */,
+				45FC04A5196A06A5007DB5C4 /* PostReviewViewController.h */,
+				45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */,
+				45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +326,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */,
+				45FC049F196A0643007DB5C4 /* LocationDetailsViewController.xib in Resources */,
+				45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */,
 				451CC0011969FC57007289F3 /* YTHHomeViewController.xib in Resources */,
 				451CBFD91969FC0A007289F3 /* InfoPlist.strings in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
@@ -284,8 +350,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */,
+				45FC04AC196A06DB007DB5C4 /* User.m in Sources */,
+				45FC04B2196A06F4007DB5C4 /* Review.m in Sources */,
+				45FC049E196A0643007DB5C4 /* LocationDetailsViewController.m in Sources */,
 				451CBFDF1969FC0A007289F3 /* AppDelegate.m in Sources */,
+				45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */,
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,
+				45FC04AF196A06E9007DB5C4 /* Location.m in Sources */,
 				451CC0001969FC57007289F3 /* YTHHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,6 +563,7 @@
 				451CBFF91969FC0A007289F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		451CBFFA1969FC0A007289F3 /* Build configuration list for PBXNativeTarget "YTHTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +572,7 @@
 				451CBFFC1969FC0A007289F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

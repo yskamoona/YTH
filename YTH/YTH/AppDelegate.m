@@ -17,8 +17,9 @@
     
     [Parse setApplicationId:@"etnunWd99CG1ggz72ZjYpKNIoIcPLFtFf51gxBcn"
                   clientKey:@"6gejCFInUgfohxJJUMuW14z0wz3GFDPE9PNeGaNt"];
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.rootViewController = [[YTHHomeViewController alloc] init];
     self.window.backgroundColor = [UIColor blueColor];
     [self.window makeKeyAndVisible];
