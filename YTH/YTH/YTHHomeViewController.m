@@ -7,33 +7,48 @@
 //
 
 #import "YTHHomeViewController.h"
-#import <Parse/Parse.h>
+#import "LocationDetailsViewController.h"
+#import "LocationCell.h"
+
 
 @interface YTHHomeViewController ()
+
+@property (weak, nonatomic) IBOutlet MKMapView *homeMapView;
+@property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
 
 @end
 
 @implementation YTHHomeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupCollectionView];
 
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupCollectionView {
+    UINib *nib = [UINib nibWithNibName:@"LocationCell" bundle:nil];
+    [self.homeCollectionView registerNib:nib forCellWithReuseIdentifier:@"LocationCell"];
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    LocationCell *locationCell = [self.homeCollectionView dequeueReusableCellWithReuseIdentifier:@"LocationCell" forIndexPath:indexPath];
+    return locationCell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    LocationDetailsViewController *locationDetailVC = [[LocationDetailsViewController alloc] init];
+    [self presentViewController:locationDetailVC animated:NO completion:nil];
 }
 
 @end
