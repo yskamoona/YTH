@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *homeMapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
 
+
 @end
 
 @implementation YTHHomeViewController
@@ -24,9 +25,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_homeMapView setDelegate:self];
     [self setupCollectionView];
+   // [self setLocationForMap];
 
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    MKCoordinateRegion region;
+    region.center.latitude = 37.786996;
+    region.center.longitude = -122.440100;
+    region.span.latitudeDelta = 0.112872;
+    region.span.longitudeDelta = 0.109863;
+    [self.homeMapView setRegion:region animated:YES];
+}
+
+
 
 - (void)setupCollectionView {
     UINib *nib = [UINib nibWithNibName:@"LocationCell" bundle:nil];
