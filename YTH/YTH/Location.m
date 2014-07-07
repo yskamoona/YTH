@@ -7,7 +7,29 @@
 //
 
 #import "Location.h"
+#import <MTLModel.h>//MTLModel
+#import <MTLJSONAdapter.h>//MTLModel
+
 
 @implementation Location
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"name":@"name",
+             @"address":@"location.display_address"
+             };
+}
+
++ (NSArray *)locationsWithArray:(NSArray *)array {
+    NSMutableArray *locations = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *dictionary in array) {
+        Location  *location= [[Location alloc] initWithDictionary:dictionary];
+        [locations addObject:location];
+    }
+    
+    return locations;
+    
+}
 
 @end

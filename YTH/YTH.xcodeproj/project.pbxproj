@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C492B2196A164E00C5DFDB /* YelpClient.m */; };
 		2FD4833610F544C98DA8D85C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A2106A4F894780BD5FFCF8 /* libPods.a */; };
 		451CBFCF1969FC0A007289F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CBFCE1969FC0A007289F3 /* Foundation.framework */; };
 		451CBFD11969FC0A007289F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CBFD01969FC0A007289F3 /* CoreGraphics.framework */; };
@@ -34,6 +36,7 @@
 		45BDFB97196A0FD40095CBBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BDFB96196A0FD40095CBBD /* MapKit.framework */; };
 		45BDFB9C196A143C0095CBBD /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BDFB9B196A143C0095CBBD /* LocationCell.m */; };
 		45BDFBA0196A14A00095CBBD /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BDFB9F196A14A00095CBBD /* LocationCell.xib */; };
+
 		45FC049E196A0643007DB5C4 /* LocationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC049C196A0643007DB5C4 /* LocationDetailsViewController.m */; };
 		45FC049F196A0643007DB5C4 /* LocationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC049D196A0643007DB5C4 /* LocationDetailsViewController.xib */; };
 		45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A1196A0675007DB5C4 /* FilterViewController.m */; };
@@ -56,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17C492B1196A164E00C5DFDB /* YelpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClient.h; sourceTree = "<group>"; };
+		17C492B2196A164E00C5DFDB /* YelpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClient.m; sourceTree = "<group>"; };
 		451CBFCB1969FC0A007289F3 /* YTH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		451CBFCE1969FC0A007289F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		451CBFD01969FC0A007289F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -142,6 +147,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+
+		17C492B4196A165D00C5DFDB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				17C492B1196A164E00C5DFDB /* YelpClient.h */,
+				17C492B2196A164E00C5DFDB /* YelpClient.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		451CBFC21969FC0A007289F3 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +202,7 @@
 		451CBFD41969FC0A007289F3 /* YTH */ = {
 			isa = PBXGroup;
 			children = (
+				17C492B4196A165D00C5DFDB /* API */,
 				45FC0498196A058D007DB5C4 /* Models */,
 				45FC0499196A05B1007DB5C4 /* View */,
 				45FC049A196A05BD007DB5C4 /* ViewControllers */,
@@ -413,6 +429,7 @@
 				45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */,
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,
 				45FC04AF196A06E9007DB5C4 /* Location.m in Sources */,
+				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
 				451CC0001969FC57007289F3 /* YTHHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

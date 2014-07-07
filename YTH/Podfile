@@ -1,2 +1,5 @@
 platform :ios, "7.0"
 pod 'Parse'
+pod 'AFNetworking', '2.3.0'
+pod 'Mantle'
+pod 'BDBOAuth1Manager'
