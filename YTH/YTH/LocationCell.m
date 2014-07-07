@@ -8,24 +8,21 @@
 
 #import "LocationCell.h"
 
+@interface LocationCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *locImageView;
+@property (weak, nonatomic) IBOutlet UILabel *locNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locAddressLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *locReviewImageView;
+
+@end
+
 @implementation LocationCell
 
-- (id)initWithFrame:(CGRect)frame
+- (void)setupCellWithLocationInfo: (Location *)locationInfo
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    self.locNameLabel.text    = locationInfo.name;
+    self.locAddressLabel.text = [locationInfo.address firstObject];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

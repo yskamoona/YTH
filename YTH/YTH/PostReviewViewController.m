@@ -7,8 +7,12 @@
 //
 
 #import "PostReviewViewController.h"
+#import "LocationDetailsViewController.h"
 
 @interface PostReviewViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *locNameLabel;
+@property (weak, nonatomic) IBOutlet UITextView *postReivewTextView;
 
 @end
 
@@ -26,13 +30,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onCloseReviewButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)onPostReviewButton:(id)sender {
+  
 }
 
 @end

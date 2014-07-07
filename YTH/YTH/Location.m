@@ -10,7 +10,6 @@
 #import <MTLModel.h>//MTLModel
 #import <MTLJSONAdapter.h>//MTLModel
 
-
 @implementation Location
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -24,7 +23,7 @@
     NSMutableArray *locations = [[NSMutableArray alloc] init];
     
     for (NSDictionary *dictionary in array) {
-        Location  *location= [[Location alloc] initWithDictionary:dictionary];
+        Location  *location= [[Location alloc] initWithDictionary:dictionary error:nil];
         [locations addObject:location];
     }
     
