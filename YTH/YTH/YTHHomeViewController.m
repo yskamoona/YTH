@@ -29,6 +29,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (nonatomic, strong) NSMutableArray* searchResults;
 @property (nonatomic, strong) NSMutableDictionary* filters;
 
+
 @end
 
 @implementation YTHHomeViewController
@@ -85,8 +86,24 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+    [_homeMapView setDelegate:self];
+    [self setupCollectionView];
+   // [self setLocationForMap];
+
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    MKCoordinateRegion region;
+    region.center.latitude = 37.786996;
+    region.center.longitude = -122.440100;
+    region.span.latitudeDelta = 0.112872;
+    region.span.longitudeDelta = 0.109863;
+    [self.homeMapView setRegion:region animated:YES];
+}
+
+
 
 - (void)setupCollectionView {
     UINib *nib = [UINib nibWithNibName:@"LocationCell" bundle:nil];
