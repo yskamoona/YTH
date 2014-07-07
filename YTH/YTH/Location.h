@@ -23,5 +23,8 @@
 @property (nonatomic, strong) NSString *rating_img_url;
 @property (nonatomic, strong) NSDictionary *location;
 @property (nonatomic, strong) NSArray *address;
+//@property double  *latitude;
+//@property double   *longitude;
+
 
 @end
