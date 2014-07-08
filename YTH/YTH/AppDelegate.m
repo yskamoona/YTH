@@ -22,8 +22,12 @@
     [[PFUser currentUser] incrementKey:@"RunCount"];
     [[PFUser currentUser] saveInBackground];
     
+    YTHHomeViewController *ythVC = [[YTHHomeViewController alloc] init];
+    UINavigationController *ythNVC = [[UINavigationController alloc] initWithRootViewController:ythVC];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[YTHHomeViewController alloc] init];
+    self.window.rootViewController = ythNVC;
+    [ythNVC setNavigationBarHidden:YES animated:YES];
+    
     self.window.backgroundColor = [UIColor blueColor];
     [self.window makeKeyAndVisible];
     return YES;
