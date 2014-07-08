@@ -8,11 +8,12 @@
 
 #import "PostReviewViewController.h"
 #import "LocationDetailsViewController.h"
+#import <Parse/Parse.h>
 
 @interface PostReviewViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *locNameLabel;
-@property (weak, nonatomic) IBOutlet UITextView *postReivewTextView;
+@property (weak, nonatomic) IBOutlet UITextView *postReviewTextView;
 
 @end
 
@@ -37,6 +38,14 @@
 }
 
 - (IBAction)onPostReviewButton:(id)sender {
+    
+    PFObject *postReview = [PFObject objectWithClassName:@"Reviews"];
+    
+    postReview[@"body"] = self.postReviewTextView.text;
+    
+    [postReview saveInBackground];
+    
+    
   
 }
 
