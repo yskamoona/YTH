@@ -43,8 +43,19 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
     if (self) {
         // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
-      
+        self.client = [[YelpClient alloc] initWithConsumerKey:kYelpConsumerKey consumerSecret:kYelpConsumerSecret accessToken:kYelpToken accessSecret:kYelpTokenSecret];
         
+        self.filters = [[NSMutableDictionary alloc] initWithDictionary:@{@"term":@"clinic", @"location":@"San Francisco"}];
+        
+        [self doSearch];
+        
+        if (self.locationManager == nil) {
+            self.locationManager = [[CLLocationManager alloc] init];
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+            self.locationManager.delegate = self;
+        }
+        [self.locationManager startUpdatingLocation];
+
     }
     return self;
 }
@@ -67,11 +78,13 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
             
             [self.searchResults addObject:yelpListing];
             //NSLog(@"got data %@", yelpListing);
-            NSLog(@"search result size: %d", [self.searchResults count]);
+            NSLog(@"search result size: %lu", (unsigned long)[self.searchResults count]);
         }
         
         [self setupCollectionView];
         [self.homeCollectionView reloadData];
+        [self setupMapView];
+        
        // NSLog(@"search result size: %d", [self.searchResults count]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -88,19 +101,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
     [_homeMapView setDelegate:self];
     [self setupCollectionView];
-    
-    self.client = [[YelpClient alloc] initWithConsumerKey:kYelpConsumerKey consumerSecret:kYelpConsumerSecret accessToken:kYelpToken accessSecret:kYelpTokenSecret];
-    
-    self.filters = [[NSMutableDictionary alloc] initWithDictionary:@{@"term":@"clinic", @"location":@"San Francisco"}];
-    
-    [self doSearch];
-    
-    if (self.locationManager == nil) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-        self.locationManager.delegate = self;
-    }
-    [self.locationManager startUpdatingLocation];
     
    // [self setLocationForMap];
 
@@ -126,17 +126,23 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)viewDidAppear:(BOOL)animated
 {
-//    MKCoordinateRegion region;
-//    region.center.latitude = 37.786996;
-//    region.center.longitude = -122.440100;
-//    region.span.latitudeDelta = 0.112872;
-//    region.span.longitudeDelta = 0.109863;
-//    [self.homeMapView setRegion:region animated:YES];
+    [super viewDidAppear:animated];
+}
+
+
+- (void)setupMapView {
+    
+    MKCoordinateRegion region;
+    region.center.latitude = 37.786996;
+    region.center.longitude = -122.440100;
+    region.span.latitudeDelta = 0.112872;
+    region.span.longitudeDelta = 0.109863;
+    [self.homeMapView setRegion:region animated:YES];
     
     self.currentLocation = [[CLLocation alloc] initWithLatitude:37.7873589 longitude:-122.408227];
     
-  NSLog(@"GETTING LOCATION 1 %@", self.currentLocation);
-    NSLog(@" getting searchResults %@", self.searchResults.count);
+    NSLog(@"GETTING LOCATION 1 %@", self.currentLocation);
+    NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
     if (self.currentLocation && self.searchResults.count > 0) {
         
@@ -164,7 +170,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
                          }];
         }
     }
-
 }
 
 - (void)setupCollectionView
