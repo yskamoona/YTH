@@ -28,4 +28,13 @@
      ];
 }
 
++ (float)convertToMeter:(float)miles {
+    return miles * 1609;
+}
+
++ (float)convertToMiles:(float)meters {
+    return meters / 1609;
+}
+
+
 @end

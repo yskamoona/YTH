@@ -44,9 +44,6 @@
     postReview[@"body"] = self.postReviewTextView.text;
     
     [postReview saveInBackground];
-    
-    
-  
 }
 
 @end

@@ -12,5 +12,10 @@
 
 + (void)setImageWithUrl:(NSString *)url inImageView:(UIImageView *)imageView;
 
++ (UIColor *)getColorFrom:(CGFloat [3])rgb;
+
++ (float)convertToMeter:(float)miles;
+
++ (float)convertToMiles:(float)meters;
 
 @end
