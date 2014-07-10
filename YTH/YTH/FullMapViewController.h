@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
+
+@protocol FullMapViewControllerDelegate;
 
 @interface FullMapViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate>
 
+@property (weak, nonatomic) id <FullMapViewControllerDelegate> delegate;
+@property (nonatomic, strong) Location *locationsInfo;
+
 @end
+
+@protocol FullMapViewControllerDelegate <NSObject>
+
+@required
+- (void)getLocationsInfoForFullMapVC:(FullMapViewController *)fullMapVC;
+
+@end
+

@@ -28,8 +28,11 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
 @property (nonatomic, strong) YelpClient *client;
 @property (nonatomic, strong) NSMutableArray* searchResults;
+@property (nonatomic, strong) Location *selectedLocationInfo;
 @property (nonatomic, strong) NSMutableDictionary* filters;
 @property (nonatomic, strong) CLLocation *currentLocation;
+
+@property (nonatomic, strong) FullMapViewController *fullMapVC;
 
 @end
 
@@ -67,23 +70,25 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     [self.client search:self.filters success:^(AFHTTPRequestOperation *operation, id response) {
         //NSLog(@"REsponse from yelp: %@", response);
         
-        self.searchResults = [NSMutableArray array];
+        __weak typeof(self) weakself = self;
         
-        [self.searchResults removeAllObjects];
+        weakself.searchResults = [NSMutableArray array];
+        
+        [weakself.searchResults removeAllObjects];
         for (NSDictionary* dict in response[@"businesses"]) {
             
             Location *yelpListing;
             
             yelpListing = [MTLJSONAdapter modelOfClass:Location.class fromJSONDictionary:dict error:NULL];
             
-            [self.searchResults addObject:yelpListing];
+            [weakself.searchResults addObject:yelpListing];
             //NSLog(@"got data %@", yelpListing);
-            NSLog(@"search result size: %lu", (unsigned long)[self.searchResults count]);
+            NSLog(@"search result size: %lu", (unsigned long)[weakself.searchResults count]);
         }
-        
-        [self setupCollectionView];
-        [self.homeCollectionView reloadData];
-        [self setupMapView];
+    
+        [weakself setupCollectionView];
+        [weakself.homeCollectionView reloadData];
+        [weakself setupMapView];
         
        // NSLog(@"search result size: %d", [self.searchResults count]);
         
@@ -110,8 +115,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 {
     [super viewWillAppear:animated];
     NSLog(@"Got view will Appear");
-    
-    
     [[self navigationController] setNavigationBarHidden:YES];
 }
 
@@ -122,13 +125,10 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     self.currentLocation = newLocation;
 }
 
-
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
 }
-
 
 - (void)setupMapView {
     
@@ -141,12 +141,12 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
     self.currentLocation = [[CLLocation alloc] initWithLatitude:37.7873589 longitude:-122.408227];
     
-    NSLog(@"GETTING LOCATION 1 %@", self.currentLocation);
-    NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
+    //NSLog(@"GETTING LOCATION 1 %@", self.currentLocation);
+    //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
     if (self.currentLocation && self.searchResults.count > 0) {
         
-        NSLog(@"GETTING LOCATION %@", self.currentLocation);
+        //NSLog(@"GETTING LOCATION %@", self.currentLocation);
         
         float distance = [Utils convertToMeter:0.5];
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
@@ -203,8 +203,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
-    [self presentViewController:fullMapVC animated:NO completion:nil];
+    self.fullMapVC = [[FullMapViewController alloc] init];
+    self.fullMapVC.delegate = self;
+    self.selectedLocationInfo = self.searchResults[indexPath.row];
+    [self presentViewController:self.fullMapVC animated:NO completion:nil];
+}
+
+- (void)getLocationsInfoForFullMapVC:(FullMapViewController *)fullMapVC {
+    fullMapVC.locationsInfo = self.selectedLocationInfo;
 }
 
 - (IBAction)onFiltersButton:(id)sender
@@ -213,4 +219,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     [[self navigationController] setNavigationBarHidden:NO];
     [self.navigationController pushViewController:filterVC animated:YES];
 }
+
+
+
 @end

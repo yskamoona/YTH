@@ -27,9 +27,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self getLocationsData];
 }
 
-- (IBAction)onCallUsButton:(id)sender {
+- (void)getLocationsData
+{
+    if (self.locationsInfo == nil)
+    {
+        self.locationsInfo = [[Location alloc] init];
+    }
+    
+    if (self.delegate != nil)
+    {
+        [self.delegate getLocationsInfoForFullMapVC:self];
+    }
 }
 
 - (IBAction)onRateThisLocationButton:(id)sender
@@ -51,9 +62,17 @@
         [self presentViewController:postReviewVC animated:NO completion:nil];
     }
 }
+
 - (IBAction)onDragDown:(id)sender {
     //TBD
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+- (IBAction)onCallUsButtonPressed:(id)sender {
+    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", self.locationsInfo.display_phone ];
+    [[UIApplication sharedApplication] openURL:
+     [NSURL URLWithString:phoneNumber]];
+}
+
 @end
