@@ -52,6 +52,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         if (self.locationManager == nil) {
             self.locationManager = [[CLLocationManager alloc] init];
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+            self.locationManager.distanceFilter = 10;
             self.locationManager.delegate = self;
         }
         [self.locationManager startUpdatingLocation];
@@ -77,7 +78,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
             yelpListing = [MTLJSONAdapter modelOfClass:Location.class fromJSONDictionary:dict error:NULL];
             
             [self.searchResults addObject:yelpListing];
-            //NSLog(@"got data %@", yelpListing);
+            NSLog(@"got data %@", yelpListing);
             NSLog(@"search result size: %lu", (unsigned long)[self.searchResults count]);
         }
         
@@ -120,8 +121,24 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
      didUpdateToLocation:(CLLocation *)newLocation
             fromLocation:(CLLocation *)oldLocation {
     self.currentLocation = newLocation;
+    
+   
 }
 
+- (void) locationManager:(CLLocationManager *)manager
+      didUpdateLocations:(NSArray *)locations {
+    NSLog(@"Did update location");
+    for (CLLocation *location in locations)
+    {
+        NSDate *now = [NSDate date];
+        
+        if ([location.timestamp compare:[NSDate dateWithTimeIntervalSinceNow:-600]])
+        {
+            self.locationManager.stopUpdatingLocation;
+            break;
+        }
+    }
+}
 
 
 - (void)viewDidAppear:(BOOL)animated
