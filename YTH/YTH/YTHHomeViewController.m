@@ -15,6 +15,7 @@
 #import "Location.h"
 #import "YelpClient.h"
 #import <CoreLocation/CoreLocation.h>
+#import "YTHLocationManager.h"
 #import "Utils.h"
 
 NSString * const kYelpConsumerKey = @"vxKwwcR_NMQ7WaEiQBK_CA";
@@ -48,6 +49,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         self.filters = [[NSMutableDictionary alloc] initWithDictionary:@{@"term":@"clinic", @"location":@"San Francisco"}];
         
         [self doSearch];
+        
+        [YTHLocationManager sharedLocationManager];
         
         if (self.locationManager == nil) {
             self.locationManager = [[CLLocationManager alloc] init];
@@ -116,29 +119,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     [[self navigationController] setNavigationBarHidden:YES];
 }
 
-
-- (void) locationManager:(CLLocationManager *)manager
-     didUpdateToLocation:(CLLocation *)newLocation
-            fromLocation:(CLLocation *)oldLocation {
-    self.currentLocation = newLocation;
-    
-   
-}
-
-- (void) locationManager:(CLLocationManager *)manager
-      didUpdateLocations:(NSArray *)locations {
-    NSLog(@"Did update location");
-    for (CLLocation *location in locations)
-    {
-        NSDate *now = [NSDate date];
-        
-        if ([location.timestamp compare:[NSDate dateWithTimeIntervalSinceNow:-600]])
-        {
-            self.locationManager.stopUpdatingLocation;
-            break;
-        }
-    }
-}
 
 
 - (void)viewDidAppear:(BOOL)animated
