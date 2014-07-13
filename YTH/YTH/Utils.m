@@ -36,5 +36,8 @@
     return meters / 1609;
 }
 
++ (UIColor *)getColorFrom:(CGFloat [3])rgb{
+    return [UIColor redColor];
+}
 
 @end

@@ -10,6 +10,8 @@
 #import "PostReviewViewController.h"
 
 @interface FullMapViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationAddressLabel;
 
 @end
 
@@ -70,9 +72,8 @@
 }
 
 - (IBAction)onCallUsButtonPressed:(id)sender {
-    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", self.locationsInfo.display_phone ];
-    [[UIApplication sharedApplication] openURL:
-     [NSURL URLWithString:phoneNumber]];
+    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", self.locationsInfo.display_phone];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:phoneNumber]];
 }
 
 @end

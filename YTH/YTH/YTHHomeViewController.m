@@ -15,6 +15,7 @@
 #import "Location.h"
 #import "YelpClient.h"
 #import <CoreLocation/CoreLocation.h>
+#import "YTHLocationManager.h"
 #import "Utils.h"
 
 NSString * const kYelpConsumerKey = @"vxKwwcR_NMQ7WaEiQBK_CA";
@@ -52,9 +53,12 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         
         [self doSearch];
         
+        [YTHLocationManager sharedLocationManager];
+        
         if (self.locationManager == nil) {
             self.locationManager = [[CLLocationManager alloc] init];
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+            self.locationManager.distanceFilter = 10;
             self.locationManager.delegate = self;
         }
         [self.locationManager startUpdatingLocation];
@@ -80,7 +84,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
             Location *yelpListing;
             
             yelpListing = [MTLJSONAdapter modelOfClass:Location.class fromJSONDictionary:dict error:NULL];
-            
+
             [weakself.searchResults addObject:yelpListing];
             //NSLog(@"got data %@", yelpListing);
             NSLog(@"search result size: %lu", (unsigned long)[weakself.searchResults count]);
@@ -118,12 +122,12 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     [[self navigationController] setNavigationBarHidden:YES];
 }
 
+//- (void) locationManager:(CLLocationManager *)manager
+//     didUpdateToLocation:(CLLocation *)newLocation
+//            fromLocation:(CLLocation *)oldLocation {
+//    self.currentLocation = newLocation;
+//}
 
-- (void) locationManager:(CLLocationManager *)manager
-     didUpdateToLocation:(CLLocation *)newLocation
-            fromLocation:(CLLocation *)oldLocation {
-    self.currentLocation = newLocation;
-}
 
 - (void)viewDidAppear:(BOOL)animated
 {

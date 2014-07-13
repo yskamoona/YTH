@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FullMapViewController">
             <connections>
+                <outlet property="locationAddressLabel" destination="bxD-28-fcT" id="JkY-wx-Cr7"/>
+                <outlet property="locationNameLabel" destination="X0T-Ac-y3Q" id="h58-mP-8qQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
