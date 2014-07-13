@@ -1,5 +1,5 @@
 //
-//  LocationDetailsViewController.h
+//  PlaceCell.h
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/6/14.
@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Place.h"
 
-@interface LocationDetailsViewController : UIViewController
+@interface PlaceCell : UICollectionViewCell
+
+- (void)setupCellWithLocationInfo: (Place *)locationInfo;
 
 @end

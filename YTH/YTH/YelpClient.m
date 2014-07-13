@@ -7,7 +7,7 @@
 //
 
 #import "YelpClient.h"
-#import "Location.h"
+#import "Place.h"
 
 @implementation YelpClient
 

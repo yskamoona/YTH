@@ -1,5 +1,5 @@
 //
-//  LocationDetailCell.h
+//  PlaceDetailCell.h
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/7/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LocationDetailCell : UICollectionViewCell
+@interface PlaceDetailCell : UICollectionViewCell
 
 @end

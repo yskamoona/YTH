@@ -1,14 +1,14 @@
 //
-//  LocationDetailCell.m
+//  PlaceDetailCell.m
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/7/14.
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
-#import "LocationDetailCell.h"
+#import "PlaceDetailCell.h"
 
-@implementation LocationDetailCell
+@implementation PlaceDetailCell
 
 - (id)initWithFrame:(CGRect)frame
 {

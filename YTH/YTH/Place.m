@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
-#import "Location.h"
+#import "Place.h"
 #import <MTLModel.h>//MTLModel
 #import <MTLJSONAdapter.h>//MTLModel
 
-@implementation Location
+@implementation Place
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
@@ -25,7 +25,7 @@
     NSMutableArray *locations = [[NSMutableArray alloc] init];
     
     for (NSDictionary *dictionary in array) {
-        Location  *location= [[Location alloc] initWithDictionary:dictionary error:nil];
+        Place  *location= [[Place alloc] initWithDictionary:dictionary error:nil];
         [locations addObject:location];
     }
     

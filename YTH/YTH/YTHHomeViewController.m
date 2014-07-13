@@ -7,12 +7,12 @@
 //
 
 #import "YTHHomeViewController.h"
-#import "LocationDetailsViewController.h"
 #import "FullMapViewController.h"
+#import "PlaceDetailViewController.h"
 #import "PostReviewViewController.h"
 #import "FilterViewController.h"
-#import "LocationCell.h"
-#import "Location.h"
+#import "PlaceCell.h"
+#import "Place.h"
 #import "YelpClient.h"
 #import <CoreLocation/CoreLocation.h>
 #import "YTHLocationManager.h"
@@ -29,11 +29,11 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
 @property (nonatomic, strong) YelpClient *client;
 @property (nonatomic, strong) NSMutableArray* searchResults;
-@property (nonatomic, strong) Location *selectedLocationInfo;
+@property (nonatomic, strong) Place *selectedLocationInfo;
 @property (nonatomic, strong) NSMutableDictionary* filters;
 @property (nonatomic, strong) CLLocation *currentLocation;
 
-@property (nonatomic, strong) FullMapViewController *fullMapVC;
+@property (nonatomic, strong) PlaceDetailViewController *fullMapVC;
 
 @end
 
@@ -81,9 +81,9 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         [weakself.searchResults removeAllObjects];
         for (NSDictionary* dict in response[@"businesses"]) {
             
-            Location *yelpListing;
+            Place *yelpListing;
             
-            yelpListing = [MTLJSONAdapter modelOfClass:Location.class fromJSONDictionary:dict error:NULL];
+            yelpListing = [MTLJSONAdapter modelOfClass:Place.class fromJSONDictionary:dict error:NULL];
 
             [weakself.searchResults addObject:yelpListing];
             //NSLog(@"got data %@", yelpListing);
@@ -156,7 +156,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
         [self.homeMapView setRegion:viewRegion];
         
-        for (Location *location in self.searchResults) {
+        for (Place *location in self.searchResults) {
             NSString *address = [location.address componentsJoinedByString:@","];
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
             [geocoder geocodeAddressString:address
@@ -178,8 +178,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)setupCollectionView
 {
-    UINib *nib = [UINib nibWithNibName:@"LocationCell" bundle:nil];
-    [self.homeCollectionView registerNib:nib forCellWithReuseIdentifier:@"LocationCell"];
+    UINib *nib = [UINib nibWithNibName:@"PlaceCell" bundle:nil];
+    [self.homeCollectionView registerNib:nib forCellWithReuseIdentifier:@"PlaceCell"];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -194,11 +194,11 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    LocationCell *locationCell = [self.homeCollectionView dequeueReusableCellWithReuseIdentifier:@"LocationCell" forIndexPath:indexPath];
-    Location *locationInfo = self.searchResults[indexPath.row];
-    [locationCell setupCellWithLocationInfo:locationInfo];
+    PlaceCell *placeCell = [self.homeCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaceCell" forIndexPath:indexPath];
+    Place *locationInfo = self.searchResults[indexPath.row];
+    [placeCell setupCellWithLocationInfo:locationInfo];
     
-    return locationCell;
+    return placeCell;
 }
 
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -207,13 +207,13 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.fullMapVC = [[FullMapViewController alloc] init];
+    self.fullMapVC = [[PlaceDetailViewController alloc] init];
     self.fullMapVC.delegate = self;
     self.selectedLocationInfo = self.searchResults[indexPath.row];
     [self presentViewController:self.fullMapVC animated:NO completion:nil];
 }
 
-- (void)getLocationsInfoForFullMapVC:(FullMapViewController *)fullMapVC {
+- (void)getLocationsInfoForFullMapVC:(PlaceDetailViewController *)fullMapVC {
     fullMapVC.locationsInfo = self.selectedLocationInfo;
 }
 

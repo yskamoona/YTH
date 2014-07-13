@@ -36,23 +36,23 @@
 		451CC0111969FE5D007289F3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0101969FE5D007289F3 /* StoreKit.framework */; };
 		451CC0131969FE6B007289F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0121969FE6B007289F3 /* SystemConfiguration.framework */; };
 		45341333196AAE8200C6A2FE /* RatingStarsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341332196AAE8200C6A2FE /* RatingStarsView.xib */; };
-		45341336196AB2B200C6A2FE /* LocationDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45341335196AB2B200C6A2FE /* LocationDetailCell.m */; };
-		45341338196AB2C500C6A2FE /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341337196AB2C500C6A2FE /* LocationDetailCell.xib */; };
+		45341336196AB2B200C6A2FE /* PlaceDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45341335196AB2B200C6A2FE /* PlaceDetailCell.m */; };
+		45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */; };
 		4534133A196AB35F00C6A2FE /* ReviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341339196AB35F00C6A2FE /* ReviewCollectionViewCell.xib */; };
 		4534133D196AB37400C6A2FE /* ReviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534133C196AB37400C6A2FE /* ReviewCollectionViewCell.m */; };
-		45341341196AB5B200C6A2FE /* FullMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534133F196AB5B200C6A2FE /* FullMapViewController.m */; };
-		45341342196AB5B200C6A2FE /* FullMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341340196AB5B200C6A2FE /* FullMapViewController.xib */; };
+		45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */; };
+		45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */; };
 		45BDFB97196A0FD40095CBBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BDFB96196A0FD40095CBBD /* MapKit.framework */; };
-		45BDFB9C196A143C0095CBBD /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BDFB9B196A143C0095CBBD /* LocationCell.m */; };
-		45BDFBA0196A14A00095CBBD /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BDFB9F196A14A00095CBBD /* LocationCell.xib */; };
-		45FC049E196A0643007DB5C4 /* LocationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC049C196A0643007DB5C4 /* LocationDetailsViewController.m */; };
-		45FC049F196A0643007DB5C4 /* LocationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC049D196A0643007DB5C4 /* LocationDetailsViewController.xib */; };
+		45BDFB9C196A143C0095CBBD /* PlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BDFB9B196A143C0095CBBD /* PlaceCell.m */; };
+		45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BDFB9F196A14A00095CBBD /* PlaceCell.xib */; };
+		45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC049C196A0643007DB5C4 /* FullMapViewController.m */; };
+		45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC049D196A0643007DB5C4 /* FullMapViewController.xib */; };
 		45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A1196A0675007DB5C4 /* FilterViewController.m */; };
 		45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC04A2196A0675007DB5C4 /* FilterViewController.xib */; };
 		45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */; };
 		45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */; };
 		45FC04AC196A06DB007DB5C4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04AB196A06DB007DB5C4 /* User.m */; };
-		45FC04AF196A06E9007DB5C4 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04AE196A06E9007DB5C4 /* Location.m */; };
+		45FC04AF196A06E9007DB5C4 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04AE196A06E9007DB5C4 /* Place.m */; };
 		45FC04B2196A06F4007DB5C4 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04B1196A06F4007DB5C4 /* Review.m */; };
 /* End PBXBuildFile section */
 
@@ -104,22 +104,22 @@
 		451CC0101969FE5D007289F3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		451CC0121969FE6B007289F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		45341332196AAE8200C6A2FE /* RatingStarsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingStarsView.xib; sourceTree = "<group>"; };
-		45341334196AB2B200C6A2FE /* LocationDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailCell.h; sourceTree = "<group>"; };
-		45341335196AB2B200C6A2FE /* LocationDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailCell.m; sourceTree = "<group>"; };
-		45341337196AB2C500C6A2FE /* LocationDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationDetailCell.xib; sourceTree = "<group>"; };
+		45341334196AB2B200C6A2FE /* PlaceDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailCell.h; sourceTree = "<group>"; };
+		45341335196AB2B200C6A2FE /* PlaceDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailCell.m; sourceTree = "<group>"; };
+		45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailCell.xib; sourceTree = "<group>"; };
 		45341339196AB35F00C6A2FE /* ReviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		4534133B196AB37400C6A2FE /* ReviewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCollectionViewCell.h; sourceTree = "<group>"; };
 		4534133C196AB37400C6A2FE /* ReviewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCollectionViewCell.m; sourceTree = "<group>"; };
-		4534133E196AB5B200C6A2FE /* FullMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullMapViewController.h; sourceTree = "<group>"; };
-		4534133F196AB5B200C6A2FE /* FullMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullMapViewController.m; sourceTree = "<group>"; };
-		45341340196AB5B200C6A2FE /* FullMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullMapViewController.xib; sourceTree = "<group>"; };
+		4534133E196AB5B200C6A2FE /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
+		4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
+		45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailViewController.xib; sourceTree = "<group>"; };
 		45BDFB96196A0FD40095CBBD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		45BDFB9A196A143C0095CBBD /* LocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
-		45BDFB9B196A143C0095CBBD /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
-		45BDFB9F196A14A00095CBBD /* LocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
-		45FC049B196A0643007DB5C4 /* LocationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailsViewController.h; sourceTree = "<group>"; };
-		45FC049C196A0643007DB5C4 /* LocationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailsViewController.m; sourceTree = "<group>"; };
-		45FC049D196A0643007DB5C4 /* LocationDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationDetailsViewController.xib; sourceTree = "<group>"; };
+		45BDFB9A196A143C0095CBBD /* PlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceCell.h; sourceTree = "<group>"; };
+		45BDFB9B196A143C0095CBBD /* PlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceCell.m; sourceTree = "<group>"; };
+		45BDFB9F196A14A00095CBBD /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
+		45FC049B196A0643007DB5C4 /* FullMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullMapViewController.h; sourceTree = "<group>"; };
+		45FC049C196A0643007DB5C4 /* FullMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullMapViewController.m; sourceTree = "<group>"; };
+		45FC049D196A0643007DB5C4 /* FullMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullMapViewController.xib; sourceTree = "<group>"; };
 		45FC04A0196A0675007DB5C4 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		45FC04A1196A0675007DB5C4 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		45FC04A2196A0675007DB5C4 /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 		45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostReviewViewController.xib; sourceTree = "<group>"; };
 		45FC04AA196A06DB007DB5C4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		45FC04AB196A06DB007DB5C4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		45FC04AD196A06E9007DB5C4 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		45FC04AE196A06E9007DB5C4 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		45FC04AD196A06E9007DB5C4 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		45FC04AE196A06E9007DB5C4 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		45FC04B0196A06F4007DB5C4 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
 		45FC04B1196A06F4007DB5C4 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
 		95A2106A4F894780BD5FFCF8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,8 +285,8 @@
 			children = (
 				45FC04AA196A06DB007DB5C4 /* User.h */,
 				45FC04AB196A06DB007DB5C4 /* User.m */,
-				45FC04AD196A06E9007DB5C4 /* Location.h */,
-				45FC04AE196A06E9007DB5C4 /* Location.m */,
+				45FC04AD196A06E9007DB5C4 /* Place.h */,
+				45FC04AE196A06E9007DB5C4 /* Place.m */,
 				45FC04B0196A06F4007DB5C4 /* Review.h */,
 				45FC04B1196A06F4007DB5C4 /* Review.m */,
 			);
@@ -296,13 +296,13 @@
 		45FC0499196A05B1007DB5C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				45BDFB9A196A143C0095CBBD /* LocationCell.h */,
-				45BDFB9B196A143C0095CBBD /* LocationCell.m */,
-				45BDFB9F196A14A00095CBBD /* LocationCell.xib */,
+				45BDFB9A196A143C0095CBBD /* PlaceCell.h */,
+				45BDFB9B196A143C0095CBBD /* PlaceCell.m */,
+				45BDFB9F196A14A00095CBBD /* PlaceCell.xib */,
 				45341332196AAE8200C6A2FE /* RatingStarsView.xib */,
-				45341334196AB2B200C6A2FE /* LocationDetailCell.h */,
-				45341335196AB2B200C6A2FE /* LocationDetailCell.m */,
-				45341337196AB2C500C6A2FE /* LocationDetailCell.xib */,
+				45341334196AB2B200C6A2FE /* PlaceDetailCell.h */,
+				45341335196AB2B200C6A2FE /* PlaceDetailCell.m */,
+				45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */,
 				4534133B196AB37400C6A2FE /* ReviewCollectionViewCell.h */,
 				4534133C196AB37400C6A2FE /* ReviewCollectionViewCell.m */,
 				45341339196AB35F00C6A2FE /* ReviewCollectionViewCell.xib */,
@@ -316,12 +316,12 @@
 				451CBFFD1969FC57007289F3 /* YTHHomeViewController.h */,
 				451CBFFE1969FC57007289F3 /* YTHHomeViewController.m */,
 				451CBFFF1969FC57007289F3 /* YTHHomeViewController.xib */,
-				4534133E196AB5B200C6A2FE /* FullMapViewController.h */,
-				4534133F196AB5B200C6A2FE /* FullMapViewController.m */,
-				45341340196AB5B200C6A2FE /* FullMapViewController.xib */,
-				45FC049B196A0643007DB5C4 /* LocationDetailsViewController.h */,
-				45FC049C196A0643007DB5C4 /* LocationDetailsViewController.m */,
-				45FC049D196A0643007DB5C4 /* LocationDetailsViewController.xib */,
+				4534133E196AB5B200C6A2FE /* PlaceDetailViewController.h */,
+				4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */,
+				45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */,
+				45FC049B196A0643007DB5C4 /* FullMapViewController.h */,
+				45FC049C196A0643007DB5C4 /* FullMapViewController.m */,
+				45FC049D196A0643007DB5C4 /* FullMapViewController.xib */,
 				45FC04A0196A0675007DB5C4 /* FilterViewController.h */,
 				45FC04A1196A0675007DB5C4 /* FilterViewController.m */,
 				45FC04A2196A0675007DB5C4 /* FilterViewController.xib */,
@@ -411,12 +411,12 @@
 			files = (
 				45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */,
 				45341333196AAE8200C6A2FE /* RatingStarsView.xib in Resources */,
-				45BDFBA0196A14A00095CBBD /* LocationCell.xib in Resources */,
-				45FC049F196A0643007DB5C4 /* LocationDetailsViewController.xib in Resources */,
-				45341338196AB2C500C6A2FE /* LocationDetailCell.xib in Resources */,
+				45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */,
+				45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */,
+				45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */,
 				45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */,
 				451CC0011969FC57007289F3 /* YTHHomeViewController.xib in Resources */,
-				45341342196AB5B200C6A2FE /* FullMapViewController.xib in Resources */,
+				45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */,
 				451CBFD91969FC0A007289F3 /* InfoPlist.strings in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
 				4534133A196AB35F00C6A2FE /* ReviewCollectionViewCell.xib in Resources */,
@@ -474,19 +474,19 @@
 				45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */,
 				45FC04AC196A06DB007DB5C4 /* User.m in Sources */,
 				17EC1BDB196A82DB005A456D /* MapUtils.m in Sources */,
-				45BDFB9C196A143C0095CBBD /* LocationCell.m in Sources */,
-				45341336196AB2B200C6A2FE /* LocationDetailCell.m in Sources */,
+				45BDFB9C196A143C0095CBBD /* PlaceCell.m in Sources */,
+				45341336196AB2B200C6A2FE /* PlaceDetailCell.m in Sources */,
 				17EC1BD7196A82B4005A456D /* Utils.m in Sources */,
 				17E44E0519708F0B00F7571E /* YTHLocationManager.m in Sources */,
 				45FC04B2196A06F4007DB5C4 /* Review.m in Sources */,
-				45FC049E196A0643007DB5C4 /* LocationDetailsViewController.m in Sources */,
+				45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */,
 				451CBFDF1969FC0A007289F3 /* AppDelegate.m in Sources */,
 				45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */,
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,
-				45FC04AF196A06E9007DB5C4 /* Location.m in Sources */,
+				45FC04AF196A06E9007DB5C4 /* Place.m in Sources */,
 				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
 				451CC0001969FC57007289F3 /* YTHHomeViewController.m in Sources */,
-				45341341196AB5B200C6A2FE /* FullMapViewController.m in Sources */,
+				45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */,
 				4534133D196AB37400C6A2FE /* ReviewCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,7 +12,7 @@
 #import <MTLJSONAdapter.h>//MTLModel
 
 
-@interface Location : MTLModel <MTLJSONSerializing>
+@interface Place : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic,strong) NSString  *name;
 @property (nonatomic,strong) NSString  *display_phone;

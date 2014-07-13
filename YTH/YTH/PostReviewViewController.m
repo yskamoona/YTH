@@ -7,7 +7,7 @@
 //
 
 #import "PostReviewViewController.h"
-#import "LocationDetailsViewController.h"
+#import "FullMapViewController.h"
 #import <Parse/Parse.h>
 
 @interface PostReviewViewController ()
