@@ -16,6 +16,7 @@
     return @{
              @"name":@"name",
              @"address":@"location.display_address"
+//             @"yelp-id":@"id"
 //             @"latitude":@"location.coordinate.latitude",
 //             @"longitude":@"location.coordinate.longitude"
              };

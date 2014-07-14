@@ -14,7 +14,7 @@
 @interface PlaceDetailViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) id <PlaceDetailViewControllerDelegate> delegate;
-@property (nonatomic, strong) Place *locationsInfo;
+@property (nonatomic, strong) Place *placesInfo;
 
 @end
 

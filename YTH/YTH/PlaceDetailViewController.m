@@ -34,9 +34,9 @@
 
 - (void)getLocationsData
 {
-    if (self.locationsInfo == nil)
+    if (self.placesInfo == nil)
     {
-        self.locationsInfo = [[Place alloc] init];
+        self.placesInfo = [[Place alloc] init];
     }
     
     if (self.delegate != nil)
@@ -52,7 +52,14 @@
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                               otherButtonTitles:@"Sure!", nil];
+    
+    
     [alertView show];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -61,9 +68,13 @@
         NSLog(@"user pressed OK");
     } else {
         PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
+        postReviewVC.place = self.placesInfo;
+        postReviewVC.name = _locationNameLabel.text;
         [self presentViewController:postReviewVC animated:NO completion:nil];
     }
 }
+
+
 
 - (IBAction)onDragDown:(id)sender {
     //TBD
@@ -72,7 +83,7 @@
 }
 
 - (IBAction)onCallUsButtonPressed:(id)sender {
-    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", self.locationsInfo.display_phone];
+    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", self.placesInfo.display_phone];
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:phoneNumber]];
 }
 

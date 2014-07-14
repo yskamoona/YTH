@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Place.h"
 
 @interface PostReviewViewController : UIViewController
+
+@property(nonatomic, strong) Place *place;
+@property(nonatomic, strong) NSString *name;
+
 
 @end

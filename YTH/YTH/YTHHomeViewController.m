@@ -86,7 +86,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
             yelpListing = [MTLJSONAdapter modelOfClass:Place.class fromJSONDictionary:dict error:NULL];
 
             [weakself.searchResults addObject:yelpListing];
-            //NSLog(@"got data %@", yelpListing);
+            NSLog(@"got data %@", yelpListing);
             NSLog(@"search result size: %lu", (unsigned long)[weakself.searchResults count]);
         }
     
@@ -214,7 +214,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 }
 
 - (void)getLocationsInfoForFullMapVC:(PlaceDetailViewController *)fullMapVC {
-    fullMapVC.locationsInfo = self.selectedLocationInfo;
+    fullMapVC.placesInfo = self.selectedLocationInfo;
 }
 
 - (IBAction)onFiltersButton:(id)sender
