@@ -1,5 +1,5 @@
 //
-//  LocationDetailsViewController.h
+//  FullMapViewController.h
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/6/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FullMapViewController : UIViewController
+@interface FullMapViewController : UIViewController <MKMapViewDelegate>
 
 @end

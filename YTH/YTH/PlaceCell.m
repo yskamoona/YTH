@@ -19,10 +19,10 @@
 
 @implementation PlaceCell
 
-- (void)setupCellWithLocationInfo: (Place *)locationInfo
+- (void)setupCellWithPlaceInfo: (Place *)placeInfo
 {
-    self.locNameLabel.text    = locationInfo.name;
-    self.locAddressLabel.text = [locationInfo.address firstObject];
+    self.locNameLabel.text    = placeInfo.name;
+    self.locAddressLabel.text = [placeInfo.address firstObject];
 }
 
 @end

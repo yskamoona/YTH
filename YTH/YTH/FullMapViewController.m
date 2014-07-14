@@ -1,5 +1,5 @@
 //
-//  LocationDetailsViewController.m
+//  FullMapViewController.m
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/6/14.

@@ -21,7 +21,7 @@
 @protocol PlaceDetailViewControllerDelegate <NSObject>
 
 @required
-- (void)getLocationsInfoForFullMapVC:(PlaceDetailViewController *)placeDetailVC;
+- (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC;
 
 @end
 

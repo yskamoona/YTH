@@ -16,14 +16,15 @@
     return @{
              @"name":@"name",
              @"address":@"location.display_address",
-             @"snippet_text":@"snippet_text"
+             @"snippet_text":@"snippet_text",
+             @"yelp_id":@"id"
 //             @"yelp-id":@"id"
 //             @"latitude":@"location.coordinate.latitude",
 //             @"longitude":@"location.coordinate.longitude"
              };
 }
 
-+ (NSArray *)locationsWithArray:(NSArray *)array {
++ (NSArray *)placesWithArray:(NSArray *)array {
     NSMutableArray *places = [[NSMutableArray alloc] init];
     
     for (NSDictionary *dictionary in array) {
@@ -32,7 +33,6 @@
     }
     
     return places;
-    
 }
 
 @end

@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSDictionary *location;
 @property (nonatomic, strong) NSArray *address;
 @property (nonatomic, strong) NSString *snippet_text;
+@property (nonatomic, strong) NSString *yelp_id;
 //@property double  *latitude;
 //@property double   *longitude;
 

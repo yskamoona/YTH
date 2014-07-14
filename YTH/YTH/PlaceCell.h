@@ -11,6 +11,6 @@
 
 @interface PlaceCell : UICollectionViewCell
 
-- (void)setupCellWithLocationInfo: (Place *)locationInfo;
+- (void)setupCellWithPlaceInfo: (Place *)placeInfo;
 
 @end

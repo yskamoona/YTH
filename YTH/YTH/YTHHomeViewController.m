@@ -192,7 +192,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PlaceCell *placeCell = [self.homeCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaceCell" forIndexPath:indexPath];
     Place *placeInfo = self.searchResults[indexPath.row];
-    [placeCell setupCellWithLocationInfo:placeInfo];
+    [placeCell setupCellWithPlaceInfo:placeInfo];
     
     return placeCell;
 }
@@ -205,10 +205,12 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
     self.placeDetailVC.delegate = self;
     self.selectedPlaceInfo = self.searchResults[indexPath.row];
-    [self presentViewController:self.placeDetailVC animated:NO completion:nil];
+    [[self navigationController] setNavigationBarHidden:NO];
+    [self.navigationController pushViewController:self.placeDetailVC animated:YES];
+    
 }
 
-- (void)getLocationsInfoForFullMapVC:(PlaceDetailViewController *)placeDetailVC {
+- (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC {
     placeDetailVC.placeInfo = self.selectedPlaceInfo;
 }
 

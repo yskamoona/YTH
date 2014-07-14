@@ -11,6 +11,7 @@
 
 @implementation Reviews
 @dynamic body;
+
 @dynamic yelp_id;
 
 + (NSString *)parseClassName {

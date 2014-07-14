@@ -8,6 +8,7 @@
 
 #import "PlaceDetailViewController.h"
 #import "PostReviewViewController.h"
+#import "FullMapViewController.h"
 #import "Review.h"
 
 @interface PlaceDetailViewController ()
@@ -15,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *placeAddressLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
 @property (weak, nonatomic) IBOutlet UITableView *reviewsTableView;
+@property (strong, nonatomic) NSArray *reviews;
 @property (weak, nonatomic) IBOutlet UILabel *servicesOffered;
 
 @end
@@ -33,23 +35,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self getLocationsData];
+    [self getPlacesData];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map Image"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
 }
 
-- (void)getLocationsData
+- (void)goToFullMapView:(id)sender {
+    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
+    [self.navigationController pushViewController:fullMapVC animated:YES];
+}
+
+- (void)getPlacesData
 {
     if (self.placeInfo == nil) {
         self.placeInfo = [[Place alloc] init];
     }
     
     if (self.delegate != nil) {
-        [self.delegate getLocationsInfoForFullMapVC:self];
+        [self.delegate getPlaceInfoForPlaceDetailVC:self];
     }
     
     self.placeNameLabel.text = self.placeInfo.name;
     self.placeAddressLabel.text = [self.placeInfo.address firstObject];
     //not sure what to show for services offered.
     self.servicesOffered.text = self.placeInfo.snippet_text;
+    
+    [self getReviews];
 }
 
 - (IBAction)onRateThisLocationButton:(id)sender {
@@ -73,33 +83,32 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return reviews.count;
-    return 7;
+    return self.reviews.count;
 }
 
 
 - (void) getReviews
 {
-    PFObject *review = [PFObject objectWithClassName:@"Review"];
+    //PFObject *review = [PFObject objectWithClassName:@"Review"];
     
     PFQuery *query = [Reviews query];
-    [query whereKey:@"yelp_id" containsString:@"womens-community-clinic-san-francisco"];
+    [query whereKey:@"yelp_id" containsString:self.placeInfo.yelp_id];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            Reviews *firstReview = objects[0];
+            self.reviews = objects;
+            Reviews *firstReview = [objects firstObject];
             NSLog(@"got review %@",firstReview);
             // ...
+            [self.reviewsTableView reloadData];
         }
     }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //UITableViewCell *cell = [self.reviewsTableView dequeueReusableCellWithIdentifier:@"ReviewCell" forIndexPath:indexPath];
-    
-    [self getReviews];
+
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ReviewCell"];
-    cell.textLabel.text = @"Some Info";
-    cell.detailTextLabel.text = @"This is a review";
+    cell.textLabel.text = [self.reviews[indexPath.row] body];
     return cell;
 }
 
