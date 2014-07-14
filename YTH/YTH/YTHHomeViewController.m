@@ -29,11 +29,11 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
 @property (nonatomic, strong) YelpClient *client;
 @property (nonatomic, strong) NSMutableArray* searchResults;
-@property (nonatomic, strong) Place *selectedLocationInfo;
+@property (nonatomic, strong) Place *selectedPlaceInfo;
 @property (nonatomic, strong) NSMutableDictionary* filters;
 @property (nonatomic, strong) CLLocation *currentLocation;
 
-@property (nonatomic, strong) PlaceDetailViewController *fullMapVC;
+@property (nonatomic, strong) PlaceDetailViewController *placeDetailVC;
 
 @end
 
@@ -156,8 +156,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
         [self.homeMapView setRegion:viewRegion];
         
-        for (Place *location in self.searchResults) {
-            NSString *address = [location.address componentsJoinedByString:@","];
+        for (Place *place in self.searchResults) {
+            NSString *address = [place.address componentsJoinedByString:@","];
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
             [geocoder geocodeAddressString:address
                          completionHandler:^(NSArray* placemarks, NSError* error){
@@ -167,7 +167,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
                                  
                                  MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
                                  point.coordinate = placemark.coordinate;
-                                 point.title = location.name;
+                                 point.title = place.name;
                                  point.subtitle = address;
                                  [self.homeMapView addAnnotation:point];
                              }
@@ -176,27 +176,23 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     }
 }
 
-- (void)setupCollectionView
-{
+- (void)setupCollectionView {
     UINib *nib = [UINib nibWithNibName:@"PlaceCell" bundle:nil];
     [self.homeCollectionView registerNib:nib forCellWithReuseIdentifier:@"PlaceCell"];
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.searchResults.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PlaceCell *placeCell = [self.homeCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaceCell" forIndexPath:indexPath];
-    Place *locationInfo = self.searchResults[indexPath.row];
-    [placeCell setupCellWithLocationInfo:locationInfo];
+    Place *placeInfo = self.searchResults[indexPath.row];
+    [placeCell setupCellWithLocationInfo:placeInfo];
     
     return placeCell;
 }
@@ -205,20 +201,18 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 //
 //}
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    self.fullMapVC = [[PlaceDetailViewController alloc] init];
-    self.fullMapVC.delegate = self;
-    self.selectedLocationInfo = self.searchResults[indexPath.row];
-    [self presentViewController:self.fullMapVC animated:NO completion:nil];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.placeDetailVC = [[PlaceDetailViewController alloc] init];
+    self.placeDetailVC.delegate = self;
+    self.selectedPlaceInfo = self.searchResults[indexPath.row];
+    [self presentViewController:self.placeDetailVC animated:NO completion:nil];
 }
 
-- (void)getLocationsInfoForFullMapVC:(PlaceDetailViewController *)fullMapVC {
-    fullMapVC.placesInfo = self.selectedLocationInfo;
+- (void)getLocationsInfoForFullMapVC:(PlaceDetailViewController *)placeDetailVC {
+    placeDetailVC.placeInfo = self.selectedPlaceInfo;
 }
 
-- (IBAction)onFiltersButton:(id)sender
-{
+- (IBAction)onFiltersButton:(id)sender {
     FilterViewController *filterVC = [[FilterViewController alloc] init];
     [[self navigationController] setNavigationBarHidden:NO];
     [self.navigationController pushViewController:filterVC animated:YES];

@@ -29,12 +29,10 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     
     self.locNameLabel.text = self.place.name;
-    
 }
 
 - (IBAction)onCloseReviewButton:(id)sender {
@@ -42,13 +40,9 @@
 }
 
 - (IBAction)onPostReviewButton:(id)sender {
-    
     PFObject *postReview = [PFObject objectWithClassName:@"Reviews"];
-    
     postReview[@"yelp_id"] = self.locNameLabel.text;
-    
     postReview[@"body"] = self.postReviewTextView.text;
-    
     [postReview saveInBackground];
 }
 

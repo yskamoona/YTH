@@ -1,5 +1,5 @@
 //
-//  Location.m
+//  Place.m
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/6/14.
@@ -15,7 +15,8 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"name":@"name",
-             @"address":@"location.display_address"
+             @"address":@"location.display_address",
+             @"snippet_text":@"snippet_text"
 //             @"yelp-id":@"id"
 //             @"latitude":@"location.coordinate.latitude",
 //             @"longitude":@"location.coordinate.longitude"
@@ -23,14 +24,14 @@
 }
 
 + (NSArray *)locationsWithArray:(NSArray *)array {
-    NSMutableArray *locations = [[NSMutableArray alloc] init];
+    NSMutableArray *places = [[NSMutableArray alloc] init];
     
     for (NSDictionary *dictionary in array) {
-        Place  *location= [[Place alloc] initWithDictionary:dictionary error:nil];
-        [locations addObject:location];
+        Place  *place= [[Place alloc] initWithDictionary:dictionary error:nil];
+        [places addObject:place];
     }
     
-    return locations;
+    return places;
     
 }
 

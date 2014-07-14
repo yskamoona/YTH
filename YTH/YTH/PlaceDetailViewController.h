@@ -1,5 +1,5 @@
 //
-//  FullMapViewController.h
+//  PlaceDetailViewController.h
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/7/14.
@@ -11,17 +11,17 @@
 
 @protocol PlaceDetailViewControllerDelegate;
 
-@interface PlaceDetailViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate>
+@interface PlaceDetailViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) id <PlaceDetailViewControllerDelegate> delegate;
-@property (nonatomic, strong) Place *placesInfo;
+@property (nonatomic, strong) Place *placeInfo;
 
 @end
 
 @protocol PlaceDetailViewControllerDelegate <NSObject>
 
 @required
-- (void)getLocationsInfoForFullMapVC:(PlaceDetailViewController *)fullMapVC;
+- (void)getLocationsInfoForFullMapVC:(PlaceDetailViewController *)placeDetailVC;
 
 @end
 
