@@ -8,6 +8,7 @@
 
 #import "PlaceDetailViewController.h"
 #import "PostReviewViewController.h"
+#import "Review.h"
 
 @interface PlaceDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
@@ -76,8 +77,26 @@
     return 7;
 }
 
+
+- (void) getReviews
+{
+    PFObject *review = [PFObject objectWithClassName:@"Review"];
+    
+    PFQuery *query = [Reviews query];
+    [query whereKey:@"yelp_id" containsString:@"womens-community-clinic-san-francisco"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            Reviews *firstReview = objects[0];
+            NSLog(@"got review %@",firstReview);
+            // ...
+        }
+    }];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //UITableViewCell *cell = [self.reviewsTableView dequeueReusableCellWithIdentifier:@"ReviewCell" forIndexPath:indexPath];
+    
+    [self getReviews];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ReviewCell"];
     cell.textLabel.text = @"Some Info";
     cell.detailTextLabel.text = @"This is a review";

@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
-@interface Review : NSObject
+@interface Reviews : PFObject<PFSubclassing>
+
++ (NSString *)parseClassName;
+@property (retain) NSString *body;
+@property (retain) NSString *yelp_id;
 
 @end

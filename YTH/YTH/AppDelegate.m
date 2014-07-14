@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Review.h"
 #import "YTHHomeViewController.h"
 
 @implementation AppDelegate
@@ -15,6 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    [Reviews registerSubclass];
     [Parse setApplicationId:@"etnunWd99CG1ggz72ZjYpKNIoIcPLFtFf51gxBcn"
                   clientKey:@"6gejCFInUgfohxJJUMuW14z0wz3GFDPE9PNeGaNt"];
     

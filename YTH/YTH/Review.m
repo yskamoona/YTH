@@ -7,7 +7,14 @@
 //
 
 #import "Review.h"
+#import <Parse/PFObject+Subclass.h>
 
-@implementation Review
+@implementation Reviews
+@dynamic body;
+@dynamic yelp_id;
+
++ (NSString *)parseClassName {
+    return @"Reviews";
+}
 
 @end
