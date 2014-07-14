@@ -7,8 +7,7 @@
 //
 
 #import "YTHHomeViewController.h"
-#import "FullMapViewController.h"
-#import "PlaceDetailViewController.h"
+
 #import "PostReviewViewController.h"
 #import "FilterViewController.h"
 #import "PlaceCell.h"
@@ -34,6 +33,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (nonatomic, strong) CLLocation *currentLocation;
 
 @property (nonatomic, strong) PlaceDetailViewController *placeDetailVC;
+@property (nonatomic, strong) FullMapViewController *fullMapVC;
 
 @end
 
@@ -111,15 +111,23 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     [_homeMapView setDelegate:self];
     [self setupCollectionView];
     
+    
    // [self setLocationForMap];
 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map Image"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
+}
+
+- (void)goToFullMapView:(id)sender {
+    self.fullMapVC = [[FullMapViewController alloc] init];
+    self.fullMapVC.delegate = self;
+    [self.navigationController pushViewController:self.fullMapVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     NSLog(@"Got view will Appear");
-    [[self navigationController] setNavigationBarHidden:YES];
+   // [[self navigationController] setNavigationBarHidden:YES];
 }
 
 //- (void) locationManager:(CLLocationManager *)manager
@@ -205,18 +213,21 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
     self.placeDetailVC.delegate = self;
     self.selectedPlaceInfo = self.searchResults[indexPath.row];
-    [[self navigationController] setNavigationBarHidden:NO];
+    //[[self navigationController] setNavigationBarHidden:NO];
     [self.navigationController pushViewController:self.placeDetailVC animated:YES];
-    
+
 }
 
 - (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC {
     placeDetailVC.placeInfo = self.selectedPlaceInfo;
 }
 
+- (void)getPlacesInfoForFullMapVC:(FullMapViewController *)placesInfoFullMapVC {
+    placesInfoFullMapVC.placesInfo = (NSArray*)self.searchResults;
+}
 - (IBAction)onFiltersButton:(id)sender {
     FilterViewController *filterVC = [[FilterViewController alloc] init];
-    [[self navigationController] setNavigationBarHidden:NO];
+    //[[self navigationController] setNavigationBarHidden:NO];
     [self.navigationController pushViewController:filterVC animated:YES];
 }
 

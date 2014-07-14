@@ -28,7 +28,7 @@
     UINavigationController *ythNVC = [[UINavigationController alloc] initWithRootViewController:ythVC];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = ythNVC;
-    [ythNVC setNavigationBarHidden:YES animated:YES];
+    //[ythNVC setNavigationBarHidden:YES animated:YES];
     
     self.window.backgroundColor = [UIColor blueColor];
     [self.window makeKeyAndVisible];

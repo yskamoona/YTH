@@ -50,7 +50,7 @@
                     </connections>
                 </collectionView>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wsT-Wr-YgV">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+                    <rect key="frame" x="0.0" y="62" width="320" height="99"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </mapView>
             </subviews>

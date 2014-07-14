@@ -9,6 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface FullMapViewController : UIViewController <MKMapViewDelegate>
+@protocol FullMapViewControllerDelegate;
+
+@interface FullMapViewController : UIViewController <MKMapViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (weak, nonatomic) id <FullMapViewControllerDelegate> delegate;
+@property (nonatomic, strong) NSArray *placesInfo;
+
+@end
+
+@protocol FullMapViewControllerDelegate <NSObject>
+
+- (void)getPlacesInfoForFullMapVC:(FullMapViewController *)placesInfoFullMapVC;
+    
 
 @end

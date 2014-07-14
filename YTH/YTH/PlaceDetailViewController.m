@@ -36,6 +36,7 @@
 {
     [super viewDidLoad];
     [self getPlacesData];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map Image"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
 }
 
