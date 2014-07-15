@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "Place.h"
+#import "LocationController.h"
 
 @protocol FullMapViewControllerDelegate;
 
-@interface FullMapViewController : UIViewController <MKMapViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface FullMapViewController : UIViewController <MKMapViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate,LocationControllerDelegate>
 
 @property (weak, nonatomic) id <FullMapViewControllerDelegate> delegate;
 @property (nonatomic, strong) NSArray *placesInfo;
 @property (nonatomic, strong) Place *placeInfo;
+
+@property (nonatomic, retain) CLLocationManager *locationManager;
 
 @end
 
@@ -24,5 +27,4 @@
 
 - (void)getPlacesInfoForFullMapVC:(FullMapViewController *)placesInfoFullMapVC;
     
-
 @end

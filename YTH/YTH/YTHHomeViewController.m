@@ -14,7 +14,7 @@
 #import "Place.h"
 #import "YelpClient.h"
 #import <CoreLocation/CoreLocation.h>
-#import "YTHLocationManager.h"
+#import "LocationController.h"
 #import "Utils.h"
 
 NSString * const kYelpConsumerKey = @"vxKwwcR_NMQ7WaEiQBK_CA";
@@ -53,18 +53,19 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         
         [self doSearch];
         
-        [YTHLocationManager sharedLocationManager];
+        [LocationController sharedLocationController];
         
-        if (self.locationManager == nil) {
-            self.locationManager = [[CLLocationManager alloc] init];
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-            self.locationManager.distanceFilter = 10;
-            self.locationManager.delegate = self;
-        }
-        [self.locationManager startUpdatingLocation];
+        [LocationController sharedLocationController].delegate = self;
 
     }
     return self;
+}
+
+
+- (void)locationUpdate:(CLLocation*)location;
+{
+    NSLog(@" getting location update in view %@", location);
+    
 }
 
 - (void)doSearch
@@ -136,11 +137,22 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 //    self.currentLocation = newLocation;
 //}
 
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+-(void)viewDidAppear:(BOOL)animated {
+    NSString *model = [[UIDevice currentDevice] model];
+    if ([model isEqualToString:@"iPhone Simulator"]) {
+        // Use San Francisco for simulator
+        self.currentLocation = [[CLLocation alloc] initWithLatitude:37.7873589 longitude:-122.408227];
+    } else {
+        self.currentLocation = self.locationManager.location;
+    }
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.locationManager stopUpdatingLocation];
+}
+
+
 
 - (void)setupMapView {
     
@@ -151,14 +163,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     region.span.longitudeDelta = 0.109863;
     [self.homeMapView setRegion:region animated:YES];
     
-    self.currentLocation = [[CLLocation alloc] initWithLatitude:37.7873589 longitude:-122.408227];
+   // self.currentLocation = [[CLLocation alloc] initWithLatitude:37.7873589 longitude:-122.408227];
     
-    //NSLog(@"GETTING LOCATION 1 %@", self.currentLocation);
+    NSLog(@"GETTING LOCATION 1 %@", self.currentLocation);
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
     if (self.currentLocation && self.searchResults.count > 0) {
         
-        //NSLog(@"GETTING LOCATION %@", self.currentLocation);
+        NSLog(@"GETTING LOCATION %@", self.currentLocation);
         
         float distance = [Utils convertToMeter:0.5];
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);

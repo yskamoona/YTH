@@ -11,7 +11,7 @@
 #import "PlaceDetailViewController.h"
 #import "FullMapViewController.h"
 
-@interface YTHHomeViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MKMapViewDelegate, CLLocationManagerDelegate, PlaceDetailViewControllerDelegate, FullMapViewControllerDelegate>
+@interface YTHHomeViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MKMapViewDelegate, CLLocationManagerDelegate, PlaceDetailViewControllerDelegate, FullMapViewControllerDelegate, LocationControllerDelegate>
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 

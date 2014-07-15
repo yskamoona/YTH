@@ -16,6 +16,12 @@
 
 @implementation FullMapViewController
 
+- (void)locationUpdate:(CLLocation*)location;
+{
+    NSLog(@" getting location update in view %@", location);
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -26,6 +32,9 @@
     
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
     
+    [LocationController sharedLocationController];
+    
+    [LocationController sharedLocationController].delegate = self;    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

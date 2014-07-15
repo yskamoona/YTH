@@ -9,6 +9,7 @@
 #import "PostReviewViewController.h"
 #import "FullMapViewController.h"
 #import <Parse/Parse.h>
+#import <HMSegmentedControl/HMSegmentedControl.h>
 
 @interface PostReviewViewController ()
 
@@ -24,6 +25,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        HMSegmentedControl *segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"One", @"Two", @"Three"]];
+        segmentedControl.frame = CGRectMake(10, 10, 300, 60);
+        [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+        [self.view addSubview:segmentedControl];
         
     }
     return self;
