@@ -25,15 +25,20 @@
     }
     
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
+    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.placesInfo.count;
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PlaceCell *cell = [self.placeWithMapCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaceCell" forIndexPath:indexPath];
-    [cell setupCellWithPlaceInfo:self.placesInfo[indexPath.row]];
+    if (self.placeInfo == nil) {
+        [cell setupCellWithPlaceInfo:self.placesInfo[indexPath.row]];
+    } else {
+        [cell setupCellWithPlaceInfo:self.placeInfo];
+    }
     return cell;
 }
 

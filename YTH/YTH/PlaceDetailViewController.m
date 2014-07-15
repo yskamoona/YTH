@@ -42,6 +42,7 @@
 
 - (void)goToFullMapView:(id)sender {
     FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
+    fullMapVC.placeInfo = self.placeInfo;
     [self.navigationController pushViewController:fullMapVC animated:YES];
 }
 

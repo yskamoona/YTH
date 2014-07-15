@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "Place.h"
 
 @protocol FullMapViewControllerDelegate;
 
@@ -15,6 +16,7 @@
 
 @property (weak, nonatomic) id <FullMapViewControllerDelegate> delegate;
 @property (nonatomic, strong) NSArray *placesInfo;
+@property (nonatomic, strong) Place *placeInfo;
 
 @end
 
