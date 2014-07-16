@@ -71,7 +71,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)locationUpdate:(CLLocation*)location;
 {
-    //NSLog(@" getting location update in view %@", location);
+    NSLog(@" getting location update in view %@", location);
     
 }
 
