@@ -13,6 +13,11 @@
 @dynamic body;
 
 @dynamic yelp_id;
+@dynamic recommended;
+@dynamic needsMet;
+@dynamic friendly;
+@dynamic stars;
+@dynamic price;
 
 + (NSString *)parseClassName {
     return @"Reviews";

@@ -14,5 +14,11 @@
 + (NSString *)parseClassName;
 @property (retain) NSString *body;
 @property (retain) NSString *yelp_id;
+@property  BOOL friendly;
+@property  BOOL needsMet;
+@property  BOOL recommended;
+@property  int  stars;
+@property  int  price;
+
 
 @end
