@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "Review.h"
-#import "YTHHomeViewController.h"
+#import "HomeViewController.h"
 
 @implementation AppDelegate
 
@@ -24,11 +24,12 @@
     [[PFUser currentUser] incrementKey:@"RunCount"];
     [[PFUser currentUser] saveInBackground];
     
-    YTHHomeViewController *ythVC = [[YTHHomeViewController alloc] init];
-    UINavigationController *ythNVC = [[UINavigationController alloc] initWithRootViewController:ythVC];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = ythNVC;
-    //[ythNVC setNavigationBarHidden:YES animated:YES];
+    
+    HomeViewController *homeVC = [[HomeViewController alloc] init];
+    UINavigationController *homeNVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    self.window.rootViewController = homeNVC;
+    [homeNVC setNavigationBarHidden:YES animated:YES];
     
     self.window.backgroundColor = [UIColor blueColor];
     [self.window makeKeyAndVisible];

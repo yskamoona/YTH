@@ -1,12 +1,12 @@
 //
-//  YTHHomeViewController.m
+//  ClinicsViewController.m
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/6/14.
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
-#import "YTHHomeViewController.h"
+#import "ClinicsViewController.h"
 
 #import "PostReviewViewController.h"
 #import "FilterViewController.h"
@@ -16,13 +16,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationController.h"
 #import "Utils.h"
+#import "PlaceCellCustomHeaderView.h"
 
 NSString * const kYelpConsumerKey = @"vxKwwcR_NMQ7WaEiQBK_CA";
 NSString * const kYelpConsumerSecret = @"33QCvh5bIF5jIHR5klQr7RtBDhQ";
 NSString * const kYelpToken = @"uRcRswHFYa1VkDrGV6LAW2F8clGh5JHV";
 NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
-@interface YTHHomeViewController ()
+@interface ClinicsViewController ()
 
 @property (weak, nonatomic) IBOutlet MKMapView *homeMapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
@@ -35,15 +36,21 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (nonatomic, strong) PlaceDetailViewController *placeDetailVC;
 @property (nonatomic, strong) FullMapViewController *fullMapVC;
 
+- (IBAction)onHomeButtonTapped:(id)sender;
+- (IBAction)onMapButtonPressed:(id)sender;
+
+
+
+
 @end
 
-@implementation YTHHomeViewController
+@implementation ClinicsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
-    NSLog(@" initing with Nib");
+    //NSLog(@" initing with Nib");
     
     if (self) {
         // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
@@ -64,14 +71,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)locationUpdate:(CLLocation*)location;
 {
-    NSLog(@" getting location update in view %@", location);
+    //NSLog(@" getting location update in view %@", location);
     
 }
 
 - (void)doSearch
 {
     
-    NSLog(@"In do search %@", self.filters);
+    //NSLog(@"In do search %@", self.filters);
     [self.client search:self.filters success:^(AFHTTPRequestOperation *operation, id response) {
         //NSLog(@"REsponse from yelp: %@", response);
         
@@ -87,8 +94,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
             yelpListing = [MTLJSONAdapter modelOfClass:Place.class fromJSONDictionary:dict error:NULL];
 
             [weakself.searchResults addObject:yelpListing];
-            NSLog(@"got data %@", yelpListing);
-            NSLog(@"search result size: %lu", (unsigned long)[weakself.searchResults count]);
+            //NSLog(@"got data %@", yelpListing);
+            //NSLog(@"search result size: %lu", (unsigned long)[weakself.searchResults count]);
         }
     
         [weakself setupCollectionView];
@@ -115,7 +122,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
    // [self setLocationForMap];
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map Image"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
 }
 
 - (void)goToFullMapView:(id)sender {
@@ -124,12 +131,12 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     [self.navigationController pushViewController:self.fullMapVC animated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    NSLog(@"Got view will Appear");
-   // [[self navigationController] setNavigationBarHidden:YES];
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    NSLog(@"Got view will Appear");
+//   // [[self navigationController] setNavigationBarHidden:YES];
+//}
 
 //- (void) locationManager:(CLLocationManager *)manager
 //     didUpdateToLocation:(CLLocation *)newLocation
@@ -150,6 +157,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.locationManager stopUpdatingLocation];
+    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
 }
 
 
@@ -196,39 +204,63 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     }
 }
 
+#pragma UICollectionView Methods
+
 - (void)setupCollectionView {
     UINib *nib = [UINib nibWithNibName:@"PlaceCell" bundle:nil];
     [self.homeCollectionView registerNib:nib forCellWithReuseIdentifier:@"PlaceCell"];
+    UINib *headerNib = [UINib nibWithNibName:@"PlaceCellCustomHeaderView" bundle:nil];
+    [self.homeCollectionView registerNib:headerNib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"PlaceCellHeader"];
+    [self.homeCollectionView updateConstraints];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return self.searchResults.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.searchResults.count;
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PlaceCell *placeCell = [self.homeCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaceCell" forIndexPath:indexPath];
-    Place *placeInfo = self.searchResults[indexPath.row];
+    Place *placeInfo = self.searchResults[indexPath.section];
     [placeCell setupCellWithPlaceInfo:placeInfo];
     
     return placeCell;
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//
-//}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(320, 200);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    PlaceCellCustomHeaderView *placeCell = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+         placeCell = [self.homeCollectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"PlaceCellHeader" forIndexPath:indexPath];
+        [placeCell setupCellHeaderWithPlaceImage:[UIImage imageNamed:@"Clinic_Image_Placeholder"]];
+    }
+    
+    return placeCell;
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+   return  CGSizeMake(320, 200);
+}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
     self.placeDetailVC.delegate = self;
-    self.selectedPlaceInfo = self.searchResults[indexPath.row];
-    //[[self navigationController] setNavigationBarHidden:NO];
+    self.selectedPlaceInfo = self.searchResults[indexPath.section];
+    [[self navigationController] setNavigationBarHidden:NO];
     [self.navigationController pushViewController:self.placeDetailVC animated:YES];
 
 }
+
+
+
 
 - (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC {
     placeDetailVC.placeInfo = self.selectedPlaceInfo;
@@ -237,12 +269,22 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 - (void)getPlacesInfoForFullMapVC:(FullMapViewController *)placesInfoFullMapVC {
     placesInfoFullMapVC.placesInfo = (NSArray*)self.searchResults;
 }
+
+#pragma IBAction
+
 - (IBAction)onFiltersButton:(id)sender {
     FilterViewController *filterVC = [[FilterViewController alloc] init];
     //[[self navigationController] setNavigationBarHidden:NO];
     [self.navigationController pushViewController:filterVC animated:YES];
 }
 
+- (IBAction)onHomeButtonTapped:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];// dismissViewControllerAnimated:YES completion:nil];
+}
 
-
+- (IBAction)onMapButtonPressed:(id)sender {
+    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
+    fullMapVC.delegate = self;
+    [self.navigationController pushViewController:fullMapVC animated:YES];
+}
 @end

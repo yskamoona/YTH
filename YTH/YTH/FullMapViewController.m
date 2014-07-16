@@ -31,14 +31,20 @@
     }
     
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
-    
     [LocationController sharedLocationController];
-    
     [LocationController sharedLocationController].delegate = self;    
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+     [[self navigationController] setNavigationBarHidden:NO];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    if (self.placesInfo != nil) {
+         return self.placesInfo.count;
+    }
+    else return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

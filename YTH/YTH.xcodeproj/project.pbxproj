@@ -24,8 +24,8 @@
 		451CBFEA1969FC0A007289F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CBFD21969FC0A007289F3 /* UIKit.framework */; };
 		451CBFF21969FC0A007289F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 451CBFF01969FC0A007289F3 /* InfoPlist.strings */; };
 		451CBFF41969FC0A007289F3 /* YTHTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 451CBFF31969FC0A007289F3 /* YTHTests.m */; };
-		451CC0001969FC57007289F3 /* YTHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451CBFFE1969FC57007289F3 /* YTHHomeViewController.m */; };
-		451CC0011969FC57007289F3 /* YTHHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451CBFFF1969FC57007289F3 /* YTHHomeViewController.xib */; };
+		451CC0001969FC57007289F3 /* ClinicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451CBFFE1969FC57007289F3 /* ClinicsViewController.m */; };
+		451CC0011969FC57007289F3 /* ClinicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451CBFFF1969FC57007289F3 /* ClinicsViewController.xib */; };
 		451CC0031969FE00007289F3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0021969FE00007289F3 /* Parse.framework */; };
 		451CC0051969FE0E007289F3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0041969FE0E007289F3 /* AudioToolbox.framework */; };
 		451CC0071969FE28007289F3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0061969FE28007289F3 /* CFNetwork.framework */; };
@@ -54,6 +54,15 @@
 		45FC04AC196A06DB007DB5C4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04AB196A06DB007DB5C4 /* User.m */; };
 		45FC04AF196A06E9007DB5C4 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04AE196A06E9007DB5C4 /* Place.m */; };
 		45FC04B2196A06F4007DB5C4 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04B1196A06F4007DB5C4 /* Review.m */; };
+		45FCE9F01976868D00AEA8F5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCE9EE1976868D00AEA8F5 /* HomeViewController.m */; };
+		45FCE9F11976868D00AEA8F5 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCE9EF1976868D00AEA8F5 /* HomeViewController.xib */; };
+		45FCE9F51976A48200AEA8F5 /* GuidesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCE9F31976A48200AEA8F5 /* GuidesViewController.m */; };
+		45FCE9F61976A48200AEA8F5 /* GuidesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCE9F41976A48200AEA8F5 /* GuidesViewController.xib */; };
+		45FCE9FA1976A4A300AEA8F5 /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */; };
+		45FCE9FB1976A4A300AEA8F5 /* QuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */; };
+		45FCE9FF1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCE9FE1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m */; };
+		45FCEA011976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA001976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib */; };
+		45FCEA041976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,9 +100,9 @@
 		451CBFEF1969FC0A007289F3 /* YTHTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YTHTests-Info.plist"; sourceTree = "<group>"; };
 		451CBFF11969FC0A007289F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		451CBFF31969FC0A007289F3 /* YTHTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTHTests.m; sourceTree = "<group>"; };
-		451CBFFD1969FC57007289F3 /* YTHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTHHomeViewController.h; sourceTree = "<group>"; };
-		451CBFFE1969FC57007289F3 /* YTHHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTHHomeViewController.m; sourceTree = "<group>"; };
-		451CBFFF1969FC57007289F3 /* YTHHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTHHomeViewController.xib; sourceTree = "<group>"; };
+		451CBFFD1969FC57007289F3 /* ClinicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicsViewController.h; sourceTree = "<group>"; };
+		451CBFFE1969FC57007289F3 /* ClinicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicsViewController.m; sourceTree = "<group>"; };
+		451CBFFF1969FC57007289F3 /* ClinicsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClinicsViewController.xib; sourceTree = "<group>"; };
 		451CC0021969FE00007289F3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		451CC0041969FE0E007289F3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		451CC0061969FE28007289F3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -132,6 +141,20 @@
 		45FC04AE196A06E9007DB5C4 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		45FC04B0196A06F4007DB5C4 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
 		45FC04B1196A06F4007DB5C4 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
+		45FCE9ED1976868D00AEA8F5 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		45FCE9EE1976868D00AEA8F5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		45FCE9EF1976868D00AEA8F5 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		45FCE9F21976A48200AEA8F5 /* GuidesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidesViewController.h; sourceTree = "<group>"; };
+		45FCE9F31976A48200AEA8F5 /* GuidesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidesViewController.m; sourceTree = "<group>"; };
+		45FCE9F41976A48200AEA8F5 /* GuidesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidesViewController.xib; sourceTree = "<group>"; };
+		45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
+		45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
+		45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionsViewController.xib; sourceTree = "<group>"; };
+		45FCE9FD1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceCellCustomHeaderView.h; sourceTree = "<group>"; };
+		45FCE9FE1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceCellCustomHeaderView.m; sourceTree = "<group>"; };
+		45FCEA001976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCellCustomHeaderView.xib; sourceTree = "<group>"; };
+		45FCEA021976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicsCollectionViewCustomFlowLayout.h; sourceTree = "<group>"; };
+		45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicsCollectionViewCustomFlowLayout.m; sourceTree = "<group>"; };
 		95A2106A4F894780BD5FFCF8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B562F88A78DE4197BC039A65 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -306,6 +329,11 @@
 				4534133B196AB37400C6A2FE /* ReviewCollectionViewCell.h */,
 				4534133C196AB37400C6A2FE /* ReviewCollectionViewCell.m */,
 				45341339196AB35F00C6A2FE /* ReviewCollectionViewCell.xib */,
+				45FCE9FD1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.h */,
+				45FCE9FE1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m */,
+				45FCEA001976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib */,
+				45FCEA021976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.h */,
+				45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -313,9 +341,12 @@
 		45FC049A196A05BD007DB5C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				451CBFFD1969FC57007289F3 /* YTHHomeViewController.h */,
-				451CBFFE1969FC57007289F3 /* YTHHomeViewController.m */,
-				451CBFFF1969FC57007289F3 /* YTHHomeViewController.xib */,
+				45FCE9ED1976868D00AEA8F5 /* HomeViewController.h */,
+				45FCE9EE1976868D00AEA8F5 /* HomeViewController.m */,
+				45FCE9EF1976868D00AEA8F5 /* HomeViewController.xib */,
+				451CBFFD1969FC57007289F3 /* ClinicsViewController.h */,
+				451CBFFE1969FC57007289F3 /* ClinicsViewController.m */,
+				451CBFFF1969FC57007289F3 /* ClinicsViewController.xib */,
 				4534133E196AB5B200C6A2FE /* PlaceDetailViewController.h */,
 				4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */,
 				45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */,
@@ -328,6 +359,12 @@
 				45FC04A5196A06A5007DB5C4 /* PostReviewViewController.h */,
 				45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */,
 				45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */,
+				45FCE9F21976A48200AEA8F5 /* GuidesViewController.h */,
+				45FCE9F31976A48200AEA8F5 /* GuidesViewController.m */,
+				45FCE9F41976A48200AEA8F5 /* GuidesViewController.xib */,
+				45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */,
+				45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */,
+				45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -414,12 +451,16 @@
 				45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */,
 				45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */,
 				45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */,
+				45FCE9F61976A48200AEA8F5 /* GuidesViewController.xib in Resources */,
 				45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */,
-				451CC0011969FC57007289F3 /* YTHHomeViewController.xib in Resources */,
+				45FCEA011976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib in Resources */,
+				451CC0011969FC57007289F3 /* ClinicsViewController.xib in Resources */,
 				45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */,
 				451CBFD91969FC0A007289F3 /* InfoPlist.strings in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
 				4534133A196AB35F00C6A2FE /* ReviewCollectionViewCell.xib in Resources */,
+				45FCE9FB1976A4A300AEA8F5 /* QuestionsViewController.xib in Resources */,
+				45FCE9F11976868D00AEA8F5 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,11 +512,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FCE9F51976A48200AEA8F5 /* GuidesViewController.m in Sources */,
+				45FCEA041976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m in Sources */,
 				45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */,
+				45FCE9FF1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m in Sources */,
 				45FC04AC196A06DB007DB5C4 /* User.m in Sources */,
 				17EC1BDB196A82DB005A456D /* MapUtils.m in Sources */,
 				45BDFB9C196A143C0095CBBD /* PlaceCell.m in Sources */,
 				45341336196AB2B200C6A2FE /* PlaceDetailCell.m in Sources */,
+				45FCE9FA1976A4A300AEA8F5 /* QuestionsViewController.m in Sources */,
+				45FCE9F01976868D00AEA8F5 /* HomeViewController.m in Sources */,
 				17EC1BD7196A82B4005A456D /* Utils.m in Sources */,
 				45FC04B2196A06F4007DB5C4 /* Review.m in Sources */,
 				17E44E571974B20200F7571E /* LocationController.m in Sources */,
@@ -485,7 +531,7 @@
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,
 				45FC04AF196A06E9007DB5C4 /* Place.m in Sources */,
 				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
-				451CC0001969FC57007289F3 /* YTHHomeViewController.m in Sources */,
+				451CC0001969FC57007289F3 /* ClinicsViewController.m in Sources */,
 				45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */,
 				4534133D196AB37400C6A2FE /* ReviewCollectionViewCell.m in Sources */,
 			);

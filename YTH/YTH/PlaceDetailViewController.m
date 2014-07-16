@@ -17,7 +17,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
 @property (weak, nonatomic) IBOutlet UITableView *reviewsTableView;
 @property (strong, nonatomic) NSArray *reviews;
-@property (weak, nonatomic) IBOutlet UILabel *servicesOffered;
+@property (weak, nonatomic) IBOutlet UILabel *hours;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *placeDetailScrollView;
+
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -27,7 +31,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -37,7 +41,12 @@
     [super viewDidLoad];
     [self getPlacesData];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map Image"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.placeDetailScrollView setContentSize:self.contentView.frame.size];
 }
 
 - (void)goToFullMapView:(id)sender {
@@ -59,7 +68,9 @@
     self.placeNameLabel.text = self.placeInfo.name;
     self.placeAddressLabel.text = [self.placeInfo.address firstObject];
     //not sure what to show for services offered.
-    self.servicesOffered.text = self.placeInfo.snippet_text;
+    //self.servicesOffered.text = self.placeInfo.snippet_text;
+    
+    //self.hours.text = self.placeInfo.hours;
     
     [self getReviews];
 }
