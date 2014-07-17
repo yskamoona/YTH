@@ -38,7 +38,7 @@
                     <color key="backgroundColor" red="0.40392160420000001" green="0.70980393890000004" blue="0.94117653369999998" alpha="1" colorSpace="deviceRGB"/>
                 </view>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4CI-9s-FxS">
-                    <rect key="frame" x="0.0" y="58" width="320" height="510"/>
+                    <rect key="frame" x="0.0" y="75" width="320" height="493"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yZI-5U-Usd">
@@ -54,7 +54,7 @@
                     </connections>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCH-aT-E0D">
-                    <rect key="frame" x="143" y="8" width="35" height="42"/>
+                    <rect key="frame" x="143" y="21" width="35" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="Home_button">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -65,7 +65,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccf-bA-AR0">
-                    <rect key="frame" x="201" y="8" width="53" height="45"/>
+                    <rect key="frame" x="210" y="19" width="53" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="Map_view_button">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -76,7 +76,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.062745101749897003" green="0.73333334922790527" blue="0.70980393886566162" alpha="1" colorSpace="deviceRGB"/>
+            <color key="backgroundColor" red="0.10556826751172221" green="0.72052375637755106" blue="0.68923397538864906" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

@@ -8,16 +8,25 @@
 
 #import "HomeViewController.h"
 #import "ClinicsViewController.h"
+#import "SettingsViewController.h"
 
 @interface HomeViewController ()
 
 @property (strong, nonatomic) ClinicsViewController *clinicsVC;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIView *settingsView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
 @property (weak, nonatomic) IBOutlet UIView *clinicsView;
 
 @property (nonatomic, assign) BOOL isPresenting;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewWidthConstraint;
+
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *containerViewPanGestureRecognizer;
+@property (assign) NSInteger changingPosX;
+
 - (IBAction)onClincsButtonTapped:(id)sender;
+- (IBAction)onSettingsButtonTapped:(id)sender;
 
 @end
 
@@ -36,6 +45,7 @@
 {
     [super viewDidLoad];
     [self setupGestureRecognizers];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,18 +59,56 @@
 
     //clinicsTapGestureRecognizer
     self.clincsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleClincsTapGesture:)];
+    
+    //containerViewPanGestureRecognizer
+    self.containerViewPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureForMainView:)];
+    [self.containerView addGestureRecognizer:self.containerViewPanGestureRecognizer];
 }
 
 #pragma GesturesSelectors 
 
+- (void)onPanGestureForMainView:(UIPanGestureRecognizer *)panGestureOnMainView {
+    self.changingPosX = [panGestureOnMainView translationInView:self.view].x;
+    NSLog(@"Traslation in view.x %ld", (long)self.changingPosX);
+    
+    self.containerViewWidthConstraint.constant = 320 - self.changingPosX;
+    self.changingPosX = MIN(self.changingPosX, 260);
+    self.changingPosX = MAX(self.changingPosX, 0);
+    
+    NSLog(@"New Pos %ld", (long)self.changingPosX);
+    
+    if (panGestureOnMainView.state == UIGestureRecognizerStateEnded) {
+        if (self.changingPosX >= 150) {
+            [UIView animateWithDuration:.2 animations:^{
+                self.containerViewWidthConstraint.constant = 60;
+                [self.view layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                
+            }];
+            
+        } else {
+            [UIView animateWithDuration:.2 animations:^{
+                self.containerViewWidthConstraint.constant = 320;
+                [self.view layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                
+            }];
+        }
+    }
+    
+    [self.view updateConstraints];
+    
+}
+
 - (IBAction)handleClincsTapGesture:(UITapGestureRecognizer *)clincsTapGestureRecognizer {
     self.clinicsVC.modalPresentationStyle = UIModalPresentationCustom;
-    self.navigationController.transitioningDelegate = self;
-    [self.navigationController pushViewController:self.clinicsVC animated:YES];
+    self.clinicsVC.navigationController.transitioningDelegate = self;
+    //[self.navigationController pushViewController:self.clinicsVC animated:YES];
     
-    //self.clinicsVC.transitioningDelegate = self;
-    //[self presentViewController:self.clinicsVC animated:YES completion:nil];
+    self.clinicsVC.transitioningDelegate = self;
+    [self presentViewController:self.clinicsVC animated:YES completion:nil];
 }
+
 
 #pragma UIViewControllerTransitioningDelegate Methods
 
@@ -122,5 +170,10 @@
 
 - (IBAction)onClincsButtonTapped:(id)sender {
     
+}
+
+- (IBAction)onSettingsButtonTapped:(id)sender {
+    SettingsViewController *settingVC = [[SettingsViewController alloc] init];
+    [self.settingsView addSubview:settingVC.view];
 }
 @end

@@ -63,6 +63,8 @@
 		45FCE9FF1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCE9FE1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m */; };
 		45FCEA011976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA001976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib */; };
 		45FCEA041976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */; };
+		45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA061978787500AEA8F5 /* SettingsViewController.m */; };
+		45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA071978787500AEA8F5 /* SettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +157,9 @@
 		45FCEA001976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCellCustomHeaderView.xib; sourceTree = "<group>"; };
 		45FCEA021976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicsCollectionViewCustomFlowLayout.h; sourceTree = "<group>"; };
 		45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicsCollectionViewCustomFlowLayout.m; sourceTree = "<group>"; };
+		45FCEA051978787500AEA8F5 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		45FCEA061978787500AEA8F5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		45FCEA071978787500AEA8F5 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		95A2106A4F894780BD5FFCF8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B562F88A78DE4197BC039A65 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -365,6 +370,9 @@
 				45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */,
 				45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */,
 				45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */,
+				45FCEA051978787500AEA8F5 /* SettingsViewController.h */,
+				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
+				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -457,6 +465,7 @@
 				451CC0011969FC57007289F3 /* ClinicsViewController.xib in Resources */,
 				45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */,
 				451CBFD91969FC0A007289F3 /* InfoPlist.strings in Resources */,
+				45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
 				4534133A196AB35F00C6A2FE /* ReviewCollectionViewCell.xib in Resources */,
 				45FCE9FB1976A4A300AEA8F5 /* QuestionsViewController.xib in Resources */,
@@ -523,6 +532,7 @@
 				45FCE9FA1976A4A300AEA8F5 /* QuestionsViewController.m in Sources */,
 				45FCE9F01976868D00AEA8F5 /* HomeViewController.m in Sources */,
 				17EC1BD7196A82B4005A456D /* Utils.m in Sources */,
+				45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */,
 				45FC04B2196A06F4007DB5C4 /* Review.m in Sources */,
 				17E44E571974B20200F7571E /* LocationController.m in Sources */,
 				45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */,

@@ -124,10 +124,8 @@
     cell.textLabel.text = [self.reviews[indexPath.row] body];
     return cell;
 }
-
-- (IBAction)onDragDown:(id)sender {
-    //TBD
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)onBackButtonTapped:(id)sender {
+        [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onCallUsButtonPressed:(id)sender {

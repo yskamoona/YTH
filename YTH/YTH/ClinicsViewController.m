@@ -255,7 +255,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     self.placeDetailVC.delegate = self;
     self.selectedPlaceInfo = self.searchResults[indexPath.section];
     [[self navigationController] setNavigationBarHidden:NO];
-    [self.navigationController pushViewController:self.placeDetailVC animated:YES];
+    //[self.navigationController pushViewController:self.placeDetailVC animated:YES];
+    [self presentViewController:self.placeDetailVC animated:YES completion:nil];
 
 }
 
@@ -279,12 +280,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 }
 
 - (IBAction)onHomeButtonTapped:(id)sender {
-    [self.navigationController popViewControllerAnimated: YES];// dismissViewControllerAnimated:YES completion:nil];
+    //[self.navigationController popViewControllerAnimated: YES];
+     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onMapButtonPressed:(id)sender {
     FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
     fullMapVC.delegate = self;
-    [self.navigationController pushViewController:fullMapVC animated:YES];
+    //[self.navigationController pushViewController:fullMapVC animated:YES];
+    [self presentViewController:fullMapVC animated:YES completion:nil];
 }
 @end
