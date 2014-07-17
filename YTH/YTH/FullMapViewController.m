@@ -13,14 +13,14 @@
 @interface FullMapViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *placeWithMapCollectionView;
 
-@property (weak, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) CLLocation *currentLocation;
 @end
 
 @implementation FullMapViewController
 
 - (void)locationUpdate:(CLLocation*)location;
 {
-    NSLog(@" getting location update in view %@", location);
+    NSLog(@" FULL MAP getting location update in view %@", location);
     self.currentLocation = location;
     
 }
@@ -65,24 +65,17 @@
 
 - (void)setupMapView {
     
-    MKCoordinateRegion region;
-    region.center.latitude = 37.786996;
-    region.center.longitude = -122.440100;
-    region.span.latitudeDelta = 0.112872;
-    region.span.longitudeDelta = 0.109863;
-    [self.placeMapView setRegion:region animated:YES];
-    
+    // Use San Francisco for simulator
     self.currentLocation = [[CLLocation alloc] initWithLatitude:37.7873589 longitude:-122.408227];
     
-    NSLog(@"GETTING LOCATION 1 %@", self.currentLocation);
+    
+    NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
-        NSLog(@"GETTING LOCATION %@", self.currentLocation);
-        
+    
         float distance = [Utils convertToMeter:0.5];
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
         [self.placeMapView setRegion:viewRegion];
-        
     
             NSString *address = [self.placeInfo.address componentsJoinedByString:@","];
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
