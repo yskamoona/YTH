@@ -76,8 +76,12 @@
         float distance = [Utils convertToMeter:0.5];
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
         [self.placeMapView setRegion:viewRegion];
+   
+    NSLog(@" placeinfo %@", self.placeInfo);
     
             NSString *address = [self.placeInfo.address componentsJoinedByString:@","];
+    NSLog(@" address %@", address);
+    
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
             [geocoder geocodeAddressString:address
                          completionHandler:^(NSArray* placemarks, NSError* error){
