@@ -22,7 +22,7 @@
 {
     NSLog(@" FULL MAP getting location update in view %@", location);
     self.currentLocation = location;
-    
+    [self setupMapView];
 }
 
 - (void)viewDidLoad
@@ -33,13 +33,12 @@
         [self.delegate getPlacesInfoForFullMapVC:self];
     }
 
-    
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
     [LocationController sharedLocationController];
     [LocationController sharedLocationController].delegate = self;
     [[[LocationController sharedLocationController] locationManager] startUpdatingLocation];
     
-    [self setupMapView];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -68,7 +67,7 @@
 - (void)setupMapView {
     
     // Use San Francisco for simulator
-    self.currentLocation = [[CLLocation alloc] initWithLatitude:37.7873589 longitude:-122.408227];
+   
     
     
     NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);

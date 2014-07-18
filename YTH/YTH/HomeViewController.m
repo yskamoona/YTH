@@ -45,7 +45,6 @@
 {
     [super viewDidLoad];
     [self setupGestureRecognizers];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
