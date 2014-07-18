@@ -124,14 +124,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
    // [self setLocationForMap];
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
 }
 
-- (void)goToFullMapView:(id)sender {
-    self.fullMapVC = [[FullMapViewController alloc] init];
-    self.fullMapVC.delegate = self;
-    [self.navigationController pushViewController:self.fullMapVC animated:YES];
-}
+//- (void)goToFullMapView:(id)sender {
+//    self.fullMapVC = [[FullMapViewController alloc] init];
+//    self.fullMapVC.delegate = self;
+//    [self.navigationController pushViewController:self.fullMapVC animated:YES];
+//}
 
 //- (void)viewWillAppear:(BOOL)animated
 //{

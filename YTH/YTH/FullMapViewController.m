@@ -32,6 +32,7 @@
     if (self.delegate != nil) {
         [self.delegate getPlacesInfoForFullMapVC:self];
     }
+
     
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
     [LocationController sharedLocationController];
@@ -72,11 +73,12 @@
     NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
-    
+         self.placeInfo = [self.placesInfo firstObject];
         float distance = [Utils convertToMeter:0.5];
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
+    [self.delegate getPlacesInfoForFullMapVC:self];
         [self.placeMapView setRegion:viewRegion];
-   
+    
     NSLog(@" placeinfo %@", self.placeInfo);
     
             NSString *address = [self.placeInfo.address componentsJoinedByString:@","];
