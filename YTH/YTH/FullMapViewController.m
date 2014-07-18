@@ -37,6 +37,7 @@
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
     [LocationController sharedLocationController];
     [LocationController sharedLocationController].delegate = self;
+    [[[LocationController sharedLocationController] locationManager] startUpdatingLocation];
     
     [self setupMapView];
 }

@@ -62,8 +62,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         
         [self doSearch];
         
-        [LocationController sharedLocationController];
-        
         [LocationController sharedLocationController].delegate = self;
 
     }
