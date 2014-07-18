@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -33,8 +33,26 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DsC-7j-5xU" userLabel="MenuButton">
+                            <rect key="frame" x="9" y="20" width="37" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            <state key="normal" title="=">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onSettingsButtonTapped:" destination="-1" eventType="touchUpInside" id="8st-KV-PDc"/>
+                            </connections>
+                        </button>
+                        <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzH-1p-1s0">
+                            <rect key="frame" x="60" y="18" width="260" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FS-Pu-h0j">
-                            <rect key="frame" x="32" y="188" width="70" height="30"/>
+                            <rect key="frame" x="31" y="131" width="70" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                             <state key="normal" title="Questions">
@@ -43,12 +61,12 @@
                             </state>
                         </button>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YDq-xm-8vz" userLabel="Questions Button View">
-                            <rect key="frame" x="32" y="121" width="70" height="64"/>
+                            <rect key="frame" x="31" y="64" width="70" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.7137255072593689" green="0.87843143939971924" blue="0.035294119268655777" alpha="1" colorSpace="deviceRGB"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIJ-hq-1l0">
-                            <rect key="frame" x="137" y="188" width="46" height="30"/>
+                            <rect key="frame" x="136" y="131" width="46" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                             <state key="normal" title="Clinics">
@@ -60,7 +78,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wch-FV-3Oo" userLabel="Clinics Button View">
-                            <rect key="frame" x="125" y="121" width="70" height="64"/>
+                            <rect key="frame" x="124" y="64" width="70" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.29803922772407532" green="0.88235300779342651" blue="0.84705889225006104" alpha="1" colorSpace="deviceRGB"/>
                             <gestureRecognizers/>
@@ -69,7 +87,7 @@
                             </connections>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59i-a9-Udn">
-                            <rect key="frame" x="231" y="188" width="49" height="30"/>
+                            <rect key="frame" x="230" y="131" width="49" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                             <state key="normal" title="Guides">
@@ -78,12 +96,12 @@
                             </state>
                         </button>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="soX-gk-yAT" userLabel="Guides Button View">
-                            <rect key="frame" x="220" y="121" width="70" height="64"/>
+                            <rect key="frame" x="219" y="64" width="70" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="0.08235294371843338" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
                         </view>
                         <view alpha="0.15000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMY-mH-Zbt" userLabel="Tab View">
-                            <rect key="frame" x="0.0" y="233" width="320" height="52"/>
+                            <rect key="frame" x="0.0" y="164" width="320" height="52"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdd-X9-B2l">
@@ -107,35 +125,61 @@
                             </subviews>
                             <color key="backgroundColor" red="0.21176472306251526" green="0.18431372940540314" blue="0.12549020349979401" alpha="1" colorSpace="deviceRGB"/>
                         </view>
-                        <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.70000000000000007" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xG2-xx-gPc">
-                            <rect key="frame" x="0.0" y="284" width="320" height="284"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qGe-Si-DGq">
-                                <size key="itemSize" width="50" height="50"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <cells/>
-                        </collectionView>
-                        <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzH-1p-1s0">
-                            <rect key="frame" x="60" y="18" width="260" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DsC-7j-5xU">
-                            <rect key="frame" x="9" y="20" width="37" height="31"/>
+                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-tK-GZI" userLabel="HomeContentView">
+                            <rect key="frame" x="0.0" y="165" width="320" height="403"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                            <state key="normal" title="=">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onSettingsButtonTapped:" destination="-1" eventType="touchUpInside" id="8st-KV-PDc"/>
-                            </connections>
-                        </button>
+                            <subviews>
+                                <view userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="seo-Ru-t6U" userLabel="contentButtonBackgroundView">
+                                    <rect key="frame" x="0.0" y="0.0" width="107" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGu-7V-MNr">
+                                    <rect key="frame" x="0.0" y="0.0" width="107" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="Latest">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-gm-y1l">
+                                    <rect key="frame" x="107" y="0.0" width="107" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="Trending">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4PN-Gr-0D8">
+                                    <rect key="frame" x="213" y="0.0" width="107" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="Pinned">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="4PN-Gr-0D8" firstAttribute="width" secondItem="5A3-gm-y1l" secondAttribute="width" id="6qG-Ji-Q2p"/>
+                                <constraint firstItem="4PN-Gr-0D8" firstAttribute="leading" secondItem="5A3-gm-y1l" secondAttribute="trailing" id="9Mm-ax-9dh"/>
+                                <constraint firstItem="nGu-7V-MNr" firstAttribute="leading" secondItem="Kvx-tK-GZI" secondAttribute="leading" id="Dzd-Qf-7s7"/>
+                                <constraint firstItem="4PN-Gr-0D8" firstAttribute="width" secondItem="nGu-7V-MNr" secondAttribute="width" id="HEC-a3-FNS"/>
+                                <constraint firstItem="5A3-gm-y1l" firstAttribute="leading" secondItem="nGu-7V-MNr" secondAttribute="trailing" id="LLs-Sh-SSr"/>
+                                <constraint firstItem="nGu-7V-MNr" firstAttribute="bottom" secondItem="seo-Ru-t6U" secondAttribute="bottom" id="OMC-6F-r3S"/>
+                                <constraint firstItem="nGu-7V-MNr" firstAttribute="top" secondItem="Kvx-tK-GZI" secondAttribute="top" id="OtZ-IE-o8a"/>
+                                <constraint firstItem="nGu-7V-MNr" firstAttribute="leading" secondItem="seo-Ru-t6U" secondAttribute="leading" id="SN1-Ha-dhr"/>
+                                <constraint firstItem="nGu-7V-MNr" firstAttribute="top" secondItem="5A3-gm-y1l" secondAttribute="top" id="U5F-EB-XZF"/>
+                                <constraint firstItem="5A3-gm-y1l" firstAttribute="centerY" secondItem="nGu-7V-MNr" secondAttribute="centerY" id="UD3-Mh-OPH"/>
+                                <constraint firstItem="nGu-7V-MNr" firstAttribute="top" secondItem="seo-Ru-t6U" secondAttribute="top" id="Z8g-kE-oim"/>
+                                <constraint firstAttribute="trailing" secondItem="4PN-Gr-0D8" secondAttribute="trailing" id="g0e-79-VdF"/>
+                                <constraint firstItem="nGu-7V-MNr" firstAttribute="top" secondItem="4PN-Gr-0D8" secondAttribute="top" id="jJL-RR-7C0"/>
+                                <constraint firstItem="5A3-gm-y1l" firstAttribute="centerY" secondItem="4PN-Gr-0D8" secondAttribute="centerY" id="s9l-kU-GPP"/>
+                                <constraint firstItem="nGu-7V-MNr" firstAttribute="trailing" secondItem="seo-Ru-t6U" secondAttribute="trailing" id="zfu-z3-zA1"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.40784317260000003" blue="0.48627454040000001" alpha="1" colorSpace="deviceRGB"/>
                     <gestureRecognizers/>
