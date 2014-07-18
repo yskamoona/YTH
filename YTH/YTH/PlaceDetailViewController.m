@@ -41,7 +41,7 @@
     [super viewDidLoad];
     [self getPlacesData];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -49,11 +49,11 @@
     [self.placeDetailScrollView setContentSize:self.contentView.frame.size];
 }
 
-- (void)goToFullMapView:(id)sender {
-    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
-    fullMapVC.placeInfo = self.placeInfo;
-    [self.navigationController pushViewController:fullMapVC animated:YES];
-}
+//- (void)goToFullMapView:(id)sender {
+//    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
+//    fullMapVC.placeInfo = self.placeInfo;
+//    [self.navigationController pushViewController:fullMapVC animated:YES];
+//}
 
 - (void)getPlacesData
 {
@@ -124,6 +124,17 @@
     cell.textLabel.text = [self.reviews[indexPath.row] body];
     return cell;
 }
+
+
+
+- (IBAction)onFullMapView:(id)sender {
+    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
+    fullMapVC.placeInfo = self.placeInfo;
+    //[self.navigationController pushViewController:fullMapVC animated:YES];
+    [self presentViewController:fullMapVC animated:YES completion:nil];
+}
+
+
 - (IBAction)onBackButtonTapped:(id)sender {
         [self dismissViewControllerAnimated:YES completion:nil];
 }

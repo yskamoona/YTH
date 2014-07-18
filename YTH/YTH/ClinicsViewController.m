@@ -36,6 +36,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (nonatomic, strong) PlaceDetailViewController *placeDetailVC;
 @property (nonatomic, strong) FullMapViewController *fullMapVC;
 
+@property (nonatomic, assign) BOOL isPresenting;
+
 - (IBAction)onHomeButtonTapped:(id)sender;
 - (IBAction)onMapButtonPressed:(id)sender;
 
@@ -287,7 +289,60 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 - (IBAction)onMapButtonPressed:(id)sender {
     FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
     fullMapVC.delegate = self;
+    fullMapVC.modalPresentationStyle = UIModalPresentationCustom;
+    fullMapVC.transitioningDelegate = self;
     //[self.navigationController pushViewController:fullMapVC animated:YES];
     [self presentViewController:fullMapVC animated:YES completion:nil];
+}
+
+
+#pragma UIViewControllerTransitioningDelegate Methods
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    self.isPresenting = YES;
+    return self;
+}
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    self.isPresenting = NO;
+    return self;
+}
+
+//- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator;
+//
+//- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator;
+#pragma UIViewControllerAnimatedTransitioiningDelegate Methods
+
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
+    return 2.0;
+}
+
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+    UIView *containerView = [transitionContext containerView];
+    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    
+    if (self.isPresenting) {
+        toViewController.view.frame = containerView.frame;
+        [containerView addSubview:toViewController.view];
+        
+        toViewController.view.alpha = 0;
+        toViewController.view.transform = CGAffineTransformMakeScale(0, 0);
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            toViewController.view.alpha = 1;
+            toViewController.view.transform = CGAffineTransformMakeScale(1, 1);
+            
+        } completion:^(BOOL finished) {
+            [transitionContext completeTransition:YES];
+        }];
+    } else {
+        [UIView animateWithDuration:2.0 animations:^{
+            fromViewController.view.alpha = 0;
+            fromViewController.view.transform = CGAffineTransformMakeScale(0, 0);
+        } completion:^(BOOL finished) {
+            [transitionContext completeTransition:YES];
+        }];
+    }
 }
 @end

@@ -11,7 +11,7 @@
 #import "PlaceDetailViewController.h"
 #import "FullMapViewController.h"
 
-@interface ClinicsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MKMapViewDelegate, CLLocationManagerDelegate, PlaceDetailViewControllerDelegate, FullMapViewControllerDelegate, LocationControllerDelegate>
+@interface ClinicsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MKMapViewDelegate, CLLocationManagerDelegate, PlaceDetailViewControllerDelegate, FullMapViewControllerDelegate, LocationControllerDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 
