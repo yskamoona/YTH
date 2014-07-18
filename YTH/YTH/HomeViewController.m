@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
 @property (weak, nonatomic) IBOutlet UIView *clinicsView;
 
+@property (strong, nonatomic) SettingsViewController *settingVC;
+
 @property (nonatomic, assign) BOOL isPresenting;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewWidthConstraint;
@@ -68,13 +70,11 @@
 
 - (void)onPanGestureForMainView:(UIPanGestureRecognizer *)panGestureOnMainView {
     self.changingPosX = [panGestureOnMainView translationInView:self.view].x;
-    NSLog(@"Traslation in view.x %ld", (long)self.changingPosX);
-    
-    self.containerViewWidthConstraint.constant = 320 - self.changingPosX;
+     NSLog(@"Traslation in view.x %ld", (long)self.changingPosX);
+
     self.changingPosX = MIN(self.changingPosX, 260);
     self.changingPosX = MAX(self.changingPosX, 0);
-    
-    NSLog(@"New Pos %ld", (long)self.changingPosX);
+    self.containerViewWidthConstraint.constant = 320 - self.changingPosX;
     
     if (panGestureOnMainView.state == UIGestureRecognizerStateEnded) {
         if (self.changingPosX >= 150) {
@@ -94,9 +94,7 @@
             }];
         }
     }
-    
     [self.view updateConstraints];
-    
 }
 
 - (IBAction)handleClincsTapGesture:(UITapGestureRecognizer *)clincsTapGestureRecognizer {
@@ -165,6 +163,28 @@
 
 }
 
+#pragma  AS Setting VC delegate methods
+
+- (void)backToHomeScreenFromSettingVC:(SettingsViewController *)settingVC {
+    
+}
+
+- (void)addLocationViewToHomeView:(UIView *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
+    [self.containerView addSubview:locationSettingsView];
+}
+
+- (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
+    [self.containerView addSubview:myQestionsView];
+}
+
+- (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
+    [self.containerView addSubview:myReviewsView];
+}
+
+- (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
+    [self.containerView addSubview:favoriteGuidesView];
+}
+
 #pragma IBActions
 
 - (IBAction)onClincsButtonTapped:(id)sender {
@@ -172,7 +192,8 @@
 }
 
 - (IBAction)onSettingsButtonTapped:(id)sender {
-    SettingsViewController *settingVC = [[SettingsViewController alloc] init];
-    [self.settingsView addSubview:settingVC.view];
+    self.settingVC = [[SettingsViewController alloc] init];
+    self.settingVC.delegate = self;
+    [self.settingsView addSubview:self.settingVC.view];
 }
 @end
