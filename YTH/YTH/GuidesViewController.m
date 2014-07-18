@@ -22,6 +22,9 @@
     }
     return self;
 }
+- (IBAction)onCloseButtonTapped:(id)sender {
+       [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidLoad
 {

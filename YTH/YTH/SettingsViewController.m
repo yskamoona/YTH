@@ -7,12 +7,17 @@
 //
 
 #import "SettingsViewController.h"
+#import "HomeMainContentViewController.h"
 #import "LocationSettingViewController.h"
 #import "MyQuestionsViewController.h"
 #import "MyReviewsViewController.h"
 #import "FavoriteGuidesViewController.h"
 
+
 @interface SettingsViewController ()
+
+@property (strong, nonatomic) HomeMainContentViewController *homeMainContentVC;
+
 - (IBAction)onLocationButtonTapped:(id)sender;
 
 @end
@@ -27,7 +32,8 @@
 #pragma IBActions
 
 - (IBAction)onHomeButtonTapped:(id)sender {
-    
+    self.homeMainContentVC = [[HomeMainContentViewController alloc] init];
+    [self.delegate backToHomeScreenView:self.homeMainContentVC fromSettingVC:self];
 }
 
 - (IBAction)onLocationButtonTapped:(id)sender {

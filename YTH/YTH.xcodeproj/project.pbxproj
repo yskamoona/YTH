@@ -368,7 +368,6 @@
 		45FC049A196A05BD007DB5C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */,
 				45FCE9ED1976868D00AEA8F5 /* HomeViewController.h */,
 				45FCE9EE1976868D00AEA8F5 /* HomeViewController.m */,
 				45FCE9EF1976868D00AEA8F5 /* HomeViewController.xib */,
@@ -382,6 +381,7 @@
 				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
 				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
 				45FCEA1C19790E1900AEA8F5 /* SettingsPageViewControllers */,
+				45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
 
-@interface HomeViewController : UIViewController <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, SettingsViewControllerDelegate>
+
+@interface HomeViewController : UIViewController <SettingsViewControllerDelegate>
+
+
 
 @end
+
