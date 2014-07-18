@@ -31,6 +31,7 @@
     
     if (self.delegate != nil) {
         [self.delegate getPlacesInfoForFullMapVC:self];
+        self.placeInfo = [self.placesInfo firstObject];
     }
 
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
@@ -76,10 +77,8 @@
     
         float distance = [Utils convertToMeter:0.5];
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
-    [self.delegate getPlacesInfoForFullMapVC:self];
-    self.placeInfo = [self.placesInfo firstObject];
-    
-        [self.placeMapView setRegion:viewRegion];
+
+    [self.placeMapView setRegion:viewRegion];
     
     NSLog(@" placeinfo %@", self.placeInfo);
     
