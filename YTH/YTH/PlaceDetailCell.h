@@ -16,7 +16,7 @@
 
 @property (weak, nonatomic) id <PlaceDetailCellDelegate> delegate;
 
-- (void)setupCellWithPlaceInfo:(Place *)placeInfo;
+- (void)setupCellWithPlaceInfo:(Place *)placeInfo forRow:(NSInteger)row;
 
 @end
 

@@ -86,8 +86,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         PlaceDetailCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"PlaceDetailCell" forIndexPath:indexPath];
-        [cell setupCellWithPlaceInfo:self.placeInfo];
+        [cell setupCellWithPlaceInfo:self.placeInfo forRow:indexPath.row];
         cell.delegate = self;
+        cell.userInteractionEnabled = NO;
         return cell;
     } else {
         ReviewCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"ReviewCell" forIndexPath:indexPath];
