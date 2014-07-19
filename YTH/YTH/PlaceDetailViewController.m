@@ -10,18 +10,12 @@
 #import "PostReviewViewController.h"
 #import "FullMapViewController.h"
 #import "Review.h"
+#import "ReviewCell.h"
 
 @interface PlaceDetailViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *placeNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *placeAddressLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *placeImageView;
-@property (weak, nonatomic) IBOutlet UITableView *reviewsTableView;
+
+@property (weak, nonatomic) IBOutlet UITableView *detailsTableView;
 @property (strong, nonatomic) NSArray *reviews;
-@property (weak, nonatomic) IBOutlet UILabel *hours;
-
-@property (weak, nonatomic) IBOutlet UIScrollView *placeDetailScrollView;
-
-@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @property (assign) NSInteger startPlaceIndex;
 
@@ -29,28 +23,17 @@
 
 @implementation PlaceDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self getPlacesData];
-    
     self.startPlaceIndex = self.startPlaceIndexPath.section;
-    
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
+    [self setupTableView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.placeDetailScrollView setContentSize:self.contentView.frame.size];
 }
 
 //- (void)goToFullMapView:(id)sender {
@@ -67,8 +50,8 @@
     
     Place *selectedPlace = self.placesInfo[self.startPlaceIndex];
     
-    self.placeNameLabel.text =  selectedPlace.name;
-    self.placeAddressLabel.text =   [selectedPlace.address firstObject];
+//    self.placeNameLabel.text =  selectedPlace.name;
+//    self.placeAddressLabel.text =   [selectedPlace.address firstObject];
         [self getReviews];
 }
 
@@ -87,20 +70,16 @@
     } else {
         PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
         postReviewVC.place = self.placesInfo[0];
-        postReviewVC.name = _placeNameLabel.text;
+//        postReviewVC.name = _placeNameLabel.text;
         [self presentViewController:postReviewVC animated:NO completion:nil];
     }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.reviews.count;
-}
 
 
-- (void) getReviews
-{
-    //PFObject *review = [PFObject objectWithClassName:@"Review"];
-    
+
+
+- (void) getReviews {
     PFQuery *query = [Reviews query];
     [query whereKey:@"yelp_id" containsString:[self.placesInfo[0] yelp_id]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -108,21 +87,68 @@
             self.reviews = objects;
             Reviews *firstReview = [objects firstObject];
             NSLog(@"got review %@",firstReview);
-            // ...
-            [self.reviewsTableView reloadData];
+            [self.detailsTableView reloadData];
         }
     }];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //UITableViewCell *cell = [self.reviewsTableView dequeueReusableCellWithIdentifier:@"ReviewCell" forIndexPath:indexPath];
 
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ReviewCell"];
-    cell.textLabel.text = [self.reviews[indexPath.row] body];
-    return cell;
+#pragma SetUpTableView
+
+- (void)setupTableView {
+    //for first section
+    [self.detailsTableView registerNib:[UINib nibWithNibName:@"PlaceDetailCell" bundle:nil] forCellReuseIdentifier:@"PlaceDetailCell"];
+    //for second section
+    [self.detailsTableView registerNib:[UINib nibWithNibName:@"ReviewCell" bundle:nil] forCellReuseIdentifier:@"ReviewCell"];
+}
+
+#pragma UITableViewDataSourceDelegate Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    } else {
+        return self.reviews.count;
+    }
 }
 
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        PlaceDetailCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"PlaceDetailCell" forIndexPath:indexPath];
+        [cell setupCellWithPlaceInfo:self.placesInfo[0] forRow:indexPath.row];
+        cell.delegate = self;
+        cell.userInteractionEnabled = NO;
+        return cell;
+    } else {
+        ReviewCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"ReviewCell" forIndexPath:indexPath];
+        return cell;
+    }
+}
+
+#pragma UITableViewDelegate Methods
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 600;
+    } else {
+        return 200;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 600;
+    } else {
+        return 200;
+    }
+}
+
+#pragma IBActions
 
 - (IBAction)onFullMapView:(id)sender {
     FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
@@ -132,14 +158,15 @@
     [self presentViewController:fullMapVC animated:YES completion:nil];
 }
 
+- (void)didDismissAlertView:(UIAlertView *)alertView {
+    PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
+    postReviewVC.place = self.placesInfo;
+    [self presentViewController:postReviewVC animated:NO completion:nil];
+}
 
 - (IBAction)onBackButtonTapped:(id)sender {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)onCallUsButtonPressed:(id)sender {
-    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", [self.placesInfo[self.startPlaceIndexPath.section] display_phone]];
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:phoneNumber]];
-}
 
 @end

@@ -119,6 +119,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
     [_homeMapView setDelegate:self];
     [self setupCollectionView];
+    [self.homeCollectionView reloadData];
     
     
    // [self setLocationForMap];

@@ -35,10 +35,10 @@
 		451CC00F1969FE57007289F3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC00E1969FE57007289F3 /* Security.framework */; };
 		451CC0111969FE5D007289F3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0101969FE5D007289F3 /* StoreKit.framework */; };
 		451CC0131969FE6B007289F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0121969FE6B007289F3 /* SystemConfiguration.framework */; };
+		4533A3E5197A6024006415A9 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4533A3E4197A6024006415A9 /* ReviewCell.xib */; };
 		45341336196AB2B200C6A2FE /* PlaceDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45341335196AB2B200C6A2FE /* PlaceDetailCell.m */; };
 		45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */; };
-		4534133A196AB35F00C6A2FE /* ReviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341339196AB35F00C6A2FE /* ReviewCollectionViewCell.xib */; };
-		4534133D196AB37400C6A2FE /* ReviewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534133C196AB37400C6A2FE /* ReviewCollectionViewCell.m */; };
+		4534133D196AB37400C6A2FE /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534133C196AB37400C6A2FE /* ReviewCell.m */; };
 		45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */; };
 		45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */; };
 		45BDFB97196A0FD40095CBBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BDFB96196A0FD40095CBBD /* MapKit.framework */; };
@@ -64,6 +64,8 @@
 		45FCEA041976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */; };
 		45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA061978787500AEA8F5 /* SettingsViewController.m */; };
 		45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA071978787500AEA8F5 /* SettingsViewController.xib */; };
+		B08266D3197A17840057A428 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B08266D1197A17840057A428 /* TableViewCell.m */; };
+		B08266D4197A17840057A428 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B08266D2197A17840057A428 /* TableViewCell.xib */; };
 		45FCEA0D1979063200AEA8F5 /* LocationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA0B1979063200AEA8F5 /* LocationSettingViewController.m */; };
 		45FCEA0E1979063200AEA8F5 /* LocationSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA0C1979063200AEA8F5 /* LocationSettingViewController.xib */; };
 		45FCEA1219790C9900AEA8F5 /* MyQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA1019790C9900AEA8F5 /* MyQuestionsViewController.m */; };
@@ -74,6 +76,8 @@
 		45FCEA2519790FCE00AEA8F5 /* MyReviewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA2319790FCE00AEA8F5 /* MyReviewsViewController.xib */; };
 		45FCEA291979132500AEA8F5 /* HomeMainContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA271979132500AEA8F5 /* HomeMainContentViewController.m */; };
 		45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA281979132500AEA8F5 /* HomeMainContentViewController.xib */; };
+		45FCEA73197A0DCD00AEA8F5 /* RatingStarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA71197A0DCD00AEA8F5 /* RatingStarsViewController.m */; };
+		45FCEA74197A0DCD00AEA8F5 /* RatingStarsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA72197A0DCD00AEA8F5 /* RatingStarsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,12 +127,12 @@
 		451CC00E1969FE57007289F3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		451CC0101969FE5D007289F3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		451CC0121969FE6B007289F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4533A3E4197A6024006415A9 /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		45341334196AB2B200C6A2FE /* PlaceDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailCell.h; sourceTree = "<group>"; };
 		45341335196AB2B200C6A2FE /* PlaceDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailCell.m; sourceTree = "<group>"; };
 		45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailCell.xib; sourceTree = "<group>"; };
-		45341339196AB35F00C6A2FE /* ReviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCollectionViewCell.xib; sourceTree = "<group>"; };
-		4534133B196AB37400C6A2FE /* ReviewCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCollectionViewCell.h; sourceTree = "<group>"; };
-		4534133C196AB37400C6A2FE /* ReviewCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCollectionViewCell.m; sourceTree = "<group>"; };
+		4534133B196AB37400C6A2FE /* ReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCell.h; sourceTree = "<group>"; };
+		4534133C196AB37400C6A2FE /* ReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCell.m; sourceTree = "<group>"; };
 		4534133E196AB5B200C6A2FE /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
 		4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
 		45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailViewController.xib; sourceTree = "<group>"; };
@@ -183,7 +187,13 @@
 		45FCEA261979132500AEA8F5 /* HomeMainContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMainContentViewController.h; sourceTree = "<group>"; };
 		45FCEA271979132500AEA8F5 /* HomeMainContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMainContentViewController.m; sourceTree = "<group>"; };
 		45FCEA281979132500AEA8F5 /* HomeMainContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeMainContentViewController.xib; sourceTree = "<group>"; };
+		45FCEA70197A0DCD00AEA8F5 /* RatingStarsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingStarsViewController.h; sourceTree = "<group>"; };
+		45FCEA71197A0DCD00AEA8F5 /* RatingStarsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingStarsViewController.m; sourceTree = "<group>"; };
+		45FCEA72197A0DCD00AEA8F5 /* RatingStarsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingStarsViewController.xib; sourceTree = "<group>"; };
 		95A2106A4F894780BD5FFCF8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B08266D0197A17840057A428 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		B08266D1197A17840057A428 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		B08266D2197A17840057A428 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		B562F88A78DE4197BC039A65 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -353,14 +363,17 @@
 				45341334196AB2B200C6A2FE /* PlaceDetailCell.h */,
 				45341335196AB2B200C6A2FE /* PlaceDetailCell.m */,
 				45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */,
-				4534133B196AB37400C6A2FE /* ReviewCollectionViewCell.h */,
-				4534133C196AB37400C6A2FE /* ReviewCollectionViewCell.m */,
-				45341339196AB35F00C6A2FE /* ReviewCollectionViewCell.xib */,
+				4534133B196AB37400C6A2FE /* ReviewCell.h */,
+				4534133C196AB37400C6A2FE /* ReviewCell.m */,
+				4533A3E4197A6024006415A9 /* ReviewCell.xib */,
 				45FCE9FD1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.h */,
 				45FCE9FE1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m */,
 				45FCEA001976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib */,
 				45FCEA021976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.h */,
 				45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */,
+				B08266D0197A17840057A428 /* TableViewCell.h */,
+				B08266D1197A17840057A428 /* TableViewCell.m */,
+				B08266D2197A17840057A428 /* TableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -377,6 +390,9 @@
 				45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */,
 				45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */,
 				45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */,
+				45FCEA70197A0DCD00AEA8F5 /* RatingStarsViewController.h */,
+				45FCEA71197A0DCD00AEA8F5 /* RatingStarsViewController.m */,
+				45FCEA72197A0DCD00AEA8F5 /* RatingStarsViewController.xib */,
 				45FCEA051978787500AEA8F5 /* SettingsViewController.h */,
 				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
 				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
@@ -509,7 +525,9 @@
 			files = (
 				45FCEA1B19790CC600AEA8F5 /* FavoriteGuidesViewController.xib in Resources */,
 				45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */,
+				4533A3E5197A6024006415A9 /* ReviewCell.xib in Resources */,
 				45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */,
+				45FCEA74197A0DCD00AEA8F5 /* RatingStarsViewController.xib in Resources */,
 				45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */,
 				45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */,
 				45FCE9F61976A48200AEA8F5 /* GuidesViewController.xib in Resources */,
@@ -523,8 +541,8 @@
 				45FCEA1319790C9900AEA8F5 /* MyQuestionsViewController.xib in Resources */,
 				45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */,
 				45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */,
+				B08266D4197A17840057A428 /* TableViewCell.xib in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
-				4534133A196AB35F00C6A2FE /* ReviewCollectionViewCell.xib in Resources */,
 				45FCE9FB1976A4A300AEA8F5 /* QuestionsViewController.xib in Resources */,
 				45FCE9F11976868D00AEA8F5 /* HomeViewController.xib in Resources */,
 			);
@@ -592,9 +610,11 @@
 				17EC1BD7196A82B4005A456D /* Utils.m in Sources */,
 				45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */,
 				45FC04B2196A06F4007DB5C4 /* Review.m in Sources */,
+				B08266D3197A17840057A428 /* TableViewCell.m in Sources */,
 				45FCEA291979132500AEA8F5 /* HomeMainContentViewController.m in Sources */,
 				45FCEA1219790C9900AEA8F5 /* MyQuestionsViewController.m in Sources */,
 				45FCEA1A19790CC600AEA8F5 /* FavoriteGuidesViewController.m in Sources */,
+				45FCEA73197A0DCD00AEA8F5 /* RatingStarsViewController.m in Sources */,
 				17E44E571974B20200F7571E /* LocationController.m in Sources */,
 				45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */,
 				451CBFDF1969FC0A007289F3 /* AppDelegate.m in Sources */,
@@ -605,7 +625,7 @@
 				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
 				451CC0001969FC57007289F3 /* PlacesViewController.m in Sources */,
 				45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */,
-				4534133D196AB37400C6A2FE /* ReviewCollectionViewCell.m in Sources */,
+				4534133D196AB37400C6A2FE /* ReviewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

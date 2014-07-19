@@ -1,14 +1,14 @@
 //
-//  ReviewCollectionViewCell.m
+//  ReviewCell.m
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/7/14.
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
-#import "ReviewCollectionViewCell.h"
+#import "ReviewCell.h"
 
-@implementation ReviewCollectionViewCell
+@implementation ReviewCell
 
 - (id)initWithFrame:(CGRect)frame
 {

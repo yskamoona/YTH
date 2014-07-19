@@ -1,5 +1,5 @@
 //
-//  ReviewCollectionViewCell.h
+//  ReviewCell.h
 //  YTH
 //
 //  Created by Yousra Kamoona on 7/7/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReviewCollectionViewCell : UICollectionViewCell
+@interface ReviewCell : UITableViewCell
 
 @end
