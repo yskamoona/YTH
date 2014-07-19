@@ -7,7 +7,7 @@
 //
 
 #import "HomeMainContentViewController.h"
-#import "ClinicsViewController.h"
+#import "PlacesViewController.h"
 #import "GuidesViewController.h"
 #import "QuestionsViewController.h"
 
@@ -45,7 +45,7 @@
 
 - (IBAction)handleClincsTapGesture:(UITapGestureRecognizer *)clincsTapGestureRecognizer {
    
-    ClinicsViewController *clinicsVC = [[ClinicsViewController alloc] init];
+    PlacesViewController *clinicsVC = [[PlacesViewController alloc] init];
     clinicsVC.modalPresentationStyle = UIModalPresentationCustom;
     clinicsVC.navigationController.transitioningDelegate = self;
     //[self.navigationController pushViewController:clinicsVC animated:YES];

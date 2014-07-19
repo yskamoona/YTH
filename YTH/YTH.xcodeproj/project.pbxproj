@@ -24,8 +24,8 @@
 		451CBFEA1969FC0A007289F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CBFD21969FC0A007289F3 /* UIKit.framework */; };
 		451CBFF21969FC0A007289F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 451CBFF01969FC0A007289F3 /* InfoPlist.strings */; };
 		451CBFF41969FC0A007289F3 /* YTHTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 451CBFF31969FC0A007289F3 /* YTHTests.m */; };
-		451CC0001969FC57007289F3 /* ClinicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451CBFFE1969FC57007289F3 /* ClinicsViewController.m */; };
-		451CC0011969FC57007289F3 /* ClinicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451CBFFF1969FC57007289F3 /* ClinicsViewController.xib */; };
+		451CC0001969FC57007289F3 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451CBFFE1969FC57007289F3 /* PlacesViewController.m */; };
+		451CC0011969FC57007289F3 /* PlacesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451CBFFF1969FC57007289F3 /* PlacesViewController.xib */; };
 		451CC0031969FE00007289F3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0021969FE00007289F3 /* Parse.framework */; };
 		451CC0051969FE0E007289F3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0041969FE0E007289F3 /* AudioToolbox.framework */; };
 		451CC0071969FE28007289F3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0061969FE28007289F3 /* CFNetwork.framework */; };
@@ -111,9 +111,9 @@
 		451CBFEF1969FC0A007289F3 /* YTHTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YTHTests-Info.plist"; sourceTree = "<group>"; };
 		451CBFF11969FC0A007289F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		451CBFF31969FC0A007289F3 /* YTHTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTHTests.m; sourceTree = "<group>"; };
-		451CBFFD1969FC57007289F3 /* ClinicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicsViewController.h; sourceTree = "<group>"; };
-		451CBFFE1969FC57007289F3 /* ClinicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicsViewController.m; sourceTree = "<group>"; };
-		451CBFFF1969FC57007289F3 /* ClinicsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClinicsViewController.xib; sourceTree = "<group>"; };
+		451CBFFD1969FC57007289F3 /* PlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesViewController.h; sourceTree = "<group>"; };
+		451CBFFE1969FC57007289F3 /* PlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
+		451CBFFF1969FC57007289F3 /* PlacesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlacesViewController.xib; sourceTree = "<group>"; };
 		451CC0021969FE00007289F3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		451CC0041969FE0E007289F3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		451CC0061969FE28007289F3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -411,9 +411,9 @@
 		45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				451CBFFD1969FC57007289F3 /* ClinicsViewController.h */,
-				451CBFFE1969FC57007289F3 /* ClinicsViewController.m */,
-				451CBFFF1969FC57007289F3 /* ClinicsViewController.xib */,
+				451CBFFD1969FC57007289F3 /* PlacesViewController.h */,
+				451CBFFE1969FC57007289F3 /* PlacesViewController.m */,
+				451CBFFF1969FC57007289F3 /* PlacesViewController.xib */,
 				4534133E196AB5B200C6A2FE /* PlaceDetailViewController.h */,
 				4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */,
 				45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */,
@@ -516,7 +516,7 @@
 				45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */,
 				45FCEA011976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib in Resources */,
 				45FCEA2519790FCE00AEA8F5 /* MyReviewsViewController.xib in Resources */,
-				451CC0011969FC57007289F3 /* ClinicsViewController.xib in Resources */,
+				451CC0011969FC57007289F3 /* PlacesViewController.xib in Resources */,
 				45FCEA0E1979063200AEA8F5 /* LocationSettingViewController.xib in Resources */,
 				45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */,
 				451CBFD91969FC0A007289F3 /* InfoPlist.strings in Resources */,
@@ -603,7 +603,7 @@
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,
 				45FC04AF196A06E9007DB5C4 /* Place.m in Sources */,
 				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
-				451CC0001969FC57007289F3 /* ClinicsViewController.m in Sources */,
+				451CC0001969FC57007289F3 /* PlacesViewController.m in Sources */,
 				45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */,
 				4534133D196AB37400C6A2FE /* ReviewCollectionViewCell.m in Sources */,
 			);

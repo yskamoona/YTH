@@ -19,7 +19,7 @@
 
 @property (weak, nonatomic) id <FullMapViewControllerDelegate> delegate;
 @property (nonatomic, strong) NSArray *placesInfo;
-@property (nonatomic, strong) Place *placeInfo;
+@property (nonatomic, assign) NSInteger showPlaceIndex;
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 
@@ -27,6 +27,7 @@
 
 @protocol FullMapViewControllerDelegate <NSObject>
 
-- (void)getPlacesInfoForFullMapVC:(FullMapViewController *)placesInfoFullMapVC;
-    
+- (void)getPlacesListAtBeginning;
+- (void)getPlacesListAtIndexPath: (NSInteger)indexPath;
+
 @end

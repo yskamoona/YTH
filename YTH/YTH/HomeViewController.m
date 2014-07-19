@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "ClinicsViewController.h"
+#import "PlacesViewController.h"
 
 const CGFloat widthConstraintMax = 320;
 

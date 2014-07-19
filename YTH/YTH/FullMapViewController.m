@@ -29,11 +29,6 @@
 {
     [super viewDidLoad];
     
-    if (self.delegate != nil) {
-        [self.delegate getPlacesInfoForFullMapVC:self];
-        self.placeInfo = [self.placesInfo firstObject];
-    }
-
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
     [LocationController sharedLocationController];
     [LocationController sharedLocationController].delegate = self;
@@ -48,41 +43,26 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (self.placesInfo != nil) {
-         return self.placesInfo.count;
-    }
-    else return 1;
+    return  self.placesInfo.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PlaceCell *cell = [self.placeWithMapCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaceCell" forIndexPath:indexPath];
-    if (self.placeInfo == nil) {
-        [cell setupCellWithPlaceInfo:self.placesInfo[indexPath.row]];
-    } else {
-        [cell setupCellWithPlaceInfo:self.placeInfo];
-    }
+
     return cell;
 }
 
 
 - (void)setupMapView {
     
-    // Use San Francisco for simulator
-   
-    
-    
     NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
+          NSLog(@" placeinfo %@", self.placesInfo);
     
-        float distance = [Utils convertToMeter:0.5];
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
-
-    [self.placeMapView setRegion:viewRegion];
+    Place *showPlace = self.placesInfo[self.showPlaceIndex];
     
-    NSLog(@" placeinfo %@", self.placeInfo);
-    
-            NSString *address = [self.placeInfo.address componentsJoinedByString:@","];
+    NSString *address = [showPlace.address componentsJoinedByString:@","];
     NSLog(@" address %@", address);
     
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -94,12 +74,34 @@
                                  
                                  MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
                                  point.coordinate = placemark.coordinate;
-                                 point.title = self.placeInfo.name;
+                                 point.title = [self.placesInfo[self.showPlaceIndex] name];
                                  point.subtitle = address;
                                  [self.placeMapView addAnnotation:point];
+
+                             
+                             float distance = [Utils convertToMeter:0.5];
+                             MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(placemark.coordinate, distance, distance);
+                             
+                             [self.placeMapView setRegion:viewRegion];
+                             
                              }
                          }];
+    
 
+}
+
+-(void) setRegion {
+    MKMapRect zoomRect = MKMapRectNull;
+    for (id <MKAnnotation> annotation in self.placeMapView.annotations) {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+        if (MKMapRectIsNull(zoomRect)) {
+            zoomRect = pointRect;
+        } else {
+        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        }
+    }
+    [self.placeMapView setVisibleMapRect:zoomRect animated:YES];
 }
 
 #pragma IBActions

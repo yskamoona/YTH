@@ -23,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
+@property (assign) NSInteger startPlaceIndex;
+
 @end
 
 @implementation PlaceDetailViewController
@@ -41,6 +43,8 @@
     [super viewDidLoad];
     [self getPlacesData];
     
+    self.startPlaceIndex = self.startPlaceIndexPath.section;
+    
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
 }
 
@@ -57,22 +61,15 @@
 
 - (void)getPlacesData
 {
-    if (self.placeInfo == nil) {
-        self.placeInfo = [[Place alloc] init];
+    if (self.placesInfo == nil) {
+        self.placesInfo = [NSArray array];
     }
     
-    if (self.delegate != nil) {
-        [self.delegate getPlaceInfoForPlaceDetailVC:self];
-    }
+    Place *selectedPlace = self.placesInfo[self.startPlaceIndex];
     
-    self.placeNameLabel.text = self.placeInfo.name;
-    self.placeAddressLabel.text = [self.placeInfo.address firstObject];
-    //not sure what to show for services offered.
-    //self.servicesOffered.text = self.placeInfo.snippet_text;
-    
-    //self.hours.text = self.placeInfo.hours;
-    
-    [self getReviews];
+    self.placeNameLabel.text =  selectedPlace.name;
+    self.placeAddressLabel.text =   [selectedPlace.address firstObject];
+        [self getReviews];
 }
 
 - (IBAction)onRateThisLocationButton:(id)sender {
@@ -89,7 +86,7 @@
         NSLog(@"user pressed OK");
     } else {
         PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
-        postReviewVC.place = self.placeInfo;
+        postReviewVC.place = self.placesInfo[0];
         postReviewVC.name = _placeNameLabel.text;
         [self presentViewController:postReviewVC animated:NO completion:nil];
     }
@@ -105,7 +102,7 @@
     //PFObject *review = [PFObject objectWithClassName:@"Review"];
     
     PFQuery *query = [Reviews query];
-    [query whereKey:@"yelp_id" containsString:self.placeInfo.yelp_id];
+    [query whereKey:@"yelp_id" containsString:[self.placesInfo[0] yelp_id]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.reviews = objects;
@@ -129,7 +126,8 @@
 
 - (IBAction)onFullMapView:(id)sender {
     FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
-    fullMapVC.placeInfo = self.placeInfo;
+    fullMapVC.placesInfo = self.placesInfo;
+    fullMapVC.showPlaceIndex = self.startPlaceIndexPath.section;
     //[self.navigationController pushViewController:fullMapVC animated:YES];
     [self presentViewController:fullMapVC animated:YES completion:nil];
 }
@@ -140,7 +138,7 @@
 }
 
 - (IBAction)onCallUsButtonPressed:(id)sender {
-    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", self.placeInfo.display_phone];
+    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", [self.placesInfo[self.startPlaceIndexPath.section] display_phone]];
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:phoneNumber]];
 }
 
