@@ -9,11 +9,13 @@
 #import "FullMapViewController.h"
 #import "PlaceCell.h"
 #import "Utils.h"
+#import <MapKit/MapKit.h>
 
 @interface FullMapViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *placeWithMapCollectionView;
 
 @property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) MKPointAnnotation *point;
 @end
 
 @implementation FullMapViewController
@@ -23,6 +25,7 @@
     NSLog(@" FULL MAP getting location update in view %@", location);
     self.currentLocation = location;
     [self setupMapView];
+    [self setupMapRegion];
 }
 
 - (void)viewDidLoad
@@ -33,8 +36,6 @@
     [LocationController sharedLocationController];
     [LocationController sharedLocationController].delegate = self;
     [[[LocationController sharedLocationController] locationManager] startUpdatingLocation];
-    
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -58,12 +59,13 @@
     NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
-          NSLog(@" placeinfo %@", self.placesInfo);
+//          NSLog(@" placeinfo %@", self.placesInfo);
     
-    Place *showPlace = self.placesInfo[self.showPlaceIndex];
-    
+//    Place *showPlace = self.placesInfo[self.showPlaceIndex];
+    for (Place *showPlace in self.placesInfo)
+    {
     NSString *address = [showPlace.address componentsJoinedByString:@","];
-    NSLog(@" address %@", address);
+//    NSLog(@" address %@", address);
     
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
             [geocoder geocodeAddressString:address
@@ -71,34 +73,28 @@
                              if (placemarks && placemarks.count > 0) {
                                  CLPlacemark *topResult = [placemarks objectAtIndex:0];
                                  MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
-                                 
-                                 MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-                                 point.coordinate = placemark.coordinate;
-                                 point.title = [self.placesInfo[self.showPlaceIndex] name];
-                                 point.subtitle = address;
-                                 [self.placeMapView addAnnotation:point];
-
-                             
-                             float distance = [Utils convertToMeter:0.5];
-                             MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(placemark.coordinate, distance, distance);
-                             
-                             [self.placeMapView setRegion:viewRegion];
-                             
+                                 self.point = [[MKPointAnnotation alloc] init];
+                                 self.point.coordinate = placemark.coordinate;
+                                 self.point.title = [self.placesInfo[self.showPlaceIndex] name];
+                                 self.point.subtitle = address;
+                                 [self.placeMapView addAnnotation:self.point];
                              }
-                         }];
-    
-
+                        }];
+    }
 }
 
--(void) setRegion {
+-(void) setupMapRegion {
     MKMapRect zoomRect = MKMapRectNull;
+    NSLog(@" hey ");
+
     for (id <MKAnnotation> annotation in self.placeMapView.annotations) {
         MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+        NSLog(@" hey ");
         if (MKMapRectIsNull(zoomRect)) {
             zoomRect = pointRect;
         } else {
-        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+            zoomRect = MKMapRectUnion(zoomRect, pointRect);
         }
     }
     [self.placeMapView setVisibleMapRect:zoomRect animated:YES];

@@ -14,8 +14,8 @@
 
 @protocol FullMapViewControllerDelegate;
 
-@interface FullMapViewController : UIViewController <MKMapViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate,LocationControllerDelegate>
-@property (weak, nonatomic) IBOutlet MKMapView *placeMapView;
+@interface FullMapViewController : UIViewController <MKMapViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate,LocationControllerDelegate, MKAnnotation>
+@property (strong, nonatomic) IBOutlet MKMapView *placeMapView;
 
 @property (weak, nonatomic) id <FullMapViewControllerDelegate> delegate;
 @property (nonatomic, strong) NSArray *placesInfo;
