@@ -239,7 +239,6 @@ typedef enum {
     self.latestTableView.backgroundColor   = [UIColor colorWithWhite:1 alpha:.2];
     self.trendingTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:.2];
     self.pinnedTableView.backgroundColor   = [UIColor colorWithWhite:1 alpha:.2];
- 
     
     self.latestTableView.delegate     = self;
     self.latestTableView.dataSource   = self;
@@ -250,12 +249,12 @@ typedef enum {
     
     
     self.fakeLatestData = @[
-                            @{@"question":@"In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.", @"location":@25, @"answers":@2, @"time":@162000},
-                            @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@25, @"answers":@0, @"time":@162000},
-                            @{@"question":@"tim", @"location":@25, @"answers":@1, @"time":@162000},
-                            @{@"question":@"tim", @"location":@25, @"answers":@2, @"time":@162000},
-                            @{@"question":@"tim", @"location":@25, @"answers":@2, @"time":@162000},
-                            @{@"question":@"tim", @"location":@25, @"answers":@2, @"time":@162000},
+                            @{@"question":@"In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.", @"location":@"San Francisco", @"answers":@2, @"time":@162020513451},
+                            @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@"Los Angeles", @"answers":@0, @"time":@162000134},
+                            @{@"question":@"tim", @"location":@"Oakland", @"answers":@1, @"time":@16200131},
+                            @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@162003},
+                            @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@162010},
+                            @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@162050},
                             ];
     
 
@@ -324,37 +323,59 @@ typedef enum {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (tableView == self.latestTableView) {
-        return 5;
-    }
-    else if (tableView == self.trendingTableView) {
-        return 5;
-    }
-    else {
-        return 5;
-    }
+//    if (tableView == self.latestTableView) {
+//        return 5;
+//    }
+//    else if (tableView == self.trendingTableView) {
+//        return 5;
+//    }
+//    else {
+//        return 5;
+//    }
+    return 5;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView == self.latestTableView) {
-        return 100;
-    }
-    else if (tableView == self.trendingTableView) {
-        return 100;
-    }
-    else {
-        return 100;
-    }
+//    if (tableView == self.latestTableView) {
+//        return 100;
+//    }
+//    else if (tableView == self.trendingTableView) {
+//        return 100;
+//    }
+//    else {
+//        return 100;
+//    }
+    return 112;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.latestTableView) {
-        UITableViewCell *cell = [self.latestTableView dequeueReusableCellWithIdentifier:@"TableCell"];
+        TableViewCell *cell = [self.latestTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
+        cell.questionLabel.text = self.fakeLatestData[indexPath.row][@"question"];
+        cell.locationLabel.text = self.fakeLatestData[indexPath.row][@"location"];
+        //Number of answers conditional formatting
+        if (self.fakeLatestData[indexPath.row][@"answers"] == [NSNumber numberWithInteger:1]) {
+            NSString *answerString = [NSString stringWithFormat:@"%@ answer",self.fakeLatestData[indexPath.row][@"answers"]];
+            cell.answerLabel.text = answerString;
+        } else {
+            NSString *answerString = [NSString stringWithFormat:@"%@ answers",self.fakeLatestData[indexPath.row][@"answers"]];
+            cell.answerLabel.text = answerString;
+        }
+        //The date should read in a more friendly, "3 days ago" or "1 hour ago"
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        NSDate *dateString = [NSDate dateWithTimeIntervalSinceReferenceDate:[self.fakeLatestData[indexPath.row][@"time"] doubleValue]];
+        cell.timeLabel.text = [dateFormatter stringFromDate:dateString];
+
         
-        //cell.questionLabel.text = self.fakeLatestData[indexPath.row][@"question"];
+        // This should probably go somewhere else... ?
+        cell.backgroundColor = [UIColor clearColor];
+
+        
         return cell;
     } else if (tableView == self.trendingTableView) {
-         UITableViewCell *cell = [self.trendingTableView dequeueReusableCellWithIdentifier:@"TableCell"];
+        TableViewCell *cell = [self.latestTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
+        cell.questionLabel.text = self.fakeLatestData[indexPath.row][@"question"];
         return cell;
     } else {
         UITableViewCell *cell = [self.pinnedTableView dequeueReusableCellWithIdentifier:@"TableCell"];

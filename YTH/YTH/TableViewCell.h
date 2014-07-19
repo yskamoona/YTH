@@ -10,5 +10,8 @@
 
 @interface TableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *questionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *answerLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
