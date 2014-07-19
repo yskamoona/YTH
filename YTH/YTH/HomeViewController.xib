@@ -6,12 +6,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="buttonBackgroundView" destination="seo-Ru-t6U" id="4uS-um-Bxi"/>
                 <outlet property="clincsTapGestureRecognizer" destination="TMu-oy-XSI" id="K5c-Ww-t2P"/>
                 <outlet property="clinicsView" destination="wch-FV-3Oo" id="a8S-Im-DfO"/>
                 <outlet property="containerView" destination="sDK-WL-WfS" id="6ZX-uj-Kgw"/>
                 <outlet property="containerViewPanGestureRecognizer" destination="YDh-26-TMH" id="blY-uY-gnL"/>
-                <outlet property="containerViewWidthConstraint" destination="sDF-tW-j0H" id="ppR-Ri-5y9"/>
+                <outlet property="latestTableView" destination="EEi-vC-fsU" id="VNH-DO-52m"/>
+                <outlet property="pinnedTableView" destination="WKI-Vb-7ZC" id="AJh-By-yAC"/>
+                <outlet property="questionsAreaView" destination="Kvx-tK-GZI" id="xuH-w9-H0o"/>
                 <outlet property="settingsView" destination="Deh-re-baA" id="yQw-qC-QA7"/>
+                <outlet property="trendingTableView" destination="cRX-9B-XyE" id="Jov-6l-Knd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,7 +33,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDK-WL-WfS" userLabel="Container view">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDK-WL-WfS" userLabel="Container view">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -100,41 +104,16 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="0.08235294371843338" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
                         </view>
-                        <view alpha="0.15000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMY-mH-Zbt" userLabel="Tab View">
-                            <rect key="frame" x="0.0" y="164" width="320" height="52"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdd-X9-B2l">
-                                    <rect key="frame" x="20" y="11" width="105" height="29"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                    <state key="normal" title="Trending">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycc-Mu-2hU">
-                                    <rect key="frame" x="172" y="12" width="113" height="29"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                                    <state key="normal" title="Latest Posts">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.21176472306251526" green="0.18431372940540314" blue="0.12549020349979401" alpha="1" colorSpace="deviceRGB"/>
-                        </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-tK-GZI" userLabel="HomeContentView">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-tK-GZI" userLabel="Questions Area View">
                             <rect key="frame" x="0.0" y="165" width="320" height="403"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="seo-Ru-t6U" userLabel="contentButtonBackgroundView">
+                                <view userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="seo-Ru-t6U" userLabel="contentButtonBackgroundView">
                                     <rect key="frame" x="0.0" y="0.0" width="107" height="52"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGu-7V-MNr">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGu-7V-MNr">
                                     <rect key="frame" x="0.0" y="0.0" width="107" height="52"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
@@ -142,8 +121,11 @@
                                     <state key="normal" title="Latest">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="onLatestButton:" destination="-1" eventType="touchUpInside" id="8dC-ZN-ZIR"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-gm-y1l">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-gm-y1l">
                                     <rect key="frame" x="107" y="0.0" width="107" height="52"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
@@ -151,8 +133,11 @@
                                     <state key="normal" title="Trending">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="onTrendingButton:" destination="-1" eventType="touchUpInside" id="yh7-JV-nAx"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4PN-Gr-0D8">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4PN-Gr-0D8">
                                     <rect key="frame" x="213" y="0.0" width="107" height="52"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
@@ -160,43 +145,40 @@
                                     <state key="normal" title="Pinned">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="onPinnedButton:" destination="-1" eventType="touchUpInside" id="umm-65-0rQ"/>
+                                    </connections>
                                 </button>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EEi-vC-fsU" userLabel="Latest Table View">
+                                    <rect key="frame" x="0.0" y="52" width="320" height="351"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </tableView>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cRX-9B-XyE" userLabel="Trending Table View">
+                                    <rect key="frame" x="320" y="52" width="320" height="351"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </tableView>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WKI-Vb-7ZC" userLabel="Pinned Table View">
+                                    <rect key="frame" x="640" y="52" width="320" height="351"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="sectionIndexBackgroundColor" red="0.87220982140000003" green="0.078508597149999998" blue="0.095627961560000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </tableView>
                             </subviews>
-                            <constraints>
-                                <constraint firstItem="4PN-Gr-0D8" firstAttribute="width" secondItem="5A3-gm-y1l" secondAttribute="width" id="6qG-Ji-Q2p"/>
-                                <constraint firstItem="4PN-Gr-0D8" firstAttribute="leading" secondItem="5A3-gm-y1l" secondAttribute="trailing" id="9Mm-ax-9dh"/>
-                                <constraint firstItem="nGu-7V-MNr" firstAttribute="leading" secondItem="Kvx-tK-GZI" secondAttribute="leading" id="Dzd-Qf-7s7"/>
-                                <constraint firstItem="4PN-Gr-0D8" firstAttribute="width" secondItem="nGu-7V-MNr" secondAttribute="width" id="HEC-a3-FNS"/>
-                                <constraint firstItem="5A3-gm-y1l" firstAttribute="leading" secondItem="nGu-7V-MNr" secondAttribute="trailing" id="LLs-Sh-SSr"/>
-                                <constraint firstItem="nGu-7V-MNr" firstAttribute="bottom" secondItem="seo-Ru-t6U" secondAttribute="bottom" id="OMC-6F-r3S"/>
-                                <constraint firstItem="nGu-7V-MNr" firstAttribute="top" secondItem="Kvx-tK-GZI" secondAttribute="top" id="OtZ-IE-o8a"/>
-                                <constraint firstItem="nGu-7V-MNr" firstAttribute="leading" secondItem="seo-Ru-t6U" secondAttribute="leading" id="SN1-Ha-dhr"/>
-                                <constraint firstItem="nGu-7V-MNr" firstAttribute="top" secondItem="5A3-gm-y1l" secondAttribute="top" id="U5F-EB-XZF"/>
-                                <constraint firstItem="5A3-gm-y1l" firstAttribute="centerY" secondItem="nGu-7V-MNr" secondAttribute="centerY" id="UD3-Mh-OPH"/>
-                                <constraint firstItem="nGu-7V-MNr" firstAttribute="top" secondItem="seo-Ru-t6U" secondAttribute="top" id="Z8g-kE-oim"/>
-                                <constraint firstAttribute="trailing" secondItem="4PN-Gr-0D8" secondAttribute="trailing" id="g0e-79-VdF"/>
-                                <constraint firstItem="nGu-7V-MNr" firstAttribute="top" secondItem="4PN-Gr-0D8" secondAttribute="top" id="jJL-RR-7C0"/>
-                                <constraint firstItem="5A3-gm-y1l" firstAttribute="centerY" secondItem="4PN-Gr-0D8" secondAttribute="centerY" id="s9l-kU-GPP"/>
-                                <constraint firstItem="nGu-7V-MNr" firstAttribute="trailing" secondItem="seo-Ru-t6U" secondAttribute="trailing" id="zfu-z3-zA1"/>
-                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.40784317260000003" blue="0.48627454040000001" alpha="1" colorSpace="deviceRGB"/>
                     <gestureRecognizers/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="320" id="sDF-tW-j0H"/>
-                    </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="YDh-26-TMH" appends="YES" id="S0e-oz-nbl"/>
                     </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="sDK-WL-WfS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KSR-zN-BFM"/>
-                <constraint firstAttribute="trailing" secondItem="sDK-WL-WfS" secondAttribute="trailing" id="LcE-lz-qZg"/>
-                <constraint firstAttribute="bottom" secondItem="sDK-WL-WfS" secondAttribute="bottom" id="ksl-D5-zio"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
