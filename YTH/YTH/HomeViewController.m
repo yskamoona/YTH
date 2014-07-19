@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "ClinicsViewController.h"
+
 #import "SettingsViewController.h"
 #import "TableViewCell.h"
 
@@ -17,23 +18,30 @@ typedef enum {
     pinned
 } buttonAssociation;
 
+const CGFloat widthConstraintMax = 320;
+
 @interface HomeViewController ()
 
 @property (strong, nonatomic) ClinicsViewController  *clinicsVC;
-@property (weak, nonatomic  ) IBOutlet UIView *containerView;
-@property (weak, nonatomic  ) IBOutlet UIView *settingsView;
 
 @property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
 
-@property (nonatomic, assign) BOOL isPresenting;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIView *settingsView;
 
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIView *mainView;
+
+@property (strong, nonatomic) SettingsViewController *settingVC;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewWidthConstraint;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewWidthConstraint;
 @property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *containerViewPanGestureRecognizer;
+
 @property (assign) NSInteger changingPosX;
 
-- (IBAction)onClincsButtonTapped:(id)sender;
 - (IBAction)onSettingsButtonTapped:(id)sender;
 
 
@@ -48,63 +56,51 @@ typedef enum {
 @property (strong, nonatomic) IBOutlet UITableView *pinnedTableView;
 @property (strong, atomic) NSArray* fakeLatestData;
 
-
-
-
 @end
 
 @implementation HomeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.clinicsVC = [[ClinicsViewController alloc] init];
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setupGestureRecognizers];
-    
     [self setupTableViews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES];
+    
 }
 
 #pragma GestureRecongnizers
 
 - (void)setupGestureRecognizers {
-
-    //clinicsTapGestureRecognizer
-    self.clincsTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleClincsTapGesture:)];
     
     //containerViewPanGestureRecognizer
     self.containerViewPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureForMainView:)];
-    [self.containerView addGestureRecognizer:self.containerViewPanGestureRecognizer];
+    [self.mainView addGestureRecognizer:self.containerViewPanGestureRecognizer];
 }
 
 #pragma GesturesSelectors 
 
 - (void)onPanGestureForMainView:(UIPanGestureRecognizer *)panGestureOnMainView {
     self.changingPosX = [panGestureOnMainView translationInView:self.view].x;
-    NSLog(@"Traslation in view.x %ld", (long)self.changingPosX);
-    
-    self.containerViewWidthConstraint.constant = 320 - self.changingPosX;
+    // NSLog(@"Traslation in view.x %ld", (long)self.changingPosX);
+
     self.changingPosX = MIN(self.changingPosX, 260);
     self.changingPosX = MAX(self.changingPosX, 0);
-    
-    NSLog(@"New Pos %ld", (long)self.changingPosX);
+    self.containerViewWidthConstraint.constant = 320 - self.changingPosX;
+     self.mainViewWidthConstraint.constant = 320 - self.changingPosX;
+    self.headerViewWidthConstraint.constant = 320 - self.changingPosX;
     
     if (panGestureOnMainView.state == UIGestureRecognizerStateEnded) {
         if (self.changingPosX >= 150) {
             [UIView animateWithDuration:.2 animations:^{
                 self.containerViewWidthConstraint.constant = 60;
+                self.mainViewWidthConstraint.constant = 60;
+                self.headerViewWidthConstraint.constant = 60;
                 [self.view layoutIfNeeded];
             } completion:^(BOOL finished) {
                 
@@ -112,7 +108,9 @@ typedef enum {
             
         } else {
             [UIView animateWithDuration:.2 animations:^{
-                self.containerViewWidthConstraint.constant = 320;
+                self.containerViewWidthConstraint.constant = widthConstraintMax;
+                self.mainViewWidthConstraint.constant = widthConstraintMax;
+                self.headerViewWidthConstraint.constant = widthConstraintMax;
                 [self.view layoutIfNeeded];
             } completion:^(BOOL finished) {
                 
@@ -121,84 +119,49 @@ typedef enum {
     }
     
     [self.view updateConstraints];
-    
-}
-
-- (IBAction)handleClincsTapGesture:(UITapGestureRecognizer *)clincsTapGestureRecognizer {
-    self.clinicsVC.modalPresentationStyle = UIModalPresentationCustom;
-    self.clinicsVC.navigationController.transitioningDelegate = self;
-    //[self.navigationController pushViewController:self.clinicsVC animated:YES];
-    
-    self.clinicsVC.transitioningDelegate = self;
-    [self presentViewController:self.clinicsVC animated:YES completion:nil];
 }
 
 
-#pragma UIViewControllerTransitioningDelegate Methods
+#pragma  AS Setting VC delegate methods
 
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    self.isPresenting = YES;
-    return self;
+- (void)backToHomeScreenView:(HomeMainContentViewController *)homeMainContentVC fromSettingVC:(SettingsViewController *)settingVC {
+   // [self.mainView addSubview:homeMainContentMainView];
+    [self.navigationController pushViewController:homeMainContentVC animated:YES];
 }
 
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismisses {
-    self.isPresenting = NO;
-    return self;
+- (void)addLocationViewToHomeView:(UIView *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
+    [self.mainView addSubview:locationSettingsView];
 }
 
-//- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
-//
-//}
-//
-//- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator {
-//
-//}
-
-#pragma UIViewControllerAnimatedTransitioningDelegate Methods
-
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
-    return 2.0;
+- (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
+    [self.mainView addSubview:myQestionsView];
 }
 
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
-    self.clinicsView = [transitionContext containerView];
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    
-    if (self.isPresenting) {
-        toViewController.view.frame = self.clinicsView.frame;
-        [self.clinicsView addSubview:toViewController.view];
-        
-        toViewController.view.alpha = 0;
-        toViewController.view.transform = CGAffineTransformMakeScale(0, 0);
-        
-        [UIView animateWithDuration:2.0 animations:^{
-            toViewController.view.alpha = 1;
-            toViewController.view.transform = CGAffineTransformMakeScale(1, 1);
+- (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
+    [self.mainView addSubview:myReviewsView];
+}
 
-        } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
-        }];
-    } else {
-            [UIView animateWithDuration:2.0 animations:^{
-                fromViewController.view.alpha = 0;
-                fromViewController.view.transform = CGAffineTransformMakeScale(0, 0);
-           } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
-        }];
-    }
-
+- (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
+    [self.mainView addSubview:favoriteGuidesView];
 }
 
 #pragma IBActions
 
-- (IBAction)onClincsButtonTapped:(id)sender {
-    
-}
-
 - (IBAction)onSettingsButtonTapped:(id)sender {
-    SettingsViewController *settingVC = [[SettingsViewController alloc] init];
-    [self.settingsView addSubview:settingVC.view];
+    if (self.containerViewWidthConstraint.constant == widthConstraintMax) {
+        
+        self.containerViewWidthConstraint.constant = 60;
+        self.mainViewWidthConstraint.constant = 60;
+        self.headerViewWidthConstraint.constant = 60;
+    } else {
+        self.containerViewWidthConstraint.constant = widthConstraintMax;
+        self.mainViewWidthConstraint.constant = widthConstraintMax;
+        self.headerViewWidthConstraint.constant = widthConstraintMax;
+    }
+   
+    self.settingVC = [[SettingsViewController alloc] init];
+    self.settingVC.delegate = self;
+    [self.settingsView addSubview:self.settingVC.view];
 }
 
 

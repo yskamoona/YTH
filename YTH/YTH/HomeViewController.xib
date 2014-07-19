@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+
                 <outlet property="buttonBackgroundView" destination="seo-Ru-t6U" id="4uS-um-Bxi"/>
                 <outlet property="clincsTapGestureRecognizer" destination="TMu-oy-XSI" id="K5c-Ww-t2P"/>
                 <outlet property="clinicsView" destination="wch-FV-3Oo" id="a8S-Im-DfO"/>
@@ -14,6 +15,7 @@
                 <outlet property="latestTableView" destination="EEi-vC-fsU" id="VNH-DO-52m"/>
                 <outlet property="pinnedTableView" destination="WKI-Vb-7ZC" id="AJh-By-yAC"/>
                 <outlet property="questionsAreaView" destination="Kvx-tK-GZI" id="xuH-w9-H0o"/>
+
                 <outlet property="settingsView" destination="Deh-re-baA" id="yQw-qC-QA7"/>
                 <outlet property="trendingTableView" destination="cRX-9B-XyE" id="Jov-6l-Knd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,11 +30,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Deh-re-baA" userLabel="Setting View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Deh-re-baA" userLabel="Setting View">
                     <rect key="frame" x="0.0" y="75" width="320" height="493"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDK-WL-WfS" userLabel="Container view">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -85,10 +88,12 @@
                             <rect key="frame" x="124" y="64" width="70" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.29803922772407532" green="0.88235300779342651" blue="0.84705889225006104" alpha="1" colorSpace="deviceRGB"/>
+
                             <gestureRecognizers/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="TMu-oy-XSI" appends="YES" id="96V-Rm-bOU"/>
-                            </connections>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="320" id="giy-oq-jrN"/>
+                                <constraint firstAttribute="height" constant="493" id="hKZ-rq-8Sc"/>
+                            </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59i-a9-Udn">
                             <rect key="frame" x="230" y="131" width="49" height="30"/>
@@ -181,11 +186,6 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <tapGestureRecognizer id="TMu-oy-XSI" userLabel="ClincsTapGestureRecognizer">
-            <connections>
-                <action selector="handleClincsTapGesture:" destination="-1" id="rGE-ph-NFQ"/>
-            </connections>
-        </tapGestureRecognizer>
         <panGestureRecognizer minimumNumberOfTouches="1" id="YDh-26-TMH" userLabel="PanGestureOnHomeContainerView"/>
     </objects>
     <resources>

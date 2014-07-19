@@ -62,8 +62,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         
         [self doSearch];
         
-        [LocationController sharedLocationController];
-        
         [LocationController sharedLocationController].delegate = self;
 
     }
@@ -154,6 +152,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     } else {
         self.currentLocation = self.locationManager.location;
     }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -262,9 +261,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 }
 
-
-
-
 - (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC {
     placeDetailVC.placeInfo = self.selectedPlaceInfo;
 }
@@ -311,6 +307,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 //- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator;
 //
 //- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator;
+
 #pragma UIViewControllerAnimatedTransitioiningDelegate Methods
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {

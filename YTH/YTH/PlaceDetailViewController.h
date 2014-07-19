@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Place.h"
+#import "FullMapViewController.h"
 
 @protocol PlaceDetailViewControllerDelegate;
 
@@ -22,6 +23,5 @@
 
 @required
 - (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC;
-
 @end
 

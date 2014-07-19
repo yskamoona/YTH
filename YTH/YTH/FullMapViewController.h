@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "Place.h"
 #import "LocationController.h"
+#import "PlaceDetailViewController.h"
 
 @protocol FullMapViewControllerDelegate;
 

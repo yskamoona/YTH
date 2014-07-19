@@ -35,7 +35,6 @@
 		451CC00F1969FE57007289F3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC00E1969FE57007289F3 /* Security.framework */; };
 		451CC0111969FE5D007289F3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0101969FE5D007289F3 /* StoreKit.framework */; };
 		451CC0131969FE6B007289F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CC0121969FE6B007289F3 /* SystemConfiguration.framework */; };
-		45341333196AAE8200C6A2FE /* RatingStarsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341332196AAE8200C6A2FE /* RatingStarsView.xib */; };
 		45341336196AB2B200C6A2FE /* PlaceDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45341335196AB2B200C6A2FE /* PlaceDetailCell.m */; };
 		45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */; };
 		4534133A196AB35F00C6A2FE /* ReviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341339196AB35F00C6A2FE /* ReviewCollectionViewCell.xib */; };
@@ -67,6 +66,16 @@
 		45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA071978787500AEA8F5 /* SettingsViewController.xib */; };
 		B08266D3197A17840057A428 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B08266D1197A17840057A428 /* TableViewCell.m */; };
 		B08266D4197A17840057A428 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B08266D2197A17840057A428 /* TableViewCell.xib */; };
+		45FCEA0D1979063200AEA8F5 /* LocationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA0B1979063200AEA8F5 /* LocationSettingViewController.m */; };
+		45FCEA0E1979063200AEA8F5 /* LocationSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA0C1979063200AEA8F5 /* LocationSettingViewController.xib */; };
+		45FCEA1219790C9900AEA8F5 /* MyQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA1019790C9900AEA8F5 /* MyQuestionsViewController.m */; };
+		45FCEA1319790C9900AEA8F5 /* MyQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA1119790C9900AEA8F5 /* MyQuestionsViewController.xib */; };
+		45FCEA1A19790CC600AEA8F5 /* FavoriteGuidesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA1819790CC600AEA8F5 /* FavoriteGuidesViewController.m */; };
+		45FCEA1B19790CC600AEA8F5 /* FavoriteGuidesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA1919790CC600AEA8F5 /* FavoriteGuidesViewController.xib */; };
+		45FCEA2419790FCE00AEA8F5 /* MyReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA2219790FCE00AEA8F5 /* MyReviewsViewController.m */; };
+		45FCEA2519790FCE00AEA8F5 /* MyReviewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA2319790FCE00AEA8F5 /* MyReviewsViewController.xib */; };
+		45FCEA291979132500AEA8F5 /* HomeMainContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA271979132500AEA8F5 /* HomeMainContentViewController.m */; };
+		45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA281979132500AEA8F5 /* HomeMainContentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +125,6 @@
 		451CC00E1969FE57007289F3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		451CC0101969FE5D007289F3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		451CC0121969FE6B007289F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		45341332196AAE8200C6A2FE /* RatingStarsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingStarsView.xib; sourceTree = "<group>"; };
 		45341334196AB2B200C6A2FE /* PlaceDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailCell.h; sourceTree = "<group>"; };
 		45341335196AB2B200C6A2FE /* PlaceDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailCell.m; sourceTree = "<group>"; };
 		45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailCell.xib; sourceTree = "<group>"; };
@@ -162,6 +170,21 @@
 		45FCEA051978787500AEA8F5 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		45FCEA061978787500AEA8F5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		45FCEA071978787500AEA8F5 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		45FCEA0A1979063200AEA8F5 /* LocationSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSettingViewController.h; sourceTree = "<group>"; };
+		45FCEA0B1979063200AEA8F5 /* LocationSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSettingViewController.m; sourceTree = "<group>"; };
+		45FCEA0C1979063200AEA8F5 /* LocationSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationSettingViewController.xib; sourceTree = "<group>"; };
+		45FCEA0F19790C9900AEA8F5 /* MyQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQuestionsViewController.h; sourceTree = "<group>"; };
+		45FCEA1019790C9900AEA8F5 /* MyQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionsViewController.m; sourceTree = "<group>"; };
+		45FCEA1119790C9900AEA8F5 /* MyQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyQuestionsViewController.xib; sourceTree = "<group>"; };
+		45FCEA1719790CC600AEA8F5 /* FavoriteGuidesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteGuidesViewController.h; sourceTree = "<group>"; };
+		45FCEA1819790CC600AEA8F5 /* FavoriteGuidesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteGuidesViewController.m; sourceTree = "<group>"; };
+		45FCEA1919790CC600AEA8F5 /* FavoriteGuidesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteGuidesViewController.xib; sourceTree = "<group>"; };
+		45FCEA2119790FCE00AEA8F5 /* MyReviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReviewsViewController.h; sourceTree = "<group>"; };
+		45FCEA2219790FCE00AEA8F5 /* MyReviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReviewsViewController.m; sourceTree = "<group>"; };
+		45FCEA2319790FCE00AEA8F5 /* MyReviewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyReviewsViewController.xib; sourceTree = "<group>"; };
+		45FCEA261979132500AEA8F5 /* HomeMainContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMainContentViewController.h; sourceTree = "<group>"; };
+		45FCEA271979132500AEA8F5 /* HomeMainContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMainContentViewController.m; sourceTree = "<group>"; };
+		45FCEA281979132500AEA8F5 /* HomeMainContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeMainContentViewController.xib; sourceTree = "<group>"; };
 		95A2106A4F894780BD5FFCF8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08266D0197A17840057A428 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		B08266D1197A17840057A428 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
@@ -332,7 +355,6 @@
 				45BDFB9A196A143C0095CBBD /* PlaceCell.h */,
 				45BDFB9B196A143C0095CBBD /* PlaceCell.m */,
 				45BDFB9F196A14A00095CBBD /* PlaceCell.xib */,
-				45341332196AAE8200C6A2FE /* RatingStarsView.xib */,
 				45341334196AB2B200C6A2FE /* PlaceDetailCell.h */,
 				45341335196AB2B200C6A2FE /* PlaceDetailCell.m */,
 				45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */,
@@ -357,6 +379,46 @@
 				45FCE9ED1976868D00AEA8F5 /* HomeViewController.h */,
 				45FCE9EE1976868D00AEA8F5 /* HomeViewController.m */,
 				45FCE9EF1976868D00AEA8F5 /* HomeViewController.xib */,
+				45FCE9F21976A48200AEA8F5 /* GuidesViewController.h */,
+				45FCE9F31976A48200AEA8F5 /* GuidesViewController.m */,
+				45FCE9F41976A48200AEA8F5 /* GuidesViewController.xib */,
+				45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */,
+				45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */,
+				45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */,
+				45FCEA051978787500AEA8F5 /* SettingsViewController.h */,
+				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
+				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
+				45FCEA1C19790E1900AEA8F5 /* SettingsPageViewControllers */,
+				45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		45FCEA1C19790E1900AEA8F5 /* SettingsPageViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				45FCEA0A1979063200AEA8F5 /* LocationSettingViewController.h */,
+				45FCEA0B1979063200AEA8F5 /* LocationSettingViewController.m */,
+				45FCEA0C1979063200AEA8F5 /* LocationSettingViewController.xib */,
+				45FCEA0F19790C9900AEA8F5 /* MyQuestionsViewController.h */,
+				45FCEA1019790C9900AEA8F5 /* MyQuestionsViewController.m */,
+				45FCEA1119790C9900AEA8F5 /* MyQuestionsViewController.xib */,
+				45FCEA1719790CC600AEA8F5 /* FavoriteGuidesViewController.h */,
+				45FCEA1819790CC600AEA8F5 /* FavoriteGuidesViewController.m */,
+				45FCEA1919790CC600AEA8F5 /* FavoriteGuidesViewController.xib */,
+				45FCEA2119790FCE00AEA8F5 /* MyReviewsViewController.h */,
+				45FCEA2219790FCE00AEA8F5 /* MyReviewsViewController.m */,
+				45FCEA2319790FCE00AEA8F5 /* MyReviewsViewController.xib */,
+				45FCEA261979132500AEA8F5 /* HomeMainContentViewController.h */,
+				45FCEA271979132500AEA8F5 /* HomeMainContentViewController.m */,
+				45FCEA281979132500AEA8F5 /* HomeMainContentViewController.xib */,
+			);
+			name = SettingsPageViewControllers;
+			sourceTree = "<group>";
+		};
+		45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				451CBFFD1969FC57007289F3 /* ClinicsViewController.h */,
 				451CBFFE1969FC57007289F3 /* ClinicsViewController.m */,
 				451CBFFF1969FC57007289F3 /* ClinicsViewController.xib */,
@@ -372,17 +434,8 @@
 				45FC04A5196A06A5007DB5C4 /* PostReviewViewController.h */,
 				45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */,
 				45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */,
-				45FCE9F21976A48200AEA8F5 /* GuidesViewController.h */,
-				45FCE9F31976A48200AEA8F5 /* GuidesViewController.m */,
-				45FCE9F41976A48200AEA8F5 /* GuidesViewController.xib */,
-				45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */,
-				45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */,
-				45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */,
-				45FCEA051978787500AEA8F5 /* SettingsViewController.h */,
-				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
-				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
 			);
-			name = ViewControllers;
+			name = ClinicsViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,17 +515,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FCEA1B19790CC600AEA8F5 /* FavoriteGuidesViewController.xib in Resources */,
 				45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */,
-				45341333196AAE8200C6A2FE /* RatingStarsView.xib in Resources */,
 				45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */,
 				45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */,
 				45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */,
 				45FCE9F61976A48200AEA8F5 /* GuidesViewController.xib in Resources */,
 				45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */,
 				45FCEA011976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib in Resources */,
+				45FCEA2519790FCE00AEA8F5 /* MyReviewsViewController.xib in Resources */,
 				451CC0011969FC57007289F3 /* ClinicsViewController.xib in Resources */,
+				45FCEA0E1979063200AEA8F5 /* LocationSettingViewController.xib in Resources */,
 				45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */,
 				451CBFD91969FC0A007289F3 /* InfoPlist.strings in Resources */,
+				45FCEA1319790C9900AEA8F5 /* MyQuestionsViewController.xib in Resources */,
+				45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */,
 				45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */,
 				B08266D4197A17840057A428 /* TableViewCell.xib in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
@@ -538,16 +595,21 @@
 				17EC1BDB196A82DB005A456D /* MapUtils.m in Sources */,
 				45BDFB9C196A143C0095CBBD /* PlaceCell.m in Sources */,
 				45341336196AB2B200C6A2FE /* PlaceDetailCell.m in Sources */,
+				45FCEA0D1979063200AEA8F5 /* LocationSettingViewController.m in Sources */,
 				45FCE9FA1976A4A300AEA8F5 /* QuestionsViewController.m in Sources */,
 				45FCE9F01976868D00AEA8F5 /* HomeViewController.m in Sources */,
 				17EC1BD7196A82B4005A456D /* Utils.m in Sources */,
 				45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */,
 				45FC04B2196A06F4007DB5C4 /* Review.m in Sources */,
 				B08266D3197A17840057A428 /* TableViewCell.m in Sources */,
+				45FCEA291979132500AEA8F5 /* HomeMainContentViewController.m in Sources */,
+				45FCEA1219790C9900AEA8F5 /* MyQuestionsViewController.m in Sources */,
+				45FCEA1A19790CC600AEA8F5 /* FavoriteGuidesViewController.m in Sources */,
 				17E44E571974B20200F7571E /* LocationController.m in Sources */,
 				45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */,
 				451CBFDF1969FC0A007289F3 /* AppDelegate.m in Sources */,
 				45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */,
+				45FCEA2419790FCE00AEA8F5 /* MyReviewsViewController.m in Sources */,
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,
 				45FC04AF196A06E9007DB5C4 /* Place.m in Sources */,
 				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
