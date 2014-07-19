@@ -9,6 +9,8 @@
 #import "GuidesViewController.h"
 
 @interface GuidesViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *guidesScroll;
+@property (weak, nonatomic) IBOutlet UIView *guidesTitles;
 
 @end
 
@@ -29,7 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.guidesScroll.contentSize = self.guidesTitles.frame.size;
+    [self.guidesScroll setScrollEnabled:true];
+    
 }
 
 - (void)didReceiveMemoryWarning
