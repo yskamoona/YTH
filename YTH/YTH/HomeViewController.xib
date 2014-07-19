@@ -80,15 +80,14 @@
                                 <action selector="onClincsButtonTapped:" destination="-1" eventType="touchUpInside" id="NDd-My-PTr"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wch-FV-3Oo" userLabel="Clinics Button View">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wch-FV-3Oo" userLabel="Clinics Button View">
                             <rect key="frame" x="124" y="64" width="70" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.29803922772407532" green="0.88235300779342651" blue="0.84705889225006104" alpha="1" colorSpace="deviceRGB"/>
                             <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="320" id="giy-oq-jrN"/>
-                                <constraint firstAttribute="height" constant="493" id="hKZ-rq-8Sc"/>
-                            </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="vJR-NC-2OQ" appends="YES" id="rC0-Kl-HXy"/>
+                            </connections>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59i-a9-Udn">
                             <rect key="frame" x="230" y="131" width="49" height="30"/>
@@ -182,6 +181,11 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" id="YDh-26-TMH" userLabel="PanGestureOnHomeContainerView"/>
+        <tapGestureRecognizer id="vJR-NC-2OQ" userLabel="TapGestureOnClinics">
+            <connections>
+                <action selector="onClinicsButton:" destination="-1" id="ean-AJ-jjh"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="Home_Background" width="320" height="568"/>

@@ -42,6 +42,7 @@ const CGFloat widthConstraintMax = 320;
 @property (assign) NSInteger changingPosX;
 
 - (IBAction)onSettingsButtonTapped:(id)sender;
+- (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
 
 
 // Questions Area
@@ -163,6 +164,12 @@ const CGFloat widthConstraintMax = 320;
     [self.settingsView addSubview:self.settingVC.view];
 }
 
+- (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {
+    ClinicsViewController *clinicsVC = [[ClinicsViewController alloc] init];
+    [self presentViewController:clinicsVC animated:YES
+                     completion:nil];
+}
+
 
 - (IBAction)onLatestButton:(UIButton *)sender {
     sender.tag = latest;
@@ -221,8 +228,6 @@ const CGFloat widthConstraintMax = 320;
                             @{@"question":@"jim", @"location":@"San Francisco", @"answers":@2, @"time":@162010},
                             @{@"question":@"sam", @"location":@"San Francisco", @"answers":@2, @"time":@162050},
                             ];
-    
-
     
     [self.latestTableView   registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
