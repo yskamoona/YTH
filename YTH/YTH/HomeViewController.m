@@ -46,7 +46,6 @@ typedef enum {
 @property (strong, nonatomic) IBOutlet UITableView *latestTableView;
 @property (strong, nonatomic) IBOutlet UITableView *trendingTableView;
 @property (strong, nonatomic) IBOutlet UITableView *pinnedTableView;
-
 @property (strong, atomic) NSArray* fakeLatestData;
 
 
@@ -240,6 +239,10 @@ typedef enum {
     self.trendingTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:.2];
     self.pinnedTableView.backgroundColor   = [UIColor colorWithWhite:1 alpha:.2];
     
+    [self.latestTableView   setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.trendingTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.pinnedTableView   setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
     self.latestTableView.delegate     = self;
     self.latestTableView.dataSource   = self;
     self.trendingTableView.delegate   = self;
@@ -251,17 +254,17 @@ typedef enum {
     self.fakeLatestData = @[
                             @{@"question":@"In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.", @"location":@"San Francisco", @"answers":@2, @"time":@162020513451},
                             @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@"Los Angeles", @"answers":@0, @"time":@162000134},
-                            @{@"question":@"tim", @"location":@"Oakland", @"answers":@1, @"time":@16200131},
+                            @{@"question":@"Can you get an STI from oral sex if one person has a fever blister? Also, if a person has an STI, is oral sex still OK?", @"location":@"Oakland", @"answers":@1, @"time":@16200131},
                             @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@162003},
-                            @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@162010},
-                            @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@162050},
+                            @{@"question":@"jim", @"location":@"San Francisco", @"answers":@2, @"time":@162010},
+                            @{@"question":@"sam", @"location":@"San Francisco", @"answers":@2, @"time":@162050},
                             ];
     
 
     
-    [self.latestTableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
+    [self.latestTableView   registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
-    [self.pinnedTableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
+    [self.pinnedTableView   registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
 
 }
 
@@ -269,23 +272,18 @@ typedef enum {
     [UIView animateWithDuration:.3 animations:^{
         switch (sender.tag) {
             case latest:
-                NSLog(@"one");
                 self.latestTableView.center = CGPointMake(self.view.window.center.x, self.latestTableView.center.y);
                 self.latestTableView.alpha = 1;
                 self.trendingTableView.center = CGPointMake(self.view.window.center.x + self.view.frame.size.width, self.trendingTableView.center.y);
-//                self.trendingTableView.alpha = 0;
                 self.pinnedTableView.center = CGPointMake(self.view.window.center.x + self.view.frame.size.width*2, self.pinnedTableView.center.y);
                 break;
             case trending:
-                NSLog(@"two");
                 self.latestTableView.center = CGPointMake(self.view.window.center.x - self.view.frame.size.width, self.latestTableView.center.y);
-//                self.latestTableView.alpha = 0;
                 self.trendingTableView.center = CGPointMake(self.view.window.center.x, self.trendingTableView.center.y);
                 self.trendingTableView.alpha = 1;
                 self.pinnedTableView.center = CGPointMake(self.view.window.center.x + self.view.frame.size.width, self.pinnedTableView.center.y);
                 break;
             case pinned:
-                NSLog(@"three");
                 self.latestTableView.center = CGPointMake(self.view.window.center.x - self.view.frame.size.width*2, self.latestTableView.center.y);
                 self.trendingTableView.center = CGPointMake(self.view.window.center.x - self.view.frame.size.width, self.trendingTableView.center.y);
                 self.pinnedTableView.center = CGPointMake(self.view.window.center.x, self.pinnedTableView.center.y);
@@ -298,22 +296,16 @@ typedef enum {
     } completion:^(BOOL finished) {
         switch (sender.tag) {
             case latest:
-                NSLog(@"one");
-                //self.latestTableView.alpha = 1;
                 self.trendingTableView.alpha = 0;
                 self.pinnedTableView.alpha = 0;
                 break;
             case trending:
-                NSLog(@"two");
                 self.latestTableView.alpha = 0;
-                //self.trendingTableView.alpha = 1;
                 self.pinnedTableView.alpha = 0;
                 break;
             case pinned:
-                NSLog(@"three");
-                //self.latestTableView.alpha = 0;
+                self.latestTableView.alpha = 0;
                 self.trendingTableView.alpha = 0;
-                self.pinnedTableView.alpha = 1;
                 break;
                 
             default:
@@ -323,28 +315,10 @@ typedef enum {
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    if (tableView == self.latestTableView) {
-//        return 5;
-//    }
-//    else if (tableView == self.trendingTableView) {
-//        return 5;
-//    }
-//    else {
-//        return 5;
-//    }
     return 5;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (tableView == self.latestTableView) {
-//        return 100;
-//    }
-//    else if (tableView == self.trendingTableView) {
-//        return 100;
-//    }
-//    else {
-//        return 100;
-//    }
     return 112;
 }
 
@@ -353,7 +327,7 @@ typedef enum {
         TableViewCell *cell = [self.latestTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
         cell.questionLabel.text = self.fakeLatestData[indexPath.row][@"question"];
         cell.locationLabel.text = self.fakeLatestData[indexPath.row][@"location"];
-        //Number of answers conditional formatting
+        //'Number of answers' conditional formatting
         if (self.fakeLatestData[indexPath.row][@"answers"] == [NSNumber numberWithInteger:1]) {
             NSString *answerString = [NSString stringWithFormat:@"%@ answer",self.fakeLatestData[indexPath.row][@"answers"]];
             cell.answerLabel.text = answerString;
@@ -367,10 +341,8 @@ typedef enum {
         NSDate *dateString = [NSDate dateWithTimeIntervalSinceReferenceDate:[self.fakeLatestData[indexPath.row][@"time"] doubleValue]];
         cell.timeLabel.text = [dateFormatter stringFromDate:dateString];
 
-        
         // This should probably go somewhere else... ?
         cell.backgroundColor = [UIColor clearColor];
-
         
         return cell;
     } else if (tableView == self.trendingTableView) {
@@ -382,10 +354,5 @@ typedef enum {
         return cell;
     }
 }
-
-//- (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [self.latestTableView cellForRowAtIndexPath:indexPath];
-//    return cell;
-//}
 
 @end

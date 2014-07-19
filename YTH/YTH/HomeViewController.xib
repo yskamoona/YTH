@@ -171,7 +171,6 @@
                             </subviews>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.40784317260000003" blue="0.48627454040000001" alpha="1" colorSpace="deviceRGB"/>
                     <gestureRecognizers/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="YDh-26-TMH" appends="YES" id="S0e-oz-nbl"/>
