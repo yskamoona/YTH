@@ -6,14 +6,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="buttonBackgroundView" destination="seo-Ru-t6U" id="4uS-um-Bxi"/>
+                <outlet property="clinicsView" destination="wch-FV-3Oo" id="a8S-Im-DfO"/>
                 <outlet property="containerView" destination="sDK-WL-WfS" id="6ZX-uj-Kgw"/>
                 <outlet property="containerViewPanGestureRecognizer" destination="YDh-26-TMH" id="blY-uY-gnL"/>
-                <outlet property="containerViewWidthConstraint" destination="giy-oq-jrN" id="leI-s8-k1k"/>
-                <outlet property="headerView" destination="PWx-7Y-pZA" id="md8-1P-kXt"/>
-                <outlet property="headerViewWidthConstraint" destination="Uly-Cg-A8d" id="7F3-3q-AC5"/>
-                <outlet property="mainView" destination="7zx-o8-vjx" id="tIY-Dg-Weu"/>
-                <outlet property="mainViewWidthConstraint" destination="FNv-XR-lhq" id="wuT-71-kqa"/>
+                <outlet property="latestTableView" destination="EEi-vC-fsU" id="VNH-DO-52m"/>
+                <outlet property="pinnedTableView" destination="WKI-Vb-7ZC" id="AJh-By-yAC"/>
+                <outlet property="questionsAreaView" destination="Kvx-tK-GZI" id="xuH-w9-H0o"/>
                 <outlet property="settingsView" destination="Deh-re-baA" id="yQw-qC-QA7"/>
+                <outlet property="trendingTableView" destination="cRX-9B-XyE" id="Jov-6l-Knd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,50 +27,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Deh-re-baA" userLabel="Setting View">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Deh-re-baA" userLabel="Setting View">
                     <rect key="frame" x="0.0" y="75" width="320" height="493"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zx-o8-vjx" userLabel="Main View">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDK-WL-WfS" userLabel="Container view">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDK-WL-WfS" userLabel="Container view">
-                            <rect key="frame" x="0.0" y="75" width="320" height="493"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="320" id="giy-oq-jrN"/>
-                                <constraint firstAttribute="height" constant="493" id="hKZ-rq-8Sc"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <gestureRecognizers/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="320" id="FNv-XR-lhq"/>
-                        <constraint firstAttribute="height" constant="568" id="N0r-Dw-3WI"/>
-                        <constraint firstAttribute="trailing" secondItem="sDK-WL-WfS" secondAttribute="trailing" id="QPQ-X9-EKn"/>
-                        <constraint firstAttribute="bottom" secondItem="sDK-WL-WfS" secondAttribute="bottom" id="ShI-uG-bze"/>
-                    </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="YDh-26-TMH" appends="YES" id="11I-Iq-FWS"/>
-                    </connections>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWx-7Y-pZA" userLabel="HeaderView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzH-1p-1s0">
-                            <rect key="frame" x="82" y="16" width="229" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DsC-7j-5xU">
-                            <rect key="frame" x="20" y="20" width="37" height="31"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DsC-7j-5xU" userLabel="MenuButton">
+                            <rect key="frame" x="9" y="20" width="37" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
                             <state key="normal" title="=">
@@ -80,26 +48,136 @@
                                 <action selector="onSettingsButtonTapped:" destination="-1" eventType="touchUpInside" id="8st-KV-PDc"/>
                             </connections>
                         </button>
+                        <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzH-1p-1s0">
+                            <rect key="frame" x="60" y="18" width="260" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FS-Pu-h0j">
+                            <rect key="frame" x="31" y="131" width="70" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                            <state key="normal" title="Questions">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YDq-xm-8vz" userLabel="Questions Button View">
+                            <rect key="frame" x="31" y="64" width="70" height="64"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.7137255072593689" green="0.87843143939971924" blue="0.035294119268655777" alpha="1" colorSpace="deviceRGB"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIJ-hq-1l0">
+                            <rect key="frame" x="136" y="131" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                            <state key="normal" title="Clinics">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onClincsButtonTapped:" destination="-1" eventType="touchUpInside" id="NDd-My-PTr"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wch-FV-3Oo" userLabel="Clinics Button View">
+                            <rect key="frame" x="124" y="64" width="70" height="64"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.29803922772407532" green="0.88235300779342651" blue="0.84705889225006104" alpha="1" colorSpace="deviceRGB"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="320" id="giy-oq-jrN"/>
+                                <constraint firstAttribute="height" constant="493" id="hKZ-rq-8Sc"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59i-a9-Udn">
+                            <rect key="frame" x="230" y="131" width="49" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                            <state key="normal" title="Guides">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="soX-gk-yAT" userLabel="Guides Button View">
+                            <rect key="frame" x="219" y="64" width="70" height="64"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="0.08235294371843338" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-tK-GZI" userLabel="Questions Area View">
+                            <rect key="frame" x="0.0" y="165" width="320" height="403"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="seo-Ru-t6U" userLabel="contentButtonBackgroundView">
+                                    <rect key="frame" x="0.0" y="0.0" width="107" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGu-7V-MNr">
+                                    <rect key="frame" x="0.0" y="0.0" width="107" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="Latest">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onLatestButton:" destination="-1" eventType="touchUpInside" id="8dC-ZN-ZIR"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A3-gm-y1l">
+                                    <rect key="frame" x="107" y="0.0" width="107" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="Trending">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onTrendingButton:" destination="-1" eventType="touchUpInside" id="yh7-JV-nAx"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4PN-Gr-0D8">
+                                    <rect key="frame" x="213" y="0.0" width="107" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="Pinned">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onPinnedButton:" destination="-1" eventType="touchUpInside" id="umm-65-0rQ"/>
+                                    </connections>
+                                </button>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EEi-vC-fsU" userLabel="Latest Table View">
+                                    <rect key="frame" x="0.0" y="52" width="320" height="351"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </tableView>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cRX-9B-XyE" userLabel="Trending Table View">
+                                    <rect key="frame" x="320" y="52" width="320" height="351"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </tableView>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WKI-Vb-7ZC" userLabel="Pinned Table View">
+                                    <rect key="frame" x="640" y="52" width="320" height="351"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="sectionIndexBackgroundColor" red="0.87220982140000003" green="0.078508597149999998" blue="0.095627961560000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </tableView>
+                            </subviews>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="75" id="EwQ-DM-Ved"/>
-                        <constraint firstAttribute="width" constant="320" id="Uly-Cg-A8d"/>
-                    </constraints>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="YDh-26-TMH" appends="YES" id="S0e-oz-nbl"/>
+                    </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="Deh-re-baA" secondAttribute="bottom" id="Awr-uI-C3k"/>
-                <constraint firstAttribute="trailing" secondItem="7zx-o8-vjx" secondAttribute="trailing" id="D3x-WJ-G38"/>
-                <constraint firstItem="Deh-re-baA" firstAttribute="top" secondItem="PWx-7Y-pZA" secondAttribute="bottom" id="XXU-l0-CWQ"/>
-                <constraint firstItem="PWx-7Y-pZA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YnJ-EC-iBh"/>
-                <constraint firstItem="Deh-re-baA" firstAttribute="top" secondItem="PWx-7Y-pZA" secondAttribute="bottom" id="eSg-ms-ApS"/>
-                <constraint firstAttribute="trailing" secondItem="PWx-7Y-pZA" secondAttribute="trailing" id="gmv-Ab-LQM"/>
-                <constraint firstAttribute="bottom" secondItem="7zx-o8-vjx" secondAttribute="bottom" id="lj4-zb-TQ9"/>
-                <constraint firstItem="Deh-re-baA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="o6W-AH-V6Y"/>
-                <constraint firstAttribute="trailing" secondItem="Deh-re-baA" secondAttribute="trailing" id="wYm-4O-G5u"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
