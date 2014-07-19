@@ -20,11 +20,15 @@
 @property (nonatomic, strong) NSArray  *review_count;
 @property (nonatomic, strong) NSString *image_url;
 @property (nonatomic, strong) NSString *distance;
-@property (nonatomic, strong) NSString *rating_img_url;
 @property (nonatomic, strong) NSDictionary *location;
 @property (nonatomic, strong) NSArray *address;
 @property (nonatomic, strong) NSString *snippet_text;
 @property (nonatomic, strong) NSString *yelp_id;
+
+//DO: get the total stars and total reviews
+@property (assign) NSNumber *total_stars;
+@property (assign) NSNumber *total_reviews;
+
 //@property double  *latitude;
 //@property double   *longitude;
 

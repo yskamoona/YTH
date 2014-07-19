@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeMainContentViewController : UIViewController <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
-@property (weak, nonatomic) IBOutlet UIView *homeContentMainView;
 
 @end

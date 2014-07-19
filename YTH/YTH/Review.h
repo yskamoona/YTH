@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-@interface Reviews : PFObject<PFSubclassing>
+@interface Reviews : PFObject <PFSubclassing>
 
 + (NSString *)parseClassName;
 @property (retain) NSString *body;
@@ -17,7 +17,7 @@
 @property  BOOL friendly;
 @property  BOOL needsMet;
 @property  BOOL recommended;
-@property  int  stars;
+@property  NSInteger  stars;
 @property  int  price;
 
 

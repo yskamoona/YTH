@@ -46,6 +46,7 @@ const CGFloat widthConstraintMax = 320;
 - (IBAction)onSettingsButtonTapped:(id)sender;
 - (IBAction)onGuidesButton:(UITapGestureRecognizer *)sender;
 
+
 // Questions Area
 @property (strong, nonatomic) IBOutlet UIView *questionsAreaView;
 @property (strong, nonatomic) IBOutlet UIView *buttonBackgroundView;
@@ -165,6 +166,12 @@ const CGFloat widthConstraintMax = 320;
     [self.settingsView addSubview:self.settingVC.view];
 }
 
+- (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {
+    ClinicsViewController *clinicsVC = [[ClinicsViewController alloc] init];
+    [self presentViewController:clinicsVC animated:YES
+                     completion:nil];
+}
+
 
 - (IBAction)onLatestButton:(UIButton *)sender {
     sender.tag = latest;
@@ -223,8 +230,6 @@ const CGFloat widthConstraintMax = 320;
                             @{@"question":@"jim", @"location":@"San Francisco", @"answers":@2, @"time":@162010},
                             @{@"question":@"sam", @"location":@"San Francisco", @"answers":@2, @"time":@162050},
                             ];
-    
-
     
     [self.latestTableView   registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
