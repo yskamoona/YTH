@@ -8,20 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Place.h"
-#import "FullMapViewController.h"
+#import "PlaceDetailCell.h"
 
 @protocol PlaceDetailViewControllerDelegate;
 
-@interface PlaceDetailViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface PlaceDetailViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, PlaceDetailCellDelegate>
 
-@property (weak, nonatomic) id <PlaceDetailViewControllerDelegate> delegate;
-@property (nonatomic, strong) Place *placeInfo;
+@property (nonatomic, strong) NSArray *placesInfo;
+@property (assign) NSIndexPath *startPlaceIndexPath;
 
-@end
-
-@protocol PlaceDetailViewControllerDelegate <NSObject>
-
-@required
-- (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC;
 @end
 

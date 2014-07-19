@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "ClinicsViewController.h"
+#import "PlacesViewController.h"
 #import "SettingsViewController.h"
 #import "TableViewCell.h"
 #import "GuidesViewController.h"
@@ -22,8 +22,7 @@ const CGFloat widthConstraintMax = 320;
 
 @interface HomeViewController ()
 
-@property (strong, nonatomic) ClinicsViewController  *clinicsVC;
-
+@property (strong, nonatomic) PlacesViewController *placesVC;
 @property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
 
@@ -44,7 +43,10 @@ const CGFloat widthConstraintMax = 320;
 @property (assign) NSInteger changingPosX;
 
 - (IBAction)onSettingsButtonTapped:(id)sender;
-- (IBAction)onGuidesButton:(UITapGestureRecognizer *)sender;
+- (IBAction)onGuidesButton:(id)sender;
+
+- (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
+
 
 // Questions Area
 @property (strong, nonatomic) IBOutlet UIView *questionsAreaView;
@@ -165,6 +167,17 @@ const CGFloat widthConstraintMax = 320;
     [self.settingsView addSubview:self.settingVC.view];
 }
 
+- (IBAction)onGuidesButton:(id)sender {
+    GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
+    [self presentViewController:guidesVC animated:YES completion:nil];
+}
+
+- (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {
+    PlacesViewController *clinicsVC = [[PlacesViewController alloc] init];
+    [self presentViewController:clinicsVC animated:YES
+                     completion:nil];
+}
+
 
 - (IBAction)onLatestButton:(UIButton *)sender {
     sender.tag = latest;
@@ -223,8 +236,6 @@ const CGFloat widthConstraintMax = 320;
                             @{@"question":@"jim", @"location":@"San Francisco", @"answers":@2, @"time":@162010},
                             @{@"question":@"sam", @"location":@"San Francisco", @"answers":@2, @"time":@162050},
                             ];
-    
-
     
     [self.latestTableView   registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
@@ -319,8 +330,4 @@ const CGFloat widthConstraintMax = 320;
     }
 }
 
-- (IBAction)onGuidesButton:(UITapGestureRecognizer *)sender {
-    GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
-    [self presentViewController:guidesVC animated:YES completion:nil];
-}
 @end

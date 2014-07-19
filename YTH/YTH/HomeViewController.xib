@@ -85,6 +85,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.29803922772407532" green="0.88235300779342651" blue="0.84705889225006104" alpha="1" colorSpace="deviceRGB"/>
                             <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="vJR-NC-2OQ" appends="YES" id="3qJ-5Z-HNV"/>
+                            </connections>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59i-a9-Udn">
                             <rect key="frame" x="230" y="131" width="49" height="30"/>
@@ -101,7 +104,7 @@
                             <color key="backgroundColor" red="1" green="0.08235294371843338" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
                             <gestureRecognizers/>
                             <connections>
-                                <outletCollection property="gestureRecognizers" destination="CYV-Ot-j5B" appends="YES" id="Mq8-UD-eJg"/>
+                                <outletCollection property="gestureRecognizers" destination="LBD-9b-x57" appends="YES" id="bdT-f5-oNb"/>
                             </connections>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-tK-GZI" userLabel="Questions Area View">
@@ -182,9 +185,14 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" id="YDh-26-TMH" userLabel="PanGestureOnHomeContainerView"/>
-        <tapGestureRecognizer id="CYV-Ot-j5B" userLabel="onGuides Tap">
+        <tapGestureRecognizer id="LBD-9b-x57" userLabel="TapGestureOnGuides">
             <connections>
-                <action selector="onGuidesButton:" destination="-1" id="WxK-yG-oyK"/>
+                <action selector="onGuidesButton:" destination="-1" id="EzK-gJ-yGu"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="vJR-NC-2OQ" userLabel="TapGestureOnClinics">
+            <connections>
+                <action selector="onClinicsButton:" destination="-1" id="ean-AJ-jjh"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
