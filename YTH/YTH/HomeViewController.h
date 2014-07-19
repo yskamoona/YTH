@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsViewController.h"
 
-@interface HomeViewController : UIViewController <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
+
+@interface HomeViewController : UIViewController <SettingsViewControllerDelegate>
+
+
 
 @end
+

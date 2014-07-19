@@ -1,18 +1,18 @@
 //
-//  GuidesViewController.m
+//  LocationSettingViewController.m
 //  YTH
 //
-//  Created by Yousra Kamoona on 7/16/14.
+//  Created by Yousra Kamoona on 7/18/14.
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
-#import "GuidesViewController.h"
+#import "LocationSettingViewController.h"
 
-@interface GuidesViewController ()
+@interface LocationSettingViewController ()
 
 @end
 
-@implementation GuidesViewController
+@implementation LocationSettingViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,9 +21,6 @@
         // Custom initialization
     }
     return self;
-}
-- (IBAction)onCloseButtonTapped:(id)sender {
-       [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad

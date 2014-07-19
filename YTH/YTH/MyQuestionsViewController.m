@@ -1,18 +1,18 @@
 //
-//  GuidesViewController.m
+//  MyQuestionsViewController.m
 //  YTH
 //
-//  Created by Yousra Kamoona on 7/16/14.
+//  Created by Yousra Kamoona on 7/18/14.
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
-#import "GuidesViewController.h"
+#import "MyQuestionsViewController.h"
 
-@interface GuidesViewController ()
+@interface MyQuestionsViewController ()
 
 @end
 
-@implementation GuidesViewController
+@implementation MyQuestionsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,9 +21,6 @@
         // Custom initialization
     }
     return self;
-}
-- (IBAction)onCloseButtonTapped:(id)sender {
-       [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad

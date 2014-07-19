@@ -7,32 +7,53 @@
 //
 
 #import "SettingsViewController.h"
+#import "HomeMainContentViewController.h"
+#import "LocationSettingViewController.h"
+#import "MyQuestionsViewController.h"
+#import "MyReviewsViewController.h"
+#import "FavoriteGuidesViewController.h"
+
 
 @interface SettingsViewController ()
+
+@property (strong, nonatomic) HomeMainContentViewController *homeMainContentVC;
+
+- (IBAction)onLocationButtonTapped:(id)sender;
 
 @end
 
 @implementation SettingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma IBActions
+
+- (IBAction)onHomeButtonTapped:(id)sender {
+    self.homeMainContentVC = [[HomeMainContentViewController alloc] init];
+    [self.delegate backToHomeScreenView:self.homeMainContentVC fromSettingVC:self];
+}
+
+- (IBAction)onLocationButtonTapped:(id)sender {
+    LocationSettingViewController *locationSettingVC = [[LocationSettingViewController alloc] init];
+    [self.delegate addLocationViewToHomeView:locationSettingVC.view fromSettingVC:self];
+}
+
+- (IBAction)onMyQuestionButtonTapped:(id)sender {
+    MyQuestionsViewController *myQuestionsVC = [[MyQuestionsViewController alloc] init];
+    [self.delegate addMyQuestionsViewToHomeView:myQuestionsVC.view fromSettingVC:self];
+}
+
+- (IBAction)onMyReviewsButtonTapped:(id)sender {
+    MyReviewsViewController *myReviewsVC = [[MyReviewsViewController alloc] init];
+    [self.delegate addMyReviewsViewToHomeView:myReviewsVC.view fromSettingVC:self];
+}
+
+- (IBAction)onFavoriteGuidesButtonTapped:(id)sender {
+    FavoriteGuidesViewController *favoritesGuidesVC = [[FavoriteGuidesViewController alloc] init];
+    [self.delegate addFavoriteGuidesViewToHomeView:favoritesGuidesVC.view fromSettingVC:self];
 }
 
 @end
