@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlaceDetailCell : UICollectionViewCell
+@class Place;
+
+@protocol PlaceDetailCellDelegate;
+
+@interface PlaceDetailCell : UITableViewCell <UIAlertViewDelegate>
+
+@property (weak, nonatomic) id <PlaceDetailCellDelegate> delegate;
+
+- (void)setupCellWithPlaceInfo:(Place *)placeInfo;
+
+@end
+
+@protocol PlaceDetailCellDelegate <NSObject>
+
+- (void)didDismissAlertView:(UIAlertView *)alertView;
 
 @end

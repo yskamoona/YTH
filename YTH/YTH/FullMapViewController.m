@@ -38,8 +38,6 @@
     [LocationController sharedLocationController];
     [LocationController sharedLocationController].delegate = self;
     [[[LocationController sharedLocationController] locationManager] startUpdatingLocation];
-    
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -18,7 +18,6 @@
              @"address":@"location.display_address",
              @"snippet_text":@"snippet_text",
              @"yelp_id":@"id"
-//             @"yelp-id":@"id"
 //             @"latitude":@"location.coordinate.latitude",
 //             @"longitude":@"location.coordinate.longitude"
              };

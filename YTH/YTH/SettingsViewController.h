@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeMainContentViewController.h"
-
+@class HomeMainContentViewController;
 
 @protocol SettingsViewControllerDelegate;
 
