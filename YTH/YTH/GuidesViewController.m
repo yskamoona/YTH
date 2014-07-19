@@ -2,13 +2,15 @@
 //  GuidesViewController.m
 //  YTH
 //
-//  Created by Yousra Kamoona on 7/16/14.
+//  Created by Kristina Frost on 7/16/14.
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
 #import "GuidesViewController.h"
 
 @interface GuidesViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *guidesScroll;
+@property (weak, nonatomic) IBOutlet UIView *guidesTitles;
 
 @end
 
@@ -29,7 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.guidesScroll.contentSize = self.guidesTitles.frame.size;
+    [self.guidesScroll setScrollEnabled:true];
+    
 }
 
 - (void)didReceiveMemoryWarning

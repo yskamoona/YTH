@@ -13,6 +13,7 @@
 #import "PlacesViewController.h"
 #import "SettingsViewController.h"
 #import "TableViewCell.h"
+#import "GuidesViewController.h"
 
 typedef enum {
     latest,
@@ -27,6 +28,7 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) PlacesViewController *placesVC;
 @property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
+
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *settingsView;
@@ -44,7 +46,7 @@ const CGFloat widthConstraintMax = 320;
 @property (assign) NSInteger changingPosX;
 
 - (IBAction)onSettingsButtonTapped:(id)sender;
-- (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
+- (IBAction)onGuidesButton:(UITapGestureRecognizer *)sender;
 
 
 // Questions Area
@@ -324,4 +326,8 @@ const CGFloat widthConstraintMax = 320;
     }
 }
 
+- (IBAction)onGuidesButton:(UITapGestureRecognizer *)sender {
+    GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
+    [self presentViewController:guidesVC animated:YES completion:nil];
+}
 @end
