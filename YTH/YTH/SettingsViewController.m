@@ -13,7 +13,6 @@
 #import "MyReviewsViewController.h"
 #import "FavoriteGuidesViewController.h"
 
-
 @interface SettingsViewController ()
 
 @property (strong, nonatomic) HomeMainContentViewController *homeMainContentVC;

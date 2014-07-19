@@ -64,6 +64,8 @@
 		45FCEA041976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */; };
 		45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA061978787500AEA8F5 /* SettingsViewController.m */; };
 		45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA071978787500AEA8F5 /* SettingsViewController.xib */; };
+		B08266D3197A17840057A428 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B08266D1197A17840057A428 /* TableViewCell.m */; };
+		B08266D4197A17840057A428 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B08266D2197A17840057A428 /* TableViewCell.xib */; };
 		45FCEA0D1979063200AEA8F5 /* LocationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA0B1979063200AEA8F5 /* LocationSettingViewController.m */; };
 		45FCEA0E1979063200AEA8F5 /* LocationSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA0C1979063200AEA8F5 /* LocationSettingViewController.xib */; };
 		45FCEA1219790C9900AEA8F5 /* MyQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA1019790C9900AEA8F5 /* MyQuestionsViewController.m */; };
@@ -184,6 +186,9 @@
 		45FCEA271979132500AEA8F5 /* HomeMainContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMainContentViewController.m; sourceTree = "<group>"; };
 		45FCEA281979132500AEA8F5 /* HomeMainContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeMainContentViewController.xib; sourceTree = "<group>"; };
 		95A2106A4F894780BD5FFCF8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B08266D0197A17840057A428 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		B08266D1197A17840057A428 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		B08266D2197A17840057A428 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		B562F88A78DE4197BC039A65 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -361,6 +366,9 @@
 				45FCEA001976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib */,
 				45FCEA021976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.h */,
 				45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */,
+				B08266D0197A17840057A428 /* TableViewCell.h */,
+				B08266D1197A17840057A428 /* TableViewCell.m */,
+				B08266D2197A17840057A428 /* TableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -523,6 +531,7 @@
 				45FCEA1319790C9900AEA8F5 /* MyQuestionsViewController.xib in Resources */,
 				45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */,
 				45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */,
+				B08266D4197A17840057A428 /* TableViewCell.xib in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
 				4534133A196AB35F00C6A2FE /* ReviewCollectionViewCell.xib in Resources */,
 				45FCE9FB1976A4A300AEA8F5 /* QuestionsViewController.xib in Resources */,
@@ -592,6 +601,7 @@
 				17EC1BD7196A82B4005A456D /* Utils.m in Sources */,
 				45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */,
 				45FC04B2196A06F4007DB5C4 /* Review.m in Sources */,
+				B08266D3197A17840057A428 /* TableViewCell.m in Sources */,
 				45FCEA291979132500AEA8F5 /* HomeMainContentViewController.m in Sources */,
 				45FCEA1219790C9900AEA8F5 /* MyQuestionsViewController.m in Sources */,
 				45FCEA1A19790CC600AEA8F5 /* FavoriteGuidesViewController.m in Sources */,
