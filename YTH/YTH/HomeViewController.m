@@ -13,7 +13,6 @@
 #import "GuidesViewController.h"
 #import "NSDate+TimeAgo.h"
 
-
 typedef enum {
     latest,
     trending,
@@ -49,6 +48,8 @@ const CGFloat widthConstraintMax = 320;
 
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
 
+// Settings Panel
+@property (assign) BOOL menuIsOpen;
 
 // Questions Area
 @property (strong, nonatomic) IBOutlet UIView *questionsAreaView;
@@ -153,6 +154,35 @@ const CGFloat widthConstraintMax = 320;
 #pragma IBActions
 
 - (IBAction)onSettingsButtonTapped:(id)sender {
+    // Create translation transform
+    CATransform3D translate = CATransform3DIdentity;
+    translate = CATransform3DTranslate(translate, 160.0, 0, 200.0);
+    
+    // Create perspective transform
+    CATransform3D rotationAndPerspectiveTransform = CATransform3DIdentity;
+    rotationAndPerspectiveTransform.m34 = 1.0 / -800.0; //perspective
+    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, M_PI * 0.25, 0, -160, 0);
+    
+    self.settingVC = [[SettingsViewController alloc] init];
+    self.settingVC.delegate = self;
+    [self.settingsView addSubview:self.settingVC.view];
+    
+    if(!self.menuIsOpen) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.containerView.layer.transform = CATransform3DConcat(rotationAndPerspectiveTransform, translate);
+            //Bring in menu
+        } completion:^(BOOL finished){
+            self.menuIsOpen = YES;
+        }];
+    } else {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.containerView.layer.transform = CATransform3DIdentity; //remove the transforms
+            //Dismiss menu
+        } completion:^(BOOL finished) {
+            self.menuIsOpen = NO;
+        }];
+    }
+    
     if (self.containerViewWidthConstraint.constant == widthConstraintMax) {
         
         self.containerViewWidthConstraint.constant = 60;
@@ -163,15 +193,13 @@ const CGFloat widthConstraintMax = 320;
         self.mainViewWidthConstraint.constant = widthConstraintMax;
         self.headerViewWidthConstraint.constant = widthConstraintMax;
     }
-   
-    self.settingVC = [[SettingsViewController alloc] init];
-    self.settingVC.delegate = self;
-    [self.settingsView addSubview:self.settingVC.view];
 }
+
+// On question button [[here]]
 
 - (IBAction)onGuidesButton:(id)sender {
     GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
-    [[self navigationController] setNavigationBarHidden:NO];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:guidesVC animated:YES];
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -334,9 +362,12 @@ const CGFloat widthConstraintMax = 320;
     } else if (tableView == self.trendingTableView) {
         TableViewCell *cell = [self.latestTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
         cell.questionLabel.text = self.fakeLatestData[indexPath.row][@"question"];
+        
+        cell.backgroundColor = [UIColor clearColor];
         return cell;
     } else {
         UITableViewCell *cell = [self.pinnedTableView dequeueReusableCellWithIdentifier:@"TableCell"];
+        cell.backgroundColor = [UIColor clearColor];
         return cell;
     }
 }
