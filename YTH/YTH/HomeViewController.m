@@ -7,13 +7,12 @@
 //
 
 #import "HomeViewController.h"
-
-#import "PlacesViewController.h"
-
 #import "PlacesViewController.h"
 #import "SettingsViewController.h"
 #import "TableViewCell.h"
+#import "GuidesViewController.h"
 #import "NSDate+TimeAgo.h"
+
 
 typedef enum {
     latest,
@@ -28,6 +27,7 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) PlacesViewController *placesVC;
 @property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
+
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *settingsView;
@@ -45,6 +45,8 @@ const CGFloat widthConstraintMax = 320;
 @property (assign) NSInteger changingPosX;
 
 - (IBAction)onSettingsButtonTapped:(id)sender;
+- (IBAction)onGuidesButton:(id)sender;
+
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
 
 
@@ -165,6 +167,15 @@ const CGFloat widthConstraintMax = 320;
     self.settingVC = [[SettingsViewController alloc] init];
     self.settingVC.delegate = self;
     [self.settingsView addSubview:self.settingVC.view];
+}
+
+- (IBAction)onGuidesButton:(id)sender {
+    GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
+    [[self navigationController] setNavigationBarHidden:NO];
+    [self.navigationController pushViewController:guidesVC animated:YES];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {

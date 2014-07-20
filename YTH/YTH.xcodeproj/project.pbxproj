@@ -12,6 +12,12 @@
 		17EC1BD7196A82B4005A456D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EC1BD6196A82B4005A456D /* Utils.m */; };
 		17EC1BDB196A82DB005A456D /* MapUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EC1BDA196A82DB005A456D /* MapUtils.m */; };
 		2FD4833610F544C98DA8D85C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A2106A4F894780BD5FFCF8 /* libPods.a */; };
+		448E64D8197B67CC0070FB7B /* STDsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448E64D6197B67CC0070FB7B /* STDsViewController.m */; };
+		448E64D9197B67CC0070FB7B /* STDsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448E64D7197B67CC0070FB7B /* STDsViewController.xib */; };
+		448E64DE197B6B010070FB7B /* STDsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 448E64DC197B6B010070FB7B /* STDsTableViewCell.m */; };
+		448E64DF197B6B010070FB7B /* STDsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448E64DD197B6B010070FB7B /* STDsTableViewCell.xib */; };
+		44E8FF6A197B432500455028 /* MorningAfterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E8FF68197B432500455028 /* MorningAfterViewController.m */; };
+		44E8FF6B197B432500455028 /* MorningAfterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44E8FF69197B432500455028 /* MorningAfterViewController.xib */; };
 		451CBFCF1969FC0A007289F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CBFCE1969FC0A007289F3 /* Foundation.framework */; };
 		451CBFD11969FC0A007289F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CBFD01969FC0A007289F3 /* CoreGraphics.framework */; };
 		451CBFD31969FC0A007289F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CBFD21969FC0A007289F3 /* UIKit.framework */; };
@@ -102,6 +108,15 @@
 		17EC1BD6196A82B4005A456D /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		17EC1BD9196A82DB005A456D /* MapUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapUtils.h; sourceTree = "<group>"; };
 		17EC1BDA196A82DB005A456D /* MapUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapUtils.m; sourceTree = "<group>"; };
+		448E64D5197B67CC0070FB7B /* STDsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDsViewController.h; sourceTree = "<group>"; };
+		448E64D6197B67CC0070FB7B /* STDsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDsViewController.m; sourceTree = "<group>"; };
+		448E64D7197B67CC0070FB7B /* STDsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STDsViewController.xib; sourceTree = "<group>"; };
+		448E64DB197B6B010070FB7B /* STDsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDsTableViewCell.h; sourceTree = "<group>"; };
+		448E64DC197B6B010070FB7B /* STDsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDsTableViewCell.m; sourceTree = "<group>"; };
+		448E64DD197B6B010070FB7B /* STDsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STDsTableViewCell.xib; sourceTree = "<group>"; };
+		44E8FF67197B432500455028 /* MorningAfterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorningAfterViewController.h; sourceTree = "<group>"; };
+		44E8FF68197B432500455028 /* MorningAfterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorningAfterViewController.m; sourceTree = "<group>"; };
+		44E8FF69197B432500455028 /* MorningAfterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MorningAfterViewController.xib; sourceTree = "<group>"; };
 		451CBFCB1969FC0A007289F3 /* YTH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		451CBFCE1969FC0A007289F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		451CBFD01969FC0A007289F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -263,6 +278,22 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		448E64DA197B67F40070FB7B /* GuidesViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				44E8FF67197B432500455028 /* MorningAfterViewController.h */,
+				44E8FF68197B432500455028 /* MorningAfterViewController.m */,
+				44E8FF69197B432500455028 /* MorningAfterViewController.xib */,
+				448E64D5197B67CC0070FB7B /* STDsViewController.h */,
+				448E64D6197B67CC0070FB7B /* STDsViewController.m */,
+				448E64D7197B67CC0070FB7B /* STDsViewController.xib */,
+				448E64DB197B6B010070FB7B /* STDsTableViewCell.h */,
+				448E64DC197B6B010070FB7B /* STDsTableViewCell.m */,
+				448E64DD197B6B010070FB7B /* STDsTableViewCell.xib */,
+			);
+			name = GuidesViewControllers;
+			sourceTree = "<group>";
+		};
 		451CBFC21969FC0A007289F3 = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +450,7 @@
 				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
 				45FCEA1C19790E1900AEA8F5 /* SettingsPageViewControllers */,
 				45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */,
+				448E64DA197B67F40070FB7B /* GuidesViewControllers */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -516,6 +548,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = codepath;
 				TargetAttributes = {
+					451CBFCA1969FC0A007289F3 = {
+						DevelopmentTeam = SR953WUVAH;
+					};
 					451CBFE51969FC0A007289F3 = {
 						TestTargetID = 451CBFCA1969FC0A007289F3;
 					};
@@ -547,6 +582,8 @@
 				45FCEA1B19790CC600AEA8F5 /* FavoriteGuidesViewController.xib in Resources */,
 				45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */,
 				4533A3E5197A6024006415A9 /* ReviewCell.xib in Resources */,
+				448E64DF197B6B010070FB7B /* STDsTableViewCell.xib in Resources */,
+				44E8FF6B197B432500455028 /* MorningAfterViewController.xib in Resources */,
 				45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */,
 				45FCEA74197A0DCD00AEA8F5 /* RatingStarsViewController.xib in Resources */,
 				45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */,
@@ -564,6 +601,7 @@
 				45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */,
 				45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */,
 				B08266D4197A17840057A428 /* TableViewCell.xib in Resources */,
+				448E64D9197B67CC0070FB7B /* STDsViewController.xib in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
 				45FCE9FB1976A4A300AEA8F5 /* QuestionsViewController.xib in Resources */,
 				45FCE9F11976868D00AEA8F5 /* HomeViewController.xib in Resources */,
@@ -631,8 +669,10 @@
 				45FCE9FA1976A4A300AEA8F5 /* QuestionsViewController.m in Sources */,
 				45FCE9F01976868D00AEA8F5 /* HomeViewController.m in Sources */,
 				17EC1BD7196A82B4005A456D /* Utils.m in Sources */,
+				448E64D8197B67CC0070FB7B /* STDsViewController.m in Sources */,
 				45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */,
 				45FC04B2196A06F4007DB5C4 /* Review.m in Sources */,
+				44E8FF6A197B432500455028 /* MorningAfterViewController.m in Sources */,
 				B08266D3197A17840057A428 /* TableViewCell.m in Sources */,
 				45FCEA291979132500AEA8F5 /* HomeMainContentViewController.m in Sources */,
 				45FCEA1219790C9900AEA8F5 /* MyQuestionsViewController.m in Sources */,
@@ -649,6 +689,7 @@
 				451CC0001969FC57007289F3 /* PlacesViewController.m in Sources */,
 				457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */,
 				45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */,
+				448E64DE197B6B010070FB7B /* STDsTableViewCell.m in Sources */,
 				4534133D196AB37400C6A2FE /* ReviewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -767,6 +808,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kristina Frost (ES2KE9Z92C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -785,6 +827,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kristina Frost (ES2KE9Z92C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -847,7 +890,7 @@
 				451CBFF61969FC0A007289F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		451CBFF71969FC0A007289F3 /* Build configuration list for PBXNativeTarget "YTH" */ = {
 			isa = XCConfigurationList;
@@ -856,7 +899,7 @@
 				451CBFF91969FC0A007289F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		451CBFFA1969FC0A007289F3 /* Build configuration list for PBXNativeTarget "YTHTests" */ = {
 			isa = XCConfigurationList;
@@ -865,7 +908,7 @@
 				451CBFFC1969FC0A007289F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

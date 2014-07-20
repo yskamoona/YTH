@@ -29,8 +29,20 @@
     
     HomeViewController *homeVC = [[HomeViewController alloc] init];
     UINavigationController *homeNVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    homeNVC.navigationBar.tintColor = [UIColor whiteColor];
+    homeNVC.navigationBar.translucent = NO;
+    homeNVC.navigationBar.barTintColor = [UIColor colorWithRed:0.973 green:0.243 blue:0.502 alpha:1.0];
+    
+    NSDictionary *titleTextAttributes =
+    @{
+      //NSFontAttributeName : [UIFont boldSystemFontOfSize:22],
+      NSForegroundColorAttributeName : [UIColor whiteColor],
+      };
+    
+    homeNVC.navigationBar.titleTextAttributes = titleTextAttributes;
+    
     self.window.rootViewController = homeNVC;
-    [homeNVC setNavigationBarHidden:YES animated:YES];
+    [homeNVC setNavigationBarHidden:YES animated:NO];
     
     self.window.backgroundColor = [UIColor blueColor];
     [self.window makeKeyAndVisible];
