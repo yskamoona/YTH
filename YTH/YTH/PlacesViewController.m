@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
-#import "ClinicsViewController.h"
+#import "PlacesViewController.h"
 
 #import "PostReviewViewController.h"
 #import "FilterViewController.h"
@@ -14,16 +14,17 @@
 #import "Place.h"
 #import "YelpClient.h"
 #import <CoreLocation/CoreLocation.h>
-#import "LocationController.h"
 #import "Utils.h"
 #import "PlaceCellCustomHeaderView.h"
+#import "PlaceDetailViewController.h"
+#import "FullMapViewController.h"
 
 NSString * const kYelpConsumerKey = @"vxKwwcR_NMQ7WaEiQBK_CA";
 NSString * const kYelpConsumerSecret = @"33QCvh5bIF5jIHR5klQr7RtBDhQ";
 NSString * const kYelpToken = @"uRcRswHFYa1VkDrGV6LAW2F8clGh5JHV";
 NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
-@interface ClinicsViewController ()
+@interface PlacesViewController ()
 
 @property (weak, nonatomic) IBOutlet MKMapView *homeMapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
@@ -46,7 +47,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 @end
 
-@implementation ClinicsViewController
+@implementation PlacesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -254,13 +255,24 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
+<<<<<<< HEAD:YTH/YTH/ClinicsViewController.m
+=======
+    
+>>>>>>> 3d0e4e2c383c91d91dcb7b8d03f58d3b86003a1e:YTH/YTH/PlacesViewController.m
     self.selectedPlaceInfo = self.searchResults[indexPath.section];
+    
+    self.placeDetailVC.placesInfo = (NSArray*)self.searchResults;
+
+    self.placeDetailVC.startPlaceIndexPath = indexPath;
+    NSLog(@"index path section: %ld", (long)indexPath.section);
+    
     [[self navigationController] setNavigationBarHidden:NO];
     //[self.navigationController pushViewController:self.placeDetailVC animated:YES];
     [self presentViewController:self.placeDetailVC animated:YES completion:nil];
 
 }
 
+<<<<<<< HEAD:YTH/YTH/ClinicsViewController.m
 - (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC {
     placeDetailVC.placesInfo = self.searchResults;
 }
@@ -269,6 +281,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     placesInfoFullMapVC.placesInfo = (NSArray*)self.searchResults;
 }
 
+=======
+>>>>>>> 3d0e4e2c383c91d91dcb7b8d03f58d3b86003a1e:YTH/YTH/PlacesViewController.m
 #pragma IBAction
 
 - (IBAction)onFiltersButton:(id)sender {
@@ -284,7 +298,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (IBAction)onMapButtonPressed:(id)sender {
     FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
-    fullMapVC.delegate = self;
+    fullMapVC.placesInfo = self.searchResults;
     fullMapVC.modalPresentationStyle = UIModalPresentationCustom;
     fullMapVC.transitioningDelegate = self;
     //[self.navigationController pushViewController:fullMapVC animated:YES];

@@ -9,11 +9,13 @@
 #import "FullMapViewController.h"
 #import "PlaceCell.h"
 #import "Utils.h"
+#import <MapKit/MapKit.h>
 
 @interface FullMapViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *placeWithMapCollectionView;
 
 @property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) MKPointAnnotation *point;
 @end
 
 @implementation FullMapViewController
@@ -23,17 +25,13 @@
     NSLog(@" FULL MAP getting location update in view %@", location);
     self.currentLocation = location;
     [self setupMapView];
+    [self setupMapRegion];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    if (self.delegate != nil) {
-        [self.delegate getPlacesInfoForFullMapVC:self];
-        self.placeInfo = [self.placesInfo firstObject];
-    }
-
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
     [LocationController sharedLocationController];
     [LocationController sharedLocationController].delegate = self;
@@ -46,42 +44,28 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (self.placesInfo != nil) {
-         return self.placesInfo.count;
-    }
-    else return 1;
+    return  self.placesInfo.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PlaceCell *cell = [self.placeWithMapCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaceCell" forIndexPath:indexPath];
-    if (self.placeInfo == nil) {
-        [cell setupCellWithPlaceInfo:self.placesInfo[indexPath.row]];
-    } else {
-        [cell setupCellWithPlaceInfo:self.placeInfo];
-    }
+
     return cell;
 }
 
 
 - (void)setupMapView {
     
-    // Use San Francisco for simulator
-   
-    
-    
     NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
+//          NSLog(@" placeinfo %@", self.placesInfo);
     
-        float distance = [Utils convertToMeter:0.5];
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
-
-    [self.placeMapView setRegion:viewRegion];
-    
-    NSLog(@" placeinfo %@", self.placeInfo);
-    
-            NSString *address = [self.placeInfo.address componentsJoinedByString:@","];
-    NSLog(@" address %@", address);
+//    Place *showPlace = self.placesInfo[self.showPlaceIndex];
+    for (Place *showPlace in self.placesInfo)
+    {
+    NSString *address = [showPlace.address componentsJoinedByString:@","];
+//    NSLog(@" address %@", address);
     
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
             [geocoder geocodeAddressString:address
@@ -89,15 +73,31 @@
                              if (placemarks && placemarks.count > 0) {
                                  CLPlacemark *topResult = [placemarks objectAtIndex:0];
                                  MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
-                                 
-                                 MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-                                 point.coordinate = placemark.coordinate;
-                                 point.title = self.placeInfo.name;
-                                 point.subtitle = address;
-                                 [self.placeMapView addAnnotation:point];
+                                 self.point = [[MKPointAnnotation alloc] init];
+                                 self.point.coordinate = placemark.coordinate;
+                                 self.point.title = [self.placesInfo[self.showPlaceIndex] name];
+                                 self.point.subtitle = address;
+                                 [self.placeMapView addAnnotation:self.point];
                              }
-                         }];
+                        }];
+    }
+}
 
+-(void) setupMapRegion {
+    MKMapRect zoomRect = MKMapRectNull;
+    NSLog(@" hey ");
+
+    for (id <MKAnnotation> annotation in self.placeMapView.annotations) {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+        NSLog(@" hey ");
+        if (MKMapRectIsNull(zoomRect)) {
+            zoomRect = pointRect;
+        } else {
+            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        }
+    }
+    [self.placeMapView setVisibleMapRect:zoomRect animated:YES];
 }
 
 #pragma IBActions

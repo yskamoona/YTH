@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -17,11 +17,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6LH-g6-xwY">
-                    <rect key="frame" x="0.0" y="407" width="320" height="161"/>
+                    <rect key="frame" x="0.0" y="408" width="320" height="160"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="161" id="lU4-MN-7yz"/>
+                        <constraint firstAttribute="width" constant="320" id="5Ms-X3-qQm"/>
+                        <constraint firstAttribute="height" constant="160" id="dE0-iV-sOF"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Rpi-u1-RcE">
                         <size key="itemSize" width="300" height="100"/>
@@ -36,7 +37,8 @@
                     </connections>
                 </collectionView>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OPG-cO-nLc">
-                    <rect key="frame" x="0.0" y="75" width="320" height="332"/>
+                    <rect key="frame" x="0.0" y="75" width="320" height="335"/>
+
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </mapView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHn-lI-ugY">
@@ -79,22 +81,14 @@
             </subviews>
             <color key="backgroundColor" red="0.10556826749999999" green="0.72052375639999999" blue="0.68923397539999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="qO3-D4-5aI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="0Gs-aO-AXx"/>
-                <constraint firstItem="OPG-cO-nLc" firstAttribute="top" secondItem="LHn-lI-ugY" secondAttribute="bottom" constant="13" id="3jh-cu-64z"/>
-                <constraint firstItem="qO3-D4-5aI" firstAttribute="leading" secondItem="LHn-lI-ugY" secondAttribute="trailing" constant="36" id="3mR-HZ-TaE"/>
-                <constraint firstAttribute="trailing" secondItem="6LH-g6-xwY" secondAttribute="trailing" id="6uh-CZ-OuA"/>
-                <constraint firstAttribute="bottom" secondItem="6LH-g6-xwY" secondAttribute="bottom" id="9QT-Uy-sRZ"/>
-                <constraint firstItem="OPG-cO-nLc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="Bj2-Vp-9OY"/>
-                <constraint firstItem="s6R-5d-F0V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="26" id="K0Z-kP-KP5"/>
-                <constraint firstItem="s6R-5d-F0V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="LAF-Fh-Z7A"/>
-                <constraint firstItem="OPG-cO-nLc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PUL-xC-uHc"/>
-                <constraint firstAttribute="trailing" secondItem="OPG-cO-nLc" secondAttribute="trailing" id="cIH-Y4-91T"/>
-                <constraint firstItem="LHn-lI-ugY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="eZi-hn-hDb"/>
-                <constraint firstItem="6LH-g6-xwY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lJz-PU-O3v"/>
-                <constraint firstItem="LHn-lI-ugY" firstAttribute="leading" secondItem="s6R-5d-F0V" secondAttribute="trailing" constant="105" id="oRn-dL-2RS"/>
-                <constraint firstItem="OPG-cO-nLc" firstAttribute="bottom" secondItem="6LH-g6-xwY" secondAttribute="top" id="t1U-7h-1UQ"/>
-                <constraint firstItem="OPG-cO-nLc" firstAttribute="top" secondItem="s6R-5d-F0V" secondAttribute="bottom" constant="19" id="zPA-eu-su2"/>
-                <constraint firstAttribute="trailing" secondItem="qO3-D4-5aI" secondAttribute="trailing" constant="43" id="zwU-Ct-Fwx"/>
+
+                <constraint firstItem="OPG-cO-nLc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="27e-FD-D5F"/>
+                <constraint firstAttribute="trailing" secondItem="6LH-g6-xwY" secondAttribute="trailing" id="Gjg-NM-2iA"/>
+                <constraint firstItem="6LH-g6-xwY" firstAttribute="top" secondItem="OPG-cO-nLc" secondAttribute="bottom" constant="-2" id="Lrg-Zg-CnL"/>
+                <constraint firstItem="OPG-cO-nLc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="Pcb-rh-7ZH"/>
+                <constraint firstItem="6LH-g6-xwY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ui8-Ca-XuA"/>
+                <constraint firstAttribute="bottom" secondItem="6LH-g6-xwY" secondAttribute="bottom" id="dFu-A8-jLg"/>
+                <constraint firstAttribute="trailing" secondItem="OPG-cO-nLc" secondAttribute="trailing" id="l2v-FR-gE4"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

@@ -7,9 +7,13 @@
 //
 
 #import "HomeViewController.h"
-#import "ClinicsViewController.h"
+
+#import "PlacesViewController.h"
+
+#import "PlacesViewController.h"
 #import "SettingsViewController.h"
 #import "TableViewCell.h"
+#import "NSDate+TimeAgo.h"
 
 typedef enum {
     latest,
@@ -21,8 +25,7 @@ const CGFloat widthConstraintMax = 320;
 
 @interface HomeViewController ()
 
-@property (strong, nonatomic) ClinicsViewController  *clinicsVC;
-
+@property (strong, nonatomic) PlacesViewController *placesVC;
 @property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
 
@@ -165,7 +168,7 @@ const CGFloat widthConstraintMax = 320;
 }
 
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {
-    ClinicsViewController *clinicsVC = [[ClinicsViewController alloc] init];
+    PlacesViewController *clinicsVC = [[PlacesViewController alloc] init];
     [self presentViewController:clinicsVC animated:YES
                      completion:nil];
 }
@@ -221,7 +224,7 @@ const CGFloat widthConstraintMax = 320;
     
     
     self.fakeLatestData = @[
-                            @{@"question":@"In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.", @"location":@"San Francisco", @"answers":@2, @"time":@162020513451},
+                            @{@"question":@"In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.", @"location":@"San Francisco", @"answers":@2, @"time":@"2014-07-19T21:00:30.263Z"},
                             @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@"Los Angeles", @"answers":@0, @"time":@162000134},
                             @{@"question":@"Can you get an STI from oral sex if one person has a fever blister? Also, if a person has an STI, is oral sex still OK?", @"location":@"Oakland", @"answers":@1, @"time":@16200131},
                             @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@162003},
@@ -302,11 +305,13 @@ const CGFloat widthConstraintMax = 320;
             NSString *answerString = [NSString stringWithFormat:@"%@ answers",self.fakeLatestData[indexPath.row][@"answers"]];
             cell.answerLabel.text = answerString;
         }
-        //The date should read in a more friendly, "3 days ago" or "1 hour ago"
+        
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-        NSDate *dateString = [NSDate dateWithTimeIntervalSinceReferenceDate:[self.fakeLatestData[indexPath.row][@"time"] doubleValue]];
-        cell.timeLabel.text = [dateFormatter stringFromDate:dateString];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
+        NSDate *dateString = [NSDate dateWithTimeIntervalSinceNow:([self.fakeLatestData[indexPath.row][@"time"] floatValue])];
+        NSString *ago = [dateString timeAgo];
+        cell.timeLabel.text = ago;
+        
 
         // This should probably go somewhere else... ?
         cell.backgroundColor = [UIColor clearColor];
