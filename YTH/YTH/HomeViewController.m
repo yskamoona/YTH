@@ -169,7 +169,11 @@ const CGFloat widthConstraintMax = 320;
 
 - (IBAction)onGuidesButton:(id)sender {
     GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
-    [self presentViewController:guidesVC animated:YES completion:nil];
+    [[self navigationController] setNavigationBarHidden:NO];
+    [self.navigationController pushViewController:guidesVC animated:YES];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {
