@@ -18,7 +18,7 @@
 @property  BOOL needsMet;
 @property  BOOL recommended;
 @property  NSInteger  stars;
-@property  int  price;
+@property  NSInteger price;
 
 
 @end

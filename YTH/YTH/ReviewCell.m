@@ -7,25 +7,35 @@
 //
 
 #import "ReviewCell.h"
+#import "Review.h"
+#import "RatingStarsViewController.h"
+
+
+@interface ReviewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *reactionImage;
+@property (weak, nonatomic) IBOutlet UIView *ratingStarView;
+@property (weak, nonatomic) IBOutlet UILabel *reviewTimeStamp;
+@property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
+
+@property (nonatomic, strong) RatingStarsViewController *ratingVC;
+
+@end
 
 @implementation ReviewCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
+- (id)setupCellWithReview:(Reviews *)review {
+    self.reactionImage.image = [UIImage imageNamed:@"faceHappy"];
+    
+    NSInteger starRating = 3;
+    //[placeInfo.total_stars integerValue]/[placeInfo.total_reviews integerValue];
+    
+    self.ratingVC = [[RatingStarsViewController alloc] initWithReview:starRating];
+    [self.ratingStarView addSubview:self.ratingVC.view];
+    self.reviewTimeStamp.text = @"2 Days Ago";
+    self.reviewLabel.text = review.body;
+    
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

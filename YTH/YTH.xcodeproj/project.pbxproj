@@ -41,6 +41,9 @@
 		4534133D196AB37400C6A2FE /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534133C196AB37400C6A2FE /* ReviewCell.m */; };
 		45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */; };
 		45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */; };
+		4543B5D0197BBD7F004B8904 /* UIColor+YTH.m in Sources */ = {isa = PBXBuildFile; fileRef = 4543B5CF197BBD7F004B8904 /* UIColor+YTH.m */; };
+		457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457BB653197B762E000255E1 /* PriceRatingViewController.m */; };
+		457BB656197B762E000255E1 /* PriceRatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457BB654197B762E000255E1 /* PriceRatingViewController.xib */; };
 		45BDFB97196A0FD40095CBBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BDFB96196A0FD40095CBBD /* MapKit.framework */; };
 		45BDFB9C196A143C0095CBBD /* PlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BDFB9B196A143C0095CBBD /* PlaceCell.m */; };
 		45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BDFB9F196A14A00095CBBD /* PlaceCell.xib */; };
@@ -64,8 +67,6 @@
 		45FCEA041976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA031976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m */; };
 		45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA061978787500AEA8F5 /* SettingsViewController.m */; };
 		45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA071978787500AEA8F5 /* SettingsViewController.xib */; };
-		B08266D3197A17840057A428 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B08266D1197A17840057A428 /* TableViewCell.m */; };
-		B08266D4197A17840057A428 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B08266D2197A17840057A428 /* TableViewCell.xib */; };
 		45FCEA0D1979063200AEA8F5 /* LocationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA0B1979063200AEA8F5 /* LocationSettingViewController.m */; };
 		45FCEA0E1979063200AEA8F5 /* LocationSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA0C1979063200AEA8F5 /* LocationSettingViewController.xib */; };
 		45FCEA1219790C9900AEA8F5 /* MyQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA1019790C9900AEA8F5 /* MyQuestionsViewController.m */; };
@@ -78,6 +79,8 @@
 		45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA281979132500AEA8F5 /* HomeMainContentViewController.xib */; };
 		45FCEA73197A0DCD00AEA8F5 /* RatingStarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FCEA71197A0DCD00AEA8F5 /* RatingStarsViewController.m */; };
 		45FCEA74197A0DCD00AEA8F5 /* RatingStarsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FCEA72197A0DCD00AEA8F5 /* RatingStarsViewController.xib */; };
+		B08266D3197A17840057A428 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B08266D1197A17840057A428 /* TableViewCell.m */; };
+		B08266D4197A17840057A428 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B08266D2197A17840057A428 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +139,11 @@
 		4534133E196AB5B200C6A2FE /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
 		4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
 		45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailViewController.xib; sourceTree = "<group>"; };
+		4543B5CE197BBD7F004B8904 /* UIColor+YTH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YTH.h"; sourceTree = "<group>"; };
+		4543B5CF197BBD7F004B8904 /* UIColor+YTH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YTH.m"; sourceTree = "<group>"; };
+		457BB652197B762E000255E1 /* PriceRatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceRatingViewController.h; sourceTree = "<group>"; };
+		457BB653197B762E000255E1 /* PriceRatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceRatingViewController.m; sourceTree = "<group>"; };
+		457BB654197B762E000255E1 /* PriceRatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceRatingViewController.xib; sourceTree = "<group>"; };
 		45BDFB96196A0FD40095CBBD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		45BDFB9A196A143C0095CBBD /* PlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceCell.h; sourceTree = "<group>"; };
 		45BDFB9B196A143C0095CBBD /* PlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceCell.m; sourceTree = "<group>"; };
@@ -244,6 +252,7 @@
 		17EC1BD8196A82BA005A456D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4543B5CA197BBD38004B8904 /* Categories */,
 				17EC1BD5196A82B4005A456D /* Utils.h */,
 				17EC1BD6196A82B4005A456D /* Utils.m */,
 				17EC1BD9196A82DB005A456D /* MapUtils.h */,
@@ -341,6 +350,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4543B5CA197BBD38004B8904 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4543B5CE197BBD7F004B8904 /* UIColor+YTH.h */,
+				4543B5CF197BBD7F004B8904 /* UIColor+YTH.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		45FC0498196A058D007DB5C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +411,9 @@
 				45FCEA70197A0DCD00AEA8F5 /* RatingStarsViewController.h */,
 				45FCEA71197A0DCD00AEA8F5 /* RatingStarsViewController.m */,
 				45FCEA72197A0DCD00AEA8F5 /* RatingStarsViewController.xib */,
+				457BB652197B762E000255E1 /* PriceRatingViewController.h */,
+				457BB653197B762E000255E1 /* PriceRatingViewController.m */,
+				457BB654197B762E000255E1 /* PriceRatingViewController.xib */,
 				45FCEA051978787500AEA8F5 /* SettingsViewController.h */,
 				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
 				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
@@ -533,6 +554,7 @@
 				45FCE9F61976A48200AEA8F5 /* GuidesViewController.xib in Resources */,
 				45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */,
 				45FCEA011976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib in Resources */,
+				457BB656197B762E000255E1 /* PriceRatingViewController.xib in Resources */,
 				45FCEA2519790FCE00AEA8F5 /* MyReviewsViewController.xib in Resources */,
 				451CC0011969FC57007289F3 /* PlacesViewController.xib in Resources */,
 				45FCEA0E1979063200AEA8F5 /* LocationSettingViewController.xib in Resources */,
@@ -601,6 +623,7 @@
 				45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */,
 				45FCE9FF1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m in Sources */,
 				45FC04AC196A06DB007DB5C4 /* User.m in Sources */,
+				4543B5D0197BBD7F004B8904 /* UIColor+YTH.m in Sources */,
 				17EC1BDB196A82DB005A456D /* MapUtils.m in Sources */,
 				45BDFB9C196A143C0095CBBD /* PlaceCell.m in Sources */,
 				45341336196AB2B200C6A2FE /* PlaceDetailCell.m in Sources */,
@@ -624,6 +647,7 @@
 				45FC04AF196A06E9007DB5C4 /* Place.m in Sources */,
 				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
 				451CC0001969FC57007289F3 /* PlacesViewController.m in Sources */,
+				457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */,
 				45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */,
 				4534133D196AB37400C6A2FE /* ReviewCell.m in Sources */,
 			);

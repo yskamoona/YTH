@@ -30,7 +30,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
 @property (nonatomic, strong) YelpClient *client;
 @property (nonatomic, strong) NSMutableArray* searchResults;
-@property (nonatomic, strong) Place *selectedPlaceInfo;
 @property (nonatomic, strong) NSMutableDictionary* filters;
 @property (nonatomic, strong) CLLocation *currentLocation;
 
@@ -255,16 +254,9 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
-<<<<<<< HEAD:YTH/YTH/ClinicsViewController.m
-=======
-    
->>>>>>> 3d0e4e2c383c91d91dcb7b8d03f58d3b86003a1e:YTH/YTH/PlacesViewController.m
-    self.selectedPlaceInfo = self.searchResults[indexPath.section];
-    
     self.placeDetailVC.placesInfo = (NSArray*)self.searchResults;
-
     self.placeDetailVC.startPlaceIndexPath = indexPath;
-    NSLog(@"index path section: %ld", (long)indexPath.section);
+    self.placeDetailVC.startPlaceIndexPath = indexPath;
     
     [[self navigationController] setNavigationBarHidden:NO];
     //[self.navigationController pushViewController:self.placeDetailVC animated:YES];
@@ -272,17 +264,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 }
 
-<<<<<<< HEAD:YTH/YTH/ClinicsViewController.m
-- (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC {
-    placeDetailVC.placesInfo = self.searchResults;
-}
-
-- (void)getPlacesInfoForFullMapVC:(FullMapViewController *)placesInfoFullMapVC {
-    placesInfoFullMapVC.placesInfo = (NSArray*)self.searchResults;
-}
-
-=======
->>>>>>> 3d0e4e2c383c91d91dcb7b8d03f58d3b86003a1e:YTH/YTH/PlacesViewController.m
 #pragma IBAction
 
 - (IBAction)onFiltersButton:(id)sender {

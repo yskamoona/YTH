@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Reviews;
 
 @interface ReviewCell : UITableViewCell
+
+
+
+
+
+- (id)setupCellWithReview:(Reviews *)review;
 
 @end

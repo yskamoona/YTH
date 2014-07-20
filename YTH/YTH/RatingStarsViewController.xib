@@ -22,9 +22,9 @@
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CvZ-Vc-vaW">
-                    <rect key="frame" x="-4" y="0.0" width="175" height="25"/>
+                    <rect key="frame" x="-2" y="0.0" width="175" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.29803922770000002" green="0.88235300780000003" blue="0.84705889229999998" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" red="1" green="0.85318148520000003" blue="0.25378539239999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="En3-fI-Imh" userLabel="ButtonFour">
                     <rect key="frame" x="101" y="0.0" width="35" height="25"/>
@@ -37,7 +37,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="st3-Or-NV5" userLabel="ButtonOne">
-                    <rect key="frame" x="-4" y="0.0" width="35" height="25"/>
+                    <rect key="frame" x="-2" y="0.0" width="35" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" image="star">

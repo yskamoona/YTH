@@ -43,7 +43,6 @@
 
     self.ratingVC = [[RatingStarsViewController alloc] initWithReview:starRating];
     [self.starRatingView addSubview:self.ratingVC.view];
-    //[self setUserInteractionEnabled:NO];
     [self addSubview:self.callUsButton];
     [self addSubview:self.typeAReviewButton];
 }

@@ -37,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.ratingsFillView.hidden = YES;
 }
 
 - (id)initWithReview:(NSInteger)starsReview {
@@ -73,15 +74,15 @@
 }
 
 - (void)buttonPress:(UIButton *)sender withButtonValue:(NSInteger )buttonValue {
+    self.ratingsFillView.hidden = NO;
     self.ratingsFillView.frame = CGRectMake(self.firstStarButton.frame.origin.x,
                                             self.firstStarButton.frame.origin.y,
-                                            sender.frame.size.width * buttonValue ,
+                                            sender.frame.size.width * buttonValue -4,
                                             sender.frame.size.height);
 }
 
 - (void)getUserStarReviewForPostReviewVC:(PostReviewViewController *)postReviewVC {
     postReviewVC.stars = self.buttonValue;
 }
-
 
 @end
