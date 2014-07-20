@@ -34,18 +34,19 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.ratingsFillView.hidden = YES;
-}
-
 - (id)initWithReview:(NSInteger)starsReview {
     self = [super initWithNibName:@"RatingStarsViewController" bundle:nil];
     if (self) {
           self.buttonValue = starsReview;
     }
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    //self.ratingsFillView.hidden = YES;
+    [self firstSetupWithPriceReview:self.buttonValue];
 }
 
 - (IBAction)onFirstStar:(UIButton *)sender {
@@ -73,12 +74,27 @@
     [self buttonPress:sender withButtonValue:self.buttonValue];
 }
 
+- (void)firstSetupWithPriceReview:(NSInteger)starsReview {
+    self.ratingsFillView.hidden = NO;
+    self.ratingsFillView.frame = CGRectMake(0, 0, 50, 35);
+    CGRectMake( self.firstStarButton.frame.origin.x,
+                self.firstStarButton.frame.origin.y,
+                self.firstStarButton.frame.size.width * starsReview - 4,
+                self.firstStarButton.frame.size.height);
+}
+
 - (void)buttonPress:(UIButton *)sender withButtonValue:(NSInteger )buttonValue {
     self.ratingsFillView.hidden = NO;
-    self.ratingsFillView.frame = CGRectMake(self.firstStarButton.frame.origin.x,
-                                            self.firstStarButton.frame.origin.y,
-                                            sender.frame.size.width * buttonValue -4,
-                                            sender.frame.size.height);
+    self.ratingsFillView.bounds = CGRectMake(self.firstStarButton.frame.origin.x,
+                                             self.firstStarButton.frame.origin.y,
+                                             sender.frame.size.width * buttonValue -4,
+                                             sender.frame.size.height);
+
+    
+//    self.ratingsFillView.frame = CGRectMake(self.firstStarButton.frame.origin.x,
+//                                            self.firstStarButton.frame.origin.y,
+//                                            sender.frame.size.width * buttonValue -4,
+//                                            sender.frame.size.height);
 }
 
 - (void)getUserStarReviewForPostReviewVC:(PostReviewViewController *)postReviewVC {

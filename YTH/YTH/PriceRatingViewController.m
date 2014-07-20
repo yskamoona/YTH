@@ -26,18 +26,20 @@
 
 @implementation PriceRatingViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.ratingsFillView.hidden = YES;
-}
-
 - (id)initWithReview:(NSInteger)priceReview {
     self = [super initWithNibName:@"PriceRatingViewController" bundle:nil];
     if (self) {
         self.buttonValue = priceReview;
     }
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.ratingsFillView.hidden = YES;
+    [self firstSetupWithPriceReview:self.buttonValue];
 }
 
 - (IBAction)onFirstDollarSign:(UIButton *)sender {
@@ -63,6 +65,19 @@
 - (IBAction)onFifthDollarSign:(UIButton *)sender {
     self.buttonValue = 5;
     [self buttonPress:sender withButtonValue:self.buttonValue];
+}
+
+- (void)firstSetupWithPriceReview:(NSInteger)priceReview {
+    self.ratingsFillView.hidden = NO;
+    
+    NSInteger temp = 3;
+    if (self.buttonValue == 5 || self.buttonValue == 4) {
+        temp = 15;
+    }
+    self.ratingsFillView.frame = CGRectMake(1,
+                                            1,
+                                            35 * priceReview - temp,
+                                            34);
 }
 
 - (void)buttonPress:(UIButton *)sender withButtonValue:(NSInteger )buttonValue {

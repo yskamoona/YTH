@@ -10,7 +10,6 @@
 #import "Review.h"
 #import "RatingStarsViewController.h"
 
-
 @interface ReviewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *reactionImage;

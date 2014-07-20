@@ -9,6 +9,7 @@
 #import "PlaceDetailCell.h"
 #import "Place.h"
 #import "RatingStarsViewController.h"
+#import "PriceRatingViewController.h"
 
 @interface PlaceDetailCell ()
 
@@ -16,11 +17,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *starRatingView;
+@property (weak, nonatomic) IBOutlet UIView *priceRatingView;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
 
 @property (nonatomic, strong) Place *placeInfo;
 @property (nonatomic, strong) RatingStarsViewController *ratingVC;
+
+@property (nonatomic, strong) PriceRatingViewController *priceVC;
 
 @property (weak, nonatomic) IBOutlet UIButton *callUsButton;
 @property (weak, nonatomic) IBOutlet UIButton *typeAReviewButton;
@@ -39,10 +43,13 @@
     
     
     NSInteger starRating = 3;
+    NSInteger priceRating = 2;
     //[placeInfo.total_stars integerValue]/[placeInfo.total_reviews integerValue];
 
     self.ratingVC = [[RatingStarsViewController alloc] initWithReview:starRating];
-    [self.starRatingView addSubview:self.ratingVC.view];
+    //[self.starRatingView addSubview:self.ratingVC.view];
+    self.priceVC = [[PriceRatingViewController alloc] initWithReview:priceRating];
+    //[self.priceRatingView addSubview:self.priceVC.view];
     [self addSubview:self.callUsButton];
     [self addSubview:self.typeAReviewButton];
 }
