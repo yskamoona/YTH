@@ -31,6 +31,7 @@ PODS:
   - Mantle (1.5):
     - Mantle/extobjc
   - Mantle/extobjc (1.5)
+  - NSDate+TimeAgo (1.0.3)
   - Parse (1.2.19):
     - Facebook-iOS-SDK (~> 3.11)
   - XLForm (2.0.0)
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - BDBOAuth1Manager
   - HMSegmentedControl (~> 1.3.0)
   - Mantle
+  - NSDate+TimeAgo
   - Parse
   - XLForm (~> 2.0)
 
@@ -52,6 +54,7 @@ SPEC CHECKSUMS:
   Facebook-iOS-SDK: 82ad03cb9ce568855057e20a099054cf1e34ef12
   HMSegmentedControl: 9b3a39b9efd3d370b5d3d7b7cd5430f01a889b0b
   Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
+  NSDate+TimeAgo: f3533e0198fab05b716368b19f8c2185d53d6f3b
   Parse: ffebaecaddd32cb52671010f81567c298ff93d04
   XLForm: e065ea92da75acb51a577c40f2bb540c814982a3
 
