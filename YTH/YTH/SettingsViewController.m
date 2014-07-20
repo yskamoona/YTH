@@ -37,7 +37,7 @@
 
 - (IBAction)onLocationButtonTapped:(id)sender {
     LocationSettingViewController *locationSettingVC = [[LocationSettingViewController alloc] init];
-    [self.delegate addLocationViewToHomeView:locationSettingVC.view fromSettingVC:self];
+    [self.delegate addLocationViewToHomeView:locationSettingVC fromSettingVC:self];
 }
 
 - (IBAction)onMyQuestionButtonTapped:(id)sender {

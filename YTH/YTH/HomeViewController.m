@@ -12,8 +12,12 @@
 #import "TableViewCell.h"
 #import "GuidesViewController.h"
 #import "NSDate+TimeAgo.h"
+<<<<<<< HEAD
 #import "QuestionsViewController.h"
 
+=======
+#import "LocationSettingViewController.h"
+>>>>>>> 9d45ac955bd3abf1be6c44a0944c1d6dd24b6c33
 
 typedef enum {
     latest,
@@ -48,7 +52,16 @@ const CGFloat widthConstraintMax = 320;
 - (IBAction)onSettingsButtonTapped:(id)sender;
 - (IBAction)onGuidesButton:(id)sender;
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
+<<<<<<< HEAD
 - (IBAction)onQuestionsViewTapped:(id)sender;
+=======
+
+// Settings Panel
+- (IBAction)onDismissMenuSwipe:(UISwipeGestureRecognizer *)sender;
+- (IBAction)onDismissMenuTap:(UITapGestureRecognizer *)sender;
+@property (assign) BOOL menuIsOpen;
+@property (strong, nonatomic) IBOutlet UIView *menuDismissView;
+>>>>>>> 9d45ac955bd3abf1be6c44a0944c1d6dd24b6c33
 
 // Questions Area
 @property (strong, nonatomic) IBOutlet UIView *questionsAreaView;
@@ -134,8 +147,9 @@ const CGFloat widthConstraintMax = 320;
     [self.navigationController pushViewController:homeMainContentVC animated:YES];
 }
 
-- (void)addLocationViewToHomeView:(UIView *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:locationSettingsView];
+- (void)addLocationViewToHomeView:(LocationSettingViewController *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
+    //[self.mainView addSubview:locationSettingsView];
+    [self.navigationController pushViewController:locationSettingsView animated:YES];
 }
 
 - (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
@@ -153,25 +167,77 @@ const CGFloat widthConstraintMax = 320;
 #pragma IBActions
 
 - (IBAction)onSettingsButtonTapped:(id)sender {
-    if (self.containerViewWidthConstraint.constant == widthConstraintMax) {
-        
-        self.containerViewWidthConstraint.constant = 60;
-        self.mainViewWidthConstraint.constant = 60;
-        self.headerViewWidthConstraint.constant = 60;
-    } else {
-        self.containerViewWidthConstraint.constant = widthConstraintMax;
-        self.mainViewWidthConstraint.constant = widthConstraintMax;
-        self.headerViewWidthConstraint.constant = widthConstraintMax;
-    }
-   
+    // Create translation transform
+    CATransform3D translate = CATransform3DIdentity;
+    translate = CATransform3DTranslate(translate, 160.0, 0, 200.0);
+    
+    // Create perspective transform
+    CATransform3D rotationAndPerspectiveTransform = CATransform3DIdentity;
+    rotationAndPerspectiveTransform.m34 = 1.0 / -800.0; //perspective
+    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, M_PI * 0.25, 0, -160, 0);
+    
     self.settingVC = [[SettingsViewController alloc] init];
     self.settingVC.delegate = self;
     [self.settingsView addSubview:self.settingVC.view];
+    
+    if(!self.menuIsOpen) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.containerView.alpha = 0.7;
+            self.containerView.layer.transform = CATransform3DConcat(rotationAndPerspectiveTransform, translate);
+            //Bring in menu
+        } completion:^(BOOL finished){
+            self.menuIsOpen = YES;
+            [self menuExitToggle];
+        }];
+    } else {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.containerView.alpha = 1.0;
+            self.containerView.layer.transform = CATransform3DIdentity; //remove the transforms
+            //Dismiss menu
+        } completion:^(BOOL finished) {
+            self.menuIsOpen = NO;
+            [self menuExitToggle];
+        }];
+    }
+    self.settingsView.frame = CGRectMake(0, 70, 125, 130);
 }
+
+-(void)menuExitToggle {
+    if(self.menuIsOpen) {
+        self.menuDismissView.hidden = NO;
+        self.menuDismissView.userInteractionEnabled = YES;
+        
+        self.settingsView.hidden = NO;
+        self.settingsView.userInteractionEnabled = YES;
+        
+    } else {
+        self.menuDismissView.hidden = YES;
+        self.menuDismissView.userInteractionEnabled = NO;
+        
+        self.settingsView.hidden = YES;
+        self.settingsView.userInteractionEnabled = NO;
+    }
+}
+
+- (IBAction)onDismissMenuSwipe:(UISwipeGestureRecognizer *)sender {
+    if (sender.state == UISwipeGestureRecognizerDirectionLeft) {
+        NSLog(@"dismissed");
+        [self onSettingsButtonTapped:sender];
+    } else {
+        NSLog(@"Other way!");
+    }
+}
+
+- (IBAction)onDismissMenuTap:(UITapGestureRecognizer *)sender {
+    NSLog(@"dismissed");
+    [self onSettingsButtonTapped:sender];
+}
+
+// On question button [[here]]
 
 - (IBAction)onGuidesButton:(id)sender {
     GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
-    [[self navigationController] setNavigationBarHidden:NO];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:guidesVC animated:YES];
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -243,11 +309,14 @@ const CGFloat widthConstraintMax = 320;
     
     self.fakeLatestData = @[
                             @{@"question":@"In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.", @"location":@"San Francisco", @"answers":@2, @"time":@"2014-07-19T21:00:30.263Z"},
-                            @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@"Los Angeles", @"answers":@0, @"time":@162000134},
-                            @{@"question":@"Can you get an STI from oral sex if one person has a fever blister? Also, if a person has an STI, is oral sex still OK?", @"location":@"Oakland", @"answers":@1, @"time":@16200131},
-                            @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@162003},
+                            @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@"Los Angeles", @"answers":@0, @"time":@"2014-07-19T12:00:30.263Z"},
+                            @{@"question":@"Can you get an STI from oral sex if one person has a fever blister? Also, if a person has an STI, is oral sex still OK?", @"location":@"Oakland", @"answers":@1, @"time":@"2014-07-19T23:00:30.263Z"},
+                            @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@"2014-06-19T21:00:30.263Z"},
                             @{@"question":@"jim", @"location":@"San Francisco", @"answers":@2, @"time":@162010},
                             @{@"question":@"sam", @"location":@"San Francisco", @"answers":@2, @"time":@162050},
+                            @{@"question":@"In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.", @"location":@"San Francisco", @"answers":@2, @"time":@"2014-07-19T21:00:30.263Z"},
+                            @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@"Los Angeles", @"answers":@0, @"time":@162000134},
+                            @{@"question":@"Can you get an STI from oral sex if one person has a fever blister? Also, if a person has an STI, is oral sex still OK?", @"location":@"Oakland", @"answers":@1, @"time":@16200131}
                             ];
     
     [self.latestTableView   registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
@@ -338,11 +407,15 @@ const CGFloat widthConstraintMax = 320;
     } else if (tableView == self.trendingTableView) {
         TableViewCell *cell = [self.latestTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
         cell.questionLabel.text = self.fakeLatestData[indexPath.row][@"question"];
+        
+        cell.backgroundColor = [UIColor clearColor];
         return cell;
     } else {
         UITableViewCell *cell = [self.pinnedTableView dequeueReusableCellWithIdentifier:@"TableCell"];
+        cell.backgroundColor = [UIColor clearColor];
         return cell;
     }
 }
+
 
 @end
