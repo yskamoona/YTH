@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -7,12 +7,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
                 <outlet property="buttonBackgroundView" destination="seo-Ru-t6U" id="4uS-um-Bxi"/>
+                <outlet property="clincsTapGestureRecognizer" destination="vJR-NC-2OQ" id="viU-cv-SFD"/>
                 <outlet property="clinicsView" destination="wch-FV-3Oo" id="a8S-Im-DfO"/>
                 <outlet property="containerView" destination="sDK-WL-WfS" id="6ZX-uj-Kgw"/>
                 <outlet property="containerViewPanGestureRecognizer" destination="YDh-26-TMH" id="blY-uY-gnL"/>
                 <outlet property="latestTableView" destination="EEi-vC-fsU" id="VNH-DO-52m"/>
                 <outlet property="pinnedTableView" destination="WKI-Vb-7ZC" id="AJh-By-yAC"/>
                 <outlet property="questionsAreaView" destination="Kvx-tK-GZI" id="xuH-w9-H0o"/>
+                <outlet property="questionsTapGestureRecognizer" destination="Co9-ec-7uj" id="CVF-fH-Rm4"/>
                 <outlet property="settingsView" destination="Deh-re-baA" id="yQw-qC-QA7"/>
                 <outlet property="trendingTableView" destination="cRX-9B-XyE" id="Jov-6l-Knd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -67,6 +69,10 @@
                             <rect key="frame" x="31" y="64" width="70" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.7137255072593689" green="0.87843143939971924" blue="0.035294119268655777" alpha="1" colorSpace="deviceRGB"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="Co9-ec-7uj" appends="YES" id="qJd-Vt-DRF"/>
+                            </connections>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIJ-hq-1l0">
                             <rect key="frame" x="136" y="131" width="46" height="30"/>
@@ -193,6 +199,11 @@
         <tapGestureRecognizer id="vJR-NC-2OQ" userLabel="TapGestureOnClinics">
             <connections>
                 <action selector="onClinicsButton:" destination="-1" id="ean-AJ-jjh"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="Co9-ec-7uj" userLabel="TapGestureOnQuestions">
+            <connections>
+                <action selector="onQuestionsViewTapped:" destination="-1" id="oJb-cK-OlS"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

@@ -12,6 +12,7 @@
 #import "TableViewCell.h"
 #import "GuidesViewController.h"
 #import "NSDate+TimeAgo.h"
+#import "QuestionsViewController.h"
 
 
 typedef enum {
@@ -27,7 +28,7 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) PlacesViewController *placesVC;
 @property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
-
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *questionsTapGestureRecognizer;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *settingsView;
@@ -46,9 +47,8 @@ const CGFloat widthConstraintMax = 320;
 
 - (IBAction)onSettingsButtonTapped:(id)sender;
 - (IBAction)onGuidesButton:(id)sender;
-
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
-
+- (IBAction)onQuestionsViewTapped:(id)sender;
 
 // Questions Area
 @property (strong, nonatomic) IBOutlet UIView *questionsAreaView;
@@ -181,6 +181,13 @@ const CGFloat widthConstraintMax = 320;
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {
     PlacesViewController *clinicsVC = [[PlacesViewController alloc] init];
     [self presentViewController:clinicsVC animated:YES
+                     completion:nil];
+}
+
+- (IBAction)onQuestionsViewTapped:(id)sender {
+    QuestionsViewController *questionVC = [[QuestionsViewController alloc] init];
+    [self presentViewController:questionVC
+                       animated:YES
                      completion:nil];
 }
 

@@ -7,8 +7,16 @@
 //
 
 #import "QuestionsViewController.h"
+#import "Question.h"
 
 @interface QuestionsViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *questionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *askButton;
+
+
+
+- (IBAction)onAskButtonTapped:(id)sender;
+
 
 @end
 
@@ -34,4 +42,13 @@
 }
 
 
+#pragma IBActions
+
+- (IBAction)onAskButtonTapped:(id)sender {
+    Question *postQuestion = [Question object];
+    postQuestion[@"body"] = self.questionTextView.text;
+    postQuestion[@"user"] = [PFUser currentUser];
+    
+    [postQuestion saveInBackground];
+}
 @end
