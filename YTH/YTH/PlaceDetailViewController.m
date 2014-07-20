@@ -33,21 +33,14 @@
 }
 
 - (void)getPlacesData {
-    if (self.placeInfo == nil) {
-        self.placeInfo = [[Place alloc] init];
-    }
-    
-    if (self.delegate != nil) {
-        [self.delegate getPlaceInfoForPlaceDetailVC:self];
-    }
-    
+
     [self getReviews];
 }
 
 
 - (void) getReviews {
     PFQuery *query = [Reviews query];
-    [query whereKey:@"yelp_id" containsString:self.placeInfo.yelp_id];
+    [query whereKey:@"yelp_id" containsString:[self.placesInfo[0] yelp_id]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.reviews = objects;
@@ -86,9 +79,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         PlaceDetailCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"PlaceDetailCell" forIndexPath:indexPath];
-        [cell setupCellWithPlaceInfo:self.placeInfo forRow:indexPath.row];
-        cell.delegate = self;
-        cell.userInteractionEnabled = NO;
+        [cell setupCellWithPlaceInfo:self.placesInfo[0]];
+         cell.delegate = self;
+        //[cell.callUsButton addTarget:self action:@selector(onCallUsButtonTapped:) forControlEvents:UIControlEventAllTouchEvents];
         return cell;
     } else {
         ReviewCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"ReviewCell" forIndexPath:indexPath];
@@ -114,18 +107,26 @@
     }
 }
 
+
+#pragma PlaceDetailCellDelegate Methods
+
+- (void)placeDetailCell:(PlaceDetailCell *)placeDetailCell didClickButton:(UIButton *)button {
+    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", [self.placesInfo[0] display_phone]];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:phoneNumber]];
+}
+
 #pragma IBActions
 
 - (IBAction)onFullMapView:(id)sender {
     FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
-    fullMapVC.placeInfo = self.placeInfo;
+    fullMapVC.placeInfo = self.placesInfo[0];
     //[self.navigationController pushViewController:fullMapVC animated:YES];
     [self presentViewController:fullMapVC animated:YES completion:nil];
 }
 
 - (void)didDismissAlertView:(UIAlertView *)alertView {
     PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
-    postReviewVC.place = self.placeInfo;
+    postReviewVC.place = self.placesInfo[0];
     [self presentViewController:postReviewVC animated:NO completion:nil];
 }
 

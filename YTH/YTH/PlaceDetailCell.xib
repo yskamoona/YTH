@@ -26,14 +26,14 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU6-pj-XCf">
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU6-pj-XCf">
                     <rect key="frame" x="17" y="345" width="136" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="PhoneButton">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onCallUsButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="z3n-E0-Xpl"/>
+                        <action selector="onCallUsButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="nW9-rd-xK1"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKI-dE-PzV">
@@ -42,6 +42,9 @@
                     <state key="normal" image="Post_review_button">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onGiveAReviewButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="xwf-m0-O28"/>
+                    </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYY-1u-aGZ">
                     <rect key="frame" x="17" y="524" width="51" height="21"/>
@@ -94,7 +97,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="addressLabel" destination="yIz-5k-rRL" id="cYB-BO-m8a"/>
-                <outlet property="callUsButton" destination="uU6-pj-XCf" id="1lj-6N-FKQ"/>
+                <outlet property="callUsButton" destination="uU6-pj-XCf" id="VQA-ES-4Vp"/>
                 <outlet property="hoursLabel" destination="3wN-T2-dSt" id="0tM-x7-Km5"/>
                 <outlet property="nameLabel" destination="Lup-Gy-5Tx" id="Cs9-aR-V9v"/>
                 <outlet property="placeImageView" destination="OsH-AY-Ydq" id="UJZ-j0-aGh"/>

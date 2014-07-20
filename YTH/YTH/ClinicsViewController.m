@@ -254,7 +254,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
-    self.placeDetailVC.delegate = self;
     self.selectedPlaceInfo = self.searchResults[indexPath.section];
     [[self navigationController] setNavigationBarHidden:NO];
     //[self.navigationController pushViewController:self.placeDetailVC animated:YES];
@@ -263,7 +262,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 }
 
 - (void)getPlaceInfoForPlaceDetailVC:(PlaceDetailViewController *)placeDetailVC {
-    placeDetailVC.placeInfo = self.selectedPlaceInfo;
+    placeDetailVC.placesInfo = self.searchResults;
 }
 
 - (void)getPlacesInfoForFullMapVC:(FullMapViewController *)placesInfoFullMapVC {

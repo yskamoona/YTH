@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) Place *placeInfo;
 @property (nonatomic, strong) RatingStarsViewController *ratingVC;
+
 @property (weak, nonatomic) IBOutlet UIButton *callUsButton;
 @property (weak, nonatomic) IBOutlet UIButton *typeAReviewButton;
 
@@ -28,7 +29,7 @@
 
 @implementation PlaceDetailCell
 
-- (void)setupCellWithPlaceInfo:(Place *)placeInfo forRow:(NSInteger)row {
+- (void)setupCellWithPlaceInfo:(Place *)placeInfo {
     
     self.placeInfo = placeInfo;
     //self.imageView = placeInfo.image_url;
@@ -42,21 +43,21 @@
 
     self.ratingVC = [[RatingStarsViewController alloc] initWithReview:starRating];
     [self.starRatingView addSubview:self.ratingVC.view];
-    self.ratingVC.view.userInteractionEnabled = NO;
-    
-    if (row == 1) {
-        
-    }
+    //[self setUserInteractionEnabled:NO];
+    [self addSubview:self.callUsButton];
+    [self addSubview:self.typeAReviewButton];
 }
 
 #pragma IBActions
 
 - (IBAction)onCallUsButtonTapped:(id)sender {
-    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", self.placeInfo.display_phone];
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:phoneNumber]];
+    if (self.delegate != nil) {
+        [self.delegate placeDetailCell:self didClickButton:sender];
+    }
+
 }
 
-- (void)onGiveAReviewButtonTapped:(id)sender {
+- (IBAction)onGiveAReviewButtonTapped:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Text Verification Message"
                                                         message:@"Text goes here..."
                                                        delegate:self
