@@ -11,6 +11,7 @@
                 <outlet property="containerView" destination="sDK-WL-WfS" id="6ZX-uj-Kgw"/>
                 <outlet property="containerViewPanGestureRecognizer" destination="YDh-26-TMH" id="blY-uY-gnL"/>
                 <outlet property="latestTableView" destination="EEi-vC-fsU" id="VNH-DO-52m"/>
+                <outlet property="menuDismissView" destination="XqK-nW-TiG" id="nHB-ht-dxF"/>
                 <outlet property="pinnedTableView" destination="WKI-Vb-7ZC" id="AJh-By-yAC"/>
                 <outlet property="questionsAreaView" destination="Kvx-tK-GZI" id="xuH-w9-H0o"/>
                 <outlet property="settingsView" destination="Deh-re-baA" id="yQw-qC-QA7"/>
@@ -27,11 +28,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" id="Deh-re-baA" userLabel="Setting View">
-                    <rect key="frame" x="0.0" y="75" width="320" height="493"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
                 <view contentMode="scaleToFill" id="sDK-WL-WfS" userLabel="Container view">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -179,6 +175,23 @@
                         <outletCollection property="gestureRecognizers" destination="YDh-26-TMH" appends="YES" id="S0e-oz-nbl"/>
                     </connections>
                 </view>
+                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="XqK-nW-TiG" userLabel="MenuDismiss">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Tg9-um-pTb" appends="YES" id="xef-si-2YO"/>
+                        <outletCollection property="gestureRecognizers" destination="qjQ-ob-edJ" appends="YES" id="bUw-zf-KaK"/>
+                    </connections>
+                </view>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" id="Deh-re-baA" userLabel="Setting View">
+                    <rect key="frame" x="0.0" y="75" width="320" height="493"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -195,6 +208,16 @@
                 <action selector="onClinicsButton:" destination="-1" id="ean-AJ-jjh"/>
             </connections>
         </tapGestureRecognizer>
+        <tapGestureRecognizer id="Tg9-um-pTb" userLabel="Menu Dismiss Tap Gesture Recognizer">
+            <connections>
+                <action selector="onDismissMenuTap:" destination="-1" id="nYG-dU-KL2"/>
+            </connections>
+        </tapGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="qjQ-ob-edJ">
+            <connections>
+                <action selector="onDismissMenuSwipe:" destination="-1" id="tBs-vX-mOI"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
     <resources>
         <image name="Home_Background" width="320" height="568"/>

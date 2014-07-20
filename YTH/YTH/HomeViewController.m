@@ -12,6 +12,7 @@
 #import "TableViewCell.h"
 #import "GuidesViewController.h"
 #import "NSDate+TimeAgo.h"
+#import "LocationSettingViewController.h"
 
 typedef enum {
     latest,
@@ -49,7 +50,10 @@ const CGFloat widthConstraintMax = 320;
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
 
 // Settings Panel
+- (IBAction)onDismissMenuSwipe:(UISwipeGestureRecognizer *)sender;
+- (IBAction)onDismissMenuTap:(UITapGestureRecognizer *)sender;
 @property (assign) BOOL menuIsOpen;
+@property (strong, nonatomic) IBOutlet UIView *menuDismissView;
 
 // Questions Area
 @property (strong, nonatomic) IBOutlet UIView *questionsAreaView;
@@ -135,8 +139,9 @@ const CGFloat widthConstraintMax = 320;
     [self.navigationController pushViewController:homeMainContentVC animated:YES];
 }
 
-- (void)addLocationViewToHomeView:(UIView *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:locationSettingsView];
+- (void)addLocationViewToHomeView:(LocationSettingViewController *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
+    //[self.mainView addSubview:locationSettingsView];
+    [self.navigationController pushViewController:locationSettingsView animated:YES];
 }
 
 - (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
@@ -169,30 +174,55 @@ const CGFloat widthConstraintMax = 320;
     
     if(!self.menuIsOpen) {
         [UIView animateWithDuration:0.5 animations:^{
+            self.containerView.alpha = 0.7;
             self.containerView.layer.transform = CATransform3DConcat(rotationAndPerspectiveTransform, translate);
             //Bring in menu
         } completion:^(BOOL finished){
             self.menuIsOpen = YES;
+            [self menuExitToggle];
         }];
     } else {
         [UIView animateWithDuration:0.5 animations:^{
+            self.containerView.alpha = 1.0;
             self.containerView.layer.transform = CATransform3DIdentity; //remove the transforms
             //Dismiss menu
         } completion:^(BOOL finished) {
             self.menuIsOpen = NO;
+            [self menuExitToggle];
         }];
     }
-    
-    if (self.containerViewWidthConstraint.constant == widthConstraintMax) {
+    self.settingsView.frame = CGRectMake(0, 70, 125, 130);
+}
+
+-(void)menuExitToggle {
+    if(self.menuIsOpen) {
+        self.menuDismissView.hidden = NO;
+        self.menuDismissView.userInteractionEnabled = YES;
         
-        self.containerViewWidthConstraint.constant = 60;
-        self.mainViewWidthConstraint.constant = 60;
-        self.headerViewWidthConstraint.constant = 60;
+        self.settingsView.hidden = NO;
+        self.settingsView.userInteractionEnabled = YES;
+        
     } else {
-        self.containerViewWidthConstraint.constant = widthConstraintMax;
-        self.mainViewWidthConstraint.constant = widthConstraintMax;
-        self.headerViewWidthConstraint.constant = widthConstraintMax;
+        self.menuDismissView.hidden = YES;
+        self.menuDismissView.userInteractionEnabled = NO;
+        
+        self.settingsView.hidden = YES;
+        self.settingsView.userInteractionEnabled = NO;
     }
+}
+
+- (IBAction)onDismissMenuSwipe:(UISwipeGestureRecognizer *)sender {
+    if (sender.state == UISwipeGestureRecognizerDirectionLeft) {
+        NSLog(@"dismissed");
+        [self onSettingsButtonTapped:sender];
+    } else {
+        NSLog(@"Other way!");
+    }
+}
+
+- (IBAction)onDismissMenuTap:(UITapGestureRecognizer *)sender {
+    NSLog(@"dismissed");
+    [self onSettingsButtonTapped:sender];
 }
 
 // On question button [[here]]
@@ -371,5 +401,6 @@ const CGFloat widthConstraintMax = 320;
         return cell;
     }
 }
+
 
 @end
