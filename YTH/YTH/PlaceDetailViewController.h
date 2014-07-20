@@ -10,8 +10,6 @@
 #import "Place.h"
 #import "PlaceDetailCell.h"
 
-@protocol PlaceDetailViewControllerDelegate;
-
 @interface PlaceDetailViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate, PlaceDetailCellDelegate>
 
 @property (nonatomic, strong) NSArray *placesInfo;

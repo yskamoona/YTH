@@ -30,7 +30,6 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
 @property (nonatomic, strong) YelpClient *client;
 @property (nonatomic, strong) NSMutableArray* searchResults;
-@property (nonatomic, strong) Place *selectedPlaceInfo;
 @property (nonatomic, strong) NSMutableDictionary* filters;
 @property (nonatomic, strong) CLLocation *currentLocation;
 
@@ -233,9 +232,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     return placeCell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(320, 200);
-}
+
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     PlaceCellCustomHeaderView *placeCell = nil;
@@ -250,18 +247,17 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-   return  CGSizeMake(320, 200);
+   return  CGSizeMake(320, 100);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(320, 150);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
-    
-    self.selectedPlaceInfo = self.searchResults[indexPath.section];
-    
     self.placeDetailVC.placesInfo = (NSArray*)self.searchResults;
-
     self.placeDetailVC.startPlaceIndexPath = indexPath;
-    NSLog(@"index path section: %ld", (long)indexPath.section);
     
     [[self navigationController] setNavigationBarHidden:NO];
     //[self.navigationController pushViewController:self.placeDetailVC animated:YES];

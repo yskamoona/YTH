@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSArray *reviews;
 
 @property (assign) NSInteger startPlaceIndex;
+@property (nonatomic, strong) Place *selectedPlace;
 
 @end
 
@@ -48,40 +49,14 @@
         self.placesInfo = [NSArray array];
     }
     
-    Place *selectedPlace = self.placesInfo[self.startPlaceIndex];
-    
-//    self.placeNameLabel.text =  selectedPlace.name;
-//    self.placeAddressLabel.text =   [selectedPlace.address firstObject];
-        [self getReviews];
+    self.selectedPlace = self.placesInfo[self.startPlaceIndex];
+
+    [self getReviews];
 }
-
-- (IBAction)onRateThisLocationButton:(id)sender {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Text Verification Message"
-                                                        message:@"Text goes here..."
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles:@"Sure!", nil];
-    [alertView show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        NSLog(@"user pressed OK");
-    } else {
-        PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
-        postReviewVC.place = self.placesInfo[0];
-//        postReviewVC.name = _placeNameLabel.text;
-        [self presentViewController:postReviewVC animated:NO completion:nil];
-    }
-}
-
-
-
-
 
 - (void) getReviews {
     PFQuery *query = [Reviews query];
-    [query whereKey:@"yelp_id" containsString:[self.placesInfo[0] yelp_id]];
+    [query whereKey:@"yelp_id" containsString:self.selectedPlace.yelp_id];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.reviews = objects;
@@ -120,12 +95,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         PlaceDetailCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"PlaceDetailCell" forIndexPath:indexPath];
-        [cell setupCellWithPlaceInfo:self.placesInfo[0] forRow:indexPath.row];
-        cell.delegate = self;
-        cell.userInteractionEnabled = NO;
+        [cell setupCellWithPlaceInfo:self.selectedPlace];
+         cell.delegate = self;
         return cell;
     } else {
         ReviewCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"ReviewCell" forIndexPath:indexPath];
+        [cell setupCellWithReview:self.reviews[indexPath.row]];
         return cell;
     }
 }
@@ -148,6 +123,14 @@
     }
 }
 
+
+#pragma PlaceDetailCellDelegate Methods
+
+- (void)placeDetailCell:(PlaceDetailCell *)placeDetailCell didClickButton:(UIButton *)button {
+    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", [self.placesInfo[0] display_phone]];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:phoneNumber]];
+}
+
 #pragma IBActions
 
 - (IBAction)onFullMapView:(id)sender {
@@ -160,7 +143,7 @@
 
 - (void)didDismissAlertView:(UIAlertView *)alertView {
     PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
-    postReviewVC.place = self.placesInfo;
+    postReviewVC.place = self.selectedPlace;
     [self presentViewController:postReviewVC animated:NO completion:nil];
 }
 
