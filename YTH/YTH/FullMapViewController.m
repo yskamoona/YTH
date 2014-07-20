@@ -25,7 +25,7 @@
     NSLog(@" FULL MAP getting location update in view %@", location);
     self.currentLocation = location;
     [self setupMapView];
-    [self setupMapRegion];
+ //   [self setupMapRegion];
 }
 
 - (void)viewDidLoad
@@ -57,6 +57,11 @@
 - (void)setupMapView {
     
     NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
+    
+    float distance = [Utils convertToMeter:4.0];
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
+    [self.placeMapView setRegion:viewRegion];
+
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
 //          NSLog(@" placeinfo %@", self.placesInfo);
@@ -64,7 +69,7 @@
 //    Place *showPlace = self.placesInfo[self.showPlaceIndex];
     for (Place *showPlace in self.placesInfo)
     {
-    NSString *address = [showPlace.address componentsJoinedByString:@","];
+            NSString *address = [showPlace.address componentsJoinedByString:@","];
 //    NSLog(@" address %@", address);
     
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -78,6 +83,7 @@
                                  self.point.title = [self.placesInfo[self.showPlaceIndex] name];
                                  self.point.subtitle = address;
                                  [self.placeMapView addAnnotation:self.point];
+                                 NSLog(@" hey  map view %@", self.placeMapView);
                              }
                         }];
     }
@@ -85,12 +91,12 @@
 
 -(void) setupMapRegion {
     MKMapRect zoomRect = MKMapRectNull;
-    NSLog(@" hey ");
+    NSLog(@" hey 1");
 
     for (id <MKAnnotation> annotation in self.placeMapView.annotations) {
         MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-        NSLog(@" hey ");
+        NSLog(@" hey 2 ");
         if (MKMapRectIsNull(zoomRect)) {
             zoomRect = pointRect;
         } else {
