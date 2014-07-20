@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -86,7 +86,7 @@
                             <color key="backgroundColor" red="0.29803922772407532" green="0.88235300779342651" blue="0.84705889225006104" alpha="1" colorSpace="deviceRGB"/>
                             <gestureRecognizers/>
                             <connections>
-                                <outletCollection property="gestureRecognizers" destination="vJR-NC-2OQ" appends="YES" id="rC0-Kl-HXy"/>
+                                <outletCollection property="gestureRecognizers" destination="vJR-NC-2OQ" appends="YES" id="3qJ-5Z-HNV"/>
                             </connections>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59i-a9-Udn">
@@ -102,6 +102,10 @@
                             <rect key="frame" x="219" y="64" width="70" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="0.08235294371843338" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="LBD-9b-x57" appends="YES" id="bdT-f5-oNb"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-tK-GZI" userLabel="Questions Area View">
                             <rect key="frame" x="0.0" y="165" width="320" height="403"/>
@@ -181,6 +185,11 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" id="YDh-26-TMH" userLabel="PanGestureOnHomeContainerView"/>
+        <tapGestureRecognizer id="LBD-9b-x57" userLabel="TapGestureOnGuides">
+            <connections>
+                <action selector="onGuidesButton:" destination="-1" id="EzK-gJ-yGu"/>
+            </connections>
+        </tapGestureRecognizer>
         <tapGestureRecognizer id="vJR-NC-2OQ" userLabel="TapGestureOnClinics">
             <connections>
                 <action selector="onClinicsButton:" destination="-1" id="ean-AJ-jjh"/>
