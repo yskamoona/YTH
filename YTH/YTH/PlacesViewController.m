@@ -232,9 +232,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     return placeCell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(320, 200);
-}
+
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     PlaceCellCustomHeaderView *placeCell = nil;
@@ -249,13 +247,16 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-   return  CGSizeMake(320, 200);
+   return  CGSizeMake(320, 100);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(320, 150);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
     self.placeDetailVC.placesInfo = (NSArray*)self.searchResults;
-    self.placeDetailVC.startPlaceIndexPath = indexPath;
     self.placeDetailVC.startPlaceIndexPath = indexPath;
     
     [[self navigationController] setNavigationBarHidden:NO];
