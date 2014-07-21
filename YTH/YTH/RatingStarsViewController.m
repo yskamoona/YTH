@@ -45,7 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.ratingsFillView.hidden = YES;
+    self.ratingsFillView.hidden = YES;
     //[self firstSetupWithPriceReview:self.buttonValue];
 }
 

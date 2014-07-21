@@ -63,6 +63,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.placeNameLabel.text = self.place.name;
+    self.navigationItem.title = @"Post A Review";
     
     self.ratingStarsVC = [[RatingStarsViewController alloc] initWithNibName:@"RatingStarsViewController" bundle:nil];
     [self.ratingStarsView addSubview:self.ratingStarsVC.view];
@@ -117,7 +118,7 @@
                          }];
     } else {
         [UIView animateWithDuration:10.0 animations:^{
-            self.middleViewHeightConstraint.constant = 355;
+            self.middleViewHeightConstraint.constant = 340;
             self.publishButtonToTextViewConstraint.constant = 0;
             self.placeNameLabel.hidden = NO;
             self.separatorView1.hidden = NO;
