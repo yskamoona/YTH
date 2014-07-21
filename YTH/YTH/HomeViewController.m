@@ -31,6 +31,7 @@ const CGFloat widthConstraintMax = 320;
 @property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *questionsTapGestureRecognizer;
+@property (strong, nonatomic) SettingsViewController *settingVC;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *settingsView;
@@ -38,7 +39,6 @@ const CGFloat widthConstraintMax = 320;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 
-@property (strong, nonatomic) SettingsViewController *settingVC;
 @property (strong, nonatomic) QuestionsViewController *questionsVC;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewWidthConstraint;
@@ -47,14 +47,16 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *containerViewPanGestureRecognizer;
 
 @property (assign) NSInteger changingPosX;
+
 // Header area
 @property (strong, nonatomic) IBOutlet UIView *questionButtonView;
 @property (strong, nonatomic) IBOutlet UIView *clinicButtonView;
 @property (strong, nonatomic) IBOutlet UIView *guideButtonVIew;
 
-- (IBAction)onGuidesButton:(id)sender;
+- (IBAction)onQuestionButton:(UITapGestureRecognizer *)sender;
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
-- (IBAction)onQuestionsViewTapped:(id)sender;
+- (IBAction)onGuidesButton:(id)sender;
+
 
 // Settings Panel
 - (IBAction)onSettingsButtonTapped:    (id)sender;
@@ -85,12 +87,11 @@ const CGFloat widthConstraintMax = 320;
 
 @implementation HomeViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupGestureRecognizers];
     [self loadDataForTableViews];
+
     [self setupTableViews];
     [self setupSettingsMenu];
 }
@@ -136,57 +137,6 @@ const CGFloat widthConstraintMax = 320;
     }];
 }
 
--(void)setupMenuButtons {
-    
-}
-
-#pragma GestureRecongnizers
-
-- (void)setupGestureRecognizers {
-    //containerViewPanGestureRecognizer
-    self.containerViewPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureForMainView:)];
-    [self.mainView addGestureRecognizer:self.containerViewPanGestureRecognizer];
-}
-
-#pragma GesturesSelectors 
-
-- (void)onPanGestureForMainView:(UIPanGestureRecognizer *)panGestureOnMainView {
-    self.changingPosX = [panGestureOnMainView translationInView:self.view].x;
-    // NSLog(@"Traslation in view.x %ld", (long)self.changingPosX);
-
-    self.changingPosX = MIN(self.changingPosX, 260);
-    self.changingPosX = MAX(self.changingPosX, 0);
-    self.containerViewWidthConstraint.constant = 320 - self.changingPosX;
-     self.mainViewWidthConstraint.constant = 320 - self.changingPosX;
-    self.headerViewWidthConstraint.constant = 320 - self.changingPosX;
-    
-    if (panGestureOnMainView.state == UIGestureRecognizerStateEnded) {
-        if (self.changingPosX >= 150) {
-            [UIView animateWithDuration:.2 animations:^{
-                self.containerViewWidthConstraint.constant = 60;
-                self.mainViewWidthConstraint.constant = 60;
-                self.headerViewWidthConstraint.constant = 60;
-                [self.view layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                
-            }];
-            
-        } else {
-            [UIView animateWithDuration:.2 animations:^{
-                self.containerViewWidthConstraint.constant = widthConstraintMax;
-                self.mainViewWidthConstraint.constant = widthConstraintMax;
-                self.headerViewWidthConstraint.constant = widthConstraintMax;
-                [self.view layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                
-            }];
-        }
-    }
-    
-    [self.view updateConstraints];
-}
-
-
 #pragma  AS Setting VC delegate methods
 
 - (void)backToHomeScreenView:(HomeMainContentViewController *)homeMainContentVC fromSettingVC:(SettingsViewController *)settingVC {
@@ -200,18 +150,18 @@ const CGFloat widthConstraintMax = 320;
 }
 
 - (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:myQestionsView];
+//    [self.mainView addSubview:myQestionsView];
 }
 
 - (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:myReviewsView];
+//    [self.mainView addSubview:myReviewsView];
 }
 
 - (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:favoriteGuidesView];
+//    [self.mainView addSubview:favoriteGuidesView];
 }
 
-#pragma IBActions
+#pragma Settings
 
 - (IBAction)onSettingsButtonTapped:(id)sender {
     // Create translation transform
@@ -248,8 +198,6 @@ const CGFloat widthConstraintMax = 320;
             [self menuExitToggle];
         }];
     }
-    
-    // Add directions to swipe
 }
 -(void)setupSettingsMenu {
     self.settingsView.frame = CGRectMake(-160, 70, 125, 130);
@@ -276,7 +224,13 @@ const CGFloat widthConstraintMax = 320;
     [self onSettingsButtonTapped:sender];
 }
 
-// On question button [[here]]
+- (IBAction)onQuestionButton:(UITapGestureRecognizer *)sender {
+    self.questionsVC = [[QuestionsViewController alloc] init];
+    self.questionsVC.delegate = self;
+    [self presentViewController:self.questionsVC
+                       animated:YES
+                     completion:nil];
+}
 
 - (IBAction)onGuidesButton:(id)sender {
     GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
@@ -290,14 +244,6 @@ const CGFloat widthConstraintMax = 320;
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {
     PlacesViewController *clinicsVC = [[PlacesViewController alloc] init];
     [self presentViewController:clinicsVC animated:YES
-                     completion:nil];
-}
-
-- (IBAction)onQuestionsViewTapped:(id)sender {
-    self.questionsVC = [[QuestionsViewController alloc] init];
-    self.questionsVC.delegate = self;
-    [self presentViewController:self.questionsVC
-                       animated:YES
                      completion:nil];
 }
 
