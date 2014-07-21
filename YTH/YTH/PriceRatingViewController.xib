@@ -6,28 +6,29 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PriceRatingViewController">
             <connections>
-                <outlet property="firstDollarSignButton" destination="acG-NZ-CMm" id="UeS-3a-sFE"/>
+                <outlet property="firstDollarSignButton" destination="xLJ-Hz-bWP" id="CGK-c1-icO"/>
+                <outlet property="lastDollarSignButton" destination="xLJ-Hz-bWP" id="xGr-Q2-cGK"/>
                 <outlet property="ratingsFillView" destination="1u2-SX-CaT" id="1uc-Ky-git"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="162" height="26"/>
+            <rect key="frame" x="0.0" y="0.0" width="218" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YW8-MB-IWy">
-                    <rect key="frame" x="2" y="1" width="158" height="25"/>
+                    <rect key="frame" x="0.0" y="0.0" width="218" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1u2-SX-CaT">
-                    <rect key="frame" x="0.0" y="0.0" width="160" height="25"/>
+                    <rect key="frame" x="0.0" y="0.0" width="218" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.67496764659881592" green="0.84248548746109009" blue="0.03664461150765419" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acG-NZ-CMm" userLabel="ButtonOne">
-                    <rect key="frame" x="0.0" y="0.0" width="35" height="26"/>
+                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" backgroundImage="dollarMaskLarge">
@@ -38,7 +39,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R59-iG-KCA" userLabel="ButtonTwo">
-                    <rect key="frame" x="32" y="0.0" width="35" height="26"/>
+                    <rect key="frame" x="44" y="0.0" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" backgroundImage="dollarMaskLarge">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,7 +49,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCv-R7-UPE" userLabel="ButtonThree">
-                    <rect key="frame" x="65" y="0.0" width="35" height="26"/>
+                    <rect key="frame" x="88" y="0.0" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" backgroundImage="dollarMaskLarge">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,7 +59,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYJ-5s-O3P" userLabel="ButtonFour">
-                    <rect key="frame" x="97" y="0.0" width="35" height="26"/>
+                    <rect key="frame" x="132" y="0.0" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" backgroundImage="dollarMaskLarge">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,13 +69,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLJ-Hz-bWP" userLabel="ButtonFive">
-                    <rect key="frame" x="127" y="0.0" width="35" height="26"/>
+                    <rect key="frame" x="176" y="0.0" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" backgroundImage="dollarMaskLarge">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onFifthDollarSign:" destination="-1" eventType="touchUpInside" id="bO2-Ku-MfQ"/>
+                        <action selector="onFifthDollarSign:" destination="-1" eventType="touchUpInside" id="pbG-pI-pvU"/>
                     </connections>
                 </button>
             </subviews>
@@ -83,6 +84,6 @@
         </view>
     </objects>
     <resources>
-        <image name="dollarMaskLarge" width="32" height="40"/>
+        <image name="dollarMaskLarge" width="44" height="44"/>
     </resources>
 </document>
