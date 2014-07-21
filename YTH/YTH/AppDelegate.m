@@ -11,6 +11,7 @@
 #import "Review.h"
 #import "SettingsViewController.h"
 #import "HomeViewController.h"
+#import "Question.h"
 
 @implementation AppDelegate
 
@@ -18,6 +19,7 @@
 {
     
     [Reviews registerSubclass];
+    [Question registerSubclass];
     [Parse setApplicationId:@"etnunWd99CG1ggz72ZjYpKNIoIcPLFtFf51gxBcn"
                   clientKey:@"6gejCFInUgfohxJJUMuW14z0wz3GFDPE9PNeGaNt"];
     

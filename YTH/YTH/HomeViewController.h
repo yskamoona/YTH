@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
+#import "QuestionsViewController.h"
 
-@interface HomeViewController : UIViewController <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, UITableViewDelegate, UITableViewDataSource, SettingsViewControllerDelegate>
+@interface HomeViewController : UIViewController <UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, UITableViewDelegate, UITableViewDataSource, SettingsViewControllerDelegate, QuestionsViewControllerDelegate>
 
 
 @end
