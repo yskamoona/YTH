@@ -12,7 +12,7 @@
 #import "TableViewCell.h"
 #import "GuidesViewController.h"
 #import "NSDate+TimeAgo.h"
-
+#import "LocationSettingViewController.h"
 
 typedef enum {
     latest,
@@ -24,31 +24,30 @@ const CGFloat widthConstraintMax = 320;
 
 @interface HomeViewController ()
 
-@property (strong, nonatomic) PlacesViewController *placesVC;
-@property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
-
+@property (strong, nonatomic) PlacesViewController   *placesVC;
+@property (strong, nonatomic) SettingsViewController *settingVC;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *settingsView;
 
-@property (weak, nonatomic) IBOutlet UIView *headerView;
-@property (weak, nonatomic) IBOutlet UIView *mainView;
-
-@property (strong, nonatomic) SettingsViewController *settingVC;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewWidthConstraint;
-@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *containerViewPanGestureRecognizer;
-
 @property (assign) NSInteger changingPosX;
 
-- (IBAction)onSettingsButtonTapped:(id)sender;
-- (IBAction)onGuidesButton:(id)sender;
+// Header area
+@property (strong, nonatomic) IBOutlet UIView *questionButtonView;
+@property (strong, nonatomic) IBOutlet UIView *clinicButtonView;
+@property (strong, nonatomic) IBOutlet UIView *guideButtonVIew;
 
+- (IBAction)onGuidesButton:(id)sender;
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
 
+// Settings Panel
+- (IBAction)onSettingsButtonTapped:    (id)sender;
+- (IBAction)onDismissMenuSwipe:        (UISwipeGestureRecognizer *)sender;
+- (IBAction)onDismissMenuTap:          (UITapGestureRecognizer *)sender;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *dismissMenuSwipe;
+@property (strong, nonatomic) IBOutlet UIView *menuDismissView;
+@property (strong, nonatomic) IBOutlet UIView *settingsBackgroundTintView;
+@property (assign) BOOL menuIsOpen;
 
 // Questions Area
 @property (strong, nonatomic) IBOutlet UIView *questionsAreaView;
@@ -65,67 +64,17 @@ const CGFloat widthConstraintMax = 320;
 
 @implementation HomeViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupGestureRecognizers];
     [self setupTableViews];
+    [self setupSettingsMenu];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES];
-    
 }
-
-#pragma GestureRecongnizers
-
-- (void)setupGestureRecognizers {
-    
-    //containerViewPanGestureRecognizer
-    self.containerViewPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureForMainView:)];
-    [self.mainView addGestureRecognizer:self.containerViewPanGestureRecognizer];
-}
-
-#pragma GesturesSelectors 
-
-- (void)onPanGestureForMainView:(UIPanGestureRecognizer *)panGestureOnMainView {
-    self.changingPosX = [panGestureOnMainView translationInView:self.view].x;
-    // NSLog(@"Traslation in view.x %ld", (long)self.changingPosX);
-
-    self.changingPosX = MIN(self.changingPosX, 260);
-    self.changingPosX = MAX(self.changingPosX, 0);
-    self.containerViewWidthConstraint.constant = 320 - self.changingPosX;
-     self.mainViewWidthConstraint.constant = 320 - self.changingPosX;
-    self.headerViewWidthConstraint.constant = 320 - self.changingPosX;
-    
-    if (panGestureOnMainView.state == UIGestureRecognizerStateEnded) {
-        if (self.changingPosX >= 150) {
-            [UIView animateWithDuration:.2 animations:^{
-                self.containerViewWidthConstraint.constant = 60;
-                self.mainViewWidthConstraint.constant = 60;
-                self.headerViewWidthConstraint.constant = 60;
-                [self.view layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                
-            }];
-            
-        } else {
-            [UIView animateWithDuration:.2 animations:^{
-                self.containerViewWidthConstraint.constant = widthConstraintMax;
-                self.mainViewWidthConstraint.constant = widthConstraintMax;
-                self.headerViewWidthConstraint.constant = widthConstraintMax;
-                [self.view layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                
-            }];
-        }
-    }
-    
-    [self.view updateConstraints];
-}
-
 
 #pragma  AS Setting VC delegate methods
 
@@ -134,44 +83,91 @@ const CGFloat widthConstraintMax = 320;
     [self.navigationController pushViewController:homeMainContentVC animated:YES];
 }
 
-- (void)addLocationViewToHomeView:(UIView *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:locationSettingsView];
+- (void)addLocationViewToHomeView:(LocationSettingViewController *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
+    //[self.mainView addSubview:locationSettingsView];
+    [self.navigationController pushViewController:locationSettingsView animated:YES];
 }
 
 - (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:myQestionsView];
+//    [self.mainView addSubview:myQestionsView];
 }
 
 - (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:myReviewsView];
+//    [self.mainView addSubview:myReviewsView];
 }
 
 - (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:favoriteGuidesView];
+//    [self.mainView addSubview:favoriteGuidesView];
 }
 
-#pragma IBActions
+#pragma Settings
 
 - (IBAction)onSettingsButtonTapped:(id)sender {
-    if (self.containerViewWidthConstraint.constant == widthConstraintMax) {
-        
-        self.containerViewWidthConstraint.constant = 60;
-        self.mainViewWidthConstraint.constant = 60;
-        self.headerViewWidthConstraint.constant = 60;
-    } else {
-        self.containerViewWidthConstraint.constant = widthConstraintMax;
-        self.mainViewWidthConstraint.constant = widthConstraintMax;
-        self.headerViewWidthConstraint.constant = widthConstraintMax;
-    }
-   
+    // Create translation transform
+    CATransform3D translate = CATransform3DIdentity;
+    translate = CATransform3DTranslate(translate, 160.0, 0, 200.0);
+    
+    // Create perspective transform
+    CATransform3D rotationAndPerspectiveTransform = CATransform3DIdentity;
+    rotationAndPerspectiveTransform.m34 = 1.0 / -800.0; //perspective
+    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, M_PI * 0.25, 0, -160, 0);
+    
     self.settingVC = [[SettingsViewController alloc] init];
     self.settingVC.delegate = self;
     [self.settingsView addSubview:self.settingVC.view];
+    
+    if(!self.menuIsOpen) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.settingsView.transform = CGAffineTransformMakeTranslation(160, 0);
+            self.containerView.alpha = 0.7;
+            self.containerView.layer.transform = CATransform3DConcat(rotationAndPerspectiveTransform, translate);
+            self.settingsBackgroundTintView.alpha = 0.4;
+        } completion:^(BOOL finished){
+            self.menuIsOpen = YES;
+            [self menuExitToggle];
+        }];
+    } else {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.settingsView.transform = CGAffineTransformIdentity; //removes transform
+            self.containerView.alpha = 1.0;
+            self.containerView.layer.transform = CATransform3DIdentity; //remove the transforms
+            self.settingsBackgroundTintView.alpha = 0;
+        } completion:^(BOOL finished) {
+            self.menuIsOpen = NO;
+            [self menuExitToggle];
+        }];
+    }
 }
+-(void)setupSettingsMenu {
+    self.settingsView.frame = CGRectMake(-160, 70, 125, 130);
+    self.settingsView.hidden = NO;
+    self.settingsView.userInteractionEnabled = YES;
+    self.dismissMenuSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+}
+-(void)menuExitToggle {
+    if(self.menuIsOpen) {
+        self.menuDismissView.hidden = NO;
+        self.menuDismissView.userInteractionEnabled = YES;
+    } else {
+        self.menuDismissView.hidden = YES;
+        self.menuDismissView.userInteractionEnabled = NO;
+    }
+}
+// Use touch to dismiss menu
+- (IBAction)onDismissMenuSwipe:(UISwipeGestureRecognizer *)sender {
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+        [self onSettingsButtonTapped:sender];
+    }
+}
+- (IBAction)onDismissMenuTap:(UITapGestureRecognizer *)sender {
+    [self onSettingsButtonTapped:sender];
+}
+
+// On question button [[here]]
 
 - (IBAction)onGuidesButton:(id)sender {
     GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
-    [[self navigationController] setNavigationBarHidden:NO];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:guidesVC animated:YES];
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -236,11 +232,14 @@ const CGFloat widthConstraintMax = 320;
     
     self.fakeLatestData = @[
                             @{@"question":@"In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.", @"location":@"San Francisco", @"answers":@2, @"time":@"2014-07-19T21:00:30.263Z"},
-                            @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@"Los Angeles", @"answers":@0, @"time":@162000134},
-                            @{@"question":@"Can you get an STI from oral sex if one person has a fever blister? Also, if a person has an STI, is oral sex still OK?", @"location":@"Oakland", @"answers":@1, @"time":@16200131},
-                            @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@162003},
+                            @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@"Los Angeles", @"answers":@0, @"time":@"2014-07-19T12:00:30.263Z"},
+                            @{@"question":@"Can you get an STI from oral sex if one person has a fever blister? Also, if a person has an STI, is oral sex still OK?", @"location":@"Oakland", @"answers":@1, @"time":@"2014-07-19T23:00:30.263Z"},
+                            @{@"question":@"tim", @"location":@"San Francisco", @"answers":@2, @"time":@"2014-06-19T21:00:30.263Z"},
                             @{@"question":@"jim", @"location":@"San Francisco", @"answers":@2, @"time":@162010},
                             @{@"question":@"sam", @"location":@"San Francisco", @"answers":@2, @"time":@162050},
+                            @{@"question":@"In publishing and graphic design, lorem ipsum is a filler text commonly used to demonstrate the graphic elements of a document or visual presentation.", @"location":@"San Francisco", @"answers":@2, @"time":@"2014-07-19T21:00:30.263Z"},
+                            @{@"question":@"The human immunodeficiency virus (HIV) is a lentivirus (a subgroup of retrovirus) that causes the acquired immunodeficiency syndrome (AIDS),[1][2] a condition in humans in which progressive failure of the immune system allows life-threatening opportunistic infections and cancers to thrive.", @"location":@"Los Angeles", @"answers":@0, @"time":@162000134},
+                            @{@"question":@"Can you get an STI from oral sex if one person has a fever blister? Also, if a person has an STI, is oral sex still OK?", @"location":@"Oakland", @"answers":@1, @"time":@16200131}
                             ];
     
     [self.latestTableView   registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"TableCell"];
@@ -331,11 +330,15 @@ const CGFloat widthConstraintMax = 320;
     } else if (tableView == self.trendingTableView) {
         TableViewCell *cell = [self.latestTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
         cell.questionLabel.text = self.fakeLatestData[indexPath.row][@"question"];
+        
+        cell.backgroundColor = [UIColor clearColor];
         return cell;
     } else {
         UITableViewCell *cell = [self.pinnedTableView dequeueReusableCellWithIdentifier:@"TableCell"];
+        cell.backgroundColor = [UIColor clearColor];
         return cell;
     }
 }
+
 
 @end
