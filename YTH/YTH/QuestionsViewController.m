@@ -25,6 +25,11 @@
     [super viewDidLoad];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+}
+
 - (IBAction)onCloseButtonTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
