@@ -24,25 +24,14 @@ const CGFloat widthConstraintMax = 320;
 
 @interface HomeViewController ()
 
-@property (strong, nonatomic) PlacesViewController *placesVC;
-@property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
-
+@property (strong, nonatomic) PlacesViewController   *placesVC;
+@property (strong, nonatomic) SettingsViewController *settingVC;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *settingsView;
 
-@property (weak, nonatomic) IBOutlet UIView *headerView;
-@property (weak, nonatomic) IBOutlet UIView *mainView;
-
-@property (strong, nonatomic) SettingsViewController *settingVC;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewWidthConstraint;
-@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *containerViewPanGestureRecognizer;
-
 @property (assign) NSInteger changingPosX;
+
 // Header area
 @property (strong, nonatomic) IBOutlet UIView *questionButtonView;
 @property (strong, nonatomic) IBOutlet UIView *clinicButtonView;
@@ -75,11 +64,9 @@ const CGFloat widthConstraintMax = 320;
 
 @implementation HomeViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupGestureRecognizers];
     [self setupTableViews];
     [self setupSettingsMenu];
 }
@@ -87,59 +74,7 @@ const CGFloat widthConstraintMax = 320;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES];
-    
 }
-
--(void)setupMenuButtons {
-    
-}
-
-#pragma GestureRecongnizers
-
-- (void)setupGestureRecognizers {
-    //containerViewPanGestureRecognizer
-    self.containerViewPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureForMainView:)];
-    [self.mainView addGestureRecognizer:self.containerViewPanGestureRecognizer];
-}
-
-#pragma GesturesSelectors 
-
-- (void)onPanGestureForMainView:(UIPanGestureRecognizer *)panGestureOnMainView {
-    self.changingPosX = [panGestureOnMainView translationInView:self.view].x;
-    // NSLog(@"Traslation in view.x %ld", (long)self.changingPosX);
-
-    self.changingPosX = MIN(self.changingPosX, 260);
-    self.changingPosX = MAX(self.changingPosX, 0);
-    self.containerViewWidthConstraint.constant = 320 - self.changingPosX;
-     self.mainViewWidthConstraint.constant = 320 - self.changingPosX;
-    self.headerViewWidthConstraint.constant = 320 - self.changingPosX;
-    
-    if (panGestureOnMainView.state == UIGestureRecognizerStateEnded) {
-        if (self.changingPosX >= 150) {
-            [UIView animateWithDuration:.2 animations:^{
-                self.containerViewWidthConstraint.constant = 60;
-                self.mainViewWidthConstraint.constant = 60;
-                self.headerViewWidthConstraint.constant = 60;
-                [self.view layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                
-            }];
-            
-        } else {
-            [UIView animateWithDuration:.2 animations:^{
-                self.containerViewWidthConstraint.constant = widthConstraintMax;
-                self.mainViewWidthConstraint.constant = widthConstraintMax;
-                self.headerViewWidthConstraint.constant = widthConstraintMax;
-                [self.view layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                
-            }];
-        }
-    }
-    
-    [self.view updateConstraints];
-}
-
 
 #pragma  AS Setting VC delegate methods
 
@@ -154,18 +89,18 @@ const CGFloat widthConstraintMax = 320;
 }
 
 - (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:myQestionsView];
+//    [self.mainView addSubview:myQestionsView];
 }
 
 - (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:myReviewsView];
+//    [self.mainView addSubview:myReviewsView];
 }
 
 - (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
-    [self.mainView addSubview:favoriteGuidesView];
+//    [self.mainView addSubview:favoriteGuidesView];
 }
 
-#pragma IBActions
+#pragma Settings
 
 - (IBAction)onSettingsButtonTapped:(id)sender {
     // Create translation transform
@@ -202,8 +137,6 @@ const CGFloat widthConstraintMax = 320;
             [self menuExitToggle];
         }];
     }
-    
-    // Add directions to swipe
 }
 -(void)setupSettingsMenu {
     self.settingsView.frame = CGRectMake(-160, 70, 125, 130);
