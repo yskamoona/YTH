@@ -168,7 +168,7 @@ const CGFloat widthConstraintMax = 320;
 - (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
     self.otherOptionsView.hidden = NO;
     [self.otherOptionsView addSubview:myReviewsView];
-    //[self slideBackMenu];
+    [self slideBackMenu];
 }
 
 - (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
