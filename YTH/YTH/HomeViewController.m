@@ -43,19 +43,22 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *containerViewPanGestureRecognizer;
 
 @property (assign) NSInteger changingPosX;
+// Header area
+@property (strong, nonatomic) IBOutlet UIView *questionButtonView;
+@property (strong, nonatomic) IBOutlet UIView *clinicButtonView;
+@property (strong, nonatomic) IBOutlet UIView *guideButtonVIew;
 
-- (IBAction)onSettingsButtonTapped:(id)sender;
 - (IBAction)onGuidesButton:(id)sender;
-
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
 
 // Settings Panel
-@property (strong, nonatomic) IBOutlet UIView *settingsBackgroundTintView;
-- (IBAction)onDismissMenuSwipe:(UISwipeGestureRecognizer *)sender;
+- (IBAction)onSettingsButtonTapped:    (id)sender;
+- (IBAction)onDismissMenuSwipe:        (UISwipeGestureRecognizer *)sender;
+- (IBAction)onDismissMenuTap:          (UITapGestureRecognizer *)sender;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *dismissMenuSwipe;
-- (IBAction)onDismissMenuTap:(UITapGestureRecognizer *)sender;
-@property (assign) BOOL menuIsOpen;
 @property (strong, nonatomic) IBOutlet UIView *menuDismissView;
+@property (strong, nonatomic) IBOutlet UIView *settingsBackgroundTintView;
+@property (assign) BOOL menuIsOpen;
 
 // Questions Area
 @property (strong, nonatomic) IBOutlet UIView *questionsAreaView;
@@ -87,10 +90,13 @@ const CGFloat widthConstraintMax = 320;
     
 }
 
+-(void)setupMenuButtons {
+    
+}
+
 #pragma GestureRecongnizers
 
 - (void)setupGestureRecognizers {
-    
     //containerViewPanGestureRecognizer
     self.containerViewPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGestureForMainView:)];
     [self.mainView addGestureRecognizer:self.containerViewPanGestureRecognizer];
