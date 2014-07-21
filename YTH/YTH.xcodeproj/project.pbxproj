@@ -586,7 +586,7 @@
 				ORGANIZATIONNAME = codepath;
 				TargetAttributes = {
 					451CBFCA1969FC0A007289F3 = {
-						DevelopmentTeam = 6TB4W2SNPJ;
+						DevelopmentTeam = PF8ACSQC75;
 					};
 					451CBFE51969FC0A007289F3 = {
 						TestTargetID = 451CBFCA1969FC0A007289F3;
@@ -864,7 +864,7 @@
 				GCC_PREFIX_HEADER = "YTH/YTH-Prefix.pch";
 				INFOPLIST_FILE = "YTH/YTH-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6E6C0BEC-0D44-417C-9622-8BC28B4B3649";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -885,7 +885,7 @@
 				GCC_PREFIX_HEADER = "YTH/YTH-Prefix.pch";
 				INFOPLIST_FILE = "YTH/YTH-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6E6C0BEC-0D44-417C-9622-8BC28B4B3649";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -25,7 +25,7 @@
     NSLog(@" FULL MAP getting location update in view %@", location);
     self.currentLocation = location;
     [self setupMapView];
-    [self setupMapRegion];
+  //  [self setupMapRegion];
 }
 
 - (void)viewDidLoad
@@ -87,32 +87,39 @@
 }
 
 
+
 - (void)setupMapView {
     
     NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
+    
+    float distance = [Utils convertToMeter:4.0];
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
+    [self.placeMapView setRegion:viewRegion];
+    
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
-//          NSLog(@" placeinfo %@", self.placesInfo);
+    //          NSLog(@" placeinfo %@", self.placesInfo);
     
-//    Place *showPlace = self.placesInfo[self.showPlaceIndex];
+    //    Place *showPlace = self.placesInfo[self.showPlaceIndex];
     for (Place *showPlace in self.placesInfo)
     {
-    NSString *address = [showPlace.address componentsJoinedByString:@","];
-//    NSLog(@" address %@", address);
-    
-            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-            [geocoder geocodeAddressString:address
-                         completionHandler:^(NSArray* placemarks, NSError* error){
-                             if (placemarks && placemarks.count > 0) {
-                                 CLPlacemark *topResult = [placemarks objectAtIndex:0];
-                                 MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
-                                 self.point = [[MKPointAnnotation alloc] init];
-                                 self.point.coordinate = placemark.coordinate;
-                                 self.point.title = [self.placesInfo[self.showPlaceIndex] name];
-                                 self.point.subtitle = address;
-                                 [self.placeMapView addAnnotation:self.point];
-                             }
-                        }];
+        NSString *address = [showPlace.address componentsJoinedByString:@","];
+        //    NSLog(@" address %@", address);
+        
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        [geocoder geocodeAddressString:address
+                     completionHandler:^(NSArray* placemarks, NSError* error){
+                         if (placemarks && placemarks.count > 0) {
+                             CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                             MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                             self.point = [[MKPointAnnotation alloc] init];
+                             self.point.coordinate = placemark.coordinate;
+                             self.point.title = [self.placesInfo[self.showPlaceIndex] name];
+                             self.point.subtitle = address;
+                             [self.placeMapView addAnnotation:self.point];
+                             NSLog(@" hey  map view %@", self.placeMapView);
+                         }
+                     }];
     }
 }
 
