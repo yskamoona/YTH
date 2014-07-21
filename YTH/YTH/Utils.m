@@ -15,11 +15,13 @@
 + (void)setImageWithUrl:(NSString *)url inImageView:(UIImageView *)imageView
 
 {
-    [imageView
+    __weak UIImageView *weakImageView = imageView;
+    
+    [weakImageView
      setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]
      placeholderImage:nil
      success:^(NSURLRequest *request , NSHTTPURLResponse *response , UIImage *image ){
-         imageView.image = image;
+         weakImageView.image = image;
          NSLog(@"Loaded successfully: %ld", (long)[response statusCode]);
      }
      failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){

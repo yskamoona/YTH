@@ -22,6 +22,7 @@
 @property (nonatomic, assign) NSInteger showPlaceIndex;
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 @end
 
