@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeMainContentViewController.h"
 
-@class HomeMainContentViewController;
 @class LocationSettingViewController;
+@class MyReviewsViewController;
+@class MyQuestionsViewController;
+@class FavoriteGuidesViewController;
 
 @protocol SettingsViewControllerDelegate;
 

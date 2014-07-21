@@ -14,6 +14,8 @@
 #import "NSDate+TimeAgo.h"
 #import "QuestionsViewController.h"
 #import "LocationSettingViewController.h"
+#import "MyReviewsViewController.h"
+#import "FavoriteGuidesViewController.h"
 #import <Parse/Parse.h>
 #import "Question.h"
 #import "UIColor+YTH.h"
@@ -34,6 +36,8 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *questionsTapGestureRecognizer;
 @property (strong, nonatomic) SettingsViewController *settingVC;
+
+@property (strong, nonatomic) IBOutlet UIView *otherOptionsView;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *settingsView;
@@ -96,6 +100,9 @@ const CGFloat widthConstraintMax = 320;
 
     [self setupTableViews];
     [self setupSettingsMenu];
+    [self.containerView addSubview:self.otherOptionsView];
+    //adjuste its subviews with it
+    self.containerView.clipsToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -142,25 +149,32 @@ const CGFloat widthConstraintMax = 320;
 #pragma  AS Setting VC delegate methods
 
 - (void)backToHomeScreenView:(HomeMainContentViewController *)homeMainContentVC fromSettingVC:(SettingsViewController *)settingVC {
-   // [self.mainView addSubview:homeMainContentMainView];
-    [self.navigationController pushViewController:homeMainContentVC animated:YES];
+    self.otherOptionsView.hidden = YES;
+    [self slideBackMenu];
 }
 
 - (void)addLocationViewToHomeView:(LocationSettingViewController *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
-    //[self.mainView addSubview:locationSettingsView];
-    [self.navigationController pushViewController:locationSettingsView animated:YES];
+    self.otherOptionsView.hidden = NO;
+    [self.otherOptionsView addSubview:locationSettingsView.view];
+    [self slideBackMenu];
 }
 
 - (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
-//    [self.mainView addSubview:myQestionsView];
+    self.otherOptionsView.hidden = NO;
+    [self.otherOptionsView addSubview:myQestionsView];
+    [self slideBackMenu];
 }
 
 - (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
-//    [self.mainView addSubview:myReviewsView];
+    self.otherOptionsView.hidden = NO;
+    [self.otherOptionsView addSubview:myReviewsView];
+    //[self slideBackMenu];
 }
 
 - (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
-//    [self.mainView addSubview:favoriteGuidesView];
+    self.otherOptionsView.hidden = NO;
+    [self.otherOptionsView addSubview:favoriteGuidesView];
+    [self slideBackMenu];
 }
 
 #pragma Settings
@@ -201,6 +215,20 @@ const CGFloat widthConstraintMax = 320;
         }];
     }
 }
+
+//need to call this whenever a setting is chosen
+- (void)slideBackMenu {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.settingsView.transform = CGAffineTransformIdentity; //removes transform
+        self.containerView.alpha = 1.0;
+        self.containerView.layer.transform = CATransform3DIdentity; //remove the transforms
+        self.settingsBackgroundTintView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.menuIsOpen = NO;
+        [self menuExitToggle];
+    }];
+}
+
 - (void)setupSettingsMenu {
     self.settingsView.frame = CGRectMake(-160, 70, 125, 130);
     self.settingsView.hidden = NO;

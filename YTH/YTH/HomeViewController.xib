@@ -13,6 +13,7 @@
                 <outlet property="guideButtonVIew" destination="Yml-hE-g6x" id="NaO-JX-LBJ"/>
                 <outlet property="latestTableView" destination="EEi-vC-fsU" id="VNH-DO-52m"/>
                 <outlet property="menuDismissView" destination="XqK-nW-TiG" id="nHB-ht-dxF"/>
+                <outlet property="otherOptionsView" destination="r4N-R3-S9o" id="si7-4J-oZt"/>
                 <outlet property="pinnedTableView" destination="WKI-Vb-7ZC" id="AJh-By-yAC"/>
                 <outlet property="questionButtonView" destination="YDq-xm-8vz" id="THY-s4-1rw"/>
                 <outlet property="questionsAreaView" destination="Kvx-tK-GZI" id="xuH-w9-H0o"/>
@@ -41,6 +42,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <view contentMode="scaleToFill" id="r4N-R3-S9o" userLabel="MoreSettingsView">
+                            <rect key="frame" x="0.0" y="62" width="320" height="510"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DsC-7j-5xU" userLabel="MenuButton">
                             <rect key="frame" x="19" y="20" width="44" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
