@@ -37,8 +37,10 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) IBOutlet UIView *clinicButtonView;
 @property (strong, nonatomic) IBOutlet UIView *guideButtonVIew;
 
-- (IBAction)onGuidesButton:(id)sender;
+- (IBAction)onQuestionButton:(UITapGestureRecognizer *)sender;
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
+- (IBAction)onGuidesButton:(id)sender;
+
 
 // Settings Panel
 - (IBAction)onSettingsButtonTapped:    (id)sender;
@@ -163,7 +165,9 @@ const CGFloat widthConstraintMax = 320;
     [self onSettingsButtonTapped:sender];
 }
 
-// On question button [[here]]
+- (IBAction)onQuestionButton:(UITapGestureRecognizer *)sender {
+    
+}
 
 - (IBAction)onGuidesButton:(id)sender {
     GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
