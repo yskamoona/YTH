@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -16,7 +16,6 @@
                 <outlet property="pinnedTableView" destination="WKI-Vb-7ZC" id="AJh-By-yAC"/>
                 <outlet property="questionButtonView" destination="YDq-xm-8vz" id="THY-s4-1rw"/>
                 <outlet property="questionsAreaView" destination="Kvx-tK-GZI" id="xuH-w9-H0o"/>
-                <outlet property="questionsTapGestureRecognizer" destination="Co9-ec-7uj" id="CVF-fH-Rm4"/>
                 <outlet property="settingsBackgroundTintView" destination="RrV-YF-AF7" id="WOg-bV-zwA"/>
                 <outlet property="settingsView" destination="Deh-re-baA" id="yQw-qC-QA7"/>
                 <outlet property="trendingTableView" destination="cRX-9B-XyE" id="Jov-6l-Knd"/>
@@ -239,7 +238,6 @@
                 <action selector="onClinicsButton:" destination="-1" id="ean-AJ-jjh"/>
             </connections>
         </tapGestureRecognizer>
-
         <tapGestureRecognizer id="eXg-PT-0Np" userLabel="TapGestureOnQuestion">
             <connections>
                 <action selector="onQuestionButton:" destination="-1" id="jKU-rJ-fbS"/>
