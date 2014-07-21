@@ -46,7 +46,7 @@
 {
     [super viewDidLoad];
     //self.ratingsFillView.hidden = YES;
-    [self firstSetupWithPriceReview:self.buttonValue];
+    //[self firstSetupWithPriceReview:self.buttonValue];
 }
 
 - (IBAction)onFirstStar:(UIButton *)sender {
@@ -85,16 +85,10 @@
 
 - (void)buttonPress:(UIButton *)sender withButtonValue:(NSInteger )buttonValue {
     self.ratingsFillView.hidden = NO;
-    self.ratingsFillView.bounds = CGRectMake(self.firstStarButton.frame.origin.x,
-                                             self.firstStarButton.frame.origin.y,
-                                             sender.frame.size.width * buttonValue -4,
-                                             sender.frame.size.height);
-
-    
-//    self.ratingsFillView.frame = CGRectMake(self.firstStarButton.frame.origin.x,
-//                                            self.firstStarButton.frame.origin.y,
-//                                            sender.frame.size.width * buttonValue -4,
-//                                            sender.frame.size.height);
+    self.ratingsFillView.frame = CGRectMake(self.firstStarButton.frame.origin.x,
+                                            self.firstStarButton.frame.origin.y,
+                                            sender.frame.size.width * buttonValue - 4,
+                                            sender.frame.size.height);
 }
 
 - (void)getUserStarReviewForPostReviewVC:(PostReviewViewController *)postReviewVC {

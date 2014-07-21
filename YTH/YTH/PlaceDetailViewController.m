@@ -171,7 +171,7 @@
     [self presentViewController:fullMapVC animated:YES completion:nil];
 }
 
-- (void)didDismissAlertView:(UIAlertView *)alertView {
+- (void)didTapGiveAReviewButton {
     PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
     postReviewVC.place = self.selectedPlace;
     [self.navigationController pushViewController:postReviewVC animated:YES];

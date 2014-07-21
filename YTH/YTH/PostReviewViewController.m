@@ -117,7 +117,7 @@
                          }];
     } else {
         [UIView animateWithDuration:10.0 animations:^{
-            self.middleViewHeightConstraint.constant = 361;
+            self.middleViewHeightConstraint.constant = 355;
             self.publishButtonToTextViewConstraint.constant = 0;
             self.placeNameLabel.hidden = NO;
             self.separatorView1.hidden = NO;

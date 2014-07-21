@@ -103,6 +103,7 @@ const CGFloat widthConstraintMax = 320;
     [self.containerView addSubview:self.otherOptionsView];
     //adjuste its subviews with it
     self.containerView.clipsToBounds = YES;
+    self.otherOptionsView.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
