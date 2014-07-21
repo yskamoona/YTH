@@ -7,14 +7,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
                 <outlet property="buttonBackgroundView" destination="seo-Ru-t6U" id="4uS-um-Bxi"/>
-                <outlet property="clincsTapGestureRecognizer" destination="vJR-NC-2OQ" id="viU-cv-SFD"/>
-                <outlet property="clinicsView" destination="wch-FV-3Oo" id="a8S-Im-DfO"/>
+                <outlet property="clinicButtonView" destination="UYH-ck-Ybx" id="SiQ-49-cvY"/>
                 <outlet property="containerView" destination="sDK-WL-WfS" id="6ZX-uj-Kgw"/>
                 <outlet property="containerViewPanGestureRecognizer" destination="YDh-26-TMH" id="blY-uY-gnL"/>
                 <outlet property="dismissMenuSwipe" destination="qjQ-ob-edJ" id="dAl-gA-sr4"/>
+                <outlet property="guideButtonVIew" destination="Yml-hE-g6x" id="NaO-JX-LBJ"/>
                 <outlet property="latestTableView" destination="EEi-vC-fsU" id="VNH-DO-52m"/>
                 <outlet property="menuDismissView" destination="XqK-nW-TiG" id="nHB-ht-dxF"/>
                 <outlet property="pinnedTableView" destination="WKI-Vb-7ZC" id="AJh-By-yAC"/>
+                <outlet property="questionButtonView" destination="YDq-xm-8vz" id="THY-s4-1rw"/>
                 <outlet property="questionsAreaView" destination="Kvx-tK-GZI" id="xuH-w9-H0o"/>
                 <outlet property="questionsTapGestureRecognizer" destination="Co9-ec-7uj" id="CVF-fH-Rm4"/>
                 <outlet property="settingsBackgroundTintView" destination="RrV-YF-AF7" id="WOg-bV-zwA"/>
@@ -42,11 +43,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DsC-7j-5xU" userLabel="MenuButton">
-                            <rect key="frame" x="9" y="20" width="37" height="31"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DsC-7j-5xU" userLabel="MenuButton">
+                            <rect key="frame" x="18.5" y="20" width="44" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                            <state key="normal" title="=">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="menu">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -55,67 +58,64 @@
                             </connections>
                         </button>
                         <searchBar contentMode="redraw" id="YzH-1p-1s0">
-                            <rect key="frame" x="60" y="18" width="260" height="44"/>
+                            <rect key="frame" x="75" y="18" width="235" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9FS-Pu-h0j">
-                            <rect key="frame" x="31" y="131" width="70" height="30"/>
+                        <view contentMode="scaleToFill" id="YDq-xm-8vz" userLabel="Question Button View">
+                            <rect key="frame" x="31" y="64" width="70" height="93"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                            <state key="normal" title="Questions">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <view contentMode="scaleToFill" id="YDq-xm-8vz" userLabel="Questions Button View">
-                            <rect key="frame" x="31" y="64" width="70" height="64"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.7137255072593689" green="0.87843143939971924" blue="0.035294119268655777" alpha="1" colorSpace="deviceRGB"/>
-                            <gestureRecognizers/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="Co9-ec-7uj" appends="YES" id="qJd-Vt-DRF"/>
-                            </connections>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questions" id="Bm2-VV-pHZ">
+                                    <rect key="frame" x="2.5" y="-0.5" width="66" height="66"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hxu-wZ-KFB">
+                                    <rect key="frame" x="2" y="72" width="67" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vIJ-hq-1l0">
-                            <rect key="frame" x="136" y="131" width="46" height="30"/>
+                        <view contentMode="scaleToFill" id="UYH-ck-Ybx" userLabel="Clinics Button View">
+                            <rect key="frame" x="125" y="64" width="70" height="93"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                            <state key="normal" title="Clinics">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onClincsButtonTapped:" destination="-1" eventType="touchUpInside" id="NDd-My-PTr"/>
-                            </connections>
-                        </button>
-                        <view contentMode="scaleToFill" id="wch-FV-3Oo" userLabel="Clinics Button View">
-                            <rect key="frame" x="124" y="64" width="70" height="64"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.29803922772407532" green="0.88235300779342651" blue="0.84705889225006104" alpha="1" colorSpace="deviceRGB"/>
-                            <gestureRecognizers/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="vJR-NC-2OQ" appends="YES" id="3qJ-5Z-HNV"/>
-                            </connections>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clinics" id="pUx-7K-URP">
+                                    <rect key="frame" x="2.5" y="-0.5" width="66" height="66"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clinics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZHY-si-Pxp">
+                                    <rect key="frame" x="2" y="72" width="67" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="59i-a9-Udn">
-                            <rect key="frame" x="230" y="131" width="49" height="30"/>
+                        <view contentMode="scaleToFill" id="Yml-hE-g6x" userLabel="Guides Button View">
+                            <rect key="frame" x="218" y="64" width="70" height="93"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
-                            <state key="normal" title="Guides">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <view contentMode="scaleToFill" id="soX-gk-yAT" userLabel="Guides Button View">
-                            <rect key="frame" x="219" y="64" width="70" height="64"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.08235294371843338" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                            <gestureRecognizers/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="LBD-9b-x57" appends="YES" id="bdT-f5-oNb"/>
-                            </connections>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guides" id="jua-2C-sNT">
+                                    <rect key="frame" x="2.5" y="-0.5" width="66" height="66"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guides" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="90j-8Y-sV0">
+                                    <rect key="frame" x="2" y="72" width="67" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" id="Kvx-tK-GZI" userLabel="Questions Area View">
                             <rect key="frame" x="0.0" y="165" width="320" height="403"/>
@@ -190,7 +190,7 @@
                     </connections>
                 </view>
                 <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="XqK-nW-TiG" userLabel="MenuDismiss">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -240,5 +240,9 @@
     </objects>
     <resources>
         <image name="Home_Background" width="320" height="568"/>
+        <image name="clinics" width="66" height="66"/>
+        <image name="guides" width="66" height="66"/>
+        <image name="menu" width="27" height="20"/>
+        <image name="questions" width="66" height="66"/>
     </resources>
 </document>
