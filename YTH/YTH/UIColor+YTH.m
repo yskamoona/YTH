@@ -59,7 +59,7 @@
 	static dispatch_once_t YTHBabyBlueColorOnceToken;
 	dispatch_once(&YTHBabyBlueColorOnceToken, ^
 				  {
-					  _YTHBabyBlueColor = [UIColor colorWithHexString:@"3CE3F0"];
+					  _YTHBabyBlueColor = [UIColor colorWithHexString:@"67CBDE"];
 				  });
     
 	return _YTHBabyBlueColor;
