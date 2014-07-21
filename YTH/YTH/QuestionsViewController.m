@@ -10,11 +10,11 @@
 #import "Question.h"
 
 @interface QuestionsViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *askButton;
 
 - (IBAction)onAskButtonTapped:(id)sender;
-
 
 @end
 
@@ -25,7 +25,7 @@
     [super viewDidLoad];
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
 }

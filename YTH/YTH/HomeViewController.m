@@ -17,6 +17,7 @@
 #import <Parse/Parse.h>
 #import "Question.h"
 #import "UIColor+YTH.h"
+#import "QuestionDetailsViewController.h"
 
 typedef enum {
     latest,
@@ -81,7 +82,7 @@ const CGFloat widthConstraintMax = 320;
 
 @property (strong, nonatomic) NSArray *latestData;
 @property (strong, nonatomic) NSArray *trendingData;
-@property (strong, nonatomic) NSArray *ythPinned;
+@property (strong, nonatomic) NSArray *ythPinnedData;
 
 
 @end
@@ -131,8 +132,8 @@ const CGFloat widthConstraintMax = 320;
     [queryForYTHPinned whereKey:@"yth_pinned" equalTo:[NSNumber numberWithBool:YES]];
     [queryForYTHPinned findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            self.ythPinned = objects;
-            NSLog(@"got question %@", self.ythPinned);
+            self.ythPinnedData = objects;
+            NSLog(@"got question %@", self.ythPinnedData);
             [self.pinnedTableView reloadData];
         }
     }];
@@ -200,13 +201,13 @@ const CGFloat widthConstraintMax = 320;
         }];
     }
 }
--(void)setupSettingsMenu {
+- (void)setupSettingsMenu {
     self.settingsView.frame = CGRectMake(-160, 70, 125, 130);
     self.settingsView.hidden = NO;
     self.settingsView.userInteractionEnabled = YES;
     self.dismissMenuSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
 }
--(void)menuExitToggle {
+- (void)menuExitToggle {
     if(self.menuIsOpen) {
         self.menuDismissView.hidden = NO;
         self.menuDismissView.userInteractionEnabled = YES;
@@ -266,7 +267,7 @@ const CGFloat widthConstraintMax = 320;
     [self setActiveTable:sender];
 }
 
--(void)positionButtonBackground:(UIButton *)sender {
+- (void)positionButtonBackground:(UIButton *)sender {
     [UIView animateWithDuration:.3
                           delay:0
          usingSpringWithDamping:8
@@ -280,7 +281,7 @@ const CGFloat widthConstraintMax = 320;
     }];
 }
 
--(void)setupTableViews {
+- (void)setupTableViews {
     self.latestTableView.backgroundColor   = [UIColor colorWithWhite:1 alpha:.2];
     self.trendingTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:.2];
     self.pinnedTableView.backgroundColor   = [UIColor colorWithWhite:1 alpha:.2];
@@ -315,7 +316,7 @@ const CGFloat widthConstraintMax = 320;
 
 }
 
--(void)setActiveTable:(UIButton *)sender {
+- (void)setActiveTable:(UIButton *)sender {
     [UIView animateWithDuration:.3 animations:^{
         switch (sender.tag) {
             case latest:
@@ -367,11 +368,11 @@ const CGFloat widthConstraintMax = 320;
     } else if (tableView == self.trendingTableView) {
         return self.trendingData.count;
     } else {
-        return self.ythPinned.count;
+        return self.ythPinnedData.count;
     }
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 112;
 }
 
@@ -397,6 +398,7 @@ const CGFloat widthConstraintMax = 320;
         
 
         // This should probably go somewhere else... ?
+        // you can keep it
         cell.backgroundColor = [UIColor clearColor];
         
         return cell;
@@ -408,10 +410,25 @@ const CGFloat widthConstraintMax = 320;
         return cell;
     } else {
         TableViewCell *cell = [self.pinnedTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
-        cell.questionLabel.text = [self.ythPinned[indexPath.row] body];
+        cell.questionLabel.text = [self.ythPinnedData[indexPath.row] body];
         cell.backgroundColor = [UIColor clearColor];
         return cell;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    QuestionDetailsViewController *questionsDetailsVC = [[QuestionDetailsViewController alloc] init];
+    
+    if (tableView == self.latestTableView) {
+        questionsDetailsVC.question = self.latestData[indexPath.row];
+    } else if (tableView == self.trendingTableView) {
+        questionsDetailsVC.question = self.trendingData[indexPath.row];
+    } else {
+        questionsDetailsVC.question = self.ythPinnedData[indexPath.row];
+    }
+    
+    [self navigationController].navigationBar.barTintColor = [UIColor YTHGreenColor];
+    [self.navigationController pushViewController:questionsDetailsVC animated:YES];
 }
 
 - (void)didAskQuestionAndDimissViewController:(QuestionsViewController *)questionsVC {

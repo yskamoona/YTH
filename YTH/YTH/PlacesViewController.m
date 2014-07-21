@@ -270,8 +270,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     self.placeDetailVC.startPlaceIndexPath = indexPath;
     
     [[self navigationController] setNavigationBarHidden:NO];
-    //[self.navigationController pushViewController:self.placeDetailVC animated:YES];
-    [self presentViewController:self.placeDetailVC animated:YES completion:nil];
+    [self.navigationController pushViewController:self.placeDetailVC animated:YES];
+    
 
 }
 

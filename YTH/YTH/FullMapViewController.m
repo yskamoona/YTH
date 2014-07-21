@@ -31,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupNavigationBar];
     
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
     [LocationController sharedLocationController];
@@ -41,6 +42,38 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
      [[self navigationController] setNavigationBarHidden:NO];
+}
+
+- (void)setupNavigationBar {
+    self.navigationItem.title = @"Clinics";
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:nil
+                                                                  action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    UIImage *homeButtonImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map"]
+                                                                  style:UIBarButtonItemStylePlain
+                                                                 target:self
+                                                                 action:@selector(goToListingView:)];
+    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:homeButtonImage
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(onHomeButton:)];
+    
+    self.navigationItem.rightBarButtonItems =  @[homeButton, mapButton];
+}
+
+- (void)onHomeButton:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)goToListingView:(id)sender{
+    //[self.navigationController popToViewController: animated:YES];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -99,20 +132,5 @@
     }
     [self.placeMapView setVisibleMapRect:zoomRect animated:YES];
 }
-
-#pragma IBActions
-
-- (IBAction)onBackButtonTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)onHomeButtonTapped:(id)sender {
-    
-}
-
-- (IBAction)onListButtonTapped:(id)sender {
-    
-}
-    
 
 @end

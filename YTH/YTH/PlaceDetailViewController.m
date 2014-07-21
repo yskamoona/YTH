@@ -28,8 +28,9 @@
 {
     [super viewDidLoad];
     [self getPlacesData];
+    [self setupNavigationBar];
+    
     self.startPlaceIndex = self.startPlaceIndexPath.section;
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
     [self setupTableView];
 }
 
@@ -37,11 +38,36 @@
     [super viewDidAppear:animated];
 }
 
-//- (void)goToFullMapView:(id)sender {
-//    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
-//    fullMapVC.placeInfo = self.placeInfo;
-//    [self.navigationController pushViewController:fullMapVC animated:YES];
-//}
+- (void)setupNavigationBar {
+    self.navigationItem.title = @"Clinics";
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:nil
+                                                                  action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    UIImage *homeButtonImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map"]
+                                                                  style:UIBarButtonItemStylePlain
+                                                                 target:self
+                                                                 action:@selector(goToFullMapView:)];
+    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:homeButtonImage
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(onHomeButton:)];
+    
+    self.navigationItem.rightBarButtonItems =  @[homeButton, mapButton];
+}
+
+- (void)goToFullMapView:(id)sender {
+    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
+    fullMapVC.placesInfo = self.placesInfo;
+    fullMapVC.showPlaceIndex = self.startPlaceIndexPath.section;
+    [self.navigationController pushViewController:fullMapVC animated:YES];
+}
 
 - (void)getPlacesData
 {
@@ -133,6 +159,10 @@
 
 #pragma IBActions
 
+- (void)onHomeButton:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (IBAction)onFullMapView:(id)sender {
     FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
     fullMapVC.placesInfo = self.placesInfo;
@@ -144,12 +174,7 @@
 - (void)didDismissAlertView:(UIAlertView *)alertView {
     PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
     postReviewVC.place = self.selectedPlace;
-    [self presentViewController:postReviewVC animated:NO completion:nil];
+    [self.navigationController pushViewController:postReviewVC animated:YES];
 }
-
-- (IBAction)onBackButtonTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 
 @end
