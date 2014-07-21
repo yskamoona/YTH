@@ -228,6 +228,7 @@ const CGFloat widthConstraintMax = 320;
 - (IBAction)onQuestionButton:(UITapGestureRecognizer *)sender {
     self.questionsVC = [[QuestionsViewController alloc] init];
     self.questionsVC.delegate = self;
+    [self navigationController].navigationBar.barTintColor = [UIColor YTHGreenColor];
     [self.navigationController pushViewController:self.questionsVC animated:YES];
 }
 
