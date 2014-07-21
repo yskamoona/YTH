@@ -65,5 +65,73 @@
 	return _YTHBabyBlueColor;
 }
 
++ (UIColor *)YTHGreenColor {
+	static UIColor* _YTHGreenColor = nil;
+	static dispatch_once_t YTHGreenColorOnceToken;
+	dispatch_once(&YTHGreenColorOnceToken, ^
+				  {
+					  _YTHGreenColor = [UIColor colorWithHexString:@"ADD52D"];
+				  });
+    
+	return _YTHGreenColor;
+}
+
++ (UIColor *)YTHGPinkColor {
+	static UIColor* _YTHPinkColor = nil;
+	static dispatch_once_t YTHPinkColorOnceToken;
+	dispatch_once(&YTHPinkColorOnceToken, ^
+				  {
+					  _YTHPinkColor = [UIColor colorWithHexString:@"F83E80"];
+				  });
+    
+	return _YTHPinkColor;
+}
+
++ (UIColor *)YTHGYellowColor {
+	static UIColor* _YTHYellowColor = nil;
+	static dispatch_once_t YTHYellowColorOnceToken;
+	dispatch_once(&YTHYellowColorOnceToken, ^
+				  {
+					  _YTHYellowColor = [UIColor colorWithHexString:@"FFD60F"];
+				  });
+    
+	return _YTHYellowColor;
+}
+
++ (UIColor *)YTHGDarkTextColor {
+	static UIColor* _YTHDarkTextColor = nil;
+	static dispatch_once_t YTHDarkTextColorOnceToken;
+	dispatch_once(&YTHDarkTextColorOnceToken, ^
+				  {
+					  _YTHDarkTextColor = [UIColor colorWithHexString:@"383736"];
+				  });
+    
+	return _YTHDarkTextColor;
+}
+
++ (UIColor *)YTHGLightTextColor {
+	static UIColor* _YTHLightTextColor = nil;
+	static dispatch_once_t YTHLightTextColorOnceToken;
+	dispatch_once(&YTHLightTextColorOnceToken, ^
+				  {
+					  _YTHLightTextColor = [UIColor colorWithHexString:@"8e8e93"];
+				  });
+    
+	return _YTHLightTextColor;
+}
+
++ (UIColor *)YTHGDisabledColor {
+	static UIColor* _YTHDisabledColor = nil;
+	static dispatch_once_t YTHDisabledColorOnceToken;
+	dispatch_once(&YTHDisabledColorOnceToken, ^
+				  {
+					  _YTHDisabledColor = [UIColor colorWithHexString:@"dad9d7"];
+				  });
+    
+	return _YTHDisabledColor;
+}
+
+
+
 
 @end

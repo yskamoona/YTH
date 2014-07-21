@@ -16,6 +16,10 @@
 		448E64D9197B67CC0070FB7B /* STDsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448E64D7197B67CC0070FB7B /* STDsViewController.xib */; };
 		448E64DE197B6B010070FB7B /* STDsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 448E64DC197B6B010070FB7B /* STDsTableViewCell.m */; };
 		448E64DF197B6B010070FB7B /* STDsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448E64DD197B6B010070FB7B /* STDsTableViewCell.xib */; };
+		4497E724197C823500DC360F /* GuidesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4497E722197C823500DC360F /* GuidesDetailViewController.m */; };
+		4497E725197C823500DC360F /* GuidesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4497E723197C823500DC360F /* GuidesDetailViewController.xib */; };
+		4497E729197C979200DC360F /* GuidesDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4497E727197C979200DC360F /* GuidesDetailTableViewCell.m */; };
+		4497E72A197C979200DC360F /* GuidesDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4497E728197C979200DC360F /* GuidesDetailTableViewCell.xib */; };
 		44E8FF6A197B432500455028 /* MorningAfterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E8FF68197B432500455028 /* MorningAfterViewController.m */; };
 		44E8FF6B197B432500455028 /* MorningAfterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44E8FF69197B432500455028 /* MorningAfterViewController.xib */; };
 		451CBFCF1969FC0A007289F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CBFCE1969FC0A007289F3 /* Foundation.framework */; };
@@ -114,6 +118,12 @@
 		448E64DB197B6B010070FB7B /* STDsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDsTableViewCell.h; sourceTree = "<group>"; };
 		448E64DC197B6B010070FB7B /* STDsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDsTableViewCell.m; sourceTree = "<group>"; };
 		448E64DD197B6B010070FB7B /* STDsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STDsTableViewCell.xib; sourceTree = "<group>"; };
+		4497E721197C823500DC360F /* GuidesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidesDetailViewController.h; sourceTree = "<group>"; };
+		4497E722197C823500DC360F /* GuidesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidesDetailViewController.m; sourceTree = "<group>"; };
+		4497E723197C823500DC360F /* GuidesDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidesDetailViewController.xib; sourceTree = "<group>"; };
+		4497E726197C979200DC360F /* GuidesDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidesDetailTableViewCell.h; sourceTree = "<group>"; };
+		4497E727197C979200DC360F /* GuidesDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidesDetailTableViewCell.m; sourceTree = "<group>"; };
+		4497E728197C979200DC360F /* GuidesDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuidesDetailTableViewCell.xib; sourceTree = "<group>"; };
 		44E8FF67197B432500455028 /* MorningAfterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorningAfterViewController.h; sourceTree = "<group>"; };
 		44E8FF68197B432500455028 /* MorningAfterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorningAfterViewController.m; sourceTree = "<group>"; };
 		44E8FF69197B432500455028 /* MorningAfterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MorningAfterViewController.xib; sourceTree = "<group>"; };
@@ -290,6 +300,12 @@
 				448E64DB197B6B010070FB7B /* STDsTableViewCell.h */,
 				448E64DC197B6B010070FB7B /* STDsTableViewCell.m */,
 				448E64DD197B6B010070FB7B /* STDsTableViewCell.xib */,
+				4497E721197C823500DC360F /* GuidesDetailViewController.h */,
+				4497E722197C823500DC360F /* GuidesDetailViewController.m */,
+				4497E723197C823500DC360F /* GuidesDetailViewController.xib */,
+				4497E726197C979200DC360F /* GuidesDetailTableViewCell.h */,
+				4497E727197C979200DC360F /* GuidesDetailTableViewCell.m */,
+				4497E728197C979200DC360F /* GuidesDetailTableViewCell.xib */,
 			);
 			name = GuidesViewControllers;
 			sourceTree = "<group>";
@@ -584,6 +600,7 @@
 				4533A3E5197A6024006415A9 /* ReviewCell.xib in Resources */,
 				448E64DF197B6B010070FB7B /* STDsTableViewCell.xib in Resources */,
 				44E8FF6B197B432500455028 /* MorningAfterViewController.xib in Resources */,
+				4497E72A197C979200DC360F /* GuidesDetailTableViewCell.xib in Resources */,
 				45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */,
 				45FCEA74197A0DCD00AEA8F5 /* RatingStarsViewController.xib in Resources */,
 				45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */,
@@ -600,6 +617,7 @@
 				45FCEA1319790C9900AEA8F5 /* MyQuestionsViewController.xib in Resources */,
 				45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */,
 				45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */,
+				4497E725197C823500DC360F /* GuidesDetailViewController.xib in Resources */,
 				B08266D4197A17840057A428 /* TableViewCell.xib in Resources */,
 				448E64D9197B67CC0070FB7B /* STDsViewController.xib in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
@@ -661,6 +679,7 @@
 				45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */,
 				45FCE9FF1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m in Sources */,
 				45FC04AC196A06DB007DB5C4 /* User.m in Sources */,
+				4497E729197C979200DC360F /* GuidesDetailTableViewCell.m in Sources */,
 				4543B5D0197BBD7F004B8904 /* UIColor+YTH.m in Sources */,
 				17EC1BDB196A82DB005A456D /* MapUtils.m in Sources */,
 				45BDFB9C196A143C0095CBBD /* PlaceCell.m in Sources */,
@@ -682,6 +701,7 @@
 				45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */,
 				451CBFDF1969FC0A007289F3 /* AppDelegate.m in Sources */,
 				45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */,
+				4497E724197C823500DC360F /* GuidesDetailViewController.m in Sources */,
 				45FCEA2419790FCE00AEA8F5 /* MyReviewsViewController.m in Sources */,
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,
 				45FC04AF196A06E9007DB5C4 /* Place.m in Sources */,

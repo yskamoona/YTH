@@ -17,4 +17,11 @@
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 
 + (UIColor *)YTHBabyBlueColor;
++ (UIColor *)YTHGreenColor;
++ (UIColor *)YTHGPinkColor;
++ (UIColor *)YTHGDarkTextColor;
++ (UIColor *)YTHGLightTextColor;
++ (UIColor *)YTHGDisabledColor;
+
+
 @end
