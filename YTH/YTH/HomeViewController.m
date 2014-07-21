@@ -12,7 +12,10 @@
 #import "TableViewCell.h"
 #import "GuidesViewController.h"
 #import "NSDate+TimeAgo.h"
+#import "QuestionsViewController.h"
 #import "LocationSettingViewController.h"
+#import <Parse/Parse.h>
+#import "Question.h"
 
 typedef enum {
     latest,
@@ -24,11 +27,24 @@ const CGFloat widthConstraintMax = 320;
 
 @interface HomeViewController ()
 
-@property (strong, nonatomic) PlacesViewController   *placesVC;
+@property (strong, nonatomic) PlacesViewController *placesVC;
+@property (weak, nonatomic  ) IBOutlet UIView *clinicsView;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *questionsTapGestureRecognizer;
 @property (strong, nonatomic) SettingsViewController *settingVC;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *settingsView;
+
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIView *mainView;
+
+@property (strong, nonatomic) QuestionsViewController *questionsVC;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewWidthConstraint;
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *containerViewPanGestureRecognizer;
 
 @property (assign) NSInteger changingPosX;
 
@@ -62,6 +78,11 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) IBOutlet UITableView *pinnedTableView;
 @property (strong, atomic) NSArray* fakeLatestData;
 
+@property (strong, nonatomic) NSArray *latestData;
+@property (strong, nonatomic) NSArray *trendingData;
+@property (strong, nonatomic) NSArray *ythPinned;
+
+
 @end
 
 @implementation HomeViewController
@@ -69,6 +90,8 @@ const CGFloat widthConstraintMax = 320;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadDataForTableViews];
+
     [self setupTableViews];
     [self setupSettingsMenu];
 }
@@ -76,6 +99,42 @@ const CGFloat widthConstraintMax = 320;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES];
+}
+
+- (void)loadDataForTableViews {
+    
+    //Load LatestData
+    PFQuery *query = [Question query];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.LatestData = objects;
+            NSLog(@"got question %@", self.latestData);
+            [self.latestTableView reloadData];
+        }
+    }];
+    
+    //Load TrendingData
+    PFQuery *queryForTrending = [Question query];
+    [queryForTrending whereKey:@"trending" equalTo:[NSNumber numberWithBool:YES]];
+    [queryForTrending orderByDescending:@"createdAt"];
+    [queryForTrending findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.trendingData = objects;
+            NSLog(@"got question %@", self.trendingData);
+            [self.trendingTableView reloadData];
+        }
+    }];
+    
+    PFQuery *queryForYTHPinned = [Question query];
+    [queryForYTHPinned whereKey:@"yth_pinned" equalTo:[NSNumber numberWithBool:YES]];
+    [queryForYTHPinned findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.ythPinned = objects;
+            NSLog(@"got question %@", self.ythPinned);
+            [self.pinnedTableView reloadData];
+        }
+    }];
 }
 
 #pragma  AS Setting VC delegate methods
@@ -166,7 +225,11 @@ const CGFloat widthConstraintMax = 320;
 }
 
 - (IBAction)onQuestionButton:(UITapGestureRecognizer *)sender {
-    
+    self.questionsVC = [[QuestionsViewController alloc] init];
+    self.questionsVC.delegate = self;
+    [self presentViewController:self.questionsVC
+                       animated:YES
+                     completion:nil];
 }
 
 - (IBAction)onGuidesButton:(id)sender {
@@ -299,7 +362,13 @@ const CGFloat widthConstraintMax = 320;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if (tableView == self.latestTableView) {
+        return self.latestData.count;
+    } else if (tableView == self.trendingTableView) {
+        return self.trendingData.count;
+    } else {
+        return self.ythPinned.count;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -309,20 +378,20 @@ const CGFloat widthConstraintMax = 320;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.latestTableView) {
         TableViewCell *cell = [self.latestTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
-        cell.questionLabel.text = self.fakeLatestData[indexPath.row][@"question"];
-        cell.locationLabel.text = self.fakeLatestData[indexPath.row][@"location"];
+        cell.questionLabel.text = [self.latestData[indexPath.row] body];
+        cell.locationLabel.text = self.fakeLatestData[0][@"location"];
         //'Number of answers' conditional formatting
-        if (self.fakeLatestData[indexPath.row][@"answers"] == [NSNumber numberWithInteger:1]) {
-            NSString *answerString = [NSString stringWithFormat:@"%@ answer",self.fakeLatestData[indexPath.row][@"answers"]];
+        if (self.fakeLatestData[0][@"answers"] == [NSNumber numberWithInteger:1]) {
+            NSString *answerString = [NSString stringWithFormat:@"%@ answer",self.fakeLatestData[0][@"answers"]];
             cell.answerLabel.text = answerString;
         } else {
-            NSString *answerString = [NSString stringWithFormat:@"%@ answers",self.fakeLatestData[indexPath.row][@"answers"]];
+            NSString *answerString = [NSString stringWithFormat:@"%@ answers",self.fakeLatestData[0][@"answers"]];
             cell.answerLabel.text = answerString;
         }
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZ"];
-        NSDate *dateString = [NSDate dateWithTimeIntervalSinceNow:([self.fakeLatestData[indexPath.row][@"time"] floatValue])];
+        NSDate *dateString = [NSDate dateWithTimeIntervalSinceNow:([self.fakeLatestData[0][@"time"] floatValue])];
         NSString *ago = [dateString timeAgo];
         cell.timeLabel.text = ago;
         
@@ -332,17 +401,22 @@ const CGFloat widthConstraintMax = 320;
         
         return cell;
     } else if (tableView == self.trendingTableView) {
-        TableViewCell *cell = [self.latestTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
-        cell.questionLabel.text = self.fakeLatestData[indexPath.row][@"question"];
+        TableViewCell *cell = [self.trendingTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
+        cell.questionLabel.text = [self.trendingData[indexPath.row] body];
         
         cell.backgroundColor = [UIColor clearColor];
         return cell;
     } else {
-        UITableViewCell *cell = [self.pinnedTableView dequeueReusableCellWithIdentifier:@"TableCell"];
+        TableViewCell *cell = [self.pinnedTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
+        cell.questionLabel.text = [self.ythPinned[indexPath.row] body];
         cell.backgroundColor = [UIColor clearColor];
         return cell;
     }
 }
 
+- (void)didAskQuestionAndDimissViewController:(QuestionsViewController *)questionsVC {
+    [self loadDataForTableViews];
+    [self.questionsVC dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

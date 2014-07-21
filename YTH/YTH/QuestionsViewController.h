@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol QuestionsViewControllerDelegate;
+
 @interface QuestionsViewController : UIViewController
 
+@property (weak, nonatomic) id <QuestionsViewControllerDelegate> delegate;
+
 @end
+
+@protocol QuestionsViewControllerDelegate <NSObject>
+
+@required
+- (void)didAskQuestionAndDimissViewController:(QuestionsViewController *)questionsVC;
+
+@end
+
+

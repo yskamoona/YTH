@@ -52,6 +52,7 @@
 		45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534133F196AB5B200C6A2FE /* PlaceDetailViewController.m */; };
 		45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */; };
 		4543B5D0197BBD7F004B8904 /* UIColor+YTH.m in Sources */ = {isa = PBXBuildFile; fileRef = 4543B5CF197BBD7F004B8904 /* UIColor+YTH.m */; };
+		4543B5D3197C7548004B8904 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 4543B5D2197C7548004B8904 /* Question.m */; };
 		457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457BB653197B762E000255E1 /* PriceRatingViewController.m */; };
 		457BB656197B762E000255E1 /* PriceRatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457BB654197B762E000255E1 /* PriceRatingViewController.xib */; };
 		45BDFB97196A0FD40095CBBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BDFB96196A0FD40095CBBD /* MapKit.framework */; };
@@ -166,6 +167,8 @@
 		45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailViewController.xib; sourceTree = "<group>"; };
 		4543B5CE197BBD7F004B8904 /* UIColor+YTH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YTH.h"; sourceTree = "<group>"; };
 		4543B5CF197BBD7F004B8904 /* UIColor+YTH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YTH.m"; sourceTree = "<group>"; };
+		4543B5D1197C7548004B8904 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		4543B5D2197C7548004B8904 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		457BB652197B762E000255E1 /* PriceRatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceRatingViewController.h; sourceTree = "<group>"; };
 		457BB653197B762E000255E1 /* PriceRatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceRatingViewController.m; sourceTree = "<group>"; };
 		457BB654197B762E000255E1 /* PriceRatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceRatingViewController.xib; sourceTree = "<group>"; };
@@ -415,6 +418,8 @@
 				45FC04AE196A06E9007DB5C4 /* Place.m */,
 				45FC04B0196A06F4007DB5C4 /* Review.h */,
 				45FC04B1196A06F4007DB5C4 /* Review.m */,
+				4543B5D1197C7548004B8904 /* Question.h */,
+				4543B5D2197C7548004B8904 /* Question.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -709,6 +714,7 @@
 				451CC0001969FC57007289F3 /* PlacesViewController.m in Sources */,
 				457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */,
 				45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */,
+				4543B5D3197C7548004B8904 /* Question.m in Sources */,
 				448E64DE197B6B010070FB7B /* STDsTableViewCell.m in Sources */,
 				4534133D196AB37400C6A2FE /* ReviewCell.m in Sources */,
 			);
@@ -838,7 +844,7 @@
 				GCC_PREFIX_HEADER = "YTH/YTH-Prefix.pch";
 				INFOPLIST_FILE = "YTH/YTH-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6E6C0BEC-0D44-417C-9622-8BC28B4B3649";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -859,7 +865,7 @@
 				GCC_PREFIX_HEADER = "YTH/YTH-Prefix.pch";
 				INFOPLIST_FILE = "YTH/YTH-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6E6C0BEC-0D44-417C-9622-8BC28B4B3649";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
