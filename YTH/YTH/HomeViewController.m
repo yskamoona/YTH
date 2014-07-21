@@ -54,7 +54,9 @@ const CGFloat widthConstraintMax = 320;
 - (IBAction)onQuestionsViewTapped:(id)sender;
 
 // Settings Panel
+@property (strong, nonatomic) IBOutlet UIView *settingsBackgroundTintView;
 - (IBAction)onDismissMenuSwipe:(UISwipeGestureRecognizer *)sender;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *dismissMenuSwipe;
 - (IBAction)onDismissMenuTap:(UITapGestureRecognizer *)sender;
 @property (assign) BOOL menuIsOpen;
 @property (strong, nonatomic) IBOutlet UIView *menuDismissView;
@@ -86,6 +88,7 @@ const CGFloat widthConstraintMax = 320;
     [self setupGestureRecognizers];
     [self loadDataForTableViews];
     [self setupTableViews];
+    [self setupSettingsMenu];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -219,54 +222,50 @@ const CGFloat widthConstraintMax = 320;
     
     if(!self.menuIsOpen) {
         [UIView animateWithDuration:0.5 animations:^{
+            self.settingsView.transform = CGAffineTransformMakeTranslation(160, 0);
             self.containerView.alpha = 0.7;
             self.containerView.layer.transform = CATransform3DConcat(rotationAndPerspectiveTransform, translate);
-            //Bring in menu
+            self.settingsBackgroundTintView.alpha = 0.4;
         } completion:^(BOOL finished){
             self.menuIsOpen = YES;
             [self menuExitToggle];
         }];
     } else {
         [UIView animateWithDuration:0.5 animations:^{
+            self.settingsView.transform = CGAffineTransformIdentity; //removes transform
             self.containerView.alpha = 1.0;
             self.containerView.layer.transform = CATransform3DIdentity; //remove the transforms
-            //Dismiss menu
+            self.settingsBackgroundTintView.alpha = 0;
         } completion:^(BOOL finished) {
             self.menuIsOpen = NO;
             [self menuExitToggle];
         }];
     }
-    self.settingsView.frame = CGRectMake(0, 70, 125, 130);
+    
+    // Add directions to swipe
 }
-
+-(void)setupSettingsMenu {
+    self.settingsView.frame = CGRectMake(-160, 70, 125, 130);
+    self.settingsView.hidden = NO;
+    self.settingsView.userInteractionEnabled = YES;
+    self.dismissMenuSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+}
 -(void)menuExitToggle {
     if(self.menuIsOpen) {
         self.menuDismissView.hidden = NO;
         self.menuDismissView.userInteractionEnabled = YES;
-        
-        self.settingsView.hidden = NO;
-        self.settingsView.userInteractionEnabled = YES;
-        
     } else {
         self.menuDismissView.hidden = YES;
         self.menuDismissView.userInteractionEnabled = NO;
-        
-        self.settingsView.hidden = YES;
-        self.settingsView.userInteractionEnabled = NO;
     }
 }
-
+// Use touch to dismiss menu
 - (IBAction)onDismissMenuSwipe:(UISwipeGestureRecognizer *)sender {
-    if (sender.state == UISwipeGestureRecognizerDirectionLeft) {
-        NSLog(@"dismissed");
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
         [self onSettingsButtonTapped:sender];
-    } else {
-        NSLog(@"Other way!");
     }
 }
-
 - (IBAction)onDismissMenuTap:(UITapGestureRecognizer *)sender {
-    NSLog(@"dismissed");
     [self onSettingsButtonTapped:sender];
 }
 
