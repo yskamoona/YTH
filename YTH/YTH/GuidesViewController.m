@@ -43,7 +43,10 @@
     
 }
 
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+}
 
 - (IBAction)onMorningAfterTapped:(id)sender {
     NSLog(@"you tapped Morning After Label");
@@ -52,9 +55,8 @@
 
 }
 
-- (IBAction)onHomeButton:(id)sender{
+- (void)onHomeButton:(id)sender{
     HomeViewController *homeVC = [[HomeViewController alloc] init];
-    [[self navigationController] setNavigationBarHidden:YES];
     [self.navigationController pushViewController:homeVC animated:YES];
 }
 

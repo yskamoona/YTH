@@ -16,6 +16,7 @@
 #import "LocationSettingViewController.h"
 #import <Parse/Parse.h>
 #import "Question.h"
+#import "UIColor+YTH.h"
 
 typedef enum {
     latest,
@@ -54,8 +55,8 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) IBOutlet UIView *guideButtonVIew;
 
 - (IBAction)onQuestionButton:(UITapGestureRecognizer *)sender;
-- (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender;
-- (IBAction)onGuidesButton:(id)sender;
+- (IBAction)onClinicsButton: (UITapGestureRecognizer *)sender;
+- (IBAction)onGuidesButton:  (id)sender;
 
 
 // Settings Panel
@@ -227,24 +228,22 @@ const CGFloat widthConstraintMax = 320;
 - (IBAction)onQuestionButton:(UITapGestureRecognizer *)sender {
     self.questionsVC = [[QuestionsViewController alloc] init];
     self.questionsVC.delegate = self;
-    [self presentViewController:self.questionsVC
-                       animated:YES
-                     completion:nil];
-}
-
-- (IBAction)onGuidesButton:(id)sender {
-    GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    [self.navigationController pushViewController:guidesVC animated:YES];
-    
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = backButton;
+    [self.navigationController pushViewController:self.questionsVC animated:YES];
 }
 
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {
     PlacesViewController *clinicsVC = [[PlacesViewController alloc] init];
-    [self presentViewController:clinicsVC animated:YES
-                     completion:nil];
+    [self navigationController].navigationBar.barTintColor = [UIColor YTHBabyBlueColor];
+    [self.navigationController pushViewController:clinicsVC animated:YES];
+}
+
+- (IBAction)onGuidesButton:(id)sender {
+    GuidesViewController *guidesVC = [[GuidesViewController alloc] init];
+    [self navigationController].navigationBar.barTintColor = [UIColor YTHGPinkColor];
+    [self.navigationController pushViewController:guidesVC animated:YES];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 

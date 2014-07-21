@@ -120,6 +120,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     [self setupCollectionView];
     [self.homeCollectionView reloadData];
     
+    self.navigationItem.title = @"Clinics";
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    UIImage *homeButtonImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:homeButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(onHomeButtonTapped:)];
+    self.navigationItem.rightBarButtonItem = homeButton;
+    
     
    // [self setLocationForMap];
 
@@ -159,10 +167,12 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.locationManager stopUpdatingLocation];
-    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+}
 
 - (void)setupMapView {
     
@@ -273,9 +283,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     [self.navigationController pushViewController:filterVC animated:YES];
 }
 
-- (IBAction)onHomeButtonTapped:(id)sender {
-    //[self.navigationController popViewControllerAnimated: YES];
-     [self dismissViewControllerAnimated:YES completion:nil];
+- (void)onHomeButtonTapped:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 - (IBAction)onMapButtonPressed:(id)sender {
