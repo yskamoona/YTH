@@ -304,6 +304,9 @@
 		448E64DA197B67F40070FB7B /* GuidesViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				45FCE9F21976A48200AEA8F5 /* GuidesViewController.h */,
+				45FCE9F31976A48200AEA8F5 /* GuidesViewController.m */,
+				45FCE9F41976A48200AEA8F5 /* GuidesViewController.xib */,
 				44E8FF67197B432500455028 /* MorningAfterViewController.h */,
 				44E8FF68197B432500455028 /* MorningAfterViewController.m */,
 				44E8FF69197B432500455028 /* MorningAfterViewController.xib */,
@@ -368,13 +371,13 @@
 		451CBFD41969FC0A007289F3 /* YTH */ = {
 			isa = PBXGroup;
 			children = (
+				451CBFDD1969FC0A007289F3 /* AppDelegate.h */,
+				451CBFDE1969FC0A007289F3 /* AppDelegate.m */,
 				17EC1BD8196A82BA005A456D /* Utils */,
 				17C492B4196A165D00C5DFDB /* API */,
 				45FC0498196A058D007DB5C4 /* Models */,
 				45FC0499196A05B1007DB5C4 /* View */,
 				45FC049A196A05BD007DB5C4 /* ViewControllers */,
-				451CBFDD1969FC0A007289F3 /* AppDelegate.h */,
-				451CBFDE1969FC0A007289F3 /* AppDelegate.m */,
 				451CBFE01969FC0A007289F3 /* Images.xcassets */,
 				451CBFD51969FC0A007289F3 /* Supporting Files */,
 			);
@@ -408,6 +411,45 @@
 				451CBFF01969FC0A007289F3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45420467197D9CBF00B1AE26 /* ForCustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				45FCEA70197A0DCD00AEA8F5 /* RatingStarsViewController.h */,
+				45FCEA71197A0DCD00AEA8F5 /* RatingStarsViewController.m */,
+				45FCEA72197A0DCD00AEA8F5 /* RatingStarsViewController.xib */,
+				457BB652197B762E000255E1 /* PriceRatingViewController.h */,
+				457BB653197B762E000255E1 /* PriceRatingViewController.m */,
+				457BB654197B762E000255E1 /* PriceRatingViewController.xib */,
+			);
+			name = ForCustomViews;
+			sourceTree = "<group>";
+		};
+		45420468197D9CE600B1AE26 /* ForHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				45FCE9ED1976868D00AEA8F5 /* HomeViewController.h */,
+				45FCE9EE1976868D00AEA8F5 /* HomeViewController.m */,
+				45FCE9EF1976868D00AEA8F5 /* HomeViewController.xib */,
+				448E64DA197B67F40070FB7B /* GuidesViewControllers */,
+				45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */,
+				4542046A197D9D4100B1AE26 /* QuestionsViewControllers */,
+			);
+			name = ForHomePage;
+			sourceTree = "<group>";
+		};
+		4542046A197D9D4100B1AE26 /* QuestionsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */,
+				45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */,
+				45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */,
+				4543B5D4197CF313004B8904 /* QuestionDetailsViewController.h */,
+				4543B5D5197CF313004B8904 /* QuestionDetailsViewController.m */,
+				4543B5D6197CF313004B8904 /* QuestionDetailsViewController.xib */,
+			);
+			name = QuestionsViewControllers;
 			sourceTree = "<group>";
 		};
 		4543B5CA197BBD38004B8904 /* Categories */ = {
@@ -464,37 +506,19 @@
 		45FC049A196A05BD007DB5C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				45FCE9ED1976868D00AEA8F5 /* HomeViewController.h */,
-				45FCE9EE1976868D00AEA8F5 /* HomeViewController.m */,
-				45FCE9EF1976868D00AEA8F5 /* HomeViewController.xib */,
-				45FCE9F21976A48200AEA8F5 /* GuidesViewController.h */,
-				45FCE9F31976A48200AEA8F5 /* GuidesViewController.m */,
-				45FCE9F41976A48200AEA8F5 /* GuidesViewController.xib */,
-				45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */,
-				45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */,
-				45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */,
-				4543B5D4197CF313004B8904 /* QuestionDetailsViewController.h */,
-				4543B5D5197CF313004B8904 /* QuestionDetailsViewController.m */,
-				4543B5D6197CF313004B8904 /* QuestionDetailsViewController.xib */,
-				45FCEA70197A0DCD00AEA8F5 /* RatingStarsViewController.h */,
-				45FCEA71197A0DCD00AEA8F5 /* RatingStarsViewController.m */,
-				45FCEA72197A0DCD00AEA8F5 /* RatingStarsViewController.xib */,
-				457BB652197B762E000255E1 /* PriceRatingViewController.h */,
-				457BB653197B762E000255E1 /* PriceRatingViewController.m */,
-				457BB654197B762E000255E1 /* PriceRatingViewController.xib */,
-				45FCEA051978787500AEA8F5 /* SettingsViewController.h */,
-				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
-				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
-				45FCEA1C19790E1900AEA8F5 /* SettingsPageViewControllers */,
-				45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */,
-				448E64DA197B67F40070FB7B /* GuidesViewControllers */,
+				45420468197D9CE600B1AE26 /* ForHomePage */,
+				45FCEA1C19790E1900AEA8F5 /* ForSettingsPage */,
+				45420467197D9CBF00B1AE26 /* ForCustomViews */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		45FCEA1C19790E1900AEA8F5 /* SettingsPageViewControllers */ = {
+		45FCEA1C19790E1900AEA8F5 /* ForSettingsPage */ = {
 			isa = PBXGroup;
 			children = (
+				45FCEA051978787500AEA8F5 /* SettingsViewController.h */,
+				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
+				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
 				45FCEA0A1979063200AEA8F5 /* LocationSettingViewController.h */,
 				45FCEA0B1979063200AEA8F5 /* LocationSettingViewController.m */,
 				45FCEA0C1979063200AEA8F5 /* LocationSettingViewController.xib */,
@@ -511,7 +535,7 @@
 				45FCEA271979132500AEA8F5 /* HomeMainContentViewController.m */,
 				45FCEA281979132500AEA8F5 /* HomeMainContentViewController.xib */,
 			);
-			name = SettingsPageViewControllers;
+			name = ForSettingsPage;
 			sourceTree = "<group>";
 		};
 		45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */ = {

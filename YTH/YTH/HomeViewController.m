@@ -216,7 +216,7 @@ const CGFloat widthConstraintMax = 320;
     }
 }
 
-//need to call this whenever a setting is chosen
+//calling this whenever a setting is chosen to slide back the menu
 - (void)slideBackMenu {
     [UIView animateWithDuration:0.5 animations:^{
         self.settingsView.transform = CGAffineTransformIdentity; //removes transform
