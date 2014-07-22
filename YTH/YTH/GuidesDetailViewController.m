@@ -9,10 +9,12 @@
 #import "GuidesDetailViewController.h"
 #import "HomeViewController.h"
 #import "GuidesDetailTableViewCell.h"
+#import "UIColor+YTH.h"
 
 @interface GuidesDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *detailGuides;
+@property (strong, nonatomic) NSMutableDictionary *collapsed;
 
 - (IBAction)onHomeButton:(id)sender;
 
@@ -28,12 +30,6 @@
     }
     return self;
 }
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"you tapped");
-     
-}
-     
 
 - (void)viewDidLoad
 {
@@ -51,35 +47,52 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    GuidesDetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GuidesDetailTableViewCell" forIndexPath:indexPath];
-    
-    cell.detailCell.text = self.detailGuides[indexPath.row];
-    
-    return cell;
-}
+    self.collapsed = [NSMutableDictionary dictionary];
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.detailGuides.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:NO];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.detailGuides.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.collapsed[@(section)] boolValue] ? 2 : 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    GuidesDetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GuidesDetailTableViewCell" forIndexPath:indexPath];
+    if (indexPath.row == 0) {
+        //question cell
+        cell.detailCell.text = self.detailGuides[indexPath.section];
+        cell.detailCell.layer.backgroundColor = [UIColor YTHGPinkColor].CGColor;
+    } else
+        //answers cell
+        cell.detailCell.text = @"";
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return 40;
+    } else
+        return 100;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        //dont do anything
+    } else {
+        self.collapsed[@(indexPath.section)] = @(![self.collapsed [@(indexPath.section)] boolValue]);
+         [self.tableView reloadData];
+    }
+   
 }
 
 - (IBAction)onHomeButton:(id)sender{
