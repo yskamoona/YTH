@@ -8,6 +8,7 @@
 
 #import "QuestionDetailsViewController.h"
 #import "QuestionDetailCell.h"
+#import "UIColor+YTH.h"
 
 @interface QuestionDetailsViewController ()
 
@@ -25,6 +26,7 @@
     [super viewDidLoad];
     [self setupTableView];
     self.replyTextField.delegate = self;
+    self.navigationItem.title = @"Question Details";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,14 +65,22 @@
 
     if (indexPath.row == 0) {
         cell.bodyLabel.text = self.question.body;
-        cell.locationLabel.text = @"San Francisco";
+        //cell.bodyLabel.textColor = [UIColor YTHGDarkTextColor];
+        cell.locationLabel.text = @"Los Angeles";
         cell.anwersLabel.text = [NSString stringWithFormat:@"%ld answer", (long)self.question.replies];
-        cell.timeLabel.text = @"1 min ago";
+        cell.timeLabel.text = @"1m ago";
     } else {
         // else it is an answer cell
+        cell.anwersLabel.hidden = YES;
         cell.bodyLabel.text = @"Not sure how to implement this";
-        cell.locationLabel.text = @"San Francisco";
+        cell.bodyLabel.textColor = [UIColor YTHGDarkTextColor];
+        cell.bodyLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:14.0];
+        cell.locationLabel.text = @"Los Angeles";
+        cell.locationLabel.textColor = [UIColor YTHGDarkTextColor];
+        cell.locationLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12.0];
         cell.timeLabel.text = @"1m ago";
+        cell.timeLabel.textColor = [UIColor YTHGDarkTextColor];
+        cell.locationLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12.0];
     }
     
     return cell;
@@ -78,17 +88,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 400;
-    } else {
         return 200;
+    } else {
+        return 100;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 400;
-    } else {
         return 200;
+    } else {
+        return 100;
     }
 }
 

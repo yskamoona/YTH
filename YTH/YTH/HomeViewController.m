@@ -87,6 +87,7 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) NSArray *latestData;
 @property (strong, nonatomic) NSArray *trendingData;
 @property (strong, nonatomic) NSArray *ythPinnedData;
+@property (strong, nonatomic) NSMutableArray *questionReplies;
 
 
 @end
@@ -119,11 +120,23 @@ const CGFloat widthConstraintMax = 320;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.LatestData = objects;
-            NSLog(@"got question %@", self.latestData);
             [self.latestTableView reloadData];
+        }
+        
+        //LoadReplies
+        self.questionReplies = [NSMutableArray array];
+        //Question *reply;
+        for (Question *reply in self.latestData) {
+            if ([reply.parent isEqualToString:reply.objectId]) {
+                [reply.questionReplies addObject:reply];
+            }
+            NSLog(@"question %@, Questions ID: %@, Question parent %@", reply, reply.objectId, reply.parent);
+            
+            NSLog(@"Well, let's see %@", reply.questionReplies);
         }
     }];
     
+
     //Load TrendingData
     PFQuery *queryForTrending = [Question query];
     [queryForTrending whereKey:@"trending" equalTo:[NSNumber numberWithBool:YES]];
@@ -131,7 +144,7 @@ const CGFloat widthConstraintMax = 320;
     [queryForTrending findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.trendingData = objects;
-            NSLog(@"got question %@", self.trendingData);
+            //NSLog(@"got question %@", self.trendingData);
             [self.trendingTableView reloadData];
         }
     }];
@@ -141,7 +154,7 @@ const CGFloat widthConstraintMax = 320;
     [queryForYTHPinned findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.ythPinnedData = objects;
-            NSLog(@"got question %@", self.ythPinnedData);
+            //NSLog(@"got question %@", self.ythPinnedData);
             [self.pinnedTableView reloadData];
         }
     }];

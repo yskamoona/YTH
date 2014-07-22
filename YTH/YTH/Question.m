@@ -11,10 +11,12 @@
 
 @implementation Question
 
-@dynamic  body;
-@dynamic  yth_pinned ;
-@dynamic  trending;
-@dynamic  replies;
+@dynamic body;
+@dynamic yth_pinned ;
+@dynamic trending;
+@dynamic replies;
+@dynamic parent;
+@dynamic questionReplies;
 
 + (NSString *)parseClassName {
     return @"Questions";

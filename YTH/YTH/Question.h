@@ -17,5 +17,7 @@
 @property  BOOL yth_pinned ;
 @property  BOOL trending;
 @property  NSInteger  replies;
+@property NSString *parent;
+@property NSMutableArray *questionReplies;
 
 @end
