@@ -8,13 +8,14 @@
 
 #import "QuestionsViewController.h"
 #import "Question.h"
+#import "UIColor+YTH.h"
 
 @interface QuestionsViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *askButton;
 
 - (IBAction)onAskButtonTapped:(id)sender;
-
 
 @end
 
@@ -23,17 +24,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = @"Ask a Questions";
+    
+    self.askButton.backgroundColor = [UIColor YTHGreenColor];
+    self.askButton.titleLabel.textColor = [UIColor whiteColor];
+    self.askButton.layer.cornerRadius = 3;
+    self.askButton.layer.borderWidth = 1;
+    self.askButton.layer.borderColor = [UIColor YTHGreenColor].CGColor;
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
 }
-
-- (IBAction)onCloseButtonTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 
 #pragma IBActions
 

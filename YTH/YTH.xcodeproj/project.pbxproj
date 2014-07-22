@@ -53,6 +53,10 @@
 		45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45341340196AB5B200C6A2FE /* PlaceDetailViewController.xib */; };
 		4543B5D0197BBD7F004B8904 /* UIColor+YTH.m in Sources */ = {isa = PBXBuildFile; fileRef = 4543B5CF197BBD7F004B8904 /* UIColor+YTH.m */; };
 		4543B5D3197C7548004B8904 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 4543B5D2197C7548004B8904 /* Question.m */; };
+		4543B5D7197CF313004B8904 /* QuestionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4543B5D5197CF313004B8904 /* QuestionDetailsViewController.m */; };
+		4543B5D8197CF313004B8904 /* QuestionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4543B5D6197CF313004B8904 /* QuestionDetailsViewController.xib */; };
+		4543B5DC197D0453004B8904 /* QuestionDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4543B5DA197D0453004B8904 /* QuestionDetailCell.m */; };
+		4543B5DD197D0453004B8904 /* QuestionDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4543B5DB197D0453004B8904 /* QuestionDetailCell.xib */; };
 		457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457BB653197B762E000255E1 /* PriceRatingViewController.m */; };
 		457BB656197B762E000255E1 /* PriceRatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457BB654197B762E000255E1 /* PriceRatingViewController.xib */; };
 		45BDFB97196A0FD40095CBBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BDFB96196A0FD40095CBBD /* MapKit.framework */; };
@@ -60,8 +64,6 @@
 		45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BDFB9F196A14A00095CBBD /* PlaceCell.xib */; };
 		45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC049C196A0643007DB5C4 /* FullMapViewController.m */; };
 		45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC049D196A0643007DB5C4 /* FullMapViewController.xib */; };
-		45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A1196A0675007DB5C4 /* FilterViewController.m */; };
-		45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC04A2196A0675007DB5C4 /* FilterViewController.xib */; };
 		45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */; };
 		45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */; };
 		45FC04AC196A06DB007DB5C4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04AB196A06DB007DB5C4 /* User.m */; };
@@ -169,6 +171,12 @@
 		4543B5CF197BBD7F004B8904 /* UIColor+YTH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YTH.m"; sourceTree = "<group>"; };
 		4543B5D1197C7548004B8904 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		4543B5D2197C7548004B8904 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		4543B5D4197CF313004B8904 /* QuestionDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDetailsViewController.h; sourceTree = "<group>"; };
+		4543B5D5197CF313004B8904 /* QuestionDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailsViewController.m; sourceTree = "<group>"; };
+		4543B5D6197CF313004B8904 /* QuestionDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDetailsViewController.xib; sourceTree = "<group>"; };
+		4543B5D9197D0453004B8904 /* QuestionDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDetailCell.h; sourceTree = "<group>"; };
+		4543B5DA197D0453004B8904 /* QuestionDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailCell.m; sourceTree = "<group>"; };
+		4543B5DB197D0453004B8904 /* QuestionDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDetailCell.xib; sourceTree = "<group>"; };
 		457BB652197B762E000255E1 /* PriceRatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceRatingViewController.h; sourceTree = "<group>"; };
 		457BB653197B762E000255E1 /* PriceRatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceRatingViewController.m; sourceTree = "<group>"; };
 		457BB654197B762E000255E1 /* PriceRatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceRatingViewController.xib; sourceTree = "<group>"; };
@@ -179,9 +187,6 @@
 		45FC049B196A0643007DB5C4 /* FullMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullMapViewController.h; sourceTree = "<group>"; };
 		45FC049C196A0643007DB5C4 /* FullMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullMapViewController.m; sourceTree = "<group>"; };
 		45FC049D196A0643007DB5C4 /* FullMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullMapViewController.xib; sourceTree = "<group>"; };
-		45FC04A0196A0675007DB5C4 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
-		45FC04A1196A0675007DB5C4 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
-		45FC04A2196A0675007DB5C4 /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		45FC04A5196A06A5007DB5C4 /* PostReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostReviewViewController.h; sourceTree = "<group>"; };
 		45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostReviewViewController.m; sourceTree = "<group>"; };
 		45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostReviewViewController.xib; sourceTree = "<group>"; };
@@ -294,6 +299,9 @@
 		448E64DA197B67F40070FB7B /* GuidesViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				45FCE9F21976A48200AEA8F5 /* GuidesViewController.h */,
+				45FCE9F31976A48200AEA8F5 /* GuidesViewController.m */,
+				45FCE9F41976A48200AEA8F5 /* GuidesViewController.xib */,
 				44E8FF67197B432500455028 /* MorningAfterViewController.h */,
 				44E8FF68197B432500455028 /* MorningAfterViewController.m */,
 				44E8FF69197B432500455028 /* MorningAfterViewController.xib */,
@@ -358,13 +366,13 @@
 		451CBFD41969FC0A007289F3 /* YTH */ = {
 			isa = PBXGroup;
 			children = (
+				451CBFDD1969FC0A007289F3 /* AppDelegate.h */,
+				451CBFDE1969FC0A007289F3 /* AppDelegate.m */,
 				17EC1BD8196A82BA005A456D /* Utils */,
 				17C492B4196A165D00C5DFDB /* API */,
 				45FC0498196A058D007DB5C4 /* Models */,
 				45FC0499196A05B1007DB5C4 /* View */,
 				45FC049A196A05BD007DB5C4 /* ViewControllers */,
-				451CBFDD1969FC0A007289F3 /* AppDelegate.h */,
-				451CBFDE1969FC0A007289F3 /* AppDelegate.m */,
 				451CBFE01969FC0A007289F3 /* Images.xcassets */,
 				451CBFD51969FC0A007289F3 /* Supporting Files */,
 			);
@@ -398,6 +406,45 @@
 				451CBFF01969FC0A007289F3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45420467197D9CBF00B1AE26 /* ForCustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				45FCEA70197A0DCD00AEA8F5 /* RatingStarsViewController.h */,
+				45FCEA71197A0DCD00AEA8F5 /* RatingStarsViewController.m */,
+				45FCEA72197A0DCD00AEA8F5 /* RatingStarsViewController.xib */,
+				457BB652197B762E000255E1 /* PriceRatingViewController.h */,
+				457BB653197B762E000255E1 /* PriceRatingViewController.m */,
+				457BB654197B762E000255E1 /* PriceRatingViewController.xib */,
+			);
+			name = ForCustomViews;
+			sourceTree = "<group>";
+		};
+		45420468197D9CE600B1AE26 /* ForHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				45FCE9ED1976868D00AEA8F5 /* HomeViewController.h */,
+				45FCE9EE1976868D00AEA8F5 /* HomeViewController.m */,
+				45FCE9EF1976868D00AEA8F5 /* HomeViewController.xib */,
+				448E64DA197B67F40070FB7B /* GuidesViewControllers */,
+				45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */,
+				4542046A197D9D4100B1AE26 /* QuestionsViewControllers */,
+			);
+			name = ForHomePage;
+			sourceTree = "<group>";
+		};
+		4542046A197D9D4100B1AE26 /* QuestionsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */,
+				45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */,
+				45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */,
+				4543B5D4197CF313004B8904 /* QuestionDetailsViewController.h */,
+				4543B5D5197CF313004B8904 /* QuestionDetailsViewController.m */,
+				4543B5D6197CF313004B8904 /* QuestionDetailsViewController.xib */,
+			);
+			name = QuestionsViewControllers;
 			sourceTree = "<group>";
 		};
 		4543B5CA197BBD38004B8904 /* Categories */ = {
@@ -444,6 +491,9 @@
 				B08266D0197A17840057A428 /* TableViewCell.h */,
 				B08266D1197A17840057A428 /* TableViewCell.m */,
 				B08266D2197A17840057A428 /* TableViewCell.xib */,
+				4543B5D9197D0453004B8904 /* QuestionDetailCell.h */,
+				4543B5DA197D0453004B8904 /* QuestionDetailCell.m */,
+				4543B5DB197D0453004B8904 /* QuestionDetailCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -451,34 +501,19 @@
 		45FC049A196A05BD007DB5C4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				45FCE9ED1976868D00AEA8F5 /* HomeViewController.h */,
-				45FCE9EE1976868D00AEA8F5 /* HomeViewController.m */,
-				45FCE9EF1976868D00AEA8F5 /* HomeViewController.xib */,
-				45FCE9F21976A48200AEA8F5 /* GuidesViewController.h */,
-				45FCE9F31976A48200AEA8F5 /* GuidesViewController.m */,
-				45FCE9F41976A48200AEA8F5 /* GuidesViewController.xib */,
-				45FCE9F71976A4A300AEA8F5 /* QuestionsViewController.h */,
-				45FCE9F81976A4A300AEA8F5 /* QuestionsViewController.m */,
-				45FCE9F91976A4A300AEA8F5 /* QuestionsViewController.xib */,
-				45FCEA70197A0DCD00AEA8F5 /* RatingStarsViewController.h */,
-				45FCEA71197A0DCD00AEA8F5 /* RatingStarsViewController.m */,
-				45FCEA72197A0DCD00AEA8F5 /* RatingStarsViewController.xib */,
-				457BB652197B762E000255E1 /* PriceRatingViewController.h */,
-				457BB653197B762E000255E1 /* PriceRatingViewController.m */,
-				457BB654197B762E000255E1 /* PriceRatingViewController.xib */,
-				45FCEA051978787500AEA8F5 /* SettingsViewController.h */,
-				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
-				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
-				45FCEA1C19790E1900AEA8F5 /* SettingsPageViewControllers */,
-				45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */,
-				448E64DA197B67F40070FB7B /* GuidesViewControllers */,
+				45420468197D9CE600B1AE26 /* ForHomePage */,
+				45FCEA1C19790E1900AEA8F5 /* ForSettingsPage */,
+				45420467197D9CBF00B1AE26 /* ForCustomViews */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		45FCEA1C19790E1900AEA8F5 /* SettingsPageViewControllers */ = {
+		45FCEA1C19790E1900AEA8F5 /* ForSettingsPage */ = {
 			isa = PBXGroup;
 			children = (
+				45FCEA051978787500AEA8F5 /* SettingsViewController.h */,
+				45FCEA061978787500AEA8F5 /* SettingsViewController.m */,
+				45FCEA071978787500AEA8F5 /* SettingsViewController.xib */,
 				45FCEA0A1979063200AEA8F5 /* LocationSettingViewController.h */,
 				45FCEA0B1979063200AEA8F5 /* LocationSettingViewController.m */,
 				45FCEA0C1979063200AEA8F5 /* LocationSettingViewController.xib */,
@@ -495,7 +530,7 @@
 				45FCEA271979132500AEA8F5 /* HomeMainContentViewController.m */,
 				45FCEA281979132500AEA8F5 /* HomeMainContentViewController.xib */,
 			);
-			name = SettingsPageViewControllers;
+			name = ForSettingsPage;
 			sourceTree = "<group>";
 		};
 		45FCEA1E19790E6E00AEA8F5 /* ClinicsViewControllers */ = {
@@ -510,9 +545,6 @@
 				45FC049B196A0643007DB5C4 /* FullMapViewController.h */,
 				45FC049C196A0643007DB5C4 /* FullMapViewController.m */,
 				45FC049D196A0643007DB5C4 /* FullMapViewController.xib */,
-				45FC04A0196A0675007DB5C4 /* FilterViewController.h */,
-				45FC04A1196A0675007DB5C4 /* FilterViewController.m */,
-				45FC04A2196A0675007DB5C4 /* FilterViewController.xib */,
 				45FC04A5196A06A5007DB5C4 /* PostReviewViewController.h */,
 				45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */,
 				45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */,
@@ -570,7 +602,7 @@
 				ORGANIZATIONNAME = codepath;
 				TargetAttributes = {
 					451CBFCA1969FC0A007289F3 = {
-						DevelopmentTeam = 6TB4W2SNPJ;
+						DevelopmentTeam = PF8ACSQC75;
 					};
 					451CBFE51969FC0A007289F3 = {
 						TestTargetID = 451CBFCA1969FC0A007289F3;
@@ -601,7 +633,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45FCEA1B19790CC600AEA8F5 /* FavoriteGuidesViewController.xib in Resources */,
-				45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */,
 				4533A3E5197A6024006415A9 /* ReviewCell.xib in Resources */,
 				448E64DF197B6B010070FB7B /* STDsTableViewCell.xib in Resources */,
 				44E8FF6B197B432500455028 /* MorningAfterViewController.xib in Resources */,
@@ -609,6 +640,7 @@
 				45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */,
 				45FCEA74197A0DCD00AEA8F5 /* RatingStarsViewController.xib in Resources */,
 				45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */,
+				4543B5D8197CF313004B8904 /* QuestionDetailsViewController.xib in Resources */,
 				45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */,
 				45FCE9F61976A48200AEA8F5 /* GuidesViewController.xib in Resources */,
 				45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */,
@@ -623,6 +655,7 @@
 				45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */,
 				45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */,
 				4497E725197C823500DC360F /* GuidesDetailViewController.xib in Resources */,
+				4543B5DD197D0453004B8904 /* QuestionDetailCell.xib in Resources */,
 				B08266D4197A17840057A428 /* TableViewCell.xib in Resources */,
 				448E64D9197B67CC0070FB7B /* STDsViewController.xib in Resources */,
 				451CBFE11969FC0A007289F3 /* Images.xcassets in Resources */,
@@ -692,6 +725,7 @@
 				45FCEA0D1979063200AEA8F5 /* LocationSettingViewController.m in Sources */,
 				45FCE9FA1976A4A300AEA8F5 /* QuestionsViewController.m in Sources */,
 				45FCE9F01976868D00AEA8F5 /* HomeViewController.m in Sources */,
+				4543B5D7197CF313004B8904 /* QuestionDetailsViewController.m in Sources */,
 				17EC1BD7196A82B4005A456D /* Utils.m in Sources */,
 				448E64D8197B67CC0070FB7B /* STDsViewController.m in Sources */,
 				45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */,
@@ -705,13 +739,13 @@
 				17E44E571974B20200F7571E /* LocationController.m in Sources */,
 				45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */,
 				451CBFDF1969FC0A007289F3 /* AppDelegate.m in Sources */,
-				45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */,
 				4497E724197C823500DC360F /* GuidesDetailViewController.m in Sources */,
 				45FCEA2419790FCE00AEA8F5 /* MyReviewsViewController.m in Sources */,
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,
 				45FC04AF196A06E9007DB5C4 /* Place.m in Sources */,
 				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
 				451CC0001969FC57007289F3 /* PlacesViewController.m in Sources */,
+				4543B5DC197D0453004B8904 /* QuestionDetailCell.m in Sources */,
 				457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */,
 				45341341196AB5B200C6A2FE /* PlaceDetailViewController.m in Sources */,
 				4543B5D3197C7548004B8904 /* Question.m in Sources */,
@@ -844,7 +878,7 @@
 				GCC_PREFIX_HEADER = "YTH/YTH-Prefix.pch";
 				INFOPLIST_FILE = "YTH/YTH-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6E6C0BEC-0D44-417C-9622-8BC28B4B3649";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -865,7 +899,7 @@
 				GCC_PREFIX_HEADER = "YTH/YTH-Prefix.pch";
 				INFOPLIST_FILE = "YTH/YTH-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6E6C0BEC-0D44-417C-9622-8BC28B4B3649";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

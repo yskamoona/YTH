@@ -12,7 +12,7 @@
 
 @protocol PlaceDetailCellDelegate;
 
-@interface PlaceDetailCell : UITableViewCell <UIAlertViewDelegate>
+@interface PlaceDetailCell : UITableViewCell
 
 
 
@@ -24,7 +24,7 @@
 
 @protocol PlaceDetailCellDelegate <NSObject>
 
-- (void)didDismissAlertView:(UIAlertView *)alertView;
+- (void)didTapGiveAReviewButton;
 - (void)placeDetailCell: (PlaceDetailCell *)placeDetailCell didClickButton: (UIButton *)button;
 
 @end

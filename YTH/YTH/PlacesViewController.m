@@ -9,7 +9,7 @@
 #import "PlacesViewController.h"
 
 #import "PostReviewViewController.h"
-#import "FilterViewController.h"
+
 #import "PlaceCell.h"
 #import "Place.h"
 #import "YelpClient.h"
@@ -270,17 +270,17 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     self.placeDetailVC.startPlaceIndexPath = indexPath;
     
     [[self navigationController] setNavigationBarHidden:NO];
-    //[self.navigationController pushViewController:self.placeDetailVC animated:YES];
-    [self presentViewController:self.placeDetailVC animated:YES completion:nil];
+    [self.navigationController pushViewController:self.placeDetailVC animated:YES];
+    
 
 }
 
 #pragma IBAction
 
 - (IBAction)onFiltersButton:(id)sender {
-    FilterViewController *filterVC = [[FilterViewController alloc] init];
-    //[[self navigationController] setNavigationBarHidden:NO];
-    [self.navigationController pushViewController:filterVC animated:YES];
+//    FilterViewController *filterVC = [[FilterViewController alloc] init];
+//    [[self navigationController] setNavigationBarHidden:NO];
+//    [self.navigationController pushViewController:filterVC animated:YES];
 }
 
 - (void)onHomeButtonTapped:(id)sender {

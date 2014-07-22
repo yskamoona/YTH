@@ -64,20 +64,8 @@
 }
 
 - (IBAction)onGiveAReviewButtonTapped:(id)sender {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Text Verification Message"
-                                                        message:@"Text goes here..."
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles:@"Sure!", nil];
-    [alertView show];
-}
+    [self.delegate didTapGiveAReviewButton];
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        NSLog(@"user pressed Cancel");
-    } else {
-        [self.delegate didDismissAlertView:alertView];
-    }
 }
 
 @end

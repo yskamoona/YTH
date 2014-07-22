@@ -30,15 +30,15 @@
     bottomRightCoord.latitude = 90;
     bottomRightCoord.longitude = -180;
     
-    for(MapUtils *annotation in mapView.annotations)// here MYAnnotation is custom annotation call.
-    {
+    //for(MapUtils *annotation in mapView.annotations)// here MYAnnotation is custom annotation call.
+    //{
    //     topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
   //      topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude);
         
   //      bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude);
   //      bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, annotation.coordinate.latitude);
         
-    }
+    //}
     
     NSLog(@"A%f, B%f, C%f, D%f,", topLeftCoord.latitude, topLeftCoord.longitude, bottomRightCoord.latitude, bottomRightCoord.longitude);
     

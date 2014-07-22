@@ -25,12 +25,13 @@
     NSLog(@" FULL MAP getting location update in view %@", location);
     self.currentLocation = location;
     [self setupMapView];
-    [self setupMapRegion];
+  //  [self setupMapRegion];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupNavigationBar];
     
     [self.placeWithMapCollectionView registerNib: [UINib nibWithNibName:@"PlaceCell"  bundle:nil ]forCellWithReuseIdentifier:@"PlaceCell"];
     [LocationController sharedLocationController];
@@ -41,6 +42,38 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
      [[self navigationController] setNavigationBarHidden:NO];
+}
+
+- (void)setupNavigationBar {
+    self.navigationItem.title = @"Clinics";
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:nil
+                                                                  action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    UIImage *homeButtonImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map"]
+                                                                  style:UIBarButtonItemStylePlain
+                                                                 target:self
+                                                                 action:@selector(goToListingView:)];
+    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:homeButtonImage
+                                                                   style:UIBarButtonItemStylePlain
+                                                                  target:self
+                                                                  action:@selector(onHomeButton:)];
+    
+    self.navigationItem.rightBarButtonItems =  @[homeButton, mapButton];
+}
+
+- (void)onHomeButton:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)goToListingView:(id)sender{
+    //[self.navigationController popToViewController: animated:YES];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -54,32 +87,39 @@
 }
 
 
+
 - (void)setupMapView {
     
     NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
+    
+    float distance = [Utils convertToMeter:4.0];
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
+    [self.placeMapView setRegion:viewRegion];
+    
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
-//          NSLog(@" placeinfo %@", self.placesInfo);
+    //          NSLog(@" placeinfo %@", self.placesInfo);
     
-//    Place *showPlace = self.placesInfo[self.showPlaceIndex];
+    //    Place *showPlace = self.placesInfo[self.showPlaceIndex];
     for (Place *showPlace in self.placesInfo)
     {
-    NSString *address = [showPlace.address componentsJoinedByString:@","];
-//    NSLog(@" address %@", address);
-    
-            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-            [geocoder geocodeAddressString:address
-                         completionHandler:^(NSArray* placemarks, NSError* error){
-                             if (placemarks && placemarks.count > 0) {
-                                 CLPlacemark *topResult = [placemarks objectAtIndex:0];
-                                 MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
-                                 self.point = [[MKPointAnnotation alloc] init];
-                                 self.point.coordinate = placemark.coordinate;
-                                 self.point.title = [self.placesInfo[self.showPlaceIndex] name];
-                                 self.point.subtitle = address;
-                                 [self.placeMapView addAnnotation:self.point];
-                             }
-                        }];
+        NSString *address = [showPlace.address componentsJoinedByString:@","];
+        //    NSLog(@" address %@", address);
+        
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        [geocoder geocodeAddressString:address
+                     completionHandler:^(NSArray* placemarks, NSError* error){
+                         if (placemarks && placemarks.count > 0) {
+                             CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                             MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                             self.point = [[MKPointAnnotation alloc] init];
+                             self.point.coordinate = placemark.coordinate;
+                             self.point.title = [self.placesInfo[self.showPlaceIndex] name];
+                             self.point.subtitle = address;
+                             [self.placeMapView addAnnotation:self.point];
+                             NSLog(@" hey  map view %@", self.placeMapView);
+                         }
+                     }];
     }
 }
 
@@ -99,20 +139,5 @@
     }
     [self.placeMapView setVisibleMapRect:zoomRect animated:YES];
 }
-
-#pragma IBActions
-
-- (IBAction)onBackButtonTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)onHomeButtonTapped:(id)sender {
-    
-}
-
-- (IBAction)onListButtonTapped:(id)sender {
-    
-}
-    
 
 @end

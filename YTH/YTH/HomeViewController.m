@@ -14,9 +14,12 @@
 #import "NSDate+TimeAgo.h"
 #import "QuestionsViewController.h"
 #import "LocationSettingViewController.h"
+#import "MyReviewsViewController.h"
+#import "FavoriteGuidesViewController.h"
 #import <Parse/Parse.h>
 #import "Question.h"
 #import "UIColor+YTH.h"
+#import "QuestionDetailsViewController.h"
 
 typedef enum {
     latest,
@@ -33,6 +36,8 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clincsTapGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *questionsTapGestureRecognizer;
 @property (strong, nonatomic) SettingsViewController *settingVC;
+
+@property (strong, nonatomic) IBOutlet UIView *otherOptionsView;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *settingsView;
@@ -81,7 +86,7 @@ const CGFloat widthConstraintMax = 320;
 
 @property (strong, nonatomic) NSArray *latestData;
 @property (strong, nonatomic) NSArray *trendingData;
-@property (strong, nonatomic) NSArray *ythPinned;
+@property (strong, nonatomic) NSArray *ythPinnedData;
 
 
 @end
@@ -95,6 +100,10 @@ const CGFloat widthConstraintMax = 320;
 
     [self setupTableViews];
     [self setupSettingsMenu];
+    [self.containerView addSubview:self.otherOptionsView];
+    //adjuste its subviews with it
+    self.containerView.clipsToBounds = YES;
+    self.otherOptionsView.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -131,8 +140,8 @@ const CGFloat widthConstraintMax = 320;
     [queryForYTHPinned whereKey:@"yth_pinned" equalTo:[NSNumber numberWithBool:YES]];
     [queryForYTHPinned findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            self.ythPinned = objects;
-            NSLog(@"got question %@", self.ythPinned);
+            self.ythPinnedData = objects;
+            NSLog(@"got question %@", self.ythPinnedData);
             [self.pinnedTableView reloadData];
         }
     }];
@@ -141,25 +150,32 @@ const CGFloat widthConstraintMax = 320;
 #pragma  AS Setting VC delegate methods
 
 - (void)backToHomeScreenView:(HomeMainContentViewController *)homeMainContentVC fromSettingVC:(SettingsViewController *)settingVC {
-   // [self.mainView addSubview:homeMainContentMainView];
-    [self.navigationController pushViewController:homeMainContentVC animated:YES];
+    self.otherOptionsView.hidden = YES;
+    [self slideBackMenu];
 }
 
 - (void)addLocationViewToHomeView:(LocationSettingViewController *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
-    //[self.mainView addSubview:locationSettingsView];
-    [self.navigationController pushViewController:locationSettingsView animated:YES];
+    self.otherOptionsView.hidden = NO;
+    [self.otherOptionsView addSubview:locationSettingsView.view];
+    [self slideBackMenu];
 }
 
 - (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
-//    [self.mainView addSubview:myQestionsView];
+    self.otherOptionsView.hidden = NO;
+    [self.otherOptionsView addSubview:myQestionsView];
+    [self slideBackMenu];
 }
 
 - (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
-//    [self.mainView addSubview:myReviewsView];
+    self.otherOptionsView.hidden = NO;
+    [self.otherOptionsView addSubview:myReviewsView];
+    [self slideBackMenu];
 }
 
 - (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
-//    [self.mainView addSubview:favoriteGuidesView];
+    self.otherOptionsView.hidden = NO;
+    [self.otherOptionsView addSubview:favoriteGuidesView];
+    [self slideBackMenu];
 }
 
 #pragma Settings
@@ -200,13 +216,27 @@ const CGFloat widthConstraintMax = 320;
         }];
     }
 }
--(void)setupSettingsMenu {
+
+//calling this whenever a setting is chosen to slide back the menu
+- (void)slideBackMenu {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.settingsView.transform = CGAffineTransformIdentity; //removes transform
+        self.containerView.alpha = 1.0;
+        self.containerView.layer.transform = CATransform3DIdentity; //remove the transforms
+        self.settingsBackgroundTintView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.menuIsOpen = NO;
+        [self menuExitToggle];
+    }];
+}
+
+- (void)setupSettingsMenu {
     self.settingsView.frame = CGRectMake(-160, 70, 125, 130);
     self.settingsView.hidden = NO;
     self.settingsView.userInteractionEnabled = YES;
     self.dismissMenuSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
 }
--(void)menuExitToggle {
+- (void)menuExitToggle {
     if(self.menuIsOpen) {
         self.menuDismissView.hidden = NO;
         self.menuDismissView.userInteractionEnabled = YES;
@@ -270,7 +300,7 @@ const CGFloat widthConstraintMax = 320;
     [self setActiveTable:sender];
 }
 
--(void)positionButtonBackground:(UIButton *)sender {
+- (void)positionButtonBackground:(UIButton *)sender {
     [UIView animateWithDuration:.3
                           delay:0
          usingSpringWithDamping:8
@@ -284,7 +314,7 @@ const CGFloat widthConstraintMax = 320;
     }];
 }
 
--(void)setupTableViews {
+- (void)setupTableViews {
     self.latestTableView.backgroundColor   = [UIColor colorWithWhite:1 alpha:.2];
     self.trendingTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:.2];
     self.pinnedTableView.backgroundColor   = [UIColor colorWithWhite:1 alpha:.2];
@@ -319,7 +349,7 @@ const CGFloat widthConstraintMax = 320;
 
 }
 
--(void)setActiveTable:(UIButton *)sender {
+- (void)setActiveTable:(UIButton *)sender {
     [UIView animateWithDuration:.3 animations:^{
         switch (sender.tag) {
             case latest:
@@ -371,11 +401,11 @@ const CGFloat widthConstraintMax = 320;
     } else if (tableView == self.trendingTableView) {
         return self.trendingData.count;
     } else {
-        return self.ythPinned.count;
+        return self.ythPinnedData.count;
     }
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 112;
 }
 
@@ -401,6 +431,7 @@ const CGFloat widthConstraintMax = 320;
         
 
         // This should probably go somewhere else... ?
+        // you can keep it
         cell.backgroundColor = [UIColor clearColor];
         
         return cell;
@@ -412,15 +443,59 @@ const CGFloat widthConstraintMax = 320;
         return cell;
     } else {
         TableViewCell *cell = [self.pinnedTableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
-        cell.questionLabel.text = [self.ythPinned[indexPath.row] body];
+        cell.questionLabel.text = [self.ythPinnedData[indexPath.row] body];
         cell.backgroundColor = [UIColor clearColor];
         return cell;
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    QuestionDetailsViewController *questionsDetailsVC = [[QuestionDetailsViewController alloc] init];
+    
+    if (tableView == self.latestTableView) {
+        questionsDetailsVC.question = self.latestData[indexPath.row];
+    } else if (tableView == self.trendingTableView) {
+        questionsDetailsVC.question = self.trendingData[indexPath.row];
+    } else {
+        questionsDetailsVC.question = self.ythPinnedData[indexPath.row];
+    }
+    
+    [self navigationController].navigationBar.barTintColor = [UIColor YTHGreenColor];
+    [self.navigationController pushViewController:questionsDetailsVC animated:YES];
+}
+
 - (void)didAskQuestionAndDimissViewController:(QuestionsViewController *)questionsVC {
     [self loadDataForTableViews];
     [self.questionsVC dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - UIViewControllerTransitioningDelegate Methods
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    return self;
+}
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    return self;
+}
+
+//- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
+//    
+//}
+//
+//- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator {
+//    
+//}
+
+#pragma mark - UIViewControllerAnimatedTransitioning Methods
+
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
+    return 2.0;
+}
+
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+    
 }
 
 @end
