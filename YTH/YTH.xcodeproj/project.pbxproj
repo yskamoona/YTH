@@ -602,7 +602,7 @@
 				ORGANIZATIONNAME = codepath;
 				TargetAttributes = {
 					451CBFCA1969FC0A007289F3 = {
-						DevelopmentTeam = PF8ACSQC75;
+						DevelopmentTeam = SR953WUVAH;
 					};
 					451CBFE51969FC0A007289F3 = {
 						TestTargetID = 451CBFCA1969FC0A007289F3;
