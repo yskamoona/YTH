@@ -16,7 +16,6 @@
 @dynamic trending;
 @dynamic replies;
 @dynamic parent;
-@dynamic questionReplies;
 
 + (NSString *)parseClassName {
     return @"Questions";

@@ -87,7 +87,8 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) NSArray *latestData;
 @property (strong, nonatomic) NSArray *trendingData;
 @property (strong, nonatomic) NSArray *ythPinnedData;
-@property (strong, nonatomic) NSMutableArray *questionReplies;
+@property (strong, nonatomic) NSMutableArray *replies;
+@property (strong, nonatomic) NSMutableDictionary *questionWithReplies;
 
 
 @end
@@ -98,11 +99,16 @@ const CGFloat widthConstraintMax = 320;
 {
     [super viewDidLoad];
     [self loadDataForTableViews];
-
+    
+    self.replies = [NSMutableArray array];
+    self.latestData = [NSMutableArray array];
+    self.questionWithReplies = [NSMutableDictionary dictionary];
+    
+    
     [self setupTableViews];
     [self setupSettingsMenu];
+    
     [self.containerView addSubview:self.otherOptionsView];
-    //adjuste its subviews with it
     self.containerView.clipsToBounds = YES;
     self.otherOptionsView.hidden = YES;
 }
@@ -110,30 +116,20 @@ const CGFloat widthConstraintMax = 320;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES];
+    [self loadDataForTableViews];
 }
 
 - (void)loadDataForTableViews {
-    
+
     //Load LatestData
     PFQuery *query = [Question query];
     [query orderByDescending:@"createdAt"];
+    [query whereKeyDoesNotExist:@"parent"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            self.LatestData = objects;
-            [self.latestTableView reloadData];
+            self.latestData = objects;
         }
-        
-        //LoadReplies
-        self.questionReplies = [NSMutableArray array];
-        //Question *reply;
-        for (Question *reply in self.latestData) {
-            if ([reply.parent isEqualToString:reply.objectId]) {
-                [reply.questionReplies addObject:reply];
-            }
-            NSLog(@"question %@, Questions ID: %@, Question parent %@", reply, reply.objectId, reply.parent);
-            
-            NSLog(@"Well, let's see %@", reply.questionReplies);
-        }
+        [self.latestTableView reloadData];
     }];
     
 
@@ -469,8 +465,16 @@ const CGFloat widthConstraintMax = 320;
         questionsDetailsVC.question = self.ythPinnedData[indexPath.row];
     }
     
-    [self navigationController].navigationBar.barTintColor = [UIColor YTHGreenColor];
-    [self.navigationController pushViewController:questionsDetailsVC animated:YES];
+    //getReplies
+    PFQuery *query = [Question query];
+    [query whereKey:@"parent" equalTo:[self.latestData[indexPath.row] objectId]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            questionsDetailsVC.replies = (NSMutableArray *)objects;
+        }
+        [self navigationController].navigationBar.barTintColor = [UIColor YTHGreenColor];
+        [self.navigationController pushViewController:questionsDetailsVC animated:YES];
+    }];
 }
 
 - (void)didAskQuestionAndDimissViewController:(QuestionsViewController *)questionsVC {

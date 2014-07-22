@@ -18,6 +18,5 @@
 @property  BOOL trending;
 @property  NSInteger  replies;
 @property NSString *parent;
-@property NSMutableArray *questionReplies;
 
 @end
