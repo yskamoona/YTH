@@ -31,6 +31,8 @@
     self.startPlaceIndex = self.startPlaceIndexPath.section;
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Map_view_button"] style:UIBarButtonItemStyleBordered target:self action:@selector(goToFullMapView:)];
     [self setupTableView];
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {

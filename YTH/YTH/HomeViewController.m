@@ -236,6 +236,10 @@ const CGFloat widthConstraintMax = 320;
     PlacesViewController *clinicsVC = [[PlacesViewController alloc] init];
     [self navigationController].navigationBar.barTintColor = [UIColor YTHBabyBlueColor];
     [self.navigationController pushViewController:clinicsVC animated:YES];
+    
+    self.navigationItem.title = @"Clinics";
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 - (IBAction)onGuidesButton:(id)sender {
