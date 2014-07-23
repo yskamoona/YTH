@@ -87,12 +87,9 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) NSArray *latestData;
 @property (strong, nonatomic) NSArray *trendingData;
 @property (strong, nonatomic) NSArray *ythPinnedData;
-<<<<<<< HEAD
 @property (nonatomic, assign) BOOL animateOnTableReload;
-=======
 @property (strong, nonatomic) NSMutableArray *replies;
 @property (strong, nonatomic) NSMutableDictionary *questionWithReplies;
->>>>>>> master
 
 
 @end
@@ -144,23 +141,16 @@ const CGFloat widthConstraintMax = 320;
     [query whereKeyDoesNotExist:@"parent"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-<<<<<<< HEAD
             self.LatestData = objects;
             NSLog(@"got question %@", self.latestData);
             [self.latestTableView reloadData];
-            
             if (self.animateOnTableReload == YES) {
                 // now animate top cell
                 [self animateTopCell];
             }
-            
             self.animateOnTableReload = NO;
-            
-=======
-            self.latestData = objects;
->>>>>>> master
         }
-        [self.latestTableView reloadData];
+       
     }];
     
 
