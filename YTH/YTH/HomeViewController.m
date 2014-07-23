@@ -65,12 +65,15 @@ const CGFloat widthConstraintMax = 320;
 
 
 // Settings Panel
+@property (strong, nonatomic) IBOutlet UIButton *settingsButton;
 - (IBAction)onSettingsButtonTapped:    (id)sender;
 - (IBAction)onDismissMenuSwipe:        (UISwipeGestureRecognizer *)sender;
 - (IBAction)onDismissMenuTap:          (UITapGestureRecognizer *)sender;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *dismissMenuSwipe;
 @property (strong, nonatomic) IBOutlet UIView *menuDismissView;
 @property (strong, nonatomic) IBOutlet UIView *settingsBackgroundTintView;
+@property (strong, nonatomic) IBOutlet UIView *homeContentContainer;
+
 @property (assign) BOOL menuIsOpen;
 
 // Questions Area
@@ -87,13 +90,9 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) NSArray *latestData;
 @property (strong, nonatomic) NSArray *trendingData;
 @property (strong, nonatomic) NSArray *ythPinnedData;
-<<<<<<< HEAD
 @property (nonatomic, assign) BOOL animateOnTableReload;
-=======
 @property (strong, nonatomic) NSMutableArray *replies;
 @property (strong, nonatomic) NSMutableDictionary *questionWithReplies;
->>>>>>> master
-
 
 @end
 
@@ -144,7 +143,7 @@ const CGFloat widthConstraintMax = 320;
     [query whereKeyDoesNotExist:@"parent"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-<<<<<<< HEAD
+//<<<<<<< HEAD
             self.LatestData = objects;
             NSLog(@"got question %@", self.latestData);
             [self.latestTableView reloadData];
@@ -156,9 +155,9 @@ const CGFloat widthConstraintMax = 320;
             
             self.animateOnTableReload = NO;
             
-=======
-            self.latestData = objects;
->>>>>>> master
+//=======
+//            self.latestData = objects;
+//>>>>>>> master
         }
         [self.latestTableView reloadData];
     }];
@@ -206,6 +205,7 @@ const CGFloat widthConstraintMax = 320;
     self.otherOptionsView.hidden = NO;
     [self.otherOptionsView addSubview:myQestionsView];
     [self slideBackMenu];
+    [self toggleOnMyQuestions];
 }
 
 - (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
@@ -220,9 +220,25 @@ const CGFloat widthConstraintMax = 320;
     [self slideBackMenu];
 }
 
+-(void)toggleOnMyQuestions {
+    NSLog(@"itWorks");
+    if ([self.otherOptionsView isHidden]) {
+        NSLog(@"hidden");
+    } else {
+        NSLog(@"not hidden");
+    }
+    [UIView animateWithDuration:.2 animations:^{
+        self.homeContentContainer.alpha = 0;
+    } completion:^(BOOL finished) {
+
+    }];
+//    [self.view bringSubviewToFront:self.settingsButton];
+}
+
 #pragma Settings
 
 - (IBAction)onSettingsButtonTapped:(id)sender {
+    NSLog(@"Settings button tapped");
     // Create translation transform
     CATransform3D translate = CATransform3DIdentity;
     translate = CATransform3DTranslate(translate, 160.0, 0, 200.0);

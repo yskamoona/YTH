@@ -603,7 +603,6 @@
 				TargetAttributes = {
 					451CBFCA1969FC0A007289F3 = {
 						DevelopmentTeam = 6TB4W2SNPJ;
-						DevelopmentTeam = SR953WUVAH;
 					};
 					451CBFE51969FC0A007289F3 = {
 						TestTargetID = 451CBFCA1969FC0A007289F3;

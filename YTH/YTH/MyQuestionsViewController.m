@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
-#import "MyQuestionsViewController.h"
+#import "MyQuestionsViewController.h" 
+#import "QuestionDetailCell.h"
 
 @interface MyQuestionsViewController ()
 
@@ -27,12 +28,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+//    self.myQuestionsTableViewController.delegate = self;
+//    self.myQuestionsTableViewController.dataSource = self;
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+
 
 @end
