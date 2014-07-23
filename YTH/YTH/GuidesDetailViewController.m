@@ -94,6 +94,7 @@
         GuideQuestions *gq = self.detailGuides[0];
         cell.detailCell.text = gq.question;
         cell.detailCell.layer.backgroundColor = [UIColor YTHGPinkColor].CGColor;
+
     } else
         //answers cell
         cell.detailCell.text = @"";

@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *wereTheyFriendlyLable;
 @property (weak, nonatomic) IBOutlet UILabel *offereHelpLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recommendLabel;
+@property (weak, nonatomic) IBOutlet UIView *whiteView;
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureToEndEdit;
 
@@ -62,8 +63,17 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    self.postReviewTextView.delegate = self;
+    self.postReviewTextView.layer.cornerRadius = 3;
+    
+    self.whiteView.layer.cornerRadius = 3;
+    [self.whiteView.layer setShadowOffset:CGSizeMake(5, 5)];
+    [self.whiteView.layer setShadowColor:[[UIColor YTHGDarkTextColor] CGColor]];
+    [self.whiteView.layer setShadowOpacity:0.5];
+    
     self.placeNameLabel.text = self.place.name;
-    self.navigationItem.title = @"Post A Review";
+    self.navigationItem.title = @"Post a Review";
     
     self.ratingStarsVC = [[RatingStarsViewController alloc] initWithNibName:@"RatingStarsViewController" bundle:nil];
     [self.ratingStarsView addSubview:self.ratingStarsVC.view];
@@ -79,10 +89,12 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     [self hideViewWhenWritingReview:YES];
+    self.postReviewTextView.text = @"";
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
     [self hideViewWhenWritingReview:NO];
+    self.postReviewTextView.text = @"Write a review";
 }
 
 - (void)hideViewWhenWritingReview:(BOOL)isHidden {
@@ -94,7 +106,7 @@
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              [UIView animateWithDuration:10.0 animations:^{
-                                 self.middleViewHeightConstraint.constant = 0;
+                                 self.middleViewHeightConstraint.constant = 50;
                                  self.publishButtonToTextViewConstraint.constant = 100;
                                  self.placeNameLabel.hidden = YES;
                                  self.separatorView1.hidden = YES;
@@ -111,12 +123,14 @@
                                  self.offereHelpLabel.hidden = YES;
                                  self.recommendLabel.hidden = YES;
                                  self.separatorView3.hidden = YES;
+                                 self.whiteView.hidden = YES;
+                                 
                              }];
                          } completion:^(BOOL finished) {
                          }];
     } else {
         [UIView animateWithDuration:10.0 animations:^{
-            self.middleViewHeightConstraint.constant = 340;
+            self.middleViewHeightConstraint.constant = 347;
             self.publishButtonToTextViewConstraint.constant = 0;
             self.placeNameLabel.hidden = NO;
             self.separatorView1.hidden = NO;
@@ -133,6 +147,7 @@
             self.offereHelpLabel.hidden = NO;
             self.recommendLabel.hidden = NO;
             self.separatorView3.hidden = NO;
+            self.whiteView.hidden = NO;
         }];
     }
 }
@@ -158,9 +173,9 @@
     self.friendly = YES;
     
     self.friendlyButton.backgroundColor = [UIColor YTHBabyBlueColor];
-    self.friendlyButton.titleLabel.textColor = [UIColor whiteColor];
+    self.friendlyButton.titleLabel.textColor = [UIColor clearColor];
 
-    self.friendlyNotButton.backgroundColor = [UIColor whiteColor];
+    self.friendlyNotButton.backgroundColor = [UIColor clearColor];
     self.friendlyNotButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
 }
 
@@ -168,9 +183,9 @@
     self.friendly = NO;
     
     self.friendlyNotButton.backgroundColor = [UIColor YTHBabyBlueColor];
-    self.friendlyNotButton.titleLabel.textColor = [UIColor whiteColor];
+    self.friendlyNotButton.titleLabel.textColor = [UIColor clearColor];
     
-    self.friendlyButton.backgroundColor = [UIColor whiteColor];
+    self.friendlyButton.backgroundColor = [UIColor clearColor];
     self.friendlyButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
 }
 
@@ -178,9 +193,9 @@
     self.needsMet = YES;
     
     self.needsMetButton.backgroundColor = [UIColor YTHBabyBlueColor];
-    self.needsMetButton.titleLabel.textColor = [UIColor whiteColor];
+    self.needsMetButton.titleLabel.textColor = [UIColor clearColor];
     
-    self.needsMetNotButton.backgroundColor = [UIColor whiteColor];
+    self.needsMetNotButton.backgroundColor = [UIColor clearColor];
     self.needsMetNotButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
 }
 
@@ -188,9 +203,9 @@
     self.needsMet = NO;
     
     self.needsMetNotButton.backgroundColor = [UIColor YTHBabyBlueColor];
-    self.needsMetNotButton.titleLabel.textColor = [UIColor whiteColor];
+    self.needsMetNotButton.titleLabel.textColor = [UIColor clearColor];
     
-    self.needsMetButton.backgroundColor = [UIColor whiteColor];
+    self.needsMetButton.backgroundColor = [UIColor clearColor];
     self.needsMetButton.titleLabel.textColor =  [UIColor YTHBabyBlueColor];
     
 }
@@ -199,9 +214,9 @@
     self.recommend = YES;
     
     self.recommendButton.backgroundColor = [UIColor YTHBabyBlueColor];
-    self.recommendButton.titleLabel.textColor = [UIColor whiteColor];
+    self.recommendButton.titleLabel.textColor = [UIColor clearColor];
     
-    self.recommendNotButton.backgroundColor = [UIColor whiteColor];
+    self.recommendNotButton.backgroundColor = [UIColor clearColor];
     self.recommendNotButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
 }
 
@@ -209,9 +224,9 @@
     self.recommend = NO;
     
     self.recommendNotButton.backgroundColor = [UIColor YTHBabyBlueColor];
-    self.recommendNotButton.titleLabel.textColor = [UIColor whiteColor];
+    self.recommendNotButton.titleLabel.textColor = [UIColor clearColor];
     
-    self.recommendButton.backgroundColor = [UIColor whiteColor];
+    self.recommendButton.backgroundColor = [UIColor clearColor];
     self.recommendButton.titleLabel.textColor =  [UIColor YTHBabyBlueColor];
 }
 
@@ -226,9 +241,9 @@
 #pragma  Buttons Style
 - (void)buttonsStyle {
     
-    self.friendlyButton.backgroundColor = [UIColor whiteColor];
+    self.friendlyButton.backgroundColor = [UIColor clearColor];
     self.friendlyButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
-    self.friendlyNotButton.backgroundColor = [UIColor whiteColor];
+    self.friendlyNotButton.backgroundColor = [UIColor clearColor];
     self.friendlyNotButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
     
     self.friendlyButton.layer.cornerRadius = 3;
@@ -239,9 +254,9 @@
     self.friendlyNotButton.layer.borderWidth = 1;
     self.friendlyNotButton.layer.borderColor = [UIColor YTHBabyBlueColor].CGColor;
     
-    self.needsMetButton.backgroundColor = [UIColor whiteColor];
+    self.needsMetButton.backgroundColor = [UIColor clearColor];
     self.needsMetButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
-    self.needsMetNotButton.backgroundColor = [UIColor whiteColor];
+    self.needsMetNotButton.backgroundColor = [UIColor clearColor];
     self.needsMetNotButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
     
     self.needsMetButton.layer.cornerRadius = 3;
@@ -252,9 +267,9 @@
     self.needsMetNotButton.layer.borderWidth = 1;
     self.needsMetNotButton.layer.borderColor = [UIColor YTHBabyBlueColor].CGColor;
     
-    self.recommendButton.backgroundColor = [UIColor whiteColor];
+    self.recommendButton.backgroundColor = [UIColor clearColor];
     self.recommendButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
-    self.recommendNotButton.backgroundColor = [UIColor whiteColor];
+    self.recommendNotButton.backgroundColor = [UIColor clearColor];
     self.recommendNotButton.titleLabel.textColor = [UIColor YTHBabyBlueColor];
     
     self.recommendButton.layer.cornerRadius = 3;
@@ -270,6 +285,7 @@
     self.publishButton.layer.cornerRadius = 3;
     self.publishButton.layer.borderWidth = 1;
     self.publishButton.layer.borderColor = [UIColor YTHBabyBlueColor].CGColor;
+
 }
 
 @end
