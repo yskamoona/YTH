@@ -17,8 +17,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *detailsTableView;
 @property (strong, nonatomic) NSArray *reviews;
 
-@property (assign) NSInteger startPlaceIndex;
+
 @property (nonatomic, strong) Place *selectedPlace;
+
 
 @end
 
@@ -30,10 +31,15 @@
     [self getPlacesData];
     [self setupNavigationBar];
     
-    self.startPlaceIndex = self.startPlaceIndexPath.section;
+//    self.startPlaceIndex = self.startPlaceIndexPath.item;
     [self setupTableView];
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getPlacesData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -51,23 +57,24 @@
     
     UIImage *homeButtonImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map"]
-                                                                  style:UIBarButtonItemStylePlain
-                                                                 target:self
-                                                                 action:@selector(goToFullMapView:)];
+//    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"map"]
+//                                                                  style:UIBarButtonItemStylePlain
+//                                                                 target:self
+//                                                                 action:@selector(goToFullMapView:)];
     
     UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:homeButtonImage
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
                                                                   action:@selector(onHomeButton:)];
     
-    self.navigationItem.rightBarButtonItems =  @[homeButton, mapButton];
+    //self.navigationItem.rightBarButtonItems =  @[homeButton, mapButton];
+    self.navigationItem.rightBarButtonItems =  @[homeButton];
 }
 
 - (void)goToFullMapView:(id)sender {
     FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
     fullMapVC.placesInfo = self.placesInfo;
-    fullMapVC.showPlaceIndex = self.startPlaceIndexPath.section;
+    fullMapVC.showPlaceIndex = self.startPlaceIndex;
     [self.navigationController pushViewController:fullMapVC animated:YES];
 }
 
@@ -78,15 +85,16 @@
     }
     
     self.selectedPlace = self.placesInfo[self.startPlaceIndex];
-
     [self getReviews];
 }
 
 - (void) getReviews {
     PFQuery *query = [Reviews query];
     [query whereKey:@"yelp_id" containsString:self.selectedPlace.yelp_id];
+    [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            
             self.reviews = objects;
             Reviews *firstReview = [objects firstObject];
             NSLog(@"got review %@",firstReview);
@@ -126,11 +134,11 @@
     }
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         PlaceDetailCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"PlaceDetailCell" forIndexPath:indexPath];
+        cell.randomDollars = self.randomDollars;
+        cell.randomStars = self.randomStars;
         [cell setupCellWithPlaceInfo:self.selectedPlace];
          cell.delegate = self;
         return cell;
@@ -145,18 +153,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 600;
+        return 680;
     } else {
-        return 200;
+        return 190;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 600;
-    } else {
-        return 200;
-    }
+        return 680;
+        } else {
+            return 200;
+        }
 }
 
 
@@ -173,13 +181,13 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (IBAction)onFullMapView:(id)sender {
-    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
-    fullMapVC.placesInfo = self.placesInfo;
-    fullMapVC.showPlaceIndex = self.startPlaceIndexPath.section;
-    //[self.navigationController pushViewController:fullMapVC animated:YES];
-    [self presentViewController:fullMapVC animated:YES completion:nil];
-}
+//- (IBAction)onFullMapView:(id)sender {
+//    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
+//    fullMapVC.placesInfo = self.placesInfo;
+//    fullMapVC.showPlaceIndex = self.startPlaceIndexPath.section;
+//    //[self.navigationController pushViewController:fullMapVC animated:YES];
+//    [self presentViewController:fullMapVC animated:YES completion:nil];
+//}
 
 - (void)didTapGiveAReviewButton {
     PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];

@@ -52,7 +52,7 @@
 
 - (void)setupQuestionView {
     self.questionBody.text = self.question.body;
-    self.questionBody.font = [UIFont fontWithName:@"Helvetica Neue" size:16.0];
+    self.questionBody.font = [UIFont fontWithName:@"Helvetica Neue" size:20.0];
 }
 
 - (void)setupTableView {
@@ -72,6 +72,8 @@
 - (void)textViewDidEndEditing:(UITextView *)textView {
     self.questionDetailTableView.hidden = NO;
     self.questionBody.hidden = NO;
+    self.repliesLabel.hidden = NO;
+    self.dividerView.hidden = NO;
     self.textFieldHeightContraint.constant = 332;
 }
 
@@ -92,15 +94,15 @@
         // replies cell
         cell.anwersLabel.hidden = YES;
         cell.bodyLabel.text = [self.replies[indexPath.row] body];
-        cell.bodyLabel.textColor = [UIColor YTHGreenColor];
-        cell.bodyLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:14.0];
+        cell.bodyLabel.textColor = [UIColor whiteColor];
+        cell.bodyLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:16];
         cell.locationLabel.text = @"Los Angeles";
         cell.locationLabel.textColor = [UIColor YTHGreenColor];
         cell.locationLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
         cell.timeLabel.text = @"1m ago";
         cell.timeLabel.textColor = [UIColor YTHGreenColor];
         cell.timeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
-        //cell.timeLabel.font = [UIFontWeightTrait
+        
         cell.backgroundColor = [UIColor clearColor];
     
     return cell;

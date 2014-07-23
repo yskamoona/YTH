@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *firstStarButton;
 
 
-@property (assign) NSInteger buttonValue;
-
 @end
 
 @implementation RatingStarsViewController
@@ -89,10 +87,6 @@
                                             self.firstStarButton.frame.origin.y,
                                             sender.frame.size.width * buttonValue - 4,
                                             sender.frame.size.height);
-}
-
-- (void)getUserStarReviewForPostReviewVC:(PostReviewViewController *)postReviewVC {
-    postReviewVC.stars = self.buttonValue;
 }
 
 @end

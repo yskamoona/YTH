@@ -6,9 +6,14 @@
 //  Copyright (c) 2014 codepath. All rights reserved.
 //
 
-#import "MyQuestionsViewController.h"
+#import "MyQuestionsViewController.h" 
+#import "QuestionDetailCell.h"
+#import  <Parse/Parse.h>
+#import "Question.h"
 
 @interface MyQuestionsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *myQuestionLabel;
+@property (nonatomic, strong) Question *myquestion;
 
 @end
 
@@ -27,12 +32,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+//    self.myQuestionsTableViewController.delegate = self;
+//    self.myQuestionsTableViewController.dataSource = self;
+    
+    
+    PFQuery *query = [Question query];
+    [query orderByDescending:@"createdAt"];
+    [query whereKeyDoesNotExist:@"parent"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.myquestion = objects[0];
+            NSLog(@"got question %@", self.myquestion);
+            self.myQuestionLabel.text = self.myquestion.body;
+        }
+    }];
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+
 
 @end

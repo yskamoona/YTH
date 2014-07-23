@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Place.h"
 
-@protocol PostReviewViewControllerDelegate;
-
 @interface PostReviewViewController : UIViewController <UITextViewDelegate>
 
 @property (assign) NSInteger stars;
@@ -18,16 +16,7 @@
 @property(nonatomic, strong) Place *place;
 @property(nonatomic, strong) NSString *name;
 
-@property (weak, nonatomic) id <PostReviewViewControllerDelegate> delegate;
-
 @end
 
-@protocol PostReviewViewControllerDelegate <NSObject>
-
-@optional
-- (void)getUserStarReviewForPostReviewVC: (PostReviewViewController *)postReviewVC;
-- (void)getUserPriceEstimationForPostReivewVC: (PostReviewViewController *)postReviewVC;
-
-@end
 
 
