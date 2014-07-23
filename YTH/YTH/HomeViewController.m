@@ -87,8 +87,12 @@ const CGFloat widthConstraintMax = 320;
 @property (strong, nonatomic) NSArray *latestData;
 @property (strong, nonatomic) NSArray *trendingData;
 @property (strong, nonatomic) NSArray *ythPinnedData;
+<<<<<<< HEAD
+@property (nonatomic, assign) BOOL animateOnTableReload;
+=======
 @property (strong, nonatomic) NSMutableArray *replies;
 @property (strong, nonatomic) NSMutableDictionary *questionWithReplies;
+>>>>>>> master
 
 
 @end
@@ -98,6 +102,7 @@ const CGFloat widthConstraintMax = 320;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.animateOnTableReload = NO;
     [self loadDataForTableViews];
     
     self.replies = [NSMutableArray array];
@@ -119,6 +124,18 @@ const CGFloat widthConstraintMax = 320;
     [self loadDataForTableViews];
 }
 
+- (void) animateTopCell {
+    NSLog(@"Do something to flash in the top cell");
+    NSIndexPath *topRow = [NSIndexPath indexPathForRow:0 inSection:0];
+    TableViewCell *cell = [self.latestTableView cellForRowAtIndexPath:topRow];
+    cell.backgroundColor = [UIColor colorWithWhite:1 alpha:.2];
+    [UIView animateWithDuration:1.6 animations:^{
+        cell.backgroundColor = [UIColor clearColor];
+    }];
+    
+    
+}
+
 - (void)loadDataForTableViews {
 
     //Load LatestData
@@ -127,7 +144,21 @@ const CGFloat widthConstraintMax = 320;
     [query whereKeyDoesNotExist:@"parent"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+<<<<<<< HEAD
+            self.LatestData = objects;
+            NSLog(@"got question %@", self.latestData);
+            [self.latestTableView reloadData];
+            
+            if (self.animateOnTableReload == YES) {
+                // now animate top cell
+                [self animateTopCell];
+            }
+            
+            self.animateOnTableReload = NO;
+            
+=======
             self.latestData = objects;
+>>>>>>> master
         }
         [self.latestTableView reloadData];
     }];
@@ -155,6 +186,8 @@ const CGFloat widthConstraintMax = 320;
         }
     }];
 }
+
+
 
 #pragma  AS Setting VC delegate methods
 
@@ -269,12 +302,17 @@ const CGFloat widthConstraintMax = 320;
     self.questionsVC.delegate = self;
     [self navigationController].navigationBar.barTintColor = [UIColor YTHGreenColor];
     [self.navigationController pushViewController:self.questionsVC animated:YES];
+    
 }
 
 - (IBAction)onClinicsButton:(UITapGestureRecognizer *)sender {
     PlacesViewController *clinicsVC = [[PlacesViewController alloc] init];
     [self navigationController].navigationBar.barTintColor = [UIColor YTHBabyBlueColor];
     [self.navigationController pushViewController:clinicsVC animated:YES];
+    
+    self.navigationItem.title = @"Clinics";
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
 }
 
 - (IBAction)onGuidesButton:(id)sender {
@@ -459,10 +497,13 @@ const CGFloat widthConstraintMax = 320;
     
     if (tableView == self.latestTableView) {
         questionsDetailsVC.question = self.latestData[indexPath.row];
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
     } else if (tableView == self.trendingTableView) {
         questionsDetailsVC.question = self.trendingData[indexPath.row];
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
     } else {
         questionsDetailsVC.question = self.ythPinnedData[indexPath.row];
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
     }
     
     //getReplies
@@ -477,9 +518,14 @@ const CGFloat widthConstraintMax = 320;
     }];
 }
 
+
 - (void)didAskQuestionAndDimissViewController:(QuestionsViewController *)questionsVC {
+    self.animateOnTableReload = YES;
     [self loadDataForTableViews];
-    [self.questionsVC dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    
+    //[self.questionsVC dismissViewControllerAnimated:YES completion:nil];
 }
 
 

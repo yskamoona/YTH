@@ -34,6 +34,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"you tapped");
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     GuidesDetailViewController *guidesDetailVC = [[GuidesDetailViewController alloc] init];
    
     [self.navigationController pushViewController:guidesDetailVC animated:YES];
@@ -60,6 +61,7 @@
     UINib *nib = [UINib nibWithNibName:@"STDsTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"STDsTableViewCell"];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

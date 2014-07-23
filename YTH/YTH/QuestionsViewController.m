@@ -10,7 +10,7 @@
 #import "Question.h"
 #import "UIColor+YTH.h"
 
-@interface QuestionsViewController ()
+@interface QuestionsViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *askButton;
@@ -32,7 +32,12 @@
     self.askButton.layer.borderWidth = 1;
     self.askButton.layer.borderColor = [UIColor YTHGreenColor].CGColor;
     
+<<<<<<< HEAD
+    self.questionTextView.delegate = self;
+    
+=======
     self.questionTextView.layer.cornerRadius = 3;
+>>>>>>> master
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -43,15 +48,33 @@
 #pragma IBActions
 
 - (IBAction)onAskButtonTapped:(id)sender {
+    
+    // remove the text view
+    [self.questionTextView resignFirstResponder];
+    
     Question *postQuestion = [Question object];
     postQuestion[@"body"] = self.questionTextView.text;
     postQuestion[@"user"] = [PFUser currentUser];
     
+    // insert spinner
+    
     [postQuestion saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (self.delegate != nil) {
+            NSLog(@"didAsk question now should dimiss");
             [self.delegate didAskQuestionAndDimissViewController:self];
         }
     }];
     
 }
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    NSLog(@"began editing");
+    self.questionTextView.text = @"";
+}
+
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+     NSLog(@"ended editing");
+}
+
 @end
