@@ -70,7 +70,7 @@
     if (indexPath.row == 0) {
         //question cell
         cell.detailCell.text = self.detailGuides[indexPath.section];
-        cell.detailCell.layer.backgroundColor = [UIColor YTHGPinkColor].CGColor;
+        //cell.detailCell.layer.backgroundColor = [UIColor YTHGPinkColor].CGColor;
     } else
         //answers cell
         cell.detailCell.text = @"";
