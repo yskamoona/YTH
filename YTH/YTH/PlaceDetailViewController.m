@@ -20,6 +20,7 @@
 @property (assign) NSInteger startPlaceIndex;
 @property (nonatomic, strong) Place *selectedPlace;
 
+
 @end
 
 @implementation PlaceDetailViewController
@@ -132,11 +133,11 @@
     }
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         PlaceDetailCell *cell = [self.detailsTableView dequeueReusableCellWithIdentifier:@"PlaceDetailCell" forIndexPath:indexPath];
+        cell.randomDollars = self.randomDollars;
+        cell.randomStars = self.randomStars;
         [cell setupCellWithPlaceInfo:self.selectedPlace];
          cell.delegate = self;
         return cell;
@@ -151,18 +152,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 600;
+        return 680;
     } else {
-        return 200;
+        return 190;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 600;
-    } else {
-        return 200;
-    }
+        return 680;
+        } else {
+            return 200;
+        }
 }
 
 

@@ -14,9 +14,10 @@
 
 @interface PlaceDetailCell : UITableViewCell
 
-
-
 @property (weak, nonatomic) id <PlaceDetailCellDelegate> delegate;
+
+@property (assign) NSInteger randomStars;
+@property (assign) NSInteger randomDollars;
 
 - (void)setupCellWithPlaceInfo:(Place *)placeInfo;
 

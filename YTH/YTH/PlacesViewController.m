@@ -38,6 +38,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 @property (nonatomic, assign) BOOL isPresenting;
 
+@property (assign) NSInteger randonImages;
+
 - (IBAction)onHomeButtonTapped:(id)sender;
 - (IBAction)onMapButtonPressed:(id)sender;
 
@@ -235,10 +237,32 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     PlaceCell *placeCell = [self.homeCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaceCell" forIndexPath:indexPath];
+    if (indexPath.section == 0) {
+        placeCell.locImageView.image = [UIImage imageNamed:@"clinic2"];
+        placeCell.randomStars = 4;
+        placeCell.randomDollars = 2;
+    }
+    if (indexPath.section == 1) {
+        placeCell.locImageView.image = [UIImage imageNamed:@"clinic1"];
+        placeCell.randomStars = 3;
+        placeCell.randomDollars = 4;
+    }
+    if (indexPath.section == 2) {
+        placeCell.locImageView.image = [UIImage imageNamed:@"clinic3"];
+        placeCell.randomStars = 2;
+        placeCell.randomDollars = 1;
+    }
+    if (indexPath.section == 3) {
+        placeCell.locImageView.image = [UIImage imageNamed:@"Clinic_Image_Placeholder-1"];
+        placeCell.randomStars = 5;
+        placeCell.randomDollars = 3;
+    }
     Place *placeInfo = self.searchResults[indexPath.section];
     [placeCell setupCellWithPlaceInfo:placeInfo];
     
+
     return placeCell;
 }
 
@@ -249,7 +273,9 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
     if (kind == UICollectionElementKindSectionHeader) {
          placeCell = [self.homeCollectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"PlaceCellHeader" forIndexPath:indexPath];
-        [placeCell setupCellHeaderWithPlaceImage:[UIImage imageNamed:@"Clinic_Image_Placeholder"]];
+
+            [placeCell setupCellHeaderWithPlaceImage:[UIImage imageNamed:@"Clinic_Image_Placeholder"]];
+        
     }
     
     return placeCell;
@@ -257,17 +283,19 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-   return  CGSizeMake(320, 100);
+   return  CGSizeMake(320, 300);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(320, 150);
+    return CGSizeMake(0, 0);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
     self.placeDetailVC.placesInfo = (NSArray*)self.searchResults;
     self.placeDetailVC.startPlaceIndexPath = indexPath;
+    self.placeDetailVC.randomStars = 4;
+    self.placeDetailVC.randomDollars = 2;
     
     [[self navigationController] setNavigationBarHidden:NO];
     [self.navigationController pushViewController:self.placeDetailVC animated:YES];

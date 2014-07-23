@@ -21,8 +21,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *lastDollarSignButton;
 
 
-@property (assign) NSInteger buttonValue;
-
 @end
 
 @implementation PriceRatingViewController
@@ -86,10 +84,6 @@
                                             0,
                                             self.firstDollarSignButton.frame.size.width * buttonValue,
                                             self.firstDollarSignButton.frame.size.height);
-}
-
-- (void)getUserPriceEstimationForPostReivewVC:(PostReviewViewController *)postReviewVC {
-    postReviewVC.price = self.buttonValue;
 }
 
 @end

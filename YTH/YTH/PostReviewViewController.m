@@ -67,11 +67,9 @@
     
     self.ratingStarsVC = [[RatingStarsViewController alloc] initWithNibName:@"RatingStarsViewController" bundle:nil];
     [self.ratingStarsView addSubview:self.ratingStarsVC.view];
-    self.delegate = self.ratingStarsVC;
     
     self.priceRatingVC = [[PriceRatingViewController alloc] init];
     [self.priceRatingView addSubview:self.priceRatingVC.view];
-    self.delegate = self.priceRatingVC;
     
     [self buttonsStyle];
     self.postReviewTextView.delegate = self;
@@ -147,11 +145,11 @@
     postReview[@"yelp_id"] = self.place.yelp_id;
     postReview[@"body"] = self.postReviewTextView.text;
     postReview[@"user"] = [PFUser currentUser];
-    postReview.stars = self.stars;
+    postReview.stars = self.ratingStarsVC.buttonValue;
     postReview.friendly = self.friendly;
-    postReview.needsMet =self.needsMet;
+    postReview.needsMet = self.needsMet;
     postReview.recommended = self.recommend;
-    postReview.price = self.price;
+    postReview.price = self.priceRatingVC.buttonValue;
     
     [postReview saveInBackground];
 }

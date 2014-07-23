@@ -11,6 +11,10 @@
 
 @interface PlaceCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *locImageView;
+@property (assign) NSInteger randomStars;
+@property (assign) NSInteger randomDollars;
+
 - (void)setupCellWithPlaceInfo: (Place *)placeInfo;
 
 @end

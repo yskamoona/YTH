@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "PostReviewViewController.h"
 
-@interface RatingStarsViewController : UIViewController <PostReviewViewControllerDelegate>
+@interface RatingStarsViewController : UIViewController
+
+@property (assign) NSInteger buttonValue;
 
 - (id)initWithReview:(NSInteger)starsReview;
 

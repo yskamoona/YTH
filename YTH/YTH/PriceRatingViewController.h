@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PostReviewViewController.h"
 
-@interface PriceRatingViewController : UIViewController <PostReviewViewControllerDelegate>
+@interface PriceRatingViewController : UIViewController
 
+
+@property (assign) NSInteger buttonValue;
 - (id)initWithReview:(NSInteger)priceReview;
 
 @end

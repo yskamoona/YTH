@@ -64,6 +64,8 @@
 		45BDFB97196A0FD40095CBBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BDFB96196A0FD40095CBBD /* MapKit.framework */; };
 		45BDFB9C196A143C0095CBBD /* PlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BDFB9B196A143C0095CBBD /* PlaceCell.m */; };
 		45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BDFB9F196A14A00095CBBD /* PlaceCell.xib */; };
+		45C5EE6F197FB48A00A0D538 /* StarsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C5EE6E197FB48A00A0D538 /* StarsView.xib */; };
+		45C5EE72197FB49E00A0D538 /* StarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C5EE71197FB49E00A0D538 /* StarsView.m */; };
 		45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC049C196A0643007DB5C4 /* FullMapViewController.m */; };
 		45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC049D196A0643007DB5C4 /* FullMapViewController.xib */; };
 		45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */; };
@@ -190,6 +192,9 @@
 		45BDFB9A196A143C0095CBBD /* PlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceCell.h; sourceTree = "<group>"; };
 		45BDFB9B196A143C0095CBBD /* PlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceCell.m; sourceTree = "<group>"; };
 		45BDFB9F196A14A00095CBBD /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
+		45C5EE6E197FB48A00A0D538 /* StarsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarsView.xib; sourceTree = "<group>"; };
+		45C5EE70197FB49E00A0D538 /* StarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarsView.h; sourceTree = "<group>"; };
+		45C5EE71197FB49E00A0D538 /* StarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarsView.m; sourceTree = "<group>"; };
 		45FC049B196A0643007DB5C4 /* FullMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullMapViewController.h; sourceTree = "<group>"; };
 		45FC049C196A0643007DB5C4 /* FullMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullMapViewController.m; sourceTree = "<group>"; };
 		45FC049D196A0643007DB5C4 /* FullMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullMapViewController.xib; sourceTree = "<group>"; };
@@ -504,6 +509,9 @@
 				4543B5D9197D0453004B8904 /* QuestionDetailCell.h */,
 				4543B5DA197D0453004B8904 /* QuestionDetailCell.m */,
 				4543B5DB197D0453004B8904 /* QuestionDetailCell.xib */,
+				45C5EE70197FB49E00A0D538 /* StarsView.h */,
+				45C5EE71197FB49E00A0D538 /* StarsView.m */,
+				45C5EE6E197FB48A00A0D538 /* StarsView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -652,6 +660,7 @@
 				45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */,
 				4543B5D8197CF313004B8904 /* QuestionDetailsViewController.xib in Resources */,
 				45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */,
+				45C5EE6F197FB48A00A0D538 /* StarsView.xib in Resources */,
 				45FCE9F61976A48200AEA8F5 /* GuidesViewController.xib in Resources */,
 				45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */,
 				45FCEA011976BCF000AEA8F5 /* PlaceCellCustomHeaderView.xib in Resources */,
@@ -756,6 +765,7 @@
 				45FC04AF196A06E9007DB5C4 /* Place.m in Sources */,
 				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
 				171176C2197F7F3C00562B20 /* Guides.m in Sources */,
+				45C5EE72197FB49E00A0D538 /* StarsView.m in Sources */,
 				451CC0001969FC57007289F3 /* PlacesViewController.m in Sources */,
 				4543B5DC197D0453004B8904 /* QuestionDetailCell.m in Sources */,
 				457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */,
