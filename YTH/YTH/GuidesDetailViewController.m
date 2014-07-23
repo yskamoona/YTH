@@ -91,9 +91,14 @@
     GuidesDetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GuidesDetailTableViewCell" forIndexPath:indexPath];
     if (indexPath.row == 0) {
         //question cell
+
+       // cell.detailCell.text = self.detailGuides[indexPath.section];
+        //cell.detailCell.layer.backgroundColor = [UIColor YTHGPinkColor].CGColor;
+
         GuideQuestions *gq = self.detailGuides[0];
         cell.detailCell.text = gq.question;
         cell.detailCell.layer.backgroundColor = [UIColor YTHGPinkColor].CGColor;
+
     } else
         //answers cell
         cell.detailCell.text = @"";

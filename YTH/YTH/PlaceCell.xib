@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -16,6 +16,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umy-rX-zbu">
                         <rect key="frame" x="5" y="6" width="309" height="287"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<<<<<<< HEAD
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="JRc-z7-e87">
+                        <rect key="frame" x="20" y="40" width="45" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="MOa-bx-0a8">
+                        <rect key="frame" x="17" y="64" width="97" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+=======
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Location Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="271" translatesAutoresizingMaskIntoConstraints="NO" id="UFz-jv-k7L" userLabel="Location Name Label">
@@ -52,11 +65,22 @@
                             <constraint firstAttribute="height" constant="19" id="pxw-jJ-5tq"/>
                         </constraints>
                     </view>
+>>>>>>> master
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+<<<<<<< HEAD
+                <constraint firstItem="MOa-bx-0a8" firstAttribute="top" secondItem="JRc-z7-e87" secondAttribute="bottom" constant="8" id="EV9-SV-KPf"/>
+                <constraint firstItem="JRc-z7-e87" firstAttribute="top" secondItem="UFz-jv-k7L" secondAttribute="bottom" constant="9" id="Exh-Gb-4yh"/>
+                <constraint firstAttribute="trailing" secondItem="UFz-jv-k7L" secondAttribute="trailing" constant="20" id="IZj-p6-Tji"/>
+                <constraint firstItem="MOa-bx-0a8" firstAttribute="leading" secondItem="xtZ-Ie-e6H" secondAttribute="leading" constant="17" id="UpO-Is-9VV"/>
+                <constraint firstAttribute="bottom" secondItem="MOa-bx-0a8" secondAttribute="bottom" constant="25" id="VO6-HU-db7"/>
+                <constraint firstItem="UFz-jv-k7L" firstAttribute="top" secondItem="xtZ-Ie-e6H" secondAttribute="top" constant="10" id="cjN-NK-CKa"/>
+                <constraint firstItem="UFz-jv-k7L" firstAttribute="leading" secondItem="xtZ-Ie-e6H" secondAttribute="leading" constant="20" id="dn0-VZ-cLh"/>
+                <constraint firstItem="JRc-z7-e87" firstAttribute="leading" secondItem="xtZ-Ie-e6H" secondAttribute="leading" constant="20" id="fsD-pQ-d3G"/>
+=======
                 <constraint firstItem="pm7-Qw-U0y" firstAttribute="leading" secondItem="xtZ-Ie-e6H" secondAttribute="leading" constant="14" id="0xN-m6-UmU"/>
                 <constraint firstAttribute="trailing" secondItem="UFz-jv-k7L" secondAttribute="trailing" constant="35" id="1O0-OC-nm8"/>
                 <constraint firstItem="U4l-oW-Sfx" firstAttribute="top" secondItem="pm7-Qw-U0y" secondAttribute="bottom" constant="6" id="6Kf-ye-Lmx"/>
@@ -77,6 +101,7 @@
                 <constraint firstItem="9Dz-ae-CAC" firstAttribute="top" secondItem="UFz-jv-k7L" secondAttribute="bottom" constant="3" id="qXR-a6-Grk"/>
                 <constraint firstItem="umy-rX-zbu" firstAttribute="top" secondItem="xtZ-Ie-e6H" secondAttribute="top" constant="6" id="shL-e4-gvs"/>
                 <constraint firstAttribute="trailing" secondItem="9Dz-ae-CAC" secondAttribute="trailing" constant="35" id="vnh-sS-71c"/>
+>>>>>>> master
             </constraints>
             <size key="customSize" width="320" height="300"/>
             <connections>
@@ -89,4 +114,11 @@
             </connections>
         </collectionViewCell>
     </objects>
+<<<<<<< HEAD
+    <resources>
+        <image name="money_placeholder" width="45" height="16"/>
+        <image name="stars_placeholder" width="97" height="16"/>
+    </resources>
+=======
+>>>>>>> master
 </document>
