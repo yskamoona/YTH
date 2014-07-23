@@ -40,7 +40,7 @@
         
     //}
     
-    NSLog(@"A%f, B%f, C%f, D%f,", topLeftCoord.latitude, topLeftCoord.longitude, bottomRightCoord.latitude, bottomRightCoord.longitude);
+   // NSLog(@"A%f, B%f, C%f, D%f,", topLeftCoord.latitude, topLeftCoord.longitude, bottomRightCoord.latitude, bottomRightCoord.longitude);
     
     MKCoordinateRegion region;
     region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;

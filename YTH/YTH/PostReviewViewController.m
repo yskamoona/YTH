@@ -166,14 +166,14 @@
     postReview.recommended = self.recommend;
     postReview.price = self.priceRatingVC.buttonValue;
     
-    [postReview saveInBackground];
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Thank you for the review!"
-                                                        message:@"Thank you for the review!"
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-    [alertView show];
+    [postReview saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Review Posted!"
+                                                            message:@"Thank you for the review!"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
+        [alertView show];
+    }];
     
 }
 

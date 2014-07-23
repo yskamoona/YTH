@@ -36,7 +36,7 @@
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 self.detailGuides = objects;
-                NSLog(@"got question %@", self.detailGuides);
+                //NSLog(@"got question %@", self.detailGuides);
                 [self.tableView reloadData];
                 if (self.animateOnTableReload == YES) {
                     // now animate top cell

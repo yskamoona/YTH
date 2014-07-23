@@ -97,8 +97,8 @@
         if (!error) {
             
             self.reviews = objects;
-            Reviews *firstReview = [objects firstObject];
-            NSLog(@"got review %@",firstReview);
+            //Reviews *firstReview = [objects firstObject];
+            //NSLog(@"got review %@",firstReview);
             [self.detailsTableView reloadData];
             [self.view layoutSubviews];
         }
@@ -116,7 +116,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"you tapped");
+    //NSLog(@"you tapped");
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];

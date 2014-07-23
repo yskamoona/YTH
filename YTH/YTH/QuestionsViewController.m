@@ -56,7 +56,7 @@
     
     [postQuestion saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (self.delegate != nil) {
-            NSLog(@"didAsk question now should dimiss");
+            //NSLog(@"didAsk question now should dimiss");
             [self.delegate didAskQuestionAndDimissViewController:self];
         }
     }];
@@ -64,13 +64,13 @@
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-    NSLog(@"began editing");
+    //NSLog(@"began editing");
     self.questionTextView.text = @"";
 }
 
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
-     NSLog(@"ended editing");
+//     NSLog(@"ended editing");
 }
 
 @end

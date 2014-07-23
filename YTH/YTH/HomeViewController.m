@@ -144,7 +144,7 @@ const CGFloat widthConstraintMax = 320;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.LatestData = objects;
-            NSLog(@"got question %@", self.latestData);
+            //NSLog(@"got question %@", self.latestData);
             [self.latestTableView reloadData];
             if (self.animateOnTableReload == YES) {
                 // now animate top cell
@@ -254,7 +254,7 @@ const CGFloat widthConstraintMax = 320;
 #pragma Settings
 
 - (IBAction)onSettingsButtonTapped:(id)sender {
-    NSLog(@"Settings button tapped");
+    //NSLog(@"Settings button tapped");
     // Create translation transform
     CATransform3D translate = CATransform3DIdentity;
     translate = CATransform3DTranslate(translate, 160.0, 0, 200.0);

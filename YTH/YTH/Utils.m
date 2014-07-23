@@ -22,10 +22,10 @@
      placeholderImage:nil
      success:^(NSURLRequest *request , NSHTTPURLResponse *response , UIImage *image ){
          weakImageView.image = image;
-         NSLog(@"Loaded successfully: %ld", (long)[response statusCode]);
+         //NSLog(@"Loaded successfully: %ld", (long)[response statusCode]);
      }
      failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-         NSLog(@"failed loading: %@", error);
+         //NSLog(@"failed loading: %@", error);
      }
      ];
 }

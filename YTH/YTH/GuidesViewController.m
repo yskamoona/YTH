@@ -52,7 +52,7 @@
 }
 
 - (IBAction)onMorningAfterTapped:(id)sender {
-    NSLog(@"you tapped Morning After Label");
+    //NSLog(@"you tapped Morning After Label");
     MorningAfterViewController *morningAfterVC = [[MorningAfterViewController alloc] init];
     [self.navigationController pushViewController:morningAfterVC animated:YES];
 
@@ -64,7 +64,7 @@
 }
 
 - (IBAction)onSTDsTapped:(UITapGestureRecognizer *)sender {
-    NSLog(@"you tapped STDs Label");
+    //NSLog(@"you tapped STDs Label");
     STDsViewController *stdsVC = [[STDsViewController alloc] init];
     [self.navigationController pushViewController:stdsVC animated:YES];
 }

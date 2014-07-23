@@ -74,7 +74,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)locationUpdate:(CLLocation*)location;
 {
-    NSLog(@" getting location update in view %@", location);
+   // NSLog(@" getting location update in view %@", location);
     
 }
 
@@ -117,7 +117,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 {
     [super viewDidLoad];
     
-    NSLog(@"got view did load");
+    //NSLog(@"got view did load");
 
     [_homeMapView setDelegate:self];
     [self setupCollectionView];
@@ -188,7 +188,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
    // self.currentLocation = [[CLLocation alloc] initWithLatitude:37.7873589 longitude:-122.408227];
     
-    NSLog(@"GETTING LOCATION 1 %@", self.currentLocation);
+    //NSLog(@"GETTING LOCATION 1 %@", self.currentLocation);
     //NSLog(@" getting searchResults %lu", (unsigned long)self.searchResults.count);
     
     if (self.currentLocation && self.searchResults.count > 0) {

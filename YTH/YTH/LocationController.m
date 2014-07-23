@@ -48,7 +48,7 @@ static LocationController* sharedCLDelegate = nil;
 
 - (void) locationManager:(CLLocationManager *)manager
     didUpdateLocations:(NSArray *)locations {
-    NSLog(@"Did update LOCATIONS %@", locations);
+    //NSLog(@"Did update LOCATIONS %@", locations);
     
 //    [self.delegate locationUpdate:newLocation];
     for (CLLocation *location in locations)

@@ -22,7 +22,7 @@
 
 - (void)locationUpdate:(CLLocation*)location;
 {
-    NSLog(@" FULL MAP getting location update in view %@", location);
+    //NSLog(@" FULL MAP getting location update in view %@", location);
     self.currentLocation = location;
     [self setupMapView];
   //  [self setupMapRegion];
@@ -89,7 +89,7 @@
 
 - (void)setupMapView {
     
-    NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
+    //NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);
     
     float distance = [Utils convertToMeter:4.0];
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, distance, distance);
@@ -116,7 +116,7 @@
                              self.point.title = [self.placesInfo[self.showPlaceIndex] name];
                              self.point.subtitle = address;
                              [self.placeMapView addAnnotation:self.point];
-                             NSLog(@" hey  map view %@", self.placeMapView);
+                            // NSLog(@" hey  map view %@", self.placeMapView);
                          }
                      }];
     }

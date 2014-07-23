@@ -45,14 +45,17 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.myquestion = objects[0];
-            NSLog(@"got question %@", self.myquestion);
+            //NSLog(@"got question %@", self.myquestion);
             self.myQuestionLabel.text = self.myquestion.body;
             
             PFQuery *replyQuery = [Question query];
             [replyQuery whereKey:@"parent" equalTo:[self.myquestion objectId]];
             [replyQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if (!error) {
-                    self.replyLabel.text = [objects[0] body];
+                    if (objects != nil) {
+                       self.replyLabel.text = [objects[0] body];
+                    }
+                    self.replyLabel.text = @"I am a random text, your app actually crashed!";
                 }
                 
             }];
