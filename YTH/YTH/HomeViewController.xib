@@ -40,23 +40,6 @@
                     <color key="backgroundColor" red="0.0" green="0.074668131458534334" blue="0.11279653284671533" alpha="1" colorSpace="deviceRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="XqK-nW-TiG" userLabel="MenuDismiss">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <gestureRecognizers/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="Tg9-um-pTb" appends="YES" id="xef-si-2YO"/>
-                        <outletCollection property="gestureRecognizers" destination="qjQ-ob-edJ" appends="YES" id="bUw-zf-KaK"/>
-                    </connections>
-                </view>
-                <view userInteractionEnabled="NO" contentMode="scaleToFill" id="Deh-re-baA" userLabel="Menu View">
-                    <rect key="frame" x="0.0" y="75" width="320" height="493"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
                 <view contentMode="scaleToFill" id="sDK-WL-WfS" userLabel="Container view">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -221,6 +204,23 @@
                         </button>
                     </subviews>
                     <gestureRecognizers/>
+                </view>
+                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="XqK-nW-TiG" userLabel="MenuDismiss">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Tg9-um-pTb" appends="YES" id="xef-si-2YO"/>
+                        <outletCollection property="gestureRecognizers" destination="qjQ-ob-edJ" appends="YES" id="bUw-zf-KaK"/>
+                    </connections>
+                </view>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" id="Deh-re-baA" userLabel="Menu View">
+                    <rect key="frame" x="0.0" y="75" width="320" height="493"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
