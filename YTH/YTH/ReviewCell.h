@@ -11,10 +11,6 @@
 
 @interface ReviewCell : UITableViewCell
 
-
-
-
-
 - (id)setupCellWithReview:(Reviews *)review;
 
 @end

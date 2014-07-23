@@ -77,11 +77,9 @@
     
     self.ratingStarsVC = [[RatingStarsViewController alloc] initWithNibName:@"RatingStarsViewController" bundle:nil];
     [self.ratingStarsView addSubview:self.ratingStarsVC.view];
-    self.delegate = self.ratingStarsVC;
     
     self.priceRatingVC = [[PriceRatingViewController alloc] init];
     [self.priceRatingView addSubview:self.priceRatingVC.view];
-    self.delegate = self.priceRatingVC;
     
     [self buttonsStyle];
     self.postReviewTextView.delegate = self;
@@ -158,9 +156,11 @@
 
 - (IBAction)onPostReviewButton:(id)sender {
     Reviews *postReview = [Reviews object];
-    postReview[@"yelp_id"] = self.placeNameLabel.text;
+    //postReview[@"yelp_id"] = self.placeNameLabel.text;
+    postReview[@"yelp_id"] = self.place.yelp_id;
     postReview[@"body"] = self.postReviewTextView.text;
     postReview[@"user"] = [PFUser currentUser];
+<<<<<<< HEAD
     
 //    if (self.delegate != nil ) {
 //         [self.delegate getUserStarReviewForPostReviewVC:self];
@@ -168,11 +168,18 @@
    
     //postReview.stars = self.stars;
     postReview.stars = 3;
+=======
+    postReview.stars = self.ratingStarsVC.buttonValue;
+>>>>>>> master
     postReview.friendly = self.friendly;
-    postReview.needsMet =self.needsMet;
+    postReview.needsMet = self.needsMet;
     postReview.recommended = self.recommend;
+<<<<<<< HEAD
     postReview.price = 4;
     //postReview.price = self.price;
+=======
+    postReview.price = self.priceRatingVC.buttonValue;
+>>>>>>> master
     
     [postReview saveInBackground];
 }

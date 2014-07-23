@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GuidesDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GuidesDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIViewControllerAnimatedTransitioning>
 
 @property (weak, nonatomic) IBOutlet UILabel *introLabel;
 

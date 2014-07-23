@@ -7,6 +7,7 @@
 //
 
 #import "GuidesViewController.h"
+#import "GuidesDetailViewController.h"
 #import "MorningAfterViewController.h"
 #import "HomeViewController.h"
 #import "STDsViewController.h"
@@ -17,9 +18,11 @@
 @property (weak, nonatomic) IBOutlet UIView *guidesTitles;
 @property (weak, nonatomic) IBOutlet UILabel *morningAfterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stdsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *birthControlLabel;
 - (IBAction)onMorningAfterTapped:(id)sender;
 - (IBAction)onHomeButton:(id)sender;
 - (IBAction)onSTDsTapped:(UITapGestureRecognizer *)sender;
+- (IBAction)onBirthControlTapped:(id)sender;
 
 @end
 
@@ -64,6 +67,12 @@
     NSLog(@"you tapped STDs Label");
     STDsViewController *stdsVC = [[STDsViewController alloc] init];
     [self.navigationController pushViewController:stdsVC animated:YES];
+}
+
+- (IBAction)onBirthControlTapped:(id)sender {
+    GuidesDetailViewController *guidesDetailVC = [[GuidesDetailViewController alloc] init];
+    
+    [self.navigationController pushViewController:guidesDetailVC animated:YES];
 }
 
 @end
