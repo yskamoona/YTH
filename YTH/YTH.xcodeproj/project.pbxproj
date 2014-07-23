@@ -64,8 +64,6 @@
 		45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BDFB9F196A14A00095CBBD /* PlaceCell.xib */; };
 		45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC049C196A0643007DB5C4 /* FullMapViewController.m */; };
 		45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC049D196A0643007DB5C4 /* FullMapViewController.xib */; };
-		45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A1196A0675007DB5C4 /* FilterViewController.m */; };
-		45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC04A2196A0675007DB5C4 /* FilterViewController.xib */; };
 		45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */; };
 		45FC04A9196A06A5007DB5C4 /* PostReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */; };
 		45FC04AC196A06DB007DB5C4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04AB196A06DB007DB5C4 /* User.m */; };
@@ -189,9 +187,6 @@
 		45FC049B196A0643007DB5C4 /* FullMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullMapViewController.h; sourceTree = "<group>"; };
 		45FC049C196A0643007DB5C4 /* FullMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullMapViewController.m; sourceTree = "<group>"; };
 		45FC049D196A0643007DB5C4 /* FullMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullMapViewController.xib; sourceTree = "<group>"; };
-		45FC04A0196A0675007DB5C4 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
-		45FC04A1196A0675007DB5C4 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
-		45FC04A2196A0675007DB5C4 /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		45FC04A5196A06A5007DB5C4 /* PostReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostReviewViewController.h; sourceTree = "<group>"; };
 		45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostReviewViewController.m; sourceTree = "<group>"; };
 		45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostReviewViewController.xib; sourceTree = "<group>"; };
@@ -550,9 +545,6 @@
 				45FC049B196A0643007DB5C4 /* FullMapViewController.h */,
 				45FC049C196A0643007DB5C4 /* FullMapViewController.m */,
 				45FC049D196A0643007DB5C4 /* FullMapViewController.xib */,
-				45FC04A0196A0675007DB5C4 /* FilterViewController.h */,
-				45FC04A1196A0675007DB5C4 /* FilterViewController.m */,
-				45FC04A2196A0675007DB5C4 /* FilterViewController.xib */,
 				45FC04A5196A06A5007DB5C4 /* PostReviewViewController.h */,
 				45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */,
 				45FC04A7196A06A5007DB5C4 /* PostReviewViewController.xib */,
@@ -641,7 +633,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45FCEA1B19790CC600AEA8F5 /* FavoriteGuidesViewController.xib in Resources */,
-				45FC04A4196A0675007DB5C4 /* FilterViewController.xib in Resources */,
 				4533A3E5197A6024006415A9 /* ReviewCell.xib in Resources */,
 				448E64DF197B6B010070FB7B /* STDsTableViewCell.xib in Resources */,
 				44E8FF6B197B432500455028 /* MorningAfterViewController.xib in Resources */,
@@ -748,7 +739,6 @@
 				17E44E571974B20200F7571E /* LocationController.m in Sources */,
 				45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */,
 				451CBFDF1969FC0A007289F3 /* AppDelegate.m in Sources */,
-				45FC04A3196A0675007DB5C4 /* FilterViewController.m in Sources */,
 				4497E724197C823500DC360F /* GuidesDetailViewController.m in Sources */,
 				45FCEA2419790FCE00AEA8F5 /* MyReviewsViewController.m in Sources */,
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,

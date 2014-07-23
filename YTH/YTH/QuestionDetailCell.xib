@@ -13,31 +13,83 @@
                 <rect key="frame" x="0.0" y="0.0" width="350" height="112"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2L7-0o-48r" userLabel="QuestionBodyLabel">
-                        <rect key="frame" x="20" y="13" width="310" height="59"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="310" translatesAutoresizingMaskIntoConstraints="NO" id="2L7-0o-48r" userLabel="QuestionBodyLabel">
+                        <rect key="frame" x="20" y="13" width="310" height="62"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <attributedString key="attributedText"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Question Text">
+                                <attributes>
+                                    <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="NSFont" size="17" name="Helvetica"/>
+                                    <font key="NSOriginalFont" size="17" name="Helvetica"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="clipping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAb-RG-w97" userLabel="LocationLabel">
-                        <rect key="frame" x="20" y="71" width="110" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAb-RG-w97" userLabel="LocationLabel">
+                        <rect key="frame" x="20" y="83" width="100" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <attributedString key="attributedText"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Los Angeles">
+                                <attributes>
+                                    <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="NSFont" size="14" name="Helvetica"/>
+                                    <font key="NSOriginalFont" size="17" name="Helvetica"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="clipping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-UB-h3F" userLabel="AnswersLabel">
-                        <rect key="frame" x="138" y="72" width="105" height="20"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-UB-h3F" userLabel="AnswersLabel">
+                        <rect key="frame" x="143" y="83" width="64" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <attributedString key="attributedText"/>
+                        <attributedString key="attributedText">
+                            <fragment content="3 answers">
+                                <attributes>
+                                    <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="NSFont" size="14" name="Helvetica"/>
+                                    <font key="NSOriginalFont" size="17" name="Helvetica"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="clipping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyj-AG-9p8" userLabel="TimeLabel">
-                        <rect key="frame" x="231" y="71" width="92" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyj-AG-9p8" userLabel="TimeLabel">
+                        <rect key="frame" x="236" y="83" width="94" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <attributedString key="attributedText"/>
+                        <attributedString key="attributedText">
+                            <fragment content="1 week ago">
+                                <attributes>
+                                    <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="NSFont" size="14" name=".LucidaGrandeUI"/>
+                                    <font key="NSOriginalFont" size="17" name="Helvetica"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="clipping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerX" secondItem="Uuh-UB-h3F" secondAttribute="centerX" id="1DQ-lz-qKf"/>
+                    <constraint firstItem="nAb-RG-w97" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="4qK-C8-dp1"/>
+                    <constraint firstItem="2L7-0o-48r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="6wH-H9-ufG"/>
+                    <constraint firstAttribute="trailing" secondItem="2L7-0o-48r" secondAttribute="trailing" constant="20" id="7PX-So-zZ3"/>
+                    <constraint firstItem="nAb-RG-w97" firstAttribute="top" secondItem="2L7-0o-48r" secondAttribute="bottom" constant="8" id="9oR-Wj-kOW"/>
+                    <constraint firstAttribute="bottom" secondItem="Uuh-UB-h3F" secondAttribute="bottom" constant="12" id="9uK-ba-h0M"/>
+                    <constraint firstAttribute="trailing" secondItem="cyj-AG-9p8" secondAttribute="trailing" constant="20" id="O72-Wf-PQS"/>
+                    <constraint firstAttribute="bottom" secondItem="nAb-RG-w97" secondAttribute="bottom" constant="12" id="RF3-MH-JxW"/>
+                    <constraint firstItem="Uuh-UB-h3F" firstAttribute="top" secondItem="2L7-0o-48r" secondAttribute="bottom" constant="8" id="V5B-pW-znC"/>
+                    <constraint firstAttribute="bottom" secondItem="cyj-AG-9p8" secondAttribute="bottom" constant="11" id="csQ-61-Pjq"/>
+                    <constraint firstItem="Uuh-UB-h3F" firstAttribute="leading" secondItem="nAb-RG-w97" secondAttribute="trailing" constant="23" id="iNv-Ze-nQ5"/>
+                    <constraint firstItem="cyj-AG-9p8" firstAttribute="leading" secondItem="Uuh-UB-h3F" secondAttribute="trailing" constant="29" id="npi-qz-ApH"/>
+                    <constraint firstItem="cyj-AG-9p8" firstAttribute="top" secondItem="2L7-0o-48r" secondAttribute="bottom" constant="8" id="vTg-ZX-Ybg"/>
+                    <constraint firstItem="2L7-0o-48r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="ysa-DS-QVi"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="anwersLabel" destination="Uuh-UB-h3F" id="C4G-DW-acH"/>

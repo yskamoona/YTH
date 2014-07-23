@@ -12,5 +12,6 @@
 @interface QuestionDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) Question *question;
+@property (strong, nonatomic) NSMutableArray *replies;
 
 @end
