@@ -10,4 +10,5 @@
 
 @interface MyQuestionsViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *anwersLabel;
 @end
