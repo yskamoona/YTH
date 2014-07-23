@@ -185,48 +185,70 @@ const CGFloat widthConstraintMax = 320;
 #pragma  AS Setting VC delegate methods
 
 - (void)backToHomeScreenView:(HomeMainContentViewController *)homeMainContentVC fromSettingVC:(SettingsViewController *)settingVC {
-    self.otherOptionsView.hidden = YES;
     [self slideBackMenu];
+    [self transitionMenuViews:YES];
 }
 
 - (void)addLocationViewToHomeView:(LocationSettingViewController *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
-    self.otherOptionsView.hidden = NO;
     [self.otherOptionsView addSubview:locationSettingsView.view];
     [self slideBackMenu];
+    [self transitionMenuViews:NO];
 }
 
 - (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
-    self.otherOptionsView.hidden = NO;
     [self.otherOptionsView addSubview:myQestionsView];
     [self slideBackMenu];
-    [self toggleOnMyQuestions];
+    [self transitionMenuViews:NO];
 }
 
 - (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
-    self.otherOptionsView.hidden = NO;
     [self.otherOptionsView addSubview:myReviewsView];
     [self slideBackMenu];
+    [self transitionMenuViews:NO];
 }
 
 - (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
-    self.otherOptionsView.hidden = NO;
     [self.otherOptionsView addSubview:favoriteGuidesView];
     [self slideBackMenu];
+    [self transitionMenuViews:NO];
 }
 
--(void)toggleOnMyQuestions {
-    NSLog(@"itWorks");
-    if ([self.otherOptionsView isHidden]) {
-        NSLog(@"hidden");
-    } else {
-        NSLog(@"not hidden");
-    }
-    [UIView animateWithDuration:.2 animations:^{
+-(void)transitionMenuViews:(BOOL)isClickingHome{
+    if (![self.homeContentContainer isHidden] && [self.otherOptionsView isHidden]) {
+        // if home is visible and other is hidden
+        // and we're clicking for a settings view
+        if (!isClickingHome) {
+            [UIView animateWithDuration:.4 animations:^{
+                self.homeContentContainer.alpha = 0;
+            } completion:^(BOOL finished) {
+                self.homeContentContainer.hidden = YES;
+            }];
+            //staggered animation
+            self.otherOptionsView.hidden = NO;
+            [UIView animateKeyframesWithDuration:.4 delay:.1 options:0 animations:^{
+                self.otherOptionsView.alpha = 1;
+            } completion:^(BOOL finished) {
+                NSLog(@"home now showing");
+            }];
+        }
+    } else if ([self.homeContentContainer isHidden] && ![self.otherOptionsView isHidden]){
+        //if home is hidden, other is visible
+        //and we're clicking back to the home button
         self.homeContentContainer.alpha = 0;
-    } completion:^(BOOL finished) {
-
-    }];
-//    [self.view bringSubviewToFront:self.settingsButton];
+        if (isClickingHome) {
+            [UIView animateWithDuration:.4 animations:^{
+                self.otherOptionsView.alpha = 0;
+            } completion:^(BOOL finished) {
+                self.otherOptionsView.hidden = YES;
+            }];
+            //staggered animation
+            self.homeContentContainer.hidden = NO;
+            [UIView animateKeyframesWithDuration:.4 delay:.1 options:0 animations:^{
+                self.homeContentContainer.alpha = 1;
+            } completion:^(BOOL finished) {
+            }];
+        }
+    } 
 }
 
 #pragma Settings
