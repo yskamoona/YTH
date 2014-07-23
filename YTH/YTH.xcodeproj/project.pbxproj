@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171176C2197F7F3C00562B20 /* Guides.m in Sources */ = {isa = PBXBuildFile; fileRef = 171176C1197F7F3C00562B20 /* Guides.m */; };
+		171176C5197F896500562B20 /* GuideQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 171176C4197F896500562B20 /* GuideQuestions.m */; };
 		17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C492B2196A164E00C5DFDB /* YelpClient.m */; };
 		17E44E571974B20200F7571E /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E44E561974B20200F7571E /* LocationController.m */; };
 		17EC1BD7196A82B4005A456D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EC1BD6196A82B4005A456D /* Utils.m */; };
@@ -107,6 +109,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		171176C0197F7F3C00562B20 /* Guides.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guides.h; sourceTree = "<group>"; };
+		171176C1197F7F3C00562B20 /* Guides.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guides.m; sourceTree = "<group>"; };
+		171176C3197F896500562B20 /* GuideQuestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideQuestions.h; sourceTree = "<group>"; };
+		171176C4197F896500562B20 /* GuideQuestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideQuestions.m; sourceTree = "<group>"; };
 		17C492B1196A164E00C5DFDB /* YelpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClient.h; sourceTree = "<group>"; };
 		17C492B2196A164E00C5DFDB /* YelpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClient.m; sourceTree = "<group>"; };
 		17E44E551974B20100F7571E /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
@@ -467,6 +473,10 @@
 				45FC04B1196A06F4007DB5C4 /* Review.m */,
 				4543B5D1197C7548004B8904 /* Question.h */,
 				4543B5D2197C7548004B8904 /* Question.m */,
+				171176C0197F7F3C00562B20 /* Guides.h */,
+				171176C1197F7F3C00562B20 /* Guides.m */,
+				171176C3197F896500562B20 /* GuideQuestions.h */,
+				171176C4197F896500562B20 /* GuideQuestions.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -712,6 +722,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171176C5197F896500562B20 /* GuideQuestions.m in Sources */,
 				45FCE9F51976A48200AEA8F5 /* GuidesViewController.m in Sources */,
 				45FCEA041976C62500AEA8F5 /* ClinicsCollectionViewCustomFlowLayout.m in Sources */,
 				45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */,
@@ -744,6 +755,7 @@
 				451CBFDB1969FC0A007289F3 /* main.m in Sources */,
 				45FC04AF196A06E9007DB5C4 /* Place.m in Sources */,
 				17C492B3196A164E00C5DFDB /* YelpClient.m in Sources */,
+				171176C2197F7F3C00562B20 /* Guides.m in Sources */,
 				451CC0001969FC57007289F3 /* PlacesViewController.m in Sources */,
 				4543B5DC197D0453004B8904 /* QuestionDetailCell.m in Sources */,
 				457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */,
