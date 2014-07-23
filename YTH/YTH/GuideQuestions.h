@@ -13,7 +13,7 @@
 
 + (NSString *)parseClassName;
 
-@property (retain) NSString *name;
+@property (retain) NSString *question;
 @property  BOOL has_questions ;
 @property NSString *parent;
 

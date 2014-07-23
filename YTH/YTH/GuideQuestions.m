@@ -11,7 +11,7 @@
 
 @implementation GuideQuestions
 
-@dynamic name;
+@dynamic question;
 @dynamic has_questions;
 @dynamic parent;
 

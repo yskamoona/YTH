@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuidesViewController">
             <connections>
+                <outlet property="birthControlLabel" destination="qd3-kD-XYR" id="Hfx-mT-VbY"/>
                 <outlet property="guidesScroll" destination="66O-WH-rtR" id="bLu-ZM-mMC"/>
                 <outlet property="guidesTitles" destination="aHo-N8-OzH" id="Tki-dz-bOV"/>
                 <outlet property="morningAfterLabel" destination="0cD-I1-EXr" id="Nw6-Hq-xV7"/>
@@ -45,9 +46,13 @@
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth Control" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qd3-kD-XYR">
                                     <rect key="frame" x="26" y="183" width="242" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <gestureRecognizers/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="33"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="90p-hj-PB4" appends="YES" id="p5H-kC-qt2"/>
+                                    </connections>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abortion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IbC-it-QvJ">
                                     <rect key="frame" x="20" y="288" width="242" height="40"/>
@@ -115,6 +120,11 @@
         <tapGestureRecognizer id="cum-8W-p8X" userLabel="STDsTapGesture">
             <connections>
                 <action selector="onSTDsTapped:" destination="-1" id="6lA-eg-DHv"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="90p-hj-PB4" userLabel="BirthControlGesture Recognizer">
+            <connections>
+                <action selector="onBirthControlTapped:" destination="-1" id="lII-Jr-khQ"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

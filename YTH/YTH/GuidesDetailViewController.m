@@ -10,11 +10,13 @@
 #import "HomeViewController.h"
 #import "GuidesDetailTableViewCell.h"
 #import "UIColor+YTH.h"
+#import "GuideQuestions.h"
 
 @interface GuidesDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *detailGuides;
 @property (strong, nonatomic) NSMutableDictionary *collapsed;
+@property (nonatomic, assign) BOOL animateOnTableReload;
 
 - (IBAction)onHomeButton:(id)sender;
 
@@ -26,7 +28,27 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.detailGuides = @[@"Intro text here",@"Should I get tested for STDs?",@"How do I get tested for STDs?",@"Where can I get an STD test?",@"Which STD tests do I need?",@"How are STD tests done?",@"Do People under 18 need their parents' permission for STD testing?"];
+        
+        //Load LatestData
+        PFQuery *query = [GuideQuestions query];
+        [query orderByDescending:@"createdAt"];
+        [query whereKey:@"parent" containsString:@"OxpZsynQHz"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                self.detailGuides = objects;
+                NSLog(@"got question %@", self.detailGuides);
+                [self.tableView reloadData];
+                if (self.animateOnTableReload == YES) {
+                    // now animate top cell
+                   // [self animateTopCell];
+                }
+                self.animateOnTableReload = NO;
+                
+            }
+            
+        }];
+
+//        self.detailGuides = @[@"Intro text here",@"Should I get tested for STDs?",@"How do I get tested for STDs?",@"Where can I get an STD test?",@"Which STD tests do I need?",@"How are STD tests done?",@"Do People under 18 need their parents' permission for STD testing?"];
     }
     return self;
 }
@@ -69,7 +91,8 @@
     GuidesDetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GuidesDetailTableViewCell" forIndexPath:indexPath];
     if (indexPath.row == 0) {
         //question cell
-        cell.detailCell.text = self.detailGuides[indexPath.section];
+        GuideQuestions *gq = self.detailGuides[0];
+        cell.detailCell.text = gq.question;
         cell.detailCell.layer.backgroundColor = [UIColor YTHGPinkColor].CGColor;
     } else
         //answers cell
