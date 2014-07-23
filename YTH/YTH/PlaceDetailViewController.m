@@ -36,6 +36,11 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getPlacesData];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
@@ -78,15 +83,16 @@
     }
     
     self.selectedPlace = self.placesInfo[self.startPlaceIndex];
-
     [self getReviews];
 }
 
 - (void) getReviews {
     PFQuery *query = [Reviews query];
     [query whereKey:@"yelp_id" containsString:self.selectedPlace.yelp_id];
+    [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            
             self.reviews = objects;
             Reviews *firstReview = [objects firstObject];
             NSLog(@"got review %@",firstReview);

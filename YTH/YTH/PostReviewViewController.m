@@ -143,11 +143,10 @@
 
 - (IBAction)onPostReviewButton:(id)sender {
     Reviews *postReview = [Reviews object];
-    postReview[@"yelp_id"] = self.placeNameLabel.text;
+    //postReview[@"yelp_id"] = self.placeNameLabel.text;
+    postReview[@"yelp_id"] = self.place.yelp_id;
     postReview[@"body"] = self.postReviewTextView.text;
-
     postReview[@"user"] = [PFUser currentUser];
-    [self.delegate getUserStarReviewForPostReviewVC:self];
     postReview.stars = self.stars;
     postReview.friendly = self.friendly;
     postReview.needsMet =self.needsMet;
