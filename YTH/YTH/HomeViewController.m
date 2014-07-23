@@ -143,23 +143,17 @@ const CGFloat widthConstraintMax = 320;
     [query whereKeyDoesNotExist:@"parent"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-//<<<<<<< HEAD
             self.LatestData = objects;
             NSLog(@"got question %@", self.latestData);
             [self.latestTableView reloadData];
-            
             if (self.animateOnTableReload == YES) {
                 // now animate top cell
                 [self animateTopCell];
             }
-            
             self.animateOnTableReload = NO;
-            
-//=======
-//            self.latestData = objects;
-//>>>>>>> master
+
         }
-        [self.latestTableView reloadData];
+       
     }];
     
 
