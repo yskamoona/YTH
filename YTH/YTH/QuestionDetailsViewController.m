@@ -43,6 +43,17 @@
     self.replyTextField.delegate = self;
     self.replyTextField.layer.cornerRadius = 3;
     
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
+    UIImage *homeButtonImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:homeButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(onHomeButton:)];
+    self.navigationItem.rightBarButtonItem = homeButton;
+    
+}
+
+- (void)onHomeButton:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -96,7 +107,7 @@
         cell.bodyLabel.text = [self.replies[indexPath.row] body];
         cell.bodyLabel.textColor = [UIColor whiteColor];
         cell.bodyLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:16];
-        cell.locationLabel.text = @"Los Angeles";
+        cell.locationLabel.text = @"San Francisco";
         cell.locationLabel.textColor = [UIColor YTHGreenColor];
         cell.locationLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
         cell.timeLabel.text = @"1m ago";

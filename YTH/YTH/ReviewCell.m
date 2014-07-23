@@ -81,7 +81,7 @@
        [self.ratingStarView addSubview:starImageView1];
     }
 
-    self.reviewTimeStamp.text = @"2 Days Ago";
+    self.reviewTimeStamp.text = @"Today";
     self.reviewLabel.text = review.body;
     
     return self;

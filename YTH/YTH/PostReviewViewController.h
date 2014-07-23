@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Place.h"
 
-@interface PostReviewViewController : UIViewController <UITextViewDelegate>
+@interface PostReviewViewController : UIViewController <UITextViewDelegate, UIAlertViewDelegate>
 
 @property (assign) NSInteger stars;
 @property (assign) NSInteger price;

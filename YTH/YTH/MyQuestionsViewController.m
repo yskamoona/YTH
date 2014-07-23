@@ -7,6 +7,7 @@
 //
 
 #import "MyQuestionsViewController.h" 
+#import "QuestionDetailsViewController.h"
 #import "QuestionDetailCell.h"
 #import  <Parse/Parse.h>
 #import "Question.h"
@@ -14,6 +15,8 @@
 @interface MyQuestionsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *myQuestionLabel;
 @property (nonatomic, strong) Question *myquestion;
+@property (weak, nonatomic) IBOutlet UILabel *replyLabel;
+
 
 @end
 
@@ -44,12 +47,21 @@
             self.myquestion = objects[0];
             NSLog(@"got question %@", self.myquestion);
             self.myQuestionLabel.text = self.myquestion.body;
+            
+            PFQuery *replyQuery = [Question query];
+            [replyQuery whereKey:@"parent" equalTo:[self.myquestion objectId]];
+            [replyQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    self.replyLabel.text = [objects[0] body];
+                }
+                
+            }];
         }
     }];
     
+    
+ 
 }
-
-
 
 
 @end

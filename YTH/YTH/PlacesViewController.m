@@ -241,22 +241,22 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
     PlaceCell *placeCell = [self.homeCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaceCell" forIndexPath:indexPath];
     if (indexPath.section == 0) {
-        placeCell.locImageView.image = [UIImage imageNamed:@"clinic2"];
+        placeCell.locImageView.image = [UIImage imageNamed:@"clinicPhoto4"];
         placeCell.randomStars = 4;
         placeCell.randomDollars = 2;
     }
     if (indexPath.section == 1) {
-        placeCell.locImageView.image = [UIImage imageNamed:@"clinic1"];
+        placeCell.locImageView.image = [UIImage imageNamed:@"clinicPhoto1"];
         placeCell.randomStars = 3;
         placeCell.randomDollars = 4;
     }
     if (indexPath.section == 2) {
-        placeCell.locImageView.image = [UIImage imageNamed:@"clinic3"];
+        placeCell.locImageView.image = [UIImage imageNamed:@"clinicPhoto2"];
         placeCell.randomStars = 2;
         placeCell.randomDollars = 1;
     }
     if (indexPath.section == 3) {
-        placeCell.locImageView.image = [UIImage imageNamed:@"Clinic_Image_Placeholder-1"];
+        placeCell.locImageView.image = [UIImage imageNamed:@"clinicPhoto3"];
         placeCell.randomStars = 5;
         placeCell.randomDollars = 3;
     }

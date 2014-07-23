@@ -167,6 +167,18 @@
     postReview.price = self.priceRatingVC.buttonValue;
     
     [postReview saveInBackground];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Thank you for the review!"
+                                                        message:@"Thank you for the review!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)friendlyYes:(id)sender {

@@ -147,13 +147,14 @@
     
     
     
-    self.servicesOffered.text = @"Birth control puts you in charge. It allows you to plan the timing of your pregnancy, as well as prevent unwanted pregnancy. If you want to prevent pregnancy, there are many contraceptive options that we offer. You should choose which method is best for you based on your preferences, beliefs, health, and budget";
+    self.servicesOffered.text = @"Birth control puts you in charge. If you want to prevent pregnancy, there are many contraceptive options that we offer. You should choose which method is best for you based on your preferences, beliefs, health, and budget.";
     
     self.placeInfo = placeInfo;
-    self.placeImageView.image = [UIImage imageNamed:@"clinic2"];
-    self.nameLabel.text = placeInfo.name;
-    self.addressLabel.text = [placeInfo.address firstObject];
-    self.hoursLabel.text = @"Mon - Fri : 8 am - 6 pm";
+
+    self.placeImageView.image = [UIImage imageNamed:@"clinicPhoto4"];
+    self.nameLabel.text = @"Women's Community Clinic";
+    self.addressLabel.text = @"1833 Fillmore St";
+    //self.hoursLabel.text = @"Mon - Fri : 8 am - 6 pm";
     
     
 //    NSInteger starRating = 3;
