@@ -24,7 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"Ask a Questions";
+    self.navigationItem.title = @"Ask a Question";
     
     self.askButton.backgroundColor = [UIColor YTHGreenColor];
     self.askButton.titleLabel.textColor = [UIColor whiteColor];
