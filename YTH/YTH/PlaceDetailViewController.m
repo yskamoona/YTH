@@ -105,6 +105,13 @@
     [self.detailsTableView registerNib:[UINib nibWithNibName:@"ReviewCell" bundle:nil] forCellReuseIdentifier:@"ReviewCell"];
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"you tapped");
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+}
+
 #pragma UITableViewDataSourceDelegate Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
