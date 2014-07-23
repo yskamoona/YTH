@@ -186,46 +186,75 @@ const CGFloat widthConstraintMax = 320;
 
 - (void)backToHomeScreenView:(HomeMainContentViewController *)homeMainContentVC fromSettingVC:(SettingsViewController *)settingVC {
     self.otherOptionsView.hidden = YES;
+    self.homeContentContainer.hidden = NO;
     [self slideBackMenu];
+    [self transitionMenuViews];
 }
 
 - (void)addLocationViewToHomeView:(LocationSettingViewController *)locationSettingsView fromSettingVC:(SettingsViewController *)settingVC {
     self.otherOptionsView.hidden = NO;
+    self.homeContentContainer.hidden = YES;
     [self.otherOptionsView addSubview:locationSettingsView.view];
     [self slideBackMenu];
+    [self transitionMenuViews];
 }
 
 - (void)addMyQuestionsViewToHomeView:(UIView *)myQestionsView fromSettingVC:(SettingsViewController *)settingVC {
     self.otherOptionsView.hidden = NO;
+    self.homeContentContainer.hidden = YES;
+//    [myQestionsView removeFromSuperview];
     [self.otherOptionsView addSubview:myQestionsView];
     [self slideBackMenu];
-    [self toggleOnMyQuestions];
+    [self transitionMenuViews];
 }
 
 - (void)addMyReviewsViewToHomeView:(UIView *)myReviewsView fromSettingVC:(SettingsViewController *)settingVC {
     self.otherOptionsView.hidden = NO;
+    self.homeContentContainer.hidden = YES;
     [self.otherOptionsView addSubview:myReviewsView];
     [self slideBackMenu];
+    [self transitionMenuViews];
 }
 
 - (void)addFavoriteGuidesViewToHomeView:(UIView *)favoriteGuidesView fromSettingVC:(SettingsViewController *)settingVC {
     self.otherOptionsView.hidden = NO;
+    self.homeContentContainer.hidden = YES;
     [self.otherOptionsView addSubview:favoriteGuidesView];
     [self slideBackMenu];
+    [self transitionMenuViews];
 }
 
--(void)toggleOnMyQuestions {
-    NSLog(@"itWorks");
-    if ([self.otherOptionsView isHidden]) {
-        NSLog(@"hidden");
-    } else {
-        NSLog(@"not hidden");
-    }
-    [UIView animateWithDuration:.2 animations:^{
+-(void)transitionMenuViews{
+    if (![self.homeContentContainer isHidden]) {
+        
+        self.otherOptionsView.alpha = 1; //initial opacity
         self.homeContentContainer.alpha = 0;
-    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:.8 animations:^{
+            self.homeContentContainer.alpha = 1;
+        } completion:^(BOOL finished) {
+        }];
+        //staggered animation
+        [UIView animateKeyframesWithDuration:.8 delay:.1 options:0 animations:^{
+            self.otherOptionsView.alpha = 0;
+        } completion:^(BOOL finished) {
+            NSLog(@"home now showing");
+        }];
+    } else if(![self.otherOptionsView isHidden]){ //if home is active, other is hidden
+        self.homeContentContainer.alpha = 1;
+        self.otherOptionsView.alpha = 0;
+        [UIView animateWithDuration:.8 animations:^{
+            self.otherOptionsView.alpha = 1;
+        } completion:^(BOOL finished) {
+        }];
+        //staggered animation
+        [UIView animateKeyframesWithDuration:.8 delay:.1 options:0 animations:^{
+            self.homeContentContainer.alpha = 0;
+        } completion:^(BOOL finished) {
+        }];
+    } else {
+        NSLog(@"fuck");
+    }
 
-    }];
 //    [self.view bringSubviewToFront:self.settingsButton];
 }
 
