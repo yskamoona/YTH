@@ -10,6 +10,7 @@
 #import "Place.h"
 #import "RatingStarsViewController.h"
 #import "PriceRatingViewController.h"
+#import "UIColor+YTH.h"
 
 @interface PlaceDetailCell ()
 
@@ -38,19 +39,11 @@
 
 
 - (void)awakeFromNib {
-    self.placeImageView.layer.shadowColor = [UIColor grayColor].CGColor;
-    self.placeImageView.layer.shadowOffset = CGSizeMake(2, 3);
-    self.placeImageView.layer.shadowOpacity = 0.3;
-    self.placeImageView.layer.cornerRadius =  3;
-    self.placeImageView.layer.shadowRadius = 1.0;
-    self.placeImageView.clipsToBounds = NO;
-    
-    self.shadowView.layer.shadowColor = [UIColor grayColor].CGColor;
-    self.shadowView.layer.shadowOffset = CGSizeMake(2, 3);
-    self.shadowView.layer.shadowOpacity = .3;
+
     self.shadowView.layer.cornerRadius =  3;
-    self.shadowView.layer.shadowRadius = 1.0;
-    self.shadowView.clipsToBounds = NO;
+    self.shadowView.layer.borderColor = [UIColor YTHGLightTextColor].CGColor;
+    self.shadowView.layer.borderWidth = .3;
+
 }
 
 

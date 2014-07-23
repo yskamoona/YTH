@@ -27,12 +27,12 @@
 
 
 - (void)awakeFromNib {
-    self.shadowView.layer.shadowColor = [UIColor grayColor].CGColor;
-    self.shadowView.layer.shadowOffset = CGSizeMake(2, 3);
-    self.shadowView.layer.cornerRadius = 3;
-    self.shadowView.layer.shadowOpacity = 0.3;
-    self.shadowView.layer.shadowRadius = 1.0;
-    self.shadowView.clipsToBounds = NO;
+//    self.shadowView.layer.shadowColor = [UIColor grayColor].CGColor;
+//    self.shadowView.layer.shadowOffset = CGSizeMake(2, 3);
+//    self.shadowView.layer.cornerRadius = 3;
+//    self.shadowView.layer.shadowOpacity = 0.3;
+//    self.shadowView.layer.shadowRadius = 1.0;
+//    self.shadowView.clipsToBounds = NO;
 }
 
 - (void)setupCellWithPlaceInfo: (Place *)placeInfo
