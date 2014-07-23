@@ -61,7 +61,6 @@
 }
 
 - (IBAction)onSTDsTapped:(UITapGestureRecognizer *)sender {
-    
     NSLog(@"you tapped STDs Label");
     STDsViewController *stdsVC = [[STDsViewController alloc] init];
     [self.navigationController pushViewController:stdsVC animated:YES];

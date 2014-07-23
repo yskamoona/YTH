@@ -32,8 +32,12 @@
     self.askButton.layer.borderWidth = 1;
     self.askButton.layer.borderColor = [UIColor YTHGreenColor].CGColor;
     
+<<<<<<< HEAD
     self.questionTextView.delegate = self;
     
+=======
+    self.questionTextView.layer.cornerRadius = 3;
+>>>>>>> master
 }
 
 - (void)viewWillAppear:(BOOL)animated {
