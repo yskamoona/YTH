@@ -59,8 +59,8 @@
                     <rect key="frame" x="20" y="283" width="112" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeStarsPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="sOx-3d-fXi">
-                            <rect key="frame" x="0.0" y="0.0" width="112" height="21"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stars_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="sOx-3d-fXi">
+                            <rect key="frame" x="1" y="-2" width="97" height="16"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                     </subviews>
@@ -69,8 +69,8 @@
                     <rect key="frame" x="17" y="248" width="59" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PlacePricePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Xwd-B5-kN7">
-                            <rect key="frame" x="0.0" y="2" width="59" height="24"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="money_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Xwd-B5-kN7">
+                            <rect key="frame" x="5" y="9" width="45" height="16"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                     </subviews>
@@ -142,9 +142,9 @@
     </objects>
     <resources>
         <image name="Clinic_Image_Placeholder" width="320" height="210"/>
-        <image name="PlacePricePlaceholder" width="59" height="24"/>
+        <image name="money_placeholder" width="45" height="16"/>
         <image name="phone" width="40" height="40"/>
-        <image name="placeStarsPlaceholder" width="112" height="21"/>
+        <image name="stars_placeholder" width="97" height="16"/>
         <image name="write" width="40" height="40"/>
     </resources>
 </document>

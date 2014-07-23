@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *replyTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textFieldHeightContraint;
 @property (weak, nonatomic) IBOutlet UILabel *questionBody;
+@property (weak, nonatomic) IBOutlet UIButton *replyButton;
+@property (weak, nonatomic) IBOutlet UILabel *repliesLabel;
+@property (weak, nonatomic) IBOutlet UIView *dividerView;
 
 @end
 
@@ -30,6 +33,15 @@
     [self setupTableView];
     self.replyTextField.delegate = self;
     self.navigationItem.title = @"Question Details";
+    
+    self.replyButton.backgroundColor = [UIColor YTHGreenColor];
+    self.replyButton.titleLabel.textColor = [UIColor whiteColor];
+    self.replyButton.layer.cornerRadius = 3;
+    self.replyButton.layer.borderWidth = 1;
+    self.replyButton.layer.borderColor = [UIColor YTHGreenColor].CGColor;
+    
+    self.replyTextField.delegate = self;
+    self.replyTextField.layer.cornerRadius = 3;
     
 }
 
@@ -48,9 +60,13 @@
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.replyTextField.text = @"";
     self.questionDetailTableView.hidden = YES;
     self.questionBody.hidden = YES;
+    self.repliesLabel.hidden = YES;
+    self.dividerView.hidden = YES;
     self.textFieldHeightContraint.constant = 60;
+    
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
@@ -76,14 +92,16 @@
         // replies cell
         cell.anwersLabel.hidden = YES;
         cell.bodyLabel.text = [self.replies[indexPath.row] body];
-        cell.bodyLabel.textColor = [UIColor YTHGDarkTextColor];
+        cell.bodyLabel.textColor = [UIColor YTHGreenColor];
         cell.bodyLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:14.0];
         cell.locationLabel.text = @"Los Angeles";
-        cell.locationLabel.textColor = [UIColor YTHGDarkTextColor];
-        cell.locationLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12.0];
+        cell.locationLabel.textColor = [UIColor YTHGreenColor];
+        cell.locationLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
         cell.timeLabel.text = @"1m ago";
-        cell.timeLabel.textColor = [UIColor YTHGDarkTextColor];
-        cell.locationLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12.0];
+        cell.timeLabel.textColor = [UIColor YTHGreenColor];
+        cell.timeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
+        //cell.timeLabel.font = [UIFontWeightTrait
+        cell.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
@@ -98,20 +116,25 @@
 
 #pragma IBActions
 
+
 - (IBAction)onReplyButtonTapped:(id)sender {
     Question *newReply = [Question object];
     newReply.body = self.replyTextField.text;
     newReply.parent = self.question.objectId;
+    self.replyTextField.text = @"How can you help?";
     
     [newReply saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [self.replies addObject:newReply];
         [self.questionDetailTableView reloadData];
     }];
      [self.replyTextField resignFirstResponder];
+    
 }
 
 - (IBAction)onTapGesture:(UITapGestureRecognizer *)sender {
     [self.replyTextField resignFirstResponder];
+    self.replyTextField.text = @"How can you help?";
+
 }
 
 @end

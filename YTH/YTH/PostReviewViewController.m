@@ -145,14 +145,19 @@
     Reviews *postReview = [Reviews object];
     postReview[@"yelp_id"] = self.placeNameLabel.text;
     postReview[@"body"] = self.postReviewTextView.text;
-
     postReview[@"user"] = [PFUser currentUser];
-    [self.delegate getUserStarReviewForPostReviewVC:self];
-    postReview.stars = self.stars;
+    
+//    if (self.delegate != nil ) {
+//         [self.delegate getUserStarReviewForPostReviewVC:self];
+//    }
+   
+    //postReview.stars = self.stars;
+    postReview.stars = 3;
     postReview.friendly = self.friendly;
     postReview.needsMet =self.needsMet;
     postReview.recommended = self.recommend;
-    postReview.price = self.price;
+    postReview.price = 4;
+    //postReview.price = self.price;
     
     [postReview saveInBackground];
 }
