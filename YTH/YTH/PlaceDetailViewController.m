@@ -44,6 +44,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self getPlacesData];
 }
 
 - (void)setupNavigationBar {
@@ -99,6 +100,7 @@
             Reviews *firstReview = [objects firstObject];
             NSLog(@"got review %@",firstReview);
             [self.detailsTableView reloadData];
+            [self.view layoutSubviews];
         }
     }];
 }
