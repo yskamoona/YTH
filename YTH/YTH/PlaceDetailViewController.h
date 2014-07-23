@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSArray *placesInfo;
 @property (assign) NSIndexPath *startPlaceIndexPath;
+@property (assign) NSInteger startPlaceIndex;
 @property (assign) NSInteger randomStars;
 @property (assign) NSInteger randomDollars;
 

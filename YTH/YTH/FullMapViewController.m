@@ -87,7 +87,6 @@
 }
 
 
-
 - (void)setupMapView {
     
     NSLog(@"GETTING LOCATION MAPVIEW %@", self.currentLocation);

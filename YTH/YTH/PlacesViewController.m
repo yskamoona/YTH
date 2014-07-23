@@ -43,6 +43,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 - (IBAction)onHomeButtonTapped:(id)sender;
 - (IBAction)onMapButtonPressed:(id)sender;
 
+@property (assign) NSInteger neededIndex;
 
 
 
@@ -293,7 +294,9 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.placeDetailVC = [[PlaceDetailViewController alloc] init];
     self.placeDetailVC.placesInfo = (NSArray*)self.searchResults;
-    self.placeDetailVC.startPlaceIndexPath = indexPath;
+    //NSIndexPath *currentIndexPath = indexPath;
+    self.neededIndex = 1;
+    self.placeDetailVC.startPlaceIndex = self.neededIndex;
     self.placeDetailVC.randomStars = 4;
     self.placeDetailVC.randomDollars = 2;
     

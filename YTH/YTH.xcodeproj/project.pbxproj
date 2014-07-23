@@ -66,6 +66,8 @@
 		45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BDFB9F196A14A00095CBBD /* PlaceCell.xib */; };
 		45C5EE6F197FB48A00A0D538 /* StarsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C5EE6E197FB48A00A0D538 /* StarsView.xib */; };
 		45C5EE72197FB49E00A0D538 /* StarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C5EE71197FB49E00A0D538 /* StarsView.m */; };
+		45C5EE75198000DC00A0D538 /* FullMapPlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C5EE74198000DC00A0D538 /* FullMapPlaceCell.m */; };
+		45C5EE77198000F100A0D538 /* FullMapPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C5EE76198000F100A0D538 /* FullMapPlaceCell.xib */; };
 		45FC049E196A0643007DB5C4 /* FullMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC049C196A0643007DB5C4 /* FullMapViewController.m */; };
 		45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FC049D196A0643007DB5C4 /* FullMapViewController.xib */; };
 		45FC04A8196A06A5007DB5C4 /* PostReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC04A6196A06A5007DB5C4 /* PostReviewViewController.m */; };
@@ -195,6 +197,9 @@
 		45C5EE6E197FB48A00A0D538 /* StarsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarsView.xib; sourceTree = "<group>"; };
 		45C5EE70197FB49E00A0D538 /* StarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarsView.h; sourceTree = "<group>"; };
 		45C5EE71197FB49E00A0D538 /* StarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarsView.m; sourceTree = "<group>"; };
+		45C5EE73198000DC00A0D538 /* FullMapPlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullMapPlaceCell.h; sourceTree = "<group>"; };
+		45C5EE74198000DC00A0D538 /* FullMapPlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullMapPlaceCell.m; sourceTree = "<group>"; };
+		45C5EE76198000F100A0D538 /* FullMapPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullMapPlaceCell.xib; sourceTree = "<group>"; };
 		45FC049B196A0643007DB5C4 /* FullMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullMapViewController.h; sourceTree = "<group>"; };
 		45FC049C196A0643007DB5C4 /* FullMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullMapViewController.m; sourceTree = "<group>"; };
 		45FC049D196A0643007DB5C4 /* FullMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullMapViewController.xib; sourceTree = "<group>"; };
@@ -497,6 +502,9 @@
 				45341337196AB2C500C6A2FE /* PlaceDetailCell.xib */,
 				4534133B196AB37400C6A2FE /* ReviewCell.h */,
 				4534133C196AB37400C6A2FE /* ReviewCell.m */,
+				45C5EE73198000DC00A0D538 /* FullMapPlaceCell.h */,
+				45C5EE74198000DC00A0D538 /* FullMapPlaceCell.m */,
+				45C5EE76198000F100A0D538 /* FullMapPlaceCell.xib */,
 				4533A3E4197A6024006415A9 /* ReviewCell.xib */,
 				45FCE9FD1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.h */,
 				45FCE9FE1976BCBB00AEA8F5 /* PlaceCellCustomHeaderView.m */,
@@ -671,6 +679,7 @@
 				45341342196AB5B200C6A2FE /* PlaceDetailViewController.xib in Resources */,
 				451CBFD91969FC0A007289F3 /* InfoPlist.strings in Resources */,
 				45FCEA1319790C9900AEA8F5 /* MyQuestionsViewController.xib in Resources */,
+				45C5EE77198000F100A0D538 /* FullMapPlaceCell.xib in Resources */,
 				45FCEA2A1979132500AEA8F5 /* HomeMainContentViewController.xib in Resources */,
 				45FCEA091978787500AEA8F5 /* SettingsViewController.xib in Resources */,
 				4497E725197C823500DC360F /* GuidesDetailViewController.xib in Resources */,
@@ -750,6 +759,7 @@
 				448E64D8197B67CC0070FB7B /* STDsViewController.m in Sources */,
 				45FCEA081978787500AEA8F5 /* SettingsViewController.m in Sources */,
 				45FC04B2196A06F4007DB5C4 /* Review.m in Sources */,
+				45C5EE75198000DC00A0D538 /* FullMapPlaceCell.m in Sources */,
 				44E8FF6A197B432500455028 /* MorningAfterViewController.m in Sources */,
 				B08266D3197A17840057A428 /* TableViewCell.m in Sources */,
 				45FCEA291979132500AEA8F5 /* HomeMainContentViewController.m in Sources */,
