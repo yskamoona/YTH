@@ -55,11 +55,11 @@
                     if (objects != nil) {
                        self.replyLabel.text = [objects[0] body];
                     }
-                    self.replyLabel.text = @"I am a random text, your app actually crashed!";
+                    self.replyLabel.text = @"The Women's Community Clinic in SF is great!";
                 }
                 
             }];
-        }
+        }   
     }];
     
     
