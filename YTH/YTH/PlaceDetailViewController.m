@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *detailsTableView;
 @property (strong, nonatomic) NSArray *reviews;
 
+- (IBAction)onFullMapView:(id)sender;
+
 
 @property (nonatomic, strong) Place *selectedPlace;
 
@@ -183,18 +185,19 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-//- (IBAction)onFullMapView:(id)sender {
-//    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
-//    fullMapVC.placesInfo = self.placesInfo;
-//    fullMapVC.showPlaceIndex = self.startPlaceIndexPath.section;
-//    //[self.navigationController pushViewController:fullMapVC animated:YES];
-//    [self presentViewController:fullMapVC animated:YES completion:nil];
-//}
+- (IBAction)onFullMapView:(id)sender {
+    FullMapViewController *fullMapVC = [[FullMapViewController alloc] init];
+    fullMapVC.placesInfo = self.placesInfo;
+    fullMapVC.showPlaceIndex = self.startPlaceIndexPath.section;
+//    [self.navigationController pushViewController:fullMapVC animated:YES];
+    [self presentViewController:fullMapVC animated:YES completion:nil];
+}
 
 - (void)didTapGiveAReviewButton {
     PostReviewViewController *postReviewVC = [[PostReviewViewController alloc] init];
     postReviewVC.place = self.selectedPlace;
     [self.navigationController pushViewController:postReviewVC animated:YES];
 }
+
 
 @end
