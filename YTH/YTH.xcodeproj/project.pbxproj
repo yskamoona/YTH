@@ -303,6 +303,7 @@
 		17EC1BD8196A82BA005A456D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				45BA1A9A19987EC8008D5B7E /* YTH-Walkthrough.gif */,
 				4543B5CA197BBD38004B8904 /* Categories */,
 				17EC1BD5196A82B4005A456D /* Utils.h */,
 				17EC1BD6196A82B4005A456D /* Utils.m */,
@@ -400,7 +401,6 @@
 		451CBFD51969FC0A007289F3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				45BA1A9A19987EC8008D5B7E /* YTH-Walkthrough.gif */,
 				451CBFD61969FC0A007289F3 /* YTH-Info.plist */,
 				451CBFD71969FC0A007289F3 /* InfoPlist.strings */,
 				451CBFDA1969FC0A007289F3 /* main.m */,
