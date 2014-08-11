@@ -61,6 +61,7 @@
 		4543B5DD197D0453004B8904 /* QuestionDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4543B5DB197D0453004B8904 /* QuestionDetailCell.xib */; };
 		457BB655197B762E000255E1 /* PriceRatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457BB653197B762E000255E1 /* PriceRatingViewController.m */; };
 		457BB656197B762E000255E1 /* PriceRatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457BB654197B762E000255E1 /* PriceRatingViewController.xib */; };
+		45BA1A9B19987EC8008D5B7E /* YTH-Walkthrough.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45BA1A9A19987EC8008D5B7E /* YTH-Walkthrough.gif */; };
 		45BDFB97196A0FD40095CBBD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BDFB96196A0FD40095CBBD /* MapKit.framework */; };
 		45BDFB9C196A143C0095CBBD /* PlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BDFB9B196A143C0095CBBD /* PlaceCell.m */; };
 		45BDFBA0196A14A00095CBBD /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BDFB9F196A14A00095CBBD /* PlaceCell.xib */; };
@@ -190,6 +191,7 @@
 		457BB652197B762E000255E1 /* PriceRatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceRatingViewController.h; sourceTree = "<group>"; };
 		457BB653197B762E000255E1 /* PriceRatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceRatingViewController.m; sourceTree = "<group>"; };
 		457BB654197B762E000255E1 /* PriceRatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceRatingViewController.xib; sourceTree = "<group>"; };
+		45BA1A9A19987EC8008D5B7E /* YTH-Walkthrough.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "YTH-Walkthrough.gif"; path = "../../../YTH-Walkthrough.gif"; sourceTree = "<group>"; };
 		45BDFB96196A0FD40095CBBD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		45BDFB9A196A143C0095CBBD /* PlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceCell.h; sourceTree = "<group>"; };
 		45BDFB9B196A143C0095CBBD /* PlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceCell.m; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 		451CBFD51969FC0A007289F3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				45BA1A9A19987EC8008D5B7E /* YTH-Walkthrough.gif */,
 				451CBFD61969FC0A007289F3 /* YTH-Info.plist */,
 				451CBFD71969FC0A007289F3 /* InfoPlist.strings */,
 				451CBFDA1969FC0A007289F3 /* main.m */,
@@ -667,6 +670,7 @@
 				45FCEA74197A0DCD00AEA8F5 /* RatingStarsViewController.xib in Resources */,
 				45FC049F196A0643007DB5C4 /* FullMapViewController.xib in Resources */,
 				4543B5D8197CF313004B8904 /* QuestionDetailsViewController.xib in Resources */,
+				45BA1A9B19987EC8008D5B7E /* YTH-Walkthrough.gif in Resources */,
 				45341338196AB2C500C6A2FE /* PlaceDetailCell.xib in Resources */,
 				45C5EE6F197FB48A00A0D538 /* StarsView.xib in Resources */,
 				45FCE9F61976A48200AEA8F5 /* GuidesViewController.xib in Resources */,
