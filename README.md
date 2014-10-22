@@ -12,4 +12,4 @@ This project was done in a team of 4 (2 iOS engineers and 2 iOS designers). Also
 <a href="https://imgflip.com/gif/b35yw"><img src="https://i.imgflip.com/b35yw.gif" title="made at imgflip.com"/></a>
 
 
-![YTH Walkthrough](http://i.imgur.com/ZtbCLy0.gifv)
+![YTH Walkthrough](http://i.imgur.com/ZtbCLy0.gif)
