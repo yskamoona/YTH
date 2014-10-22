@@ -7,9 +7,4 @@ YTH: Youth+Tech+Health: is the partner of choice for those in search of new ways
 
 This project was done in a team of 4 (2 iOS engineers and 2 iOS designers). Also, collaborated with 2 Android engineers to unify the use of Prase for our backend.
 
-<a href="https://imgflip.com/gif/b35py"><img src="https://i.imgflip.com/b35py.gif" title="made at imgflip.com"/></a>
-<a href="https://imgflip.com/gif/b35vw"><img src="https://i.imgflip.com/b35vw.gif" title="made at imgflip.com"/></a>
-<a href="https://imgflip.com/gif/b35yw"><img src="https://i.imgflip.com/b35yw.gif" title="made at imgflip.com"/></a>
-
-
 ![YTH Walkthrough](http://i.imgur.com/ZtbCLy0.gif)
